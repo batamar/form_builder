@@ -1,0 +1,12 @@
+<template name="fieldForm">
+    {{#autoForm schema="FormBuilder.Schemas.Field" id="fieldForm" form=state$form doc=state$field }}
+        {{> afQuickFields}}
+
+        {{# if state$field }}
+            <button type="button" class="btn btn-danger btn-sm delete">Устгах</button>
+            <button type="button" class="btn btn-primary btn-sm new">Шинэ</button>
+        {{/ if }}
+
+        <button type="submit" class="btn btn-success btn-sm" disabled="{{disableButtons}}">Хадгалах</button>
+    {{/autoForm}}
+</template>

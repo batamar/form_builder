@@ -1,0 +1,99 @@
+<template name="generateFieldsPreview">
+    <div class="field-list preview">
+        {{ # if state$isFieldsReady }}
+            {{# each state$fields }}
+                {{> generateFieldPreview }}
+            {{/ each }}
+        {{/ if }}
+    </div>
+</template>
+
+<template name="generateFieldPreview">
+    <div class="field preview">
+        {{> fieldWidget }}
+    </div>
+</template>
+
+<template name="fieldWidget">
+
+    {{# if compare type "===" "input" }}
+        <div class="form-group">
+            <label>
+                {{ text }}{{# if isRequired }}*{{/ if }}
+            </label>
+
+            <input class="form-control" />
+        </div>
+    {{/ if }}
+
+    {{# if compare type "===" "textarea" }}
+        <div class="form-group">
+            <label>
+                {{ text }}{{# if isRequired }}*{{/ if }}
+            </label>
+
+            <textarea class="form-control"></textarea>
+        </div>
+    {{/ if }}
+
+    {{# if compare type "===" "radio" }}
+        <div class="form-group">
+            <label>
+                {{ text }}{{# if isRequired }}*{{/ if }}
+            </label>
+
+            {{# each options }}
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="{{ name }}" >
+                        {{ this }}
+                    </label>
+                </div>
+            {{/ each }}
+        </div>
+    {{/ if }}
+
+    {{# if compare type "===" "check" }}
+        <div class="form-group">
+            <label>
+                {{ text }}{{# if isRequired }}*{{/ if }}
+            </label>
+
+            {{# each options }}
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" name="{{ name }}" >
+                        {{ this }}
+                    </label>
+                </div>
+            {{/ each }}
+        </div>
+    {{/ if }}
+
+    {{# if compare type "===" "select" }}
+        <div class="form-group">
+            <label>
+                {{ text }}{{# if isRequired }}*{{/ if }}
+            </label>
+
+            <select class="form-control">
+                {{# each options }}
+                    <option value="{{ this }}">{{ this }}</option>
+                {{/ each }}
+            </select>
+        </div>
+    {{/ if }}
+
+    {{# if compare type "===" "subForm" }}
+        <div class="sub-form">
+            {{> render component="generateFieldsPreview" formId=subForm }}
+        </div>
+    {{/ if }}
+
+    {{# if compare type "===" "seperator" }}
+        <div class="seperator">
+            <span>{{ text }}</span>
+        </div>
+    {{/ if }}
+
+</template>

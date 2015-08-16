@@ -1,0 +1,44 @@
+<template name="formCU">
+    <div class="row">
+        <div class="col-sm-6">
+            {{# if state$object }}
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Талбар засах</h3>
+                    </div>
+                    <div class="panel-body">
+                        {{> render component="fieldForm" form=state$object }}
+                    </div>
+                </div>
+            {{/ if }}
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Форм засах</h3>
+                </div>
+
+                <div class="panel-body">
+                    {{#autoForm schema="FormBuilder.Schemas.Form" id="formCU" type=state$af.type meteormethod=state$af.method doc=state$object }}
+                        {{> afQuickFields}}
+
+                        <button type="submit" class="btn btn-success btn-sm" disabled="{{disableButtons}}">Хадгалах</button>
+                        <a href="/forms" class="btn btn-danger btn-sm">Буцах</a>
+                    {{/autoForm}}
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6">
+            {{# if state$object }}
+                <div class="panel panel-success">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">{{ state$object.title }}</h3>
+                    </div>
+                    <div class="panel-body">
+                        {{> render component="generateFieldsPreview" formId=state$formId }}
+                    </div>
+                </div>
+            {{/ if }}
+        </div>
+    </div>
+</template>
