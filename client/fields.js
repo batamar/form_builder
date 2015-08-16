@@ -59,28 +59,10 @@ Template.fieldForm.events({
 
 
 
-/* ----------------------- Field Preview ----------------------- */
+/* ----------------------- Generate Field ----------------------- */
 
 
-
-// generate fields preview
-
-var generateFieldsPreviewComponent = FlowComponents.define('generateFieldsPreview', function (props) {
-  this.set('formId', props.formId);
-});
-
-generateFieldsPreviewComponent.state.fields = function () {
-  return FormBuilder.Collections.Fields.find({formId: this.get('formId')});
-};
-
-generateFieldsPreviewComponent.state.isFieldsReady = function () {
-  var handler = Meteor.subscribe('fieldList', [this.get('formId')]);
-  return handler.ready();
-};
-
-// generate field preview
-
-Template.generateFieldPreview.events({
+Template.generateField.events({
   'click .field.preview': function (evt, tmpl) {
     var currentView = Blaze.currentView;
 
@@ -97,7 +79,6 @@ Template.generateFieldPreview.events({
 });
 
 
-// generate field
 Template.afArrayField_custom.helpers({
   getSubFields: function(field, context) {
 

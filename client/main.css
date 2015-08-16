@@ -11,15 +11,15 @@
     position: relative;
 }
 
-.field-list .field.preview:hover {
+.field-list .seperator {
+    border-bottom: 1px solid;
+}
+
+.field-list.preview .field:hover {
     background: #fafafa;
     border-color: #aaa;
 }
 
 .sub-form .field-list.preview {
     border-left: 5px solid rebeccapurple;
-}
-
-.field-list.preview .seperator {
-    border-bottom: 1px solid;
 }

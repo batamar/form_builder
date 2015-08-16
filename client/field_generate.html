@@ -1,0 +1,168 @@
+<template name="generateField">
+    <div class="field {{ state$isPreview }}">
+        {{# if compare type "===" "input" }}
+            {{> input_custom }}
+        {{/ if }}
+
+        {{# if compare type "===" "textarea" }}
+            {{> afTextarea_custom }}
+        {{/ if }}
+
+        {{# if compare type "===" "radio" }}
+            {{> afRadioGroup_custom }}
+        {{/ if }}
+
+        {{# if compare type "===" "check" }}
+            {{> afCheckboxGroup_custom }}
+        {{/ if }}
+
+        {{# if compare type "===" "select" }}
+            {{> afSelect_custom }}
+        {{/ if }}
+
+        {{# if compare type "===" "subForm" }}
+            {{> afArrayField name=name field=this template="custom" }}
+        {{/ if }}
+
+        {{# if compare type "===" "seperator" }}
+        <div class="seperator">
+            <span>{{ text }}</span>
+        </div>
+        {{/ if }}
+    </div>
+</template>
+
+
+<template name="afSelect_custom">
+    <div class="form-group">
+        {{#if afFieldIsInvalid name=name }}
+            <span class="help-block">{{{afFieldMessage name=name}}}</span>
+        {{/if}}
+
+        <label>
+            {{ text }}{{# if isRequired }}*{{/ if }}
+        </label>
+
+        <select class="form-control" name="{{ name }}" data-schema-key="{{ name }}">
+            {{# each options }}
+                <option value="{{ this }}">{{ this }}</option>
+            {{/ each }}
+        </select>
+    </div>
+</template>
+
+<template name="input_custom">
+    {{# if isSub }}
+        {{#if afFieldIsInvalid name=name }}
+            <span class="help-block">{{{afFieldMessage name=name}}}</span>
+        {{/if}}
+
+        <label>
+            {{ text }}{{# if isRequired }}*{{/ if }}
+        </label>
+
+        <input class="form-control" name="{{ name }}" data-schema-key="{{ name }}"/>
+    {{ else }}
+    <div class="form-group">
+        <label>
+            {{ text }}{{# if isRequired }}*{{/ if }}
+        </label>
+
+        <input class="form-control" name="{{ name }}" data-schema-key="{{ name }}"/>
+    </div>
+    {{/ if }}
+</template>
+
+
+<template name="afTextarea_custom">
+    {{#if afFieldIsInvalid name=name }}
+        <span class="help-block">{{{afFieldMessage name=name}}}</span>
+    {{/if}}
+
+    <div class="form-group">
+        <label>
+            {{ text }}{{# if isRequired }}*{{/ if }}
+        </label>
+
+        <textarea class="form-control" name="{{ name }}" data-schema-key="{{ name }}"></textarea>
+    </div>
+</template>
+
+
+<template name="afRadioGroup_custom">
+    <div class="form-group" data-required="{{ isRequired }}">
+        {{#if afFieldIsInvalid name=name }}
+            <span class="help-block">{{{afFieldMessage name=name}}}</span>
+        {{/if}}
+
+        <label>
+            {{ text }}{{# if isRequired }}*{{/ if }}
+        </label>
+        
+        <div class="af-radio-group" data-schema-key="{{ name }}">
+        {{# each options }}
+            <div class="radio">
+              <label>
+                  <input type="radio" value="{{ this }}" name="{{ ../name }}" id="{{ uniqueId }}" required="" >
+                {{ this }}
+              </label>
+            </div>
+        {{/ each }}
+      </div>
+    </div>
+</template>
+
+<template name="afCheckboxGroup_custom">
+    <div class="form-group">
+        {{#if afFieldIsInvalid name=name }}
+            <span class="help-block">{{{afFieldMessage name=name}}}</span>
+        {{/if}}
+
+        <label>
+            {{ text }}{{# if isRequired }}*{{/ if }}
+        </label>
+
+        <div class="af-checkbox-group" data-schema-key="{{ name }}">
+            {{# each options }}
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" name="{{ ../name }}"  id="{{ uniqueId }}">
+                        {{ this }}
+                    </label>
+                </div>
+            {{/ each }}
+        </div>
+    </div>
+</template>
+
+<template name="afArrayField_custom">
+    <fieldset>
+        <legend>{{afFieldLabelText name=atts.name}}</legend>
+
+        {{#if afFieldIsInvalid name=atts.name}}
+            <div class="autoform-array-field-error">
+              {{{afFieldMessage name=atts.name}}}
+            </div>
+        {{/if}}
+
+        {{#afEachArrayItem name=atts.name minCount=atts.minCount maxCount=atts.maxCount}}
+            <div class="autoform-array-item">
+
+              {{# each getSubFields ../atts.field this }}
+                {{> generateField }}
+              {{/ each }}
+
+              {{#if afArrayFieldHasMoreThanMinimum name=../atts.name minCount=../atts.minCount maxCount=../atts.maxCount}}
+                  <button type="button" class="autoform-remove-item">Remove</button>
+              {{/if}}
+            </div>
+        {{/afEachArrayItem}}
+
+        {{#if afArrayFieldHasLessThanMaximum name=atts.name minCount=atts.minCount maxCount=atts.maxCount}}
+            <div style="margin-top: 20px;">
+              <button type="button" class="autoform-add-item" data-autoform-field="{{atts.name}}" data-autoform-minCount="{{atts.minCount}}" data-autoform-maxCount="{{atts.maxCount}}">Add</button>
+            </div>
+        {{/if}}
+
+  </fieldset>
+</template>

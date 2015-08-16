@@ -8,8 +8,51 @@ formListComponet.state.objects = function () {
 };
 
 
+/* ----------------------- Field generate ----------------------- */
+
+
+ComponentFieldGenerate = {
+  prototype: {},
+  action: {},
+  state: {}
+};
+
+ComponentFieldGenerate.state.object = function () {
+  return FormBuilder.Collections.Forms.findOne({_id: this.get('formId')});
+};
+
+ComponentFieldGenerate.state.getSubmitSchema = function () {
+  // generate schema
+  return FormBuilder.Helpers.generateSchema(this.get('formId'));
+};
+
+ComponentFieldGenerate.state.fields = function () {
+  return FormBuilder.Collections.Fields.find({formId: this.get('formId')});
+};
+
+ComponentFieldGenerate.state.formId = function () {
+  return FlowRouter.getParam('formId');
+};
+
+
+// subscribe to subForm fields
+ComponentFieldGenerate.state.isFieldsReady = function () {
+  var subFormIds = [];
+  FormBuilder.Collections.Fields.find({formId: this.get('formId')}).forEach(function (field) {
+    if (field.subForm) {
+      subFormIds.push(field.subForm);
+    }
+  });
+
+  var handler = Meteor.subscribe('fieldList', subFormIds);
+
+  return handler.ready();
+};
+
+
 
 /* ----------------------- Form CREATE && UPDATE ----------------------- */ 
+
 
 var formCUComponet = FlowComponents.define('formCU', function () {
   var formId = this.get('formId');
@@ -24,13 +67,13 @@ var formCUComponet = FlowComponents.define('formCU', function () {
   });
 });
 
-formCUComponet.state.object = function () {
-  return FormBuilder.Collections.Forms.findOne({_id: this.get('formId')});
+// extend from common field generate
+formCUComponet.extend(ComponentFieldGenerate);
+
+formCUComponet.state.isPreview = function () {
+  return 'preview';
 };
 
-formCUComponet.state.formId = function () {
-  return FlowRouter.getParam('id');
-};
 
 
 
@@ -38,37 +81,8 @@ formCUComponet.state.formId = function () {
 
 var formSubmitComponet = FlowComponents.define('formSubmit', function () {});
 
-formSubmitComponet.state.object = function () {
-  return FormBuilder.Collections.Forms.findOne({_id: this.get('formId')});
-};
+formSubmitComponet.extend(ComponentFieldGenerate);
 
-// generate schema
-formSubmitComponet.state.getSubmitSchema = function () {
-  return FormBuilder.Helpers.generateSchema(this.get('formId'));
-};
-
-formSubmitComponet.state.fields = function () {
-  return FormBuilder.Collections.Fields.find({formId: this.get('formId')});
-};
-
-formSubmitComponet.state.formId = function () {
-  return FlowRouter.getParam('formId');
-};
-
-
-// subscribe to subForm fields
-formSubmitComponet.state.isFieldsReady = function () {
-  var subFormIds = [];
-  FormBuilder.Collections.Fields.find({formId: this.get('formId')}).forEach(function (field) {
-    if (field.subForm) {
-      subFormIds.push(field.subForm);
-    }
-  });
-
-  var handler = Meteor.subscribe('fieldList', subFormIds);
-
-  return handler.ready();
-};
 
 
 AutoForm.hooks({

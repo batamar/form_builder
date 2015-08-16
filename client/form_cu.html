@@ -35,7 +35,15 @@
                         <h3 class="panel-title">{{ state$object.title }}</h3>
                     </div>
                     <div class="panel-body">
-                        {{> render component="generateFieldsPreview" formId=state$formId }}
+                        <div class="field-list preview">
+                            {{ # if state$isFieldsReady }}
+                                {{#autoForm schema=state$getSubmitSchema id="formPreview" }}
+                                    {{# each state$fields }}
+                                        {{> generateField }}
+                                    {{/ each }}
+                                {{/autoForm}}
+                            {{/ if }}
+                        </div>
                     </div>
                 </div>
             {{/ if }}
