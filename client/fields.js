@@ -79,6 +79,12 @@ Template.generateField.events({
 });
 
 
+
+Template.afArrayField_custom.onRendered(function () {
+  // display first row's labels
+  $('.autoform-array-item:first label').css({'display': 'block'});
+});
+
 Template.afArrayField_custom.helpers({
   getSubFields: function(field, context) {
 

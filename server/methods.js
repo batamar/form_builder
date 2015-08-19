@@ -74,8 +74,27 @@ Meteor.methods({
 
   /* ----------------------- submissions ----------------------- */
 
-  submissionInsert: function (modifier) {
-    console.log(modifier);
+  submissionSave: function (formId, modifier, submissionId) {
+    check(formId, String);
+    check(submissionId, Match.OneOf(String, undefined));
+    
+    var schema = FormBuilder.Helpers.generateSchema(formId);
+    check(modifier, schema);
+
+    if (!submissionId) {
+    
+      modifier.createdDate = new Date();
+      modifier.formId = formId;
+
+      // insert field
+      submissionId = FormBuilder.Collections.Submissions.insert(modifier);
+    } else {
+
+      // update
+      FormBuilder.Collections.Submissions.update({_id: submissionId}, {$set: modifier});
+    }
+
+    return submissionId;
   },
 
 });

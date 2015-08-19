@@ -26,12 +26,12 @@ ComponentFieldGenerate.state.getSubmitSchema = function () {
   return FormBuilder.Helpers.generateSchema(this.get('formId'));
 };
 
-ComponentFieldGenerate.state.fields = function () {
-  return FormBuilder.Collections.Fields.find({formId: this.get('formId')});
-};
-
 ComponentFieldGenerate.state.formId = function () {
   return FlowRouter.getParam('formId');
+};
+
+ComponentFieldGenerate.state.fields = function () {
+  return FormBuilder.Collections.Fields.find({formId: this.get('formId')});
 };
 
 
@@ -83,13 +83,102 @@ var formSubmitComponet = FlowComponents.define('formSubmit', function () {});
 
 formSubmitComponet.extend(ComponentFieldGenerate);
 
-
+// submission object
+formSubmitComponet.state.submissionObj = function () {
+  return FormBuilder.Collections.Submissions.findOne({_id: FlowRouter.getQueryParam('subId')});
+};
 
 AutoForm.hooks({
   submitForm: {
     onSubmit: function(insertDoc) {
-      console.log(insertDoc);
+      var formId = FlowRouter.getParam('formId');
+      var submissionId = FlowRouter.getQueryParam('subId');
+
+      Meteor.call('submissionSave', formId, insertDoc, submissionId, function () {
+        toastr.success('Амжилттай хадгаллаа', 'Мэдэгдэл');
+        FlowRouter.go('formSubmissionList', {formId: formId});
+      });
+
       return false;
     }
   }
 });
+
+
+/* ----------------------- Form submission list ----------------------- */ 
+
+var formSubmissionList = Components.define('formSubmissionList', function () {
+  this.formId = FlowRouter.getParam('formId');
+
+  
+  this.onReady(function () {
+    var headers = [];
+    _.each(this.get('formFields'), function (field) {
+      headers.push(field.text);
+    });
+
+    // set headers
+    this.set('headers', headers);
+  });
+});
+
+// form obj
+formSubmissionList.state.form = function () {
+  return FormBuilder.Collections.Forms.findOne({_id: this.formId});
+};
+
+formSubmissionList.state.formFields = function () {
+  var fields = FormBuilder.Collections.Fields.find({formId: this.formId}).fetch();
+
+  // filter only list fields
+  fields = _.filter(fields, function (field) {
+    return field.isOnList;
+  });
+
+  // sort by order and return
+  return FormBuilder.LibHelpers.formFieldsByOrder(fields);
+};
+
+
+// filtered list
+formSubmissionList.state.filteredList = function () {
+  FlowRouter.watchPathChange();
+
+  // querystring param filters
+  var params = FlowRouter.current().queryParams;
+  params.formId = this.formId;
+
+  var filterQueries = FormBuilder.LibHelpers.submissionListQuery(params);
+
+  return FormBuilder.Collections.Submissions.find(filterQueries);
+};
+
+
+// called every cell is displyed
+formSubmissionList.state.displayValue = function (value) {
+  if (_.isDate(value)) {
+    return moment(value).format('YYYY-MM-DD');
+  }
+
+  return value;
+};
+
+// main list
+formSubmissionList.state.objects = function () {
+  var result = [];
+  var submissions = this.get('filteredList');
+  var formFields = this.get('formFields');
+
+  submissions.forEach(function (submission) {
+    var values = [];
+
+    // collecting entry values by correct field order (formFields)
+    _.each(formFields, function (field) {
+      values.push(submission[field.name]);
+    });
+
+    result.push({_id: submission._id, formId: submission.formId, values: values});
+  });
+
+  return result;
+};

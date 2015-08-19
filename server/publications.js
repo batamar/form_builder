@@ -28,3 +28,22 @@ Meteor.publish('fieldList', function (formIds) {
 
   return FormBuilder.Collections.Fields.find({formId: {$in: formIds}});
 });
+
+
+/**
+ * Submission publications
+ */
+
+
+Meteor.publish('submissionList', function (formId) {
+  check(formId, String);
+
+  return FormBuilder.Collections.Submissions.find({formId: formId});
+});
+
+
+Meteor.publish('submissionDetail', function (queryParams) {
+  check(queryParams, Object);
+
+  return FormBuilder.Collections.Submissions.find({_id: queryParams.subId});
+});

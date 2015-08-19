@@ -13,3 +13,4 @@ kadira:blaze-layout
 meteorhacks:flow-components
 twbs:bootstrap
 ostrio:templatehelpers
+chrismbeckett:toastr

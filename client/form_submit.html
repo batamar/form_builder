@@ -1,7 +1,7 @@
 <template name="formSubmit">
     <h3>{{ state$object.title }}</h3>
 
-    {{#autoForm schema=state$getSubmitSchema id="submitForm" type=state$af.type meteormethod=state$af.method}}
+    {{#autoForm schema=state$getSubmitSchema id="submitForm" doc=state$submissionObj }}
         {{# if state$isFieldsReady }}
             {{# each state$fields }}
                 {{> generateField }}
