@@ -26,7 +26,7 @@ Meteor.publish('formDetail', function(id) {
 Meteor.publish('fieldList', function (formIds) {
   check(formIds, [String]);
 
-  return FormBuilder.Collections.Fields.find({formId: {$in: formIds}});
+  return FormBuilder.Collections.Fields.find({formId: {$in: formIds}}, {sort: {order: 1}});
 });
 
 

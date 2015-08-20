@@ -1,5 +1,5 @@
 <template name="generateField">
-    <div class="field {{ state$isPreview }}">
+    <div class="field {{ state$isPreview }}" data-id="{{ _id }}">
         {{# if compare type "===" "subForm" }}
             {{> afArrayField name=name field=this template="custom" }}
         {{ else }}

@@ -61,7 +61,6 @@ Template.fieldForm.events({
 
 /* ----------------------- Generate Field ----------------------- */
 
-
 Template.generateField.events({
   'click .field.preview': function (evt, tmpl) {
     var currentView = Blaze.currentView;

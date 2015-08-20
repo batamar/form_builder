@@ -21,8 +21,8 @@ ComponentFieldGenerate.state.object = function () {
   return FormBuilder.Collections.Forms.findOne({_id: this.get('formId')});
 };
 
-ComponentFieldGenerate.state.getSubmitSchema = function () {
-  // generate schema
+// generate schema from fields
+ComponentFieldGenerate.state.generateSchema = function () {
   return FormBuilder.Helpers.generateSchema(this.get('formId'));
 };
 
@@ -31,7 +31,7 @@ ComponentFieldGenerate.state.formId = function () {
 };
 
 ComponentFieldGenerate.state.fields = function () {
-  return FormBuilder.Collections.Fields.find({formId: this.get('formId')});
+  return FormBuilder.Collections.Fields.find({formId: this.get('formId')}, {sort: {order: 1}});
 };
 
 
@@ -58,6 +58,42 @@ var formCUComponet = FlowComponents.define('formCU', function () {
   var formId = this.get('formId');
 
   this.autorun(function() {
+    var isReady = this.get('isFieldsReady');
+    if (isReady) {
+
+      /*
+       * sort
+       */
+
+      var list = $('.field-list');
+      list.sortable({
+        handle: 'div',
+        items: '.field',
+        tolerance: '> div',
+        opacity: 0.7,
+        forcePlaceholderSize: true,
+        update: function (e, ui) {
+          list.sortable('disable');
+
+          // collect by orders
+          var orders = {};
+          $('.field').each(function (index) {
+            orders[$(this).data('id')] = index;
+          });
+
+          Meteor.call('updateFieldOrder', formId, orders, function (error) {
+            if (error) {
+              toastr.error(error.reason, 'Алдаа');
+            } else {
+              toastr.success('Мэдэгдэл', 'Амжилттай хадгаллаа');
+            }
+
+            list.sortable('enable');
+          });
+        }
+      });
+    }
+
     if (formId) {
       this.set('af', {type: 'method-update', method: 'formUpdate'});
 

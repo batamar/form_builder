@@ -46,8 +46,20 @@ Meteor.methods({
     check(formId, String);
     check(modifier, FormBuilder.Schemas.Field);
     
-    // insert field
+    // set form
     modifier.formId = formId;
+
+    // find last field by order
+    var lastField = FormBuilder.Collections.Fields.findOne({}, {fields: {order: 1}, sort: {order: -1}});
+
+    if (lastField) {
+      modifier.order = lastField.order++;
+    } else {
+      // if there is no field then start with 0
+      modifier.order =  0;
+    }
+
+    // insert field
     return FormBuilder.Collections.Fields.insert(modifier);
   },
 
@@ -70,6 +82,16 @@ Meteor.methods({
     FormBuilder.Collections.Fields.remove(docId);
   },
 
+  updateFieldOrder: function (formId, orders) {
+    check(formId, String);
+    check(orders, Object);
+
+    // update each field's order
+    _.each(_.keys(orders), function (fieldId) {
+      var order = orders[fieldId];
+      FormBuilder.Collections.Fields.update({_id: fieldId}, {$set: {order: order}});
+    });
+  },
 
 
   /* ----------------------- submissions ----------------------- */

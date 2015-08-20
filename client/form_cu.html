@@ -36,12 +36,12 @@
                     </div>
                     <div class="panel-body">
                         <div class="field-list preview">
-                            {{ # if state$isFieldsReady }}
-                                {{#autoForm schema=state$getSubmitSchema id="formPreview" }}
+                            {{# if state$isFieldsReady }}
+                                {{# autoForm schema=state$generateSchema id="formPreview" }}
                                     {{# each state$fields }}
                                         {{> generateField }}
                                     {{/ each }}
-                                {{/autoForm}}
+                                {{/ autoForm}}
                             {{/ if }}
                         </div>
                     </div>
