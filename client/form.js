@@ -105,7 +105,83 @@ AutoForm.hooks({
 });
 
 
+
+/* ----------------------- Form submission detail mixin ----------------------- */ 
+
+
+SubmissionDetailMixin = {
+  prototype: {},
+  action: {},
+  state: {}
+};
+
+// submission object
+SubmissionDetailMixin.state.object = function () {
+  return FormBuilder.Collections.Submissions.findOne({_id: FlowRouter.getQueryParam('subId')});
+};
+
+SubmissionDetailMixin.state.getKeysAndValues = function() {
+  var submission = this.get('object');
+
+  // after deletion this function is reruning. So since submission object is deleted, submission must be undefined
+  if (!submission) {
+    return [];
+  }
+
+  var form = FormBuilder.Collections.Forms.findOne({_id: this.formId});
+
+  // getting sorted form fields
+  var fields = FormBuilder.Collections.Fields.find({formId: this.formId}).fetch();
+  var categoryFields = FormBuilder.LibHelpers.formFieldsByOrder(fields);
+
+  // return submission values with labels
+  return FormBuilder.LibHelpers.submissionValuesWithLabels(submission, fields);
+};
+
+
+
+/* ----------------------- Form submission delete ----------------------- */ 
+
+
+var formSubmissionDeleteComponent = FlowComponents.define('formSubmissionDelete', function () {
+  this.formId = FlowRouter.getParam('formId');
+});
+
+// extend from submission detail mixin
+formSubmissionDeleteComponent.extend(SubmissionDetailMixin);
+
+formSubmissionDeleteComponent.action.onSubmit = function() {
+  var formId = this.formId;
+  var submissionId = FlowRouter.getQueryParam('subId');
+
+  Meteor.call('submissionDelete', submissionId, function () {
+    toastr.success('Ажилттай устлаа', 'Мэдэгдэл');
+    FlowRouter.go('formSubmissionList', {formId: formId});
+  });
+};
+
+Template.formSubmissionDelete.events({
+  'submit form': function(evt) {
+    evt.preventDefault();
+    FlowComponents.callAction('onSubmit');
+  }
+});
+
+
+/* ----------------------- Form submission detail ----------------------- */ 
+
+
+var formSubmissionDetailComponent = FlowComponents.define('formSubmissionDetail', function () {
+  this.formId = FlowRouter.getParam('formId');
+});
+
+// extend from submission detail mixin
+formSubmissionDetailComponent.extend(SubmissionDetailMixin);
+
+
+
 /* ----------------------- Form submission list ----------------------- */ 
+
 
 var formSubmissionList = Components.define('formSubmissionList', function () {
   this.formId = FlowRouter.getParam('formId');

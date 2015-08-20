@@ -1,0 +1,17 @@
+<template name="formSubmissionDelete">
+    <h3>{{ state$object.title }}</h3>
+
+    <form id="submissionDeleteForm">
+        <div class="dialog-header">
+            <h4>Устгах уу?</h4>
+        </div>
+        {{# each state$getKeysAndValues }}
+            <p>
+                <label>{{ label }}</label>: {{ value }}
+            </p>
+        {{/ each }}
+        <div class="footer-buttons">
+            <button type="submit" class="btn btn-danger">Устгах</button>
+        </div>
+    </form>
+</template>

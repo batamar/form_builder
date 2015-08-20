@@ -97,4 +97,11 @@ Meteor.methods({
     return submissionId;
   },
 
+  submissionDelete: function (submissionId) {
+    check(submissionId, String);
+
+    // delete submission
+    FormBuilder.Collections.Submissions.remove({_id: submissionId});
+  },
+
 });

@@ -1,0 +1,10 @@
+<template name="formSubmissionDetail">
+    <h3>{{ state$object.title }}</h3>
+    <form id="formSubmissionDelete">
+        {{# each state$getKeysAndValues }}
+            <p>
+                <label>{{ label }}</label>: {{ value }}
+            </p>
+        {{/ each }}
+    </form>
+</template>
