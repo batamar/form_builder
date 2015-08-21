@@ -5,7 +5,17 @@
                 <span>{{ text }}</span>
             </div>
         {{ else }}
-            <label>{{ text }}</label>
+        <label>
+            {{ text }}
+        </label>
+
+        {{# if isRequired }}
+            *
+        {{/ if }}
+        {{# if isOnList }}
+            [Жагсаалт]
+        {{/ if }}
+
         {{/ if }}
     </div>
 </template>

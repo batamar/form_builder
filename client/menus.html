@@ -1,0 +1,6 @@
+<template name="menus">
+    <a href="/forms">Формууд</a>
+    {{# each forms }}
+        <a href="/forms/submission-list/{{ _id }} ">{{ title }}</a>
+    {{/ each }}
+</template>
