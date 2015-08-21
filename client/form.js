@@ -17,36 +17,19 @@ ComponentFieldGenerate = {
   state: {}
 };
 
-ComponentFieldGenerate.state.object = function () {
-  return FormBuilder.Collections.Forms.findOne({_id: this.get('formId')});
-};
-
-// generate schema from fields
-ComponentFieldGenerate.state.generateSchema = function () {
-  return FormBuilder.Helpers.generateSchema(this.get('formId'));
-};
-
+// form id
 ComponentFieldGenerate.state.formId = function () {
   return FlowRouter.getParam('formId');
 };
 
-ComponentFieldGenerate.state.fields = function () {
-  return FormBuilder.Collections.Fields.find({formId: this.get('formId')}, {sort: {order: 1}});
+// form object
+ComponentFieldGenerate.state.object = function () {
+  return FormBuilder.Collections.Forms.findOne({_id: this.get('formId')});
 };
 
-
-// subscribe to subForm fields
-ComponentFieldGenerate.state.isFieldsReady = function () {
-  var subFormIds = [];
-  FormBuilder.Collections.Fields.find({formId: this.get('formId')}).forEach(function (field) {
-    if (field.subForm) {
-      subFormIds.push(field.subForm);
-    }
-  });
-
-  var handler = Meteor.subscribe('fieldList', subFormIds);
-
-  return handler.ready();
+// form fields
+ComponentFieldGenerate.state.fields = function () {
+  return FormBuilder.Collections.Fields.find({formId: this.get('formId')}, {sort: {order: 1}});
 };
 
 
@@ -54,45 +37,42 @@ ComponentFieldGenerate.state.isFieldsReady = function () {
 /* ----------------------- Form CREATE && UPDATE ----------------------- */ 
 
 
-var formCUComponet = FlowComponents.define('formCU', function () {
+var formCUComponet = Components.define('formCU', function () {
   var formId = this.get('formId');
 
-  this.autorun(function() {
-    var isReady = this.get('isFieldsReady');
-    if (isReady) {
+  this.onReady(function() {
+    /*
+     * sort
+     */
 
-      /*
-       * sort
-       */
+    var list = $('.field-list');
 
-      var list = $('.field-list');
-      list.sortable({
-        handle: 'div',
-        items: '.field',
-        tolerance: '> div',
-        opacity: 0.7,
-        forcePlaceholderSize: true,
-        update: function (e, ui) {
-          list.sortable('disable');
+    list.sortable({
+      handle: 'label',
+      items: '.field',
+      tolerance: '> div',
+      opacity: 0.7,
+      forcePlaceholderSize: true,
+      update: function (e, ui) {
+        list.sortable('disable');
 
-          // collect by orders
-          var orders = {};
-          $('.field').each(function (index) {
-            orders[$(this).data('id')] = index;
-          });
+        // collect by orders
+        var orders = {};
+        $('.field').each(function (index) {
+          orders[$(this).data('id')] = index;
+        });
 
-          Meteor.call('updateFieldOrder', formId, orders, function (error) {
-            if (error) {
-              toastr.error(error.reason, 'Алдаа');
-            } else {
-              toastr.success('Мэдэгдэл', 'Амжилттай хадгаллаа');
-            }
+        Meteor.call('updateFieldOrder', formId, orders, function (error) {
+          if (error) {
+            toastr.error(error.reason, 'Алдаа');
+          } else {
+            toastr.success('Мэдэгдэл', 'Амжилттай хадгаллаа');
+          }
 
-            list.sortable('enable');
-          });
-        }
-      });
-    }
+          list.sortable('enable');
+        });
+      }
+    });
 
     if (formId) {
       this.set('af', {type: 'method-update', method: 'formUpdate'});
@@ -106,10 +86,6 @@ var formCUComponet = FlowComponents.define('formCU', function () {
 // extend from common field generate
 formCUComponet.extend(ComponentFieldGenerate);
 
-formCUComponet.state.isPreview = function () {
-  return 'preview';
-};
-
 
 
 
@@ -118,6 +94,25 @@ formCUComponet.state.isPreview = function () {
 var formSubmitComponet = FlowComponents.define('formSubmit', function () {});
 
 formSubmitComponet.extend(ComponentFieldGenerate);
+
+// generate schema from fields
+formSubmitComponet.state.generateSchema = function () {
+  return FormBuilder.Helpers.generateSchema(this.get('formId'));
+};
+
+// subscribe to subForm fields
+formSubmitComponet.state.isFieldsReady = function () {
+  var subFormIds = [];
+  FormBuilder.Collections.Fields.find({formId: this.get('formId')}).forEach(function (field) {
+    if (field.subForm) {
+      subFormIds.push(field.subForm);
+    }
+  });
+
+  var handler = Meteor.subscribe('fieldList', subFormIds);
+
+  return handler.ready();
+};
 
 // submission object
 formSubmitComponet.state.submissionObj = function () {

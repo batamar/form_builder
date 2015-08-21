@@ -1,0 +1,11 @@
+<template name="generateFieldPreview">
+    <div class="field preview" data-id="{{ _id }}">
+        {{# if compare type "===" "seperator" }}
+            <div class="seperator">
+                <span>{{ text }}</span>
+            </div>
+        {{ else }}
+            <label>{{ text }}</label>
+        {{/ if }}
+    </div>
+</template>

@@ -7,10 +7,12 @@ var fieldFormComponent = FlowComponents.define('fieldForm', function (props) {
   this.set('form', props.form);
 });
 
+// set field
 fieldFormComponent.action.setField = function (field) {
   this.set('field', field);
 };
 
+// delete field
 fieldFormComponent.action.deleteField = function () {
   var self = this;
   var field = self.get('field');
@@ -61,23 +63,6 @@ Template.fieldForm.events({
 
 /* ----------------------- Generate Field ----------------------- */
 
-Template.generateField.events({
-  'click .field.preview': function (evt, tmpl) {
-    var currentView = Blaze.currentView;
-
-    var templateIns = AutoForm.templateInstanceForForm('fieldForm');
-
-    // set currentView
-    Blaze.currentView = templateIns.view;
-
-    FlowComponents.callAction('setField', tmpl.data);
-
-    // reset currentView
-    Blaze.currentView = currentView;
-  }
-});
-
-
 
 Template.afArrayField_custom.onRendered(function () {
   // display first row's labels
@@ -95,5 +80,25 @@ Template.afArrayField_custom.helpers({
     });
 
     return fields;
+  }
+});
+
+
+/* ----------------------- Field Preview ----------------------- */
+
+
+Template.generateFieldPreview.events({
+  'click .field.preview': function (evt, tmpl) {
+    var currentView = Blaze.currentView;
+
+    var templateIns = AutoForm.templateInstanceForForm('fieldForm');
+
+    // set currentView
+    Blaze.currentView = templateIns.view;
+
+    FlowComponents.callAction('setField', tmpl.data);
+
+    // reset currentView
+    Blaze.currentView = currentView;
   }
 });
