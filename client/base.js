@@ -6,6 +6,6 @@ Template.menus.onRendered(function () {
 
 Template.menus.helpers({
   forms: function () {
-    return FormBuilder.Collections.Forms.find();
+    return FormBuilder.Collections.Forms.find({isSub: false});
   }
 });

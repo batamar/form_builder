@@ -5,7 +5,32 @@
 
 var fieldFormComponent = FlowComponents.define('fieldForm', function (props) {
   this.set('form', props.form);
+
+  var self = this;
+  this.onRendered(function () {
+    self.hideConditionalFields();
+  });
+
 });
+
+// hide conditional fiels
+fieldFormComponent.prototype.hideConditionalFields = function (field) {
+  // hide name field
+  $('input[name="name"]').closest('.form-group').hide();
+
+  // hide description field
+  $('input[name="description"]').closest('.form-group').hide();
+
+  // hide sub form options
+  $('select[name="subForm"]').closest('.form-group').hide();
+
+  // hide sub form options
+  $('input[name="options.0"]').closest('.panel').hide();
+};
+
+fieldFormComponent.action.hideConditionalFields = function (field) {
+  this.hideConditionalFields();
+};
 
 // set field
 fieldFormComponent.action.setField = function (field) {
@@ -50,6 +75,28 @@ AutoForm.hooks({
 });
 
 Template.fieldForm.events({
+  'change select[name="type"]': function (evt, tmpl) {
+    var value = tmpl.find('select').value;
+
+    FlowComponents.callAction('hideConditionalFields');
+
+    // other than separtor then show name and description fields
+    if (value !== 'seperator') {
+      $('input[name="name"]').closest('.form-group').show();
+      $('input[name="description"]').closest('.form-group').show();
+    }
+
+    // if type is subForm then show subForms choices
+    if (value === 'subForm') {
+      $('select[name="subForm"]').closest('.form-group').show();
+    }
+
+    // if type is radio, check or select then show options array
+    if (_.contains(['radio', 'check', 'select'], value)) {
+      $('input[name="options.0"]').closest('.panel').show();
+    }
+  },
+
   'click .new': function () {
     FlowComponents.callAction('setField', null);
   },
