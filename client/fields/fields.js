@@ -113,7 +113,8 @@ Template.fieldForm.events({
 
 Template.afArrayField_custom.onRendered(function () {
   // display first row's labels
-  $('.autoform-array-item:first label').css({'display': 'block'});
+  $(this.find('.autoform-array-item:first')).find('label').css({'display': 'inline-block'});
+  $(this.find('.autoform-array-item:first')).find('.autoform-remove-item').addClass('first-array-item-remove');
 });
 
 Template.afArrayField_custom.helpers({

@@ -11,6 +11,7 @@
                 {{> afFormGroup name=name template="custom" }}
             {{/ if }}
         {{/ if }}
+        <div class="clearfix"></div>
     </div>
 </template>
 
@@ -46,7 +47,9 @@
             {{/ each }}
 
             {{#if afArrayFieldHasMoreThanMinimum name=../atts.name minCount=../atts.minCount maxCount=../atts.maxCount}}
-                <button type="button" class="autoform-remove-item">Remove</button>
+                <div class="field field-autoform-remove-item">
+                    <button type="button" class="autoform-remove-item">Хасах</button>
+                </div>
             {{/if}}
         </div>
         {{/afEachArrayItem}}
@@ -54,7 +57,7 @@
         <div class="clearfix"></div>
 
         {{#if afArrayFieldHasLessThanMaximum name=atts.name minCount=atts.minCount maxCount=atts.maxCount}}
-            <button type="button" class="autoform-add-item" data-autoform-field="{{atts.name}}" data-autoform-minCount="{{atts.minCount}}" data-autoform-maxCount="{{atts.maxCount}}">Add</button>
+            <button type="button" class="autoform-add-item" data-autoform-field="{{atts.name}}" data-autoform-minCount="{{atts.minCount}}" data-autoform-maxCount="{{atts.maxCount}}">Нэмэх</button>
         {{/if}}
     </div>
 </template>

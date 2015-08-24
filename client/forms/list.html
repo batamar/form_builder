@@ -8,6 +8,7 @@
         <thead>
             <tr>
                 <th>Нэр</th>
+                <th>Дэд форм эсэх</th>
                 <th>Үйлдлүүд</th>
             </tr>
         </thead>
@@ -16,6 +17,13 @@
             {{# each state$objects }}
                 <tr>
                     <td> {{ title }}</td>
+                    <td>
+                        {{# if isSub }}
+                            Тийм
+                        {{ else }}
+                            Үгүй
+                        {{/ if }}
+                    </td>
                     <td>
                         <a href="/forms/update/{{ _id }}"><i class="icon-edit-1"></i>Засах</a>
                     </td>
