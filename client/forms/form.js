@@ -88,55 +88,6 @@ formCUComponet.extend(ComponentFieldGenerate);
 
 
 
-
-/* ----------------------- Form SUBMIT ----------------------- */ 
-
-var formSubmitComponet = FlowComponents.define('formSubmit', function () {});
-
-formSubmitComponet.extend(ComponentFieldGenerate);
-
-// generate schema from fields
-formSubmitComponet.state.generateSchema = function () {
-  return FormBuilder.Helpers.generateSchema(this.get('formId'));
-};
-
-// subscribe to subForm fields
-formSubmitComponet.state.isFieldsReady = function () {
-  var subFormIds = [];
-  FormBuilder.Collections.Fields.find({formId: this.get('formId')}).forEach(function (field) {
-    if (field.subForm) {
-      subFormIds.push(field.subForm);
-    }
-  });
-
-  var handler = Meteor.subscribe('fieldList', subFormIds);
-
-  return handler.ready();
-};
-
-// submission object
-formSubmitComponet.state.submissionObj = function () {
-  return FormBuilder.Collections.Submissions.findOne({_id: FlowRouter.getQueryParam('subId')});
-};
-
-AutoForm.hooks({
-  submitForm: {
-    onSubmit: function(insertDoc) {
-      var formId = FlowRouter.getParam('formId');
-      var submissionId = FlowRouter.getQueryParam('subId');
-
-      Meteor.call('submissionSave', formId, insertDoc, submissionId, function () {
-        toastr.success('Амжилттай хадгаллаа', 'Мэдэгдэл');
-        FlowRouter.go('formSubmissionList', {formId: formId});
-      });
-
-      return false;
-    }
-  }
-});
-
-
-
 /* ----------------------- Form submission detail mixin ----------------------- */ 
 
 

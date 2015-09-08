@@ -13,7 +13,7 @@ var fieldFormComponent = FlowComponents.define('fieldForm', function (props) {
 
 });
 
-// hide conditional fiels
+// hide conditional fields
 fieldFormComponent.prototype.hideConditionalFields = function (field) {
   // hide name field
   $('input[name="name"]').closest('.form-group').hide();
@@ -103,31 +103,6 @@ Template.fieldForm.events({
 
   'click .delete': function () {
     FlowComponents.callAction('deleteField');
-  }
-});
-
-
-
-/* ----------------------- Generate Field ----------------------- */
-
-
-Template.afArrayField_custom.onRendered(function () {
-  // display first row's labels
-  $(this.find('.autoform-array-item:first')).find('label').css({'display': 'inline-block'});
-  $(this.find('.autoform-array-item:first')).find('.autoform-remove-item').addClass('first-array-item-remove');
-});
-
-Template.afArrayField_custom.helpers({
-  getSubFields: function(field, context) {
-
-    var fields = [];
-    FormBuilder.Collections.Fields.find({formId: field.subForm}).forEach(function (subField) {
-      subField.name = context.current[subField.name];
-      subField.isSub = true;
-      fields.push(subField);
-    });
-
-    return fields;
   }
 });
 
