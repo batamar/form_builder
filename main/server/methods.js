@@ -116,7 +116,8 @@ Meteor.methods({
         // add human readable message property
         invalidField.message = context.keyErrorMessage(invalidField.name);
       });
-
+      
+      // return invalid field definitions with corresponding messages
       return invalidFields;
     }
 
