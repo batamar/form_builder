@@ -1,0 +1,138 @@
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+        <title>Index</title>
+
+        <script src="bower_components/ddp.js/src/ddp.js"></script>
+        <script src="bower_components/q/q.js"></script>
+        <script src="bower_components/asteroid/dist/asteroid.browser.js"></script>
+        <script src="bower_components/underscore-min.js"></script>
+    </head>
+
+    <body>
+        <script type="text/spacebars" name="main">
+            {{> form }}
+        </script>
+
+        <script type="text/spacebars" name="form">
+            {{# if subsReady }}
+                {{# each list }}
+                    {{> formField }}
+                {{/ each }}
+            {{ else }}
+                Уншиж байна ...
+            {{/ if }}
+
+            <p>
+                <button type="button" data-action="save">Хадгалах</button>
+            </p>
+        </script>
+
+        <script type="text/spacebars" name="formField">
+            <p>{{ text }}</p>
+
+            {{# if compare type "seperator" }}
+                ----------------------------
+            {{/ if }}
+
+            {{# if compare type "input" }}
+                <input name="{{ name }}" data-schema-key="{{ name }}" data-schema-type="input" />
+            {{/ if }}
+
+            {{# if compare type "textarea" }}
+                <textarea name="{{ name }}" data-schema-key="{{ name }}" data-schema-type="textarea" ></textarea>
+            {{/ if }}
+
+            {{# if compare type "radio" }}
+                <div data-schema-key="{{ name }}" data-schema-type="radio">
+                    {{# each options }}
+                        <input type="radio" name="{{ ../name }}" value="{{ this }}" /> {{ this }}
+                    {{/ each }}
+                </div>
+            {{/ if }}
+
+            {{# if compare type "check" }}
+                <div data-schema-key="{{ name }}" data-schema-type="check">
+                    {{# each options }}
+                        <input type="checkbox" name="{{ ../name }}" value="{{ this }}" /> {{ this }}
+                    {{/ each }}
+                </div>
+            {{/ if }}
+
+            {{# if compare type "select" }}
+                <select name="{{ name }}" data-schema-key="{{ name }}" data-schema-type="select">
+                    {{# each options }}
+                        <option value="{{ this }}">{{ this }}</option>
+                    {{/ each }}
+                </select>
+            {{/ if }}
+
+            {{# if compare type "subForm" }}
+                {{> subFormField }}
+            {{/ if }}
+        </script>
+
+        <script type="text/spacebars" name="subFormField">
+            <div data-schema-key="{{ name }}" data-schema-type="subForm">
+                <table data-role="main-container">
+                    <tr>
+                        {{# each getSubFormFieldLabels this }}
+                            <th>{{ this }}</th>
+                        {{/ each }}
+                        <th></th>
+                    </tr>
+                    <tbody>
+                        <tr data-info="initial-row" data-role="per-row">
+                            {{# each getSubFormFields this }}
+                                <td>{{> subFormWidget }}</td>
+                            {{/ each }}
+
+                            <td>
+                                <button type="button" data-action="remove">remove</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button type="button" data-action="add">Add</button>
+            </div>
+        </script>
+
+        <script type="text/spacebars" name="subFormWidget">
+            {{# if compare type "input" }}
+                <input name="{{ name }}" data-schema-sub-key="{{ name }}" data-schema-type="input" />
+            {{/ if }}
+
+            {{# if compare type "textarea" }}
+                <textarea name="{{ name }}" data-schema-sub-key="{{ name }}" data-schema-type="textarea"></textarea>
+            {{/ if }}
+
+            {{# if compare type "radio" }}
+                <div data-schema-sub-key="{{ name }}" data-schema-type="radio">
+                    {{# each options }}
+                        <input type="radio" name="{{ ../name }}" value="{{ this }}" /> {{ this }}
+                    {{/ each }}
+                </div>
+            {{/ if }}
+
+            {{# if compare type "check" }}
+                <div data-schema-sub-key="{{ name }}" data-schema-type="check">
+                    {{# each options }}
+                        <input type="checkbox" name="{{ ../name }}" value="{{ this }}" /> {{ this }}
+                    {{/ each }}
+                </div>
+            {{/ if }}
+
+            {{# if compare type "select" }}
+                <select name="{{ name }}" data-schema-sub-key="{{ name }}" data-schema-type="select">
+                    {{# each options }}
+                        <option value="{{ this }}">{{ this }}</option>
+                    {{/ each }}
+                </select>
+            {{/ if }}
+        </script>
+
+        <script src="bower_components/blaze.js"></script>
+        <script src="index.js"></script>
+    </body>
+</html>
