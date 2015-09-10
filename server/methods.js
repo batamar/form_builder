@@ -99,9 +99,26 @@ Meteor.methods({
   submissionSave: function (formId, modifier, submissionId) {
     check(formId, String);
     check(submissionId, Match.OneOf(String, undefined));
+    check(modifier, Object);
     
     var schema = FormBuilder.Helpers.generateSchema(formId);
-    check(modifier, schema);
+
+    var context = schema.newContext();
+    var isValid = context.validate(modifier);
+
+    // if data is invalid then return validation messages
+    if (!isValid ) {
+
+      var invalidFields = context.invalidKeys();
+
+      _.each(invalidFields, function (invalidField) {
+        
+        // add human readable message property
+        invalidField.message = context.keyErrorMessage(invalidField.name);
+      });
+
+      return invalidFields;
+    }
 
     if (!submissionId) {
     
