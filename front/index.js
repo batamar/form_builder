@@ -3,7 +3,7 @@ var formBuilder = new Asteroid('localhost:3000');
 
 var subsReady = new Blaze.Var(false);
 var applicationFormId = new Blaze.Var();
-var formSubs = formBuilder.subscribe('formList'); // subscribe to forms
+var formSubs = formBuilder.subscribe('publicForms'); // subscribe to forms
 var formsCollection = formBuilder.getCollection('form_builder_forms'); // get forms collection
 var formsQuery = formsCollection.reactiveQuery({code: 'test'}); // find form with the code application
 
@@ -15,7 +15,7 @@ formSubs.ready.then(function () {
 
   applicationFormId.set(applicationForm._id);
 
-  var fieldSubs = formBuilder.subscribe('fieldList', [applicationForm._id]); // subscribe to given form's fields
+  var fieldSubs = formBuilder.subscribe('publicFormFields', [applicationForm._id]); // subscribe to given form's fields
 
   fieldSubs.ready.then(function () {
 
@@ -30,7 +30,7 @@ formSubs.ready.then(function () {
     var subFormIds = _.pluck(subFormFields, 'subForm');
 
     // subscribe to subform fields
-    var subFormSubs = formBuilder.subscribe('fieldList', subFormIds);
+    var subFormSubs = formBuilder.subscribe('publicFormFields', subFormIds);
 
     subFormSubs.ready.then(function () {
       // tell subscriptions are ready

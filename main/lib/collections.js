@@ -42,6 +42,11 @@ FormBuilder.Schemas.Form = new SimpleSchema({
   isSub: {
     label: 'Дэд форм эсэх',
     type: Boolean
+  },
+
+  isPublic: {
+    label: 'Нийтэд харагдах эсэх',
+    type: Boolean
   }
 });
 
