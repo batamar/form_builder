@@ -42,7 +42,7 @@
             {{/ if }}
 
             {{# if compare type "input" }}
-                <input data-schema-key="{{ name }}" data-schema-type="input" />
+                <input type="{{ check }}" data-schema-key="{{ name }}" data-schema-type="input" />
             {{/ if }}
 
             {{# if compare type "textarea" }}
@@ -110,7 +110,7 @@
 
         <script type="text/spacebars" name="subFormWidget">
             {{# if compare type "input" }}
-                <input data-schema-key="{{ ../name }}.0.{{ name }}" data-schema-type="input" />
+                <input type="{{ check }}" data-schema-key="{{ ../name }}.0.{{ name }}" data-schema-type="input" />
             {{/ if }}
 
             {{# if compare type "textarea" }}

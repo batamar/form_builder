@@ -79,6 +79,23 @@ FormBuilder.Schemas.Field = new SimpleSchema({
     }
   },
 
+  check: {
+    type: String,
+    label: 'Шалгалт',
+    optional: true,
+    autoform: {
+      type: 'select',
+      firstOption: 'Сонгоно уу',
+      options: function () {
+        return [
+          {label: 'Тоо', value: 'number'},
+          {label: 'Огноо', value: 'date'},
+          {label: 'Цахим шуудан', value: 'email'},
+        ];
+      }
+    }
+  },
+
   text: {
     type: String,
     label: 'Текст',
@@ -192,7 +209,18 @@ function generateFieldOption (schemaOptions, field, isSubField) {
 
   // input
   if (field.type === 'input') {
-    perOption.type = String;
+    switch(field.check) {
+      case 'number':
+        perOption.type = Number;
+        break;
+
+      case 'date':
+        perOption.type = 'date';
+        break;
+      
+      default:
+        perOption.type = String;
+    }
   }
 
   // textarea

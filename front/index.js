@@ -149,6 +149,19 @@ function getFieldValue(fieldName, widget, type) {
   switch(type) {
     case 'input':
       value = $(widget).val();
+
+      var attrType = $(widget).attr('type');
+
+      switch(attrType) {
+        case 'number':
+          value = Number(value);
+          break;
+
+        case 'date':
+          value = new Date(value);
+          break;
+      }
+
       break;
 
     case 'textarea':
