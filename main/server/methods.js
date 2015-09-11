@@ -7,11 +7,30 @@
  */
 
 
+var loginRequired = function (userId) {
+  if (!userId) {
+    throw new Meteor.Error('LoginRequired');
+  }
+};
+
+var ownerRequired = function (userId, createdUser) {
+  if (!userId) {
+    throw new Meteor.Error('LoginRequired');
+  }
+
+  if (userId !== createdUser) {
+    throw new Meteor.Error('Access denied');
+  }
+};
+
+
 Meteor.methods({
   /* ----------------------- forms ----------------------- */
 
   formInsert: function (modifier) {
     check(modifier, FormBuilder.Schemas.Form);
+      
+    loginRequired(this.userId);
 
     modifier.createdUser = this.userId;
     modifier.createdDate = new Date();
@@ -26,12 +45,22 @@ Meteor.methods({
     check(modifier.$set, FormBuilder.Schemas.Form);
     check(docId, String);
 
+    // find old entry
+    var oldEntry = FormBuilder.Collections.Forms.findOne({_id: docId});
+
+    ownerRequired(this.userId, oldEntry.createdUser);
+
     // update
     FormBuilder.Collections.Forms.update(docId, modifier);
   },
 
   formDelete: function (docId) {
     check(docId, String);
+
+    // find old entry
+    var oldEntry = FormBuilder.Collections.Forms.findOne({_id: docId});
+
+    ownerRequired(this.userId, oldEntry.createdUser);
     
     // remove
     FormBuilder.Collections.Forms.remove(docId);
@@ -45,6 +74,8 @@ Meteor.methods({
   createField: function (formId, modifier) {
     check(formId, String);
     check(modifier, FormBuilder.Schemas.Field);
+
+    loginRequired(this.userId);
     
     // set form
     modifier.formId = formId;
@@ -68,6 +99,10 @@ Meteor.methods({
     check(fieldId, String);
 
     check(modifier, FormBuilder.Schemas.Field);
+
+    // get form
+    var form = FormBuilder.Collections.Forms.findOne({_id: formId});
+    ownerRequired(this.userId, form.createdUser);
     
     // update field
     FormBuilder.Collections.Fields.update(fieldId, {$set: modifier});
@@ -77,6 +112,14 @@ Meteor.methods({
 
   deleteField: function (docId) {
     check(docId, String);
+
+    // get field
+    var field = FormBuilder.Collections.Fields.findOne({_id: docId});
+
+    // get form
+    var form = FormBuilder.Collections.Forms.findOne({_id: field.formId});
+
+    ownerRequired(this.userId, form.createdUser);
     
     // remove
     FormBuilder.Collections.Fields.remove(docId);
@@ -85,6 +128,10 @@ Meteor.methods({
   updateFieldOrder: function (formId, orders) {
     check(formId, String);
     check(orders, Object);
+
+    // get form
+    var form = FormBuilder.Collections.Forms.findOne({_id: formId});
+    ownerRequired(this.userId, form.createdUser);
 
     // update each field's order
     _.each(_.keys(orders), function (fieldId) {
@@ -139,6 +186,14 @@ Meteor.methods({
 
   submissionDelete: function (submissionId) {
     check(submissionId, String);
+
+    // get submission
+    var submission = FormBuilder.Collections.Submissions.findOne({_id: submissionId});
+
+    // get form
+    var form = FormBuilder.Collections.Forms.findOne({_id: submission.formId});
+
+    ownerRequired(this.userId, form.createdUser);
 
     // delete submission
     FormBuilder.Collections.Submissions.remove({_id: submissionId});

@@ -88,6 +88,35 @@ formCUComponet.extend(ComponentFieldGenerate);
 
 
 
+/* ----------------------- Form delete ----------------------- */ 
+
+
+var formDeleteComponent = FlowComponents.define('formDelete', function () {
+  this.formId = FlowRouter.getParam('formId');
+});
+
+formDeleteComponent.state.object = function () {
+  return FormBuilder.Collections.Forms.findOne({_id: this.formId});
+};
+
+formDeleteComponent.action.onSubmit = function() {
+  var formId = this.formId;
+
+  Meteor.call('formDelete', formId, function () {
+    toastr.success('Ажилттай устлаа', 'Мэдэгдэл');
+    FlowRouter.go('forms');
+  });
+};
+
+Template.formDelete.events({
+  'submit form': function(evt) {
+    evt.preventDefault();
+    FlowComponents.callAction('onSubmit');
+  }
+});
+
+
+
 /* ----------------------- Form submission detail mixin ----------------------- */ 
 
 

@@ -77,6 +77,22 @@ inDocumentRoutes.route('/update/:formId', {
 });
 
 
+// forms delete
+inDocumentRoutes.route('/delete/:formId', {
+  subscriptions: function(params) {
+    this.register('formList', Meteor.subscribe('formList'));
+    this.register('fieldList', Meteor.subscribe('fieldList', [params.formId]));
+  },
+
+  action: function() {
+    BlazeLayout.render('mainLayout', {content: 'formDelete'});
+  },
+
+  name: 'formDelete'
+});
+
+
+
 // form submission detail
 inDocumentRoutes.route('/submission/detail/:formId', {
   subscriptions: function(params, queryParams) {
