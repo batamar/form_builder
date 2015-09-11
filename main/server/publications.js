@@ -7,14 +7,14 @@
 
 
 Meteor.publish('formList', function () {
-  return FormBuilder.Collections.Forms.find();
+  return FormBuilder.Collections.Forms.find({createdUser: this.userId});
 });
 
 
 Meteor.publish('formDetail', function(id) {
   check(id, String);
 
-  return FormBuilder.Collections.Forms.find({_id: id});
+  return FormBuilder.Collections.Forms.find({createdUser: this.userId, _id: id});
 });
 
 

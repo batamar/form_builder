@@ -13,7 +13,7 @@ Meteor.methods({
   formInsert: function (modifier) {
     check(modifier, FormBuilder.Schemas.Form);
 
-    modifier.createdUser = 1; //this.userId;
+    modifier.createdUser = this.userId;
     modifier.createdDate = new Date();
 
     // create

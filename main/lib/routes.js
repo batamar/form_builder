@@ -1,5 +1,23 @@
 /* ----------------------- Routes ----------------------- */
 
+// login
+FlowRouter.route('/login', {
+  action: function() {
+    BlazeLayout.render('blankLayout', {content: 'login'});
+  },
+
+  name: 'login'
+});
+
+// register
+FlowRouter.route('/register', {
+  action: function() {
+    BlazeLayout.render('blankLayout', {content: 'register'});
+  },
+
+  name: 'register'
+});
+
 
 // base route
 FlowRouter.route('/', {
