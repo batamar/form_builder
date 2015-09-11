@@ -9,6 +9,7 @@
             <tr>
                 <th>Нэр</th>
                 <th>Дэд форм эсэх</th>
+                <th>Нийтэд ил эсэх</th>
                 <th>Үйлдлүүд</th>
             </tr>
         </thead>
@@ -19,6 +20,13 @@
                     <td> {{ title }}</td>
                     <td>
                         {{# if isSub }}
+                            Тийм
+                        {{ else }}
+                            <label class="label label-success">Үгүй</label>
+                        {{/ if }}
+                    </td>
+                    <td>
+                        {{# if isPublic }}
                             Тийм
                         {{ else }}
                             <label class="label label-success">Үгүй</label>

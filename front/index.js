@@ -5,7 +5,7 @@ var subsReady = new Blaze.Var(false);
 var applicationFormId = new Blaze.Var();
 var formSubs = formBuilder.subscribe('publicForms'); // subscribe to forms
 var formsCollection = formBuilder.getCollection('form_builder_forms'); // get forms collection
-var formsQuery = formsCollection.reactiveQuery({code: 'test'}); // find form with the code application
+var formsQuery = formsCollection.reactiveQuery({code: 'application'}); // find form with the code application
 
 var fieldsCollection = formBuilder.getCollection('form_builder_fields'); // get fields collection
 var fieldList = new Blaze.Var([]);
@@ -50,6 +50,12 @@ UI.registerHelper('compare', function (value1, value2) {
   return value1 === value2;
 });
 
+
+/* ----------------------- form ----------------------- */
+
+Template.form.rendered = function () {
+  $('[data-role="loader"]').hide();
+};
 
 
 /* ----------------------- subFormField ----------------------- */
@@ -208,7 +214,7 @@ Template.form.events({
         if (type === 'subForm') {
           value = [];
 
-          tmpl.findAll('table[data-role="main-container"] tr[data-role="per-row"]').each(function (index, tr) {
+          $(widget).find('table[data-role="main-container"] tr[data-role="per-row"]').each(function (index, tr) {
 
             subFieldEntry = {};
 
@@ -234,20 +240,29 @@ Template.form.events({
       }
     });
 
-    formBuilder.call('submissionSave', applicationFormId.get(), dataToSave).result.then(function (result) {
+    $('[data-role="loader"]').show();
+    var result = formBuilder.call('submissionSave', applicationFormId.get(), dataToSave).result;
+
+    result.then(function (response) {
       // remove all old error messages
       $('[data-role="error"]').remove();
 
-      if (result.msg === 'success') {
+      // done saving 
+      $('[data-role="loader"]').hide();
+
+      if (response.msg === 'success') {
         alert('Success');
       }
 
-      _.each(result.invalidFields, function (errorObj) {
+      _.each(response.invalidFields, function (errorObj) {
 
         var errorTemplate = _.template($('#error-template').html());
         $('[data-schema-key="' + errorObj.name + '"]').after(errorTemplate(errorObj));
-
       });
+    });
+
+    result.fail(function (response) {
+      console.log(response);
     });
   }
 });
