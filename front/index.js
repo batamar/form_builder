@@ -65,14 +65,27 @@ Template.subFormField.created = function () {
 
 // helpers
 Template.subFormField.helpers({
-  getSubFormFieldLabels: function (field) {
-    return _.pluck(subFormFields, 'text');
-  },
-
   getSubFormFields: function (field) {
     return subFormFields;
   }
 });
+
+
+// re calculate all row fields data-schema-key attributes
+var regenerateSubFieldKeys = function (subFieldTable) {
+  $(subFieldTable).find('tr[data-role="per-row"]').each(function (trIndex, tr) {
+
+    $(tr).find('[data-schema-key]').each(function () {
+      var schemaKeyAttr = $(this).data('schema-key');
+      var parts = schemaKeyAttr.split('.');
+
+      var newSchemaKey = parts[0] + '.' + trIndex + '.' + parts[2];
+
+      $(this).attr('data-schema-key', newSchemaKey);
+    });
+
+  });
+};
 
 
 // events
@@ -80,20 +93,37 @@ Template.subFormField.events({
 
   // add
   'click [data-action="add"]': function (evt, tmpl) {
-    var initialRow = $(tmpl.find('[data-info="initial-row"]')).clone();
+    var newRow = $(tmpl.find('[data-info="initial-row"]')).clone();
 
     // remove initial-row flag
-    initialRow[0].removeAttribute('data-info');
+    newRow[0].removeAttribute('data-info');
 
     // find container table
     var containerTable = tmpl.find('table[data-role="main-container"] tbody');
 
-    $(containerTable).append(initialRow);
+    // add cloned row to table
+    $(containerTable).append(newRow);
+
+    // recalculate all data-schema-key attributes
+    regenerateSubFieldKeys(containerTable);
   },
 
   // remove
   'click [data-action="remove"]': function (evt) {
-    $(evt.currentTarget).closest('tr').remove();
+
+    var tr = $(evt.currentTarget).closest('tr');
+
+    if ($(tr).data('info') === 'initial-row') {
+      return false;
+    }
+
+    var containerTable = $(evt.currentTarget).closest('table[data-role="main-container"] tbody');
+
+    // remove actual row
+    $(tr).remove();
+
+    // recalculate all data-schema-key attributes
+    regenerateSubFieldKeys(containerTable);
   }
 });
 
@@ -126,12 +156,12 @@ function getFieldValue(fieldName, widget, type) {
       break;
 
     case 'radio':
-      value = $('input[name="' + fieldName + '"]:checked').attr('value');
+      value = $(widget).find('input:checked').attr('value');
       break;
 
     case 'check':
       value = [];
-      $(widget).find('input[name="' + fieldName + '"]:checked').each(function (index, elm) {
+      $(widget).find('input:checked').each(function (index, elm) {
         value.push($(elm).attr('value'));
       });
       break;
@@ -151,40 +181,60 @@ Template.form.events({
 
     tmpl.findAll('[data-schema-key]').each(function (index, widget) {
       var fieldName = $(widget).data('schema-key');
-      var type = $(widget).data('schema-type');
-      var value = getFieldValue(fieldName, widget, type);
 
-      var subFieldName;
-      var subFieldType;
-      var subFieldValue;
-      var subFieldEntry;
+      // if this is subForm field then do nothing
+      if (fieldName.indexOf('.') === -1) {
+        var type = $(widget).data('schema-type');
+        var value = getFieldValue(fieldName, widget, type);
 
-      if (type === 'subForm') {
-        value = [];
+        var subFieldName;
+        var subFieldType;
+        var subFieldValue;
+        var subFieldEntry;
 
-        tmpl.findAll('table[data-role="main-container"] tr[data-role="per-row"]').each(function (index, tr) {
+        if (type === 'subForm') {
+          value = [];
 
-          subFieldEntry = {};
+          tmpl.findAll('table[data-role="main-container"] tr[data-role="per-row"]').each(function (index, tr) {
 
-          $(tr).find('[data-schema-sub-key]').each(function (index) {
-            subFieldName = $(this).data('schema-sub-key');
-            subFieldType = $(this).data('schema-type');
-            subFieldValue = getFieldValue(subFieldName, this, subFieldType);
+            subFieldEntry = {};
 
-            // increase subFieldEntry dic
-            subFieldEntry[subFieldName] = subFieldValue;
+            $(tr).find('[data-schema-key]').each(function (index) {
+              subFieldName = $(this).data('schema-key');
+              subFieldType = $(this).data('schema-type');
+              subFieldValue = getFieldValue(subFieldName, this, subFieldType);
+
+              // convert contacts.0.name => name
+              var parts = subFieldName.split('.');
+              var newFieldName = parts[2];
+
+              // increase subFieldEntry dic
+              subFieldEntry[newFieldName] = subFieldValue;
+            });
+
+            // increase value list
+            value.push(subFieldEntry);
           });
+        }
 
-          // increase value list
-          value.push(subFieldEntry);
-        });
+        dataToSave[fieldName] = value;
       }
-
-      dataToSave[fieldName] = value;
     });
 
     formBuilder.call('submissionSave', applicationFormId.get(), dataToSave).result.then(function (result) {
-      console.log(result);
+      // remove all old error messages
+      $('[data-role="error"]').remove();
+
+      if (result === 'success') {
+        return;
+      }
+
+      _.each(result, function (errorObj) {
+
+        var errorTemplate = _.template($('#error-template').html());
+        $('[data-schema-key="' + errorObj.name + '"]').after(errorTemplate(errorObj));
+
+      });
     });
   }
 });

@@ -30,18 +30,23 @@
         </script>
 
         <script type="text/spacebars" name="formField">
-            <p>{{ text }}</p>
+            <p>
+                {{ text }}
+                {{# if isRequired }}
+                    *
+                {{/ if }}
+            </p>
 
             {{# if compare type "seperator" }}
                 ----------------------------
             {{/ if }}
 
             {{# if compare type "input" }}
-                <input name="{{ name }}" data-schema-key="{{ name }}" data-schema-type="input" />
+                <input data-schema-key="{{ name }}" data-schema-type="input" />
             {{/ if }}
 
             {{# if compare type "textarea" }}
-                <textarea name="{{ name }}" data-schema-key="{{ name }}" data-schema-type="textarea" ></textarea>
+                <textarea data-schema-key="{{ name }}" data-schema-type="textarea" ></textarea>
             {{/ if }}
 
             {{# if compare type "radio" }}
@@ -61,7 +66,7 @@
             {{/ if }}
 
             {{# if compare type "select" }}
-                <select name="{{ name }}" data-schema-key="{{ name }}" data-schema-type="select">
+                <select data-schema-key="{{ name }}" data-schema-type="select">
                     {{# each options }}
                         <option value="{{ this }}">{{ this }}</option>
                     {{/ each }}
@@ -77,8 +82,13 @@
             <div data-schema-key="{{ name }}" data-schema-type="subForm">
                 <table data-role="main-container">
                     <tr>
-                        {{# each getSubFormFieldLabels this }}
-                            <th>{{ this }}</th>
+                        {{# each getSubFormFields this }}
+                            <th>
+                                {{ text }}
+                                {{# if isRequired }}
+                                    *
+                                {{/ if }}
+                            </th>
                         {{/ each }}
                         <th></th>
                     </tr>
@@ -100,15 +110,15 @@
 
         <script type="text/spacebars" name="subFormWidget">
             {{# if compare type "input" }}
-                <input name="{{ name }}" data-schema-sub-key="{{ name }}" data-schema-type="input" />
+                <input data-schema-key="{{ ../name }}.0.{{ name }}" data-schema-type="input" />
             {{/ if }}
 
             {{# if compare type "textarea" }}
-                <textarea name="{{ name }}" data-schema-sub-key="{{ name }}" data-schema-type="textarea"></textarea>
+                <textarea data-schema-key="{{ ../name }}.0.{{ name }}" data-schema-type="textarea"></textarea>
             {{/ if }}
 
             {{# if compare type "radio" }}
-                <div data-schema-sub-key="{{ name }}" data-schema-type="radio">
+                <div data-schema-key="{{ ../name }}.0.{{ name }}" data-schema-type="radio">
                     {{# each options }}
                         <input type="radio" name="{{ ../name }}" value="{{ this }}" /> {{ this }}
                     {{/ each }}
@@ -116,7 +126,7 @@
             {{/ if }}
 
             {{# if compare type "check" }}
-                <div data-schema-sub-key="{{ name }}" data-schema-type="check">
+                <div data-schema-key="{{ ../name }}.0.{{ name }}" data-schema-type="check">
                     {{# each options }}
                         <input type="checkbox" name="{{ ../name }}" value="{{ this }}" /> {{ this }}
                     {{/ each }}
@@ -124,12 +134,16 @@
             {{/ if }}
 
             {{# if compare type "select" }}
-                <select name="{{ name }}" data-schema-sub-key="{{ name }}" data-schema-type="select">
+                <select data-schema-key="{{ ../name }}.0.{{ name }}" data-schema-type="select">
                     {{# each options }}
                         <option value="{{ this }}">{{ this }}</option>
                     {{/ each }}
                 </select>
             {{/ if }}
+        </script>
+
+        <script type="text/template" id="error-template">
+            <label data-role="error"> <%= message %> </label>
         </script>
 
         <script src="bower_components/blaze.js"></script>
