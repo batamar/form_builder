@@ -118,7 +118,7 @@ Meteor.methods({
       });
       
       // return invalid field definitions with corresponding messages
-      return invalidFields;
+      return {msg: 'error', invalidFields: invalidFields};
     }
 
     if (!submissionId) {
@@ -134,7 +134,7 @@ Meteor.methods({
       FormBuilder.Collections.Submissions.update({_id: submissionId}, {$set: modifier});
     }
 
-    return submissionId;
+    return {msg: 'success', submissionId: submissionId};
   },
 
   submissionDelete: function (submissionId) {

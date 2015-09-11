@@ -225,11 +225,11 @@ Template.form.events({
       // remove all old error messages
       $('[data-role="error"]').remove();
 
-      if (result === 'success') {
-        return;
+      if (result.msg === 'success') {
+        alert('Success');
       }
 
-      _.each(result, function (errorObj) {
+      _.each(result.invalidFields, function (errorObj) {
 
         var errorTemplate = _.template($('#error-template').html());
         $('[data-schema-key="' + errorObj.name + '"]').after(errorTemplate(errorObj));
