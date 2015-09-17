@@ -13,10 +13,10 @@
             <tbody>
                 {{#each state$objects }}
                     <tr>
-                        {{#each values }}
-                        <td>
-                            {{ state$displayValue this }}
-                        </td>
+                        {{#each rows }}
+                            <td>
+                                {{ state$displayValue this }}
+                            </td>
                         {{/each}}
                         <td>
                             <a href="/forms/submission/detail/{{ formId }}/?subId={{ _id }}">Харах</a>

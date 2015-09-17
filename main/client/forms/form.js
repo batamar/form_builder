@@ -242,9 +242,15 @@ formSubmissionList.state.filteredList = function () {
 
 
 // called every cell is displyed
-formSubmissionList.state.displayValue = function (value) {
+formSubmissionList.state.displayValue = function (field) {
+  var value = field.value;
+
   if (_.isDate(value)) {
     return moment(value).format('YYYY-MM-DD');
+  }
+
+  if (field.type === 'subForm') {
+    return '';
   }
 
   return value;
@@ -257,14 +263,16 @@ formSubmissionList.state.objects = function () {
   var formFields = this.get('formFields');
 
   submissions.forEach(function (submission) {
-    var values = [];
+    var rows = [];
 
     // collecting entry values by correct field order (formFields)
     _.each(formFields, function (field) {
-      values.push(submission[field.name]);
+      var submissionValue = submission[field.name];
+      field.value = submissionValue;
+      rows.push(field);
     });
 
-    result.push({_id: submission._id, formId: submission.formId, values: values});
+    result.push({_id: submission._id, formId: submission.formId, rows: rows});
   });
 
   return result;

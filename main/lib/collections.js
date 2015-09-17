@@ -39,6 +39,11 @@ FormBuilder.Schemas.Form = new SimpleSchema({
     unique: true,
   },
 
+  code: {
+    type: String,
+    label: 'Код'
+  },
+
   isSub: {
     label: 'Дэд форм эсэх',
     type: Boolean
