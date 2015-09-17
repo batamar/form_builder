@@ -16,7 +16,7 @@ var FormBuilder = {
 };
 
 // connect to our application
-FormBuilder.appInstance = new Asteroid('localhost:3000');
+FormBuilder.appInstance = new Asteroid('http://form.nmtec.co/');
 
 // initialize reactive vars
 FormBuilder.subsReady = new Blaze.Var(false);
@@ -63,6 +63,17 @@ FormBuilder.init = function (formCode) {
       });
     });
   });
+};
+
+FormBuilder.fieldsDic = function () {
+  var fields = this.fieldList.get();
+  var fieldsByName = {};
+
+  _.each(fields, function (field) {
+    fieldsByName[field.name] = field;
+  });
+
+  return fieldsByName;
 };
 
 

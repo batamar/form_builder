@@ -22,4 +22,4 @@ FormBuilder.hooks.saveError = function (response) {
   });
 };
 
-FormBuilder.init('application');
+FormBuilder.init('test');

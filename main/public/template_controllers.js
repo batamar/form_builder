@@ -43,8 +43,12 @@ Template.subFormField.events({
 
 
 Template.form.helpers({
-  list: function () {
+  fields: function () {
     return FormBuilder.fieldList.get();
+  },
+
+  fieldsDic: function () {
+    return FormBuilder.fieldsDic();
   },
 
   subsReady: function () {
