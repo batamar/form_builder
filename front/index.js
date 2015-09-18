@@ -22,4 +22,8 @@ FormBuilder.hooks.saveError = function (response) {
   });
 };
 
-FormBuilder.init('test');
+FormBuilder.init('otForum');
+
+Template.form.rendered = function () {
+  $('[data-role="loader"]').hide();
+};

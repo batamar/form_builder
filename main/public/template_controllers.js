@@ -1,10 +1,3 @@
-/* ----------------------- form ----------------------- */
-
-Template.form.rendered = function () {
-  $('[data-role="loader"]').hide();
-};
-
-
 /* ----------------------- subFormField ----------------------- */
 
 
