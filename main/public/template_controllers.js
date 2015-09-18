@@ -8,34 +8,37 @@ Template.form.rendered = function () {
 /* ----------------------- subFormField ----------------------- */
 
 
-var subFormFields;
+// if subForm needed
+if (Template.subFormField) {
+  var subFormFields;
 
-Template.subFormField.created = function () {
-  if (this.data.type === 'subForm') {
-    subFormFields = FormBuilder.filterFields(this.data.subForm);
-  }
-};
+  Template.subFormField.created = function () {
+    if (this.data.type === 'subForm') {
+      subFormFields = FormBuilder.filterFields(this.data.subForm);
+    }
+  };
 
-// helpers
-Template.subFormField.helpers({
-  getSubFormFields: function (field) {
-    return subFormFields;
-  }
-});
+  // helpers
+  Template.subFormField.helpers({
+    getSubFormFields: function (field) {
+      return subFormFields;
+    }
+  });
 
 
-// events
-Template.subFormField.events({
-  // add
-  'click [data-action="add"]': function (evt, tmpl) {
-    FormBuilder.addSubFieldItem(evt, tmpl);
-  },
+  // events
+  Template.subFormField.events({
+    // add
+    'click [data-action="add"]': function (evt, tmpl) {
+      FormBuilder.addSubFieldItem(evt, tmpl);
+    },
 
-  // remove
-  'click [data-action="remove"]': function (evt) {
-    FormBuilder.removeSubFieldItem(evt);
-  }
-});
+    // remove
+    'click [data-action="remove"]': function (evt) {
+      FormBuilder.removeSubFieldItem(evt);
+    }
+  });
+}
 
 
 
