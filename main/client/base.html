@@ -9,7 +9,7 @@
     {{# if currentUser }}
         {{# if hasCustomTemplate "Layout" }}
             {{# with getCustomTemplateName 'Layout' }}
-                {{> Template.dynamic template=name content=../content }}
+                {{> render component=name content=../content }}
             {{/ with }}
         {{ else }}
             {{> render component="defaultLayout" content=content }}
