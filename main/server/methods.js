@@ -105,7 +105,7 @@ Meteor.methods({
     ownerRequired(this.userId, form.createdUser);
     
     // update field
-    FormBuilder.Collections.Fields.update(fieldId, {$set: modifier});
+    FormBuilder.Collections.Fields.update(fieldId, modifier);
 
     return fieldId;
   },

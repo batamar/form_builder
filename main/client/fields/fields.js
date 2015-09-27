@@ -26,7 +26,7 @@ fieldFormComponent.action.deleteField = function () {
 
 AutoForm.hooks({
   fieldForm: {
-    onSubmit: function(insertDoc) {
+    onSubmit: function(insertDoc, updateDoc) {
       var form = this.template.data.form;
       var fieldObj = this.template.data.doc;
       var fieldId = null;
@@ -34,7 +34,7 @@ AutoForm.hooks({
       // update
       if (fieldObj) {
         
-        fieldId = Meteor.call('updateField', form._id, fieldObj._id, insertDoc);
+        fieldId = Meteor.call('updateField', form._id, fieldObj._id, updateDoc);
 
       // insert
       } else {
