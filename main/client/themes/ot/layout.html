@@ -1,0 +1,35 @@
+<template name="otLayout">
+    <div id="wrapper">
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="/">
+                        Form builder
+                    </a>
+                </li>
+                <li>
+                    <a href="/forms">Формууд</a>
+                    {{# each state$forms }}
+                        <a href="/forms/submission-list/{{ _id }} ">{{ title }}</a>
+                    {{/ each }}
+                </li>
+                <li><a href="#" onclick="Meteor.logout()"><small>Гарах</small></a></li>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        {{> render component=state$content}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+    </div>
+    <!-- /#wrapper -->
+</template>

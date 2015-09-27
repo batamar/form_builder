@@ -1,0 +1,27 @@
+<template name="otSDetCotForum">
+    {{# if state$isReady }}
+	    <h3>{{ state$object.title }}</h3>
+	    asfdasdfasdf
+	    {{ state$object._id }}
+	    {{# with state$object }}
+	        {{ companyName }}<br/>
+	        {{ addressCountry }}<br/>
+	        
+	            {{ percentage }}
+	        <br/>
+	        
+	            {{ howManyEmployees }}
+	        <br/>
+	        
+	            {{ describes }}
+	        <br/>
+	        
+	            {{ annualTurnover }}
+	        <br/>
+	        
+	            {{ keyEmail }}
+		{{/ with }}
+    {{ else }}
+        Уншиж байна ...
+    {{/ if }}
+</template>
