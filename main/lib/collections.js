@@ -230,7 +230,7 @@ function generateFieldOption (schemaOptions, field, isSubField) {
 
       case 'email':
         perOption.type = String;
-        perOption.regEx = SimpleSchema.RegEx.Email;
+        perOption.regEx = /^$|^.*@.*\..*$/;
         break;
       
       default:
