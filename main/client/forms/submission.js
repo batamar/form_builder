@@ -46,7 +46,7 @@ submissionDeleteComponent.extend(SubmissionMixin);
 
 submissionDeleteComponent.state.templateNameToSearch = function () {
   var formObj = this.formObj();
-  return 'SubmissionDeleteContent' + formObj.code;
+  return 'SDelC' + formObj.code;
 };
 
 submissionDeleteComponent.action.onSubmit = function() {
@@ -77,6 +77,11 @@ var submissionDetailComponent = FlowComponents.define('submissionDetail', functi
 submissionDetailComponent.extend(SubmissionDetailMixin);
 submissionDeleteComponent.extend(SubmissionMixin);
 
+submissionDeleteComponent.state.templateNameToSearch = function () {
+  var formObj = this.formObj();
+  return 'SDetC' + formObj.code;
+};
+
 
 
 /* ----------------------- Form submission list ----------------------- */ 
@@ -89,7 +94,7 @@ submissionList.extend(SubmissionMixin);
 
 submissionList.state.templateNameToSearch = function () {
   var formObj = this.formObj();
-  return 'SubmissionListContent' + formObj.code;
+  return 'SLC' + formObj.code;
 };
 
 // main list
