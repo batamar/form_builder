@@ -3,8 +3,14 @@
 
 // fix required field empty string problem
 SimpleSchema.addValidator(function () {
-  if (!this.definition.optional && (this.value === null || this.value === '')) {
-    return 'required';
+  if (!this.definition.optional) {
+    if (this.value === null || this.value === '') {
+      return 'required';
+    }
+
+    if (_.isArray(this.value) && this.value.length === 0) {
+      return 'required';
+    }
   }
 });
 
