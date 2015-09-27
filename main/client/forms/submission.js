@@ -55,7 +55,7 @@ submissionDeleteComponent.action.onSubmit = function() {
 
   Meteor.call('submissionDelete', submissionId, function () {
     toastr.success('Ажилттай устлаа', 'Мэдэгдэл');
-    FlowRouter.go('formSubmissionList', {formId: formId});
+    FlowRouter.go('submissionList', {formId: formId});
   });
 };
 
