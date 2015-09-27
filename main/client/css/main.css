@@ -4,7 +4,6 @@
 
 .field-list .field {
     margin-bottom: 0;
-    padding: 13px;
     line-height: 1.5em;
     border: 1px dashed #fff;
     cursor: move;
@@ -18,4 +17,9 @@
 .field-list.preview .field:hover {
     background: #fafafa;
     border-color: #aaa;
+}
+
+.field-list.preview {
+    overflow-y: scroll;
+    max-height: 720px;
 }

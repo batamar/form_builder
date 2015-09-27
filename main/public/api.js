@@ -16,7 +16,7 @@ var FormBuilder = {
 };
 
 // connect to our application
-FormBuilder.appInstance = new Asteroid('localhost:5000');
+FormBuilder.appInstance = new Asteroid('form.nmtec.co');
 
 // initialize reactive vars
 FormBuilder.subsReady = new Blaze.Var(false);
