@@ -1,0 +1,21 @@
+<template name="submissionListContent">
+    <h3>{{ state$form.title }}</h3>
+
+    {{# if state$isReady }}
+        <ul>
+            <li>
+                <ul>
+                    {{#each state$objects }}
+                        <li>
+                            {{ _id }}
+                            <a href="/forms/submission/detail/{{ formId }}/?subId={{ _id }}">Харах</a>
+                            <a href="/forms/submission/delete/{{ formId }}/?subId={{ _id }}">Устгах</a>
+                        </li>
+                    {{/each}}
+                </ul>
+            </li>
+         </ul>
+    {{ else }}
+        Уншиж байна ...
+    {{/ if }}
+</template>

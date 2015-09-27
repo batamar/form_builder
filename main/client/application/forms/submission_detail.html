@@ -1,0 +1,9 @@
+<template name="submissionDetail">
+    {{# if hasCustomTemplate state$templateNameToSearch }}
+        {{# with getCustomTemplateName state$templateNameToSearch }}
+            {{> Template.dynamic template=name data=this }}
+        {{/ with }}
+    {{ else }}
+        {{> Template.dynamic template="submissionDetailContent" data=this }}
+    {{/ if }}
+</template>

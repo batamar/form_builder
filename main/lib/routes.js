@@ -3,7 +3,7 @@
 // login
 FlowRouter.route('/login', {
   action: function() {
-    BlazeLayout.render('blankLayout', {content: 'login'});
+    BlazeLayout.render('mainLayout', {content: 'login'});
   },
 
   name: 'login'
@@ -102,10 +102,10 @@ inDocumentRoutes.route('/submission/detail/:formId', {
   },
 
   action: function() {
-    BlazeLayout.render('mainLayout', {content: 'formSubmissionDetail'});
+    BlazeLayout.render('mainLayout', {content: 'submissionDetail'});
   },
 
-  name: 'formSubmissionDetail'
+  name: 'submissionDetail'
 });
 
 
@@ -118,10 +118,10 @@ inDocumentRoutes.route('/submission/delete/:formId', {
   },
 
   action: function() {
-    BlazeLayout.render('mainLayout', {content: 'formSubmissionDelete'});
+    BlazeLayout.render('mainLayout', {content: 'submissionDelete'});
   },
 
-  name: 'formSubmissionDelete'
+  name: 'submissionDelete'
 });
 
 
@@ -134,8 +134,8 @@ inDocumentRoutes.route('/submission-list/:formId', {
   },
 
   action: function() {
-    BlazeLayout.render('mainLayout', {content: 'formSubmissionList'});
+    BlazeLayout.render('mainLayout', {content: 'submissionList'});
   },
 
-  name: 'formSubmissionList'
+  name: 'submissionList'
 });
