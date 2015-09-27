@@ -13,13 +13,6 @@ Template.registerHelper('getCustomTemplateName', function(name) {
 
 /* ----------------------- default layout ----------------------- */
 
-Template.mainLayout.helpers({
-  test: function () {
-    console.log('in mainLayout"s test helper');
-    console.log(Template.batamarLayout);
-  }
-});
-
 var defaultLayout = FlowComponents.define('defaultLayout', function (props) {
   this.set('content', props.content);
 

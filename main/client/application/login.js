@@ -9,12 +9,10 @@ Template.login.events({
     var username = template.find('[name="username"]').value;
     var password = template.find('[name="password"]').value;
 
-    loadTemplates(username, function () {
-      Meteor.loginWithPassword(username, password, function(error) {
-        if (typeof(error) != 'undefined') {
-          alert('Хэрэглэгчийн нэр эсвэл нууц үг буруу байна');
-        }
-      });
+    Meteor.loginWithPassword(username, password, function(error) {
+      if (typeof(error) != 'undefined') {
+        alert('Хэрэглэгчийн нэр эсвэл нууц үг буруу байна');
+      }
     });
   }
 });

@@ -7,8 +7,6 @@
 
 <template name="mainLayout">
     {{# if currentUser }}
-        {{ test }}
-
         {{# if hasCustomTemplate "Layout" }}
             {{# with getCustomTemplateName 'Layout' }}
                 {{> Template.dynamic template=name content=../content }}
