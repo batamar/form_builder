@@ -75,7 +75,7 @@ var submissionDetailComponent = FlowComponents.define('submissionDetail', functi
 
 // extend from submission mixins
 submissionDetailComponent.extend(SubmissionDetailMixin);
-submissionDeleteComponent.extend(SubmissionMixin);
+submissionDetailComponent.extend(SubmissionMixin);
 
 submissionDetailComponent.state.templateNameToSearch = function () {
   var formObj = this.formObj();
