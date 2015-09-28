@@ -1,262 +1,429 @@
 <template name="otSDetCotForum">
-    {{# if state$isReady }}
-
-	    {{# with state$object }}
-		    <div>
-		    	<a href="/forms/submission-list/8XeC7LP47TcdciNnH" class="pull-right btn btn-success btn-xs">
-		    		Буцах
-		    	</a>
-			    <div class="form-title">
-			    	ЕРӨНХИЙ МЭДЭЭЛЭЛ
-			    </div>
-		    </div>
-		    <table>
-		    	<thead>
-		    		<th width="40%">
-		    			Нэр
-		    		</th>
-		    		<th width="60%">
-		    			Утга
-		    		</th>
-		    	</thead>
-		    	<tbody>
-		    		<tr>
-		    			<td>
-		    				Компанийн нэр 
-		    			</td>
-		    			<td>
-		    				{{ companyName }}
-		    			</td>
-		    		</tr>
-		    		<tr>
-		    			<td rowspan="3">
-		    				Хаяг
-		    			</td>
-		    			<td>
-		    				{{ addressStreet }}
-		    			</td>
-		    		</tr>
-		    		<tr>
-		    			<td>
-		    				{{ addressCity }}
-		    			</td>
-		    		</tr>
-		    		<tr>
-		    			<td>
-		    				{{ addressCountry }}
-		    			</td>
-		    		</tr>
-		    		<tr>
-		    			<td>
-		    				Утас (улсын дугаарын хамт) 
-		    			</td>
-		    			<td>
-		    				{{ phone }}
-		    			</td>
-		    		</tr>
-		    		<tr>
-		    			<td rowspan="3">
-		    				Төв оффисын байршил 
-		    			</td>
-		    			<td>
-		    				{{ hqLocationStreet }}
-		    			</td>
-		    		</tr>
-		    		<tr>
-		    			<td>
-		    				{{ hqLocationCity }}
-		    			</td>
-		    		</tr>
-		    		<tr>
-		    			<td>
-		    				{{ hqLocationCountry }}
-		    			</td>
-		    		</tr>
-		    		<tr>
-		    			<td>
-		    				Монгол улсад байршилтай оффистой эсэх? 
-		    			</td>
-		    			<td>
-		    				{{ mongolianOffice }}
-		    			</td>
-		    		</tr>
-		    		<tr>
-		    			<td>
-		    				Монгол улс дахь оффисын байршил 
-		    			</td>
-		    			<td>
-		    				{{ nameLocation }}&nbsp;
-		    			</td>
-		    		</tr>
-		    		<tr>
-		    			<td rowspan="3">
-		    				Монгол улсад хамгийн ойр байрладаг оффис  
-		    			</td>
-		    			<td>
-		    				{{ nearestStreet }}&nbsp;
-		    			</td>
-		    		</tr>
-		    		<tr>
-		    			<td>
-		    				{{ nearestCity }}&nbsp;
-		    			</td>
-		    		</tr>
-		    		<tr>
-		    			<td>
-		    				{{ nearestCountry }}&nbsp;
-		    			</td>
-		    		</tr>
-		    		<tr>
-		    			<td rowspan="3">
-		    				Монгол улсад хамгийн ойр байрладаг үйлчилгээ, үйлдвэрлэлийн байршил 
-		    			</td>
-		    			<td>
-		    				{{ servicingStreet }}
-		    			</td>
-		    		</tr>
-		    		<tr>
-		    			<td>
-		    				{{ servicingCity }}
-		    			</td>
-		    		</tr>
-		    		<tr>
-		    			<td>
-		    				{{ servicingCountry }}
-		    			</td>
-		    		</tr>
-		    		<tr>
-		    			<td>
-		    				
-		    			</td>
-		    			<td>
-		    				{{ percentage }}
-		    			</td>
-		    		</tr>
-		    		<tr>
-		    			<td>
-		    				
-		    			</td>
-		    			<td>
-		    				{{ howManyEmployees }}
-		    			</td>
-		    		</tr>
-		    		<tr>
-		    			<td>
-		    				Монгол эзэмшлийн хувь хэмжээ (Монгол улсын иргэн, аж ахуйн нэгжийн эзэмшил) 
-		    			</td>
-		    			<td>
-		    				{{ percentage }}
-		    			</td>
-		    		</tr>
-		    		<tr>
-		    			<td>
-		    				Компанийн ажилтны тоо
-		    			</td>
-		    			<td>
-		    				{{ howManyEmployees }}
-		    			</td>
-		    		</tr>
-		    		<tr>
-		    			<td>
-		    				Компанийн үндсэн үйл ажиллагаа
-		    			</td>
-		    			<td>
-		    				{{ describes }}
-		    			</td>
-		    		</tr>
-		    		<tr>
-		    			<td>
-		    				Компанийн үндсэн үйл ажиллагаа (Бусад)
-		    			</td>
-		    			<td>
-		    				{{ describesOther }}
-		    			</td>
-		    		</tr>
-		    		<tr>
-		    			<td>
-		    				Жилийн борлуулалтын хэмжээ (ам.доллараар) 
-		    			</td>
-		    			<td>
-		    				{{ annualTurnover }}
-		    			</td>
-		    		</tr>
-		    		<tr>
-		    			<td>
-		    				Үүсгэн байгуулагдсан огноо 
-		    			</td>
-		    			<td>
-		    				{{ establishmentDate }}
-		    			</td>
-		    		</tr>
-		    	</tbody>
-		    </table>
+    {{# with state$object }}
+	    <div>
+	    	<a href="/forms/submission-list/8XeC7LP47TcdciNnH" class="pull-right btn btn-success btn-xs">
+	    		Буцах
+	    	</a>
 		    <div class="form-title">
-		    	ХОЛБОО БАРИХ МЭДЭЭЛЭЛ / Холбоо барих хүн 
+		    	ЕРӨНХИЙ МЭДЭЭЛЭЛ
 		    </div>
-		    <table>
-		    	<thead>
-		    		<th width="40%">
-		    			Нэр
-		    		</th>
-		    		<th width="60%">
-		    			Утга
-		    		</th>
-		    	</thead>
-		    	<tbody>
-		    		<tr>
-		    			<td>
-		    				Нэр 
-		    			</td>
-		    			<td>
-		    				{{ keyFirst }}
-		    			</td>
-		    		</tr>
-		    		<tr>
-		    			<td>
-		    				Овог 
-		    			</td>
-		    			<td>
-		    				{{ keyLast }}
-		    			</td>
-		    		</tr>
-		    		<tr>
-		    			<td>
-		    				Албан Тушаал 
-		    			</td>
-		    			<td>
-		    				{{ keyPosition }}
-		    			</td>
-		    		</tr>
-		    		<tr>
-		    			<td>
-		    				Цахим шуудан 
-		    			</td>
-		    			<td>
-		    				<a href="mailto:{{ keyEmail }}">
-		    					{{ keyEmail }}
-		    				</a>
-		    			</td>
-		    		</tr>
-		    		<tr>
-		    			<td>
-		    				Утас 
-		    			</td>
-		    			<td>
-		    				{{ keyPhoneL }}
-		    			</td>
-		    		</tr>
-		    		<tr>
-		    			<td>
-		    				Гар Утас 
-		    			</td>
-		    			<td>
-		    				{{ keyPhoneM }}
-		    			</td>
-		    		</tr>
-		    	</tbody>
-		    </table>
-		{{/ with }}
-    {{ else }}
-        Уншиж байна ...
-    {{/ if }}
+	    </div>
+	    <table>
+	    	<thead>
+	    		<th width="40%">
+	    			Нэр
+	    		</th>
+	    		<th width="60%">
+	    			Утга
+	    		</th>
+	    	</thead>
+	    	<tbody>
+	    		<tr>
+	    			<td>
+	    				Компанийн нэр 
+	    			</td>
+	    			<td>
+	    				{{ companyName }}
+	    			</td>
+	    		</tr>
+	    		<tr>
+	    			<td rowspan="3">
+	    				Хаяг
+	    			</td>
+	    			<td>
+	    				{{ addressStreet }}
+	    			</td>
+	    		</tr>
+	    		<tr>
+	    			<td>
+	    				{{ addressCity }}
+	    			</td>
+	    		</tr>
+	    		<tr>
+	    			<td>
+	    				{{ addressCountry }}
+	    			</td>
+	    		</tr>
+	    		<tr>
+	    			<td>
+	    				Утас (улсын дугаарын хамт) 
+	    			</td>
+	    			<td>
+	    				{{ phone }}
+	    			</td>
+	    		</tr>
+	    		<tr>
+	    			<td rowspan="3">
+	    				Төв оффисын байршил 
+	    			</td>
+	    			<td>
+	    				{{ hqLocationStreet }}
+	    			</td>
+	    		</tr>
+	    		<tr>
+	    			<td>
+	    				{{ hqLocationCity }}
+	    			</td>
+	    		</tr>
+	    		<tr>
+	    			<td>
+	    				{{ hqLocationCountry }}
+	    			</td>
+	    		</tr>
+	    		<tr>
+	    			<td>
+	    				Монгол улсад байршилтай оффистой эсэх? 
+	    			</td>
+	    			<td>
+	    				{{ mongolianOffice }}
+	    			</td>
+	    		</tr>
+	    		<tr>
+	    			<td>
+	    				Монгол улс дахь оффисын байршил 
+	    			</td>
+	    			<td>
+	    				{{ nameLocation }}&nbsp;
+	    			</td>
+	    		</tr>
+	    		<tr>
+	    			<td rowspan="3">
+	    				Монгол улсад хамгийн ойр байрладаг оффис  
+	    			</td>
+	    			<td>
+	    				{{ nearestStreet }}&nbsp;
+	    			</td>
+	    		</tr>
+	    		<tr>
+	    			<td>
+	    				{{ nearestCity }}&nbsp;
+	    			</td>
+	    		</tr>
+	    		<tr>
+	    			<td>
+	    				{{ nearestCountry }}&nbsp;
+	    			</td>
+	    		</tr>
+	    		<tr>
+	    			<td rowspan="3">
+	    				Монгол улсад хамгийн ойр байрладаг үйлчилгээ, үйлдвэрлэлийн байршил 
+	    			</td>
+	    			<td>
+	    				{{ servicingStreet }}
+	    			</td>
+	    		</tr>
+	    		<tr>
+	    			<td>
+	    				{{ servicingCity }}
+	    			</td>
+	    		</tr>
+	    		<tr>
+	    			<td>
+	    				{{ servicingCountry }}
+	    			</td>
+	    		</tr>
+	    		<tr>
+	    			<td>
+	    				Монгол эзэмшлийн хувь хэмжээ (Монгол улсын иргэн, аж ахуйн нэгжийн эзэмшил) 
+	    			</td>
+	    			<td>
+	    				{{{ percentage }}}
+	    			</td>
+	    		</tr>
+	    		<tr>
+	    			<td>
+	    				Компанийн ажилтны тоо
+	    			</td>
+	    			<td>
+	    				{{ howManyEmployees }}
+	    			</td>
+	    		</tr>
+	    		<tr>
+	    			<td>
+	    				Компанийн үндсэн үйл ажиллагаа
+	    			</td>
+	    			<td>
+	    				{{ describes }}
+	    			</td>
+	    		</tr>
+	    		<tr>
+	    			<td>
+	    				Компанийн үндсэн үйл ажиллагаа (Бусад)
+	    			</td>
+	    			<td>
+	    				{{ describesOther }}
+	    			</td>
+	    		</tr>
+	    		<tr>
+	    			<td>
+	    				Жилийн борлуулалтын хэмжээ (ам.доллараар) 
+	    			</td>
+	    			<td>
+	    				{{{ annualTurnover }}}
+	    			</td>
+	    		</tr>
+	    		<tr>
+	    			<td>
+	    				Үүсгэн байгуулагдсан огноо 
+	    			</td>
+	    			<td>
+	    				{{ establishmentDate }}
+	    			</td>
+	    		</tr>
+	    	</tbody>
+	    </table>
+	    <div class="form-title">
+	    	ХОЛБОО БАРИХ МЭДЭЭЛЭЛ / Холбоо барих хүн 
+	    </div>
+	    <table>
+	    	<thead>
+	    		<th width="40%">
+	    			Нэр
+	    		</th>
+	    		<th width="60%">
+	    			Утга
+	    		</th>
+	    	</thead>
+	    	<tbody>
+	    		<tr>
+	    			<td>
+	    				Нэр 
+	    			</td>
+	    			<td>
+	    				{{ keyFirst }}
+	    			</td>
+	    		</tr>
+	    		<tr>
+	    			<td>
+	    				Овог 
+	    			</td>
+	    			<td>
+	    				{{ keyLast }}
+	    			</td>
+	    		</tr>
+	    		<tr>
+	    			<td>
+	    				Албан Тушаал 
+	    			</td>
+	    			<td>
+	    				{{ keyPosition }}
+	    			</td>
+	    		</tr>
+	    		<tr>
+	    			<td>
+	    				Цахим шуудан 
+	    			</td>
+	    			<td>
+	    				<a href="mailto:{{ keyEmail }}">
+	    					{{ keyEmail }}
+	    				</a>
+	    			</td>
+	    		</tr>
+	    		<tr>
+	    			<td>
+	    				Утас 
+	    			</td>
+	    			<td>
+	    				{{ keyPhoneL }}
+	    			</td>
+	    		</tr>
+	    		<tr>
+	    			<td>
+	    				Гар Утас 
+	    			</td>
+	    			<td>
+	    				{{ keyPhoneM }}
+	    			</td>
+	    		</tr>
+	    	</tbody>
+	    </table>
+	    <div class="form-title">
+	    	ТУРШЛАГА 
+	    </div>
+	    <table>
+	    	<thead>
+	    		<th width="40%">
+	    			Нэр
+	    		</th>
+	    		<th width="60%">
+	    			Утга
+	    		</th>
+	    	</thead>
+	    	<tbody>
+	    		<tr>
+	    			<td>
+	    				Доорх бүтээгдэхүүн, үйлчилгээний төрлөөс алийг нь нийлүүлж байсан туршлагатай вэ? 
+	    			</td>
+	    			<td>
+	    				{{# each whatProducts }}
+	    					<div>
+								{{# with split this "$$$" }}
+		    						{{# each this }}
+		    							{{ this }}
+		    						{{/ each }}
+		    					{{/ with }}
+	    					</div>
+	    				{{/ each }}
+	    			</td>
+	    		</tr>
+	    		<tr>
+	    			<td rowspan="5">
+	    				Компанийн гол хэрэглэгчдийг нэрлэнэ үү (5 хүртэлх)
+	    			</td>
+	    			<td>
+	    				1 {{ topClient1 }}
+	    			</td>
+	    		</tr>
+	    		<tr>
+	    			<td>
+	    				2 {{ topClient2 }}
+	    			</td>
+	    		</tr>
+	    		<tr>
+	    			<td>
+	    				3 {{ topClient3 }}
+	    			</td>
+	    		</tr>
+	    		<tr>
+	    			<td>
+	    				4 {{ topClient4 }}
+	    			</td>
+	    		</tr>
+	    		<tr>
+	    			<td>
+	    				5 {{ topClient5 }}
+	    			</td>
+	    		</tr>
+	    		<tr>
+	    			<td>
+	    				"Оюу толгой" эсвэл "Рио тинто" компанитай хамтран ажиллаж байсан туршлагатай юу?
+	    			</td>
+	    			<td>
+	    				{{ workingOt }}
+	    			</td>
+	    		</tr>
+	    	</tbody>
+	    </table>
+	    <div class="form-title">
+	    	ХАМТЫН АЖИЛЛАГАА/ ХАМТАРСАН ТҮНШЛЭЛ
+	    </div>
+	    <table>
+	    	<thead>
+	    		<th width="40%">
+	    			Нэр
+	    		</th>
+	    		<th width="60%">
+	    			Утга
+	    		</th>
+	    	</thead>
+	    	<tbody>
+	    		<tr>
+	    			<td rowspan="2">
+	    				Монгол эсвэл гадаад компанитай хамтран ажиллахаар сонирхож байна уу? 
+	    			</td>
+	    			<td>
+	    				{{ wishPartner }}
+	    			</td>
+	    		</tr>
+	    		<tr>
+	    			<td>
+	    				{{# each wishPartnerCheck }}
+	    					<div>
+	    						{{ this }}
+	    					</div>
+	    				{{/ each }} &nbsp;
+	    			</td>
+	    		</tr>
+	    		<tr>
+	    			<td rowspan="2">
+	    				Монгол эсвэл гадаад компанитай хамтран ажиллахаар тохирсон түншлэл байгаа эсэх эсвэл яриа хэлэлцээ хийж байгаа эсэх
+	    			</td>
+	    			<td>
+	    				{{ alreadyDiscussion }}
+	    			</td>
+	    		</tr>
+	    		<tr>
+	    			<td>
+	    				{{# each alreadyDiscussionCheck }}
+	    					<div>
+	    						{{ this }}
+	    					</div>
+	    				{{/ each }} &nbsp;
+	    			</td>
+	    		</tr>
+	    	</tbody>
+	    </table>
+
+	    <div class="form-title">
+	    	МЭДЭЭЛЛИЙН НУУЦЛАЛ
+	    </div>
+	    <table>
+	    	<thead>
+	    		<th width="40%">
+	    			Нэр
+	    		</th>
+	    		<th width="60%">
+	    			Утга
+	    		</th>
+	    	</thead>
+	    	<tbody>
+	    		<tr>
+	    			<td>
+	    				"Оюу толгой" ХХК нь форумд оролцогч компанийн хүсэлтээр танай компанийн холбоо барих мэдээллийг хуваалцахыг зөвшөөрч байна уу  
+	    			</td>
+	    			<td>
+	    				{{ contactDetails }}
+	    			</td>
+	    		</tr>
+	    	</tbody>
+	    </table>
+
+	    <div class="form-title">
+	    	ЗАРДАЛ
+	    </div>
+	    <table>
+	    	<thead>
+	    		<th width="40%">
+	    			Нэр
+	    		</th>
+	    		<th width="60%">
+	    			Утга
+	    		</th>
+	    	</thead>
+	    	<tbody>
+	    		<tr>
+	    			<td>
+	    				 "Оюу толгой" ХХК нь форумд оролцохтой холбоотой гарсан манай компанийн аливаа зардлыг хариуцахгүй гэдгийг би ойлгож байна. 
+	    			</td>
+	    			<td>
+	    				Yes
+	    			</td>
+	    		</tr>
+	    	</tbody>
+	    </table>
+
+	    <div class="form-title">
+	    	ТА ЭНЭ ФОРУМЫН ТАЛААР ХААНААС ОЛЖ МЭДСЭН БЭ?
+	    </div>
+	    <table>
+	    	<thead>
+	    		<th width="40%">
+	    			Нэр
+	    		</th>
+	    		<th width="60%">
+	    			Утга
+	    		</th>
+	    	</thead>
+	    	<tbody>
+	    		<tr>
+	    			<td>
+	    				ТА ЭНЭ ФОРУМЫН ТАЛААР ХААНААС ОЛЖ МЭДСЭН БЭ?
+	    			</td>
+	    			<td>
+	    				{{ hearAbout }}
+	    			</td>
+	    		</tr>
+	    	</tbody>
+	    </table>
+	{{/ with }}
 </template>

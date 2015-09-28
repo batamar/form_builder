@@ -1,16 +1,3 @@
-/* ----------------------- common ui helpers ----------------------- */
-
-Template.registerHelper('hasCustomTemplate', function(name) {
-  var currentUser = Meteor.user();
-  var customName = currentUser.username + name;
-  return !_.isUndefined(Template[customName]);
-});
-
-Template.registerHelper('getCustomTemplateName', function(name) {
-  var currentUser = Meteor.user();
-  return {'name': currentUser.username + name};
-});
-
 /* ----------------------- default layout ----------------------- */
 
 var defaultLayout = FlowComponents.define('defaultLayout', function (props) {

@@ -107,5 +107,5 @@ submissionList.state.objects = function () {
 
   var filterQueries = FormBuilder.LibHelpers.submissionListQuery(params);
 
-  return FormBuilder.Collections.Submissions.find(filterQueries);
+  return FormBuilder.Collections.Submissions.find(filterQueries, {sort: {createdDate: -1}});
 };

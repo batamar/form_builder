@@ -26,33 +26,38 @@
                      Холбоо барих хүн
                 </th>
                 <th>
+                    Огноо
+                </th>
+                <th>
                     &nbsp;
                 </th>
             </thead>
-            <!-- <td width = "20%">{{ data.date|date:"F d, Y" }}</td> -->
+            <!-- <td width = "20%">{{{ data.date|date:"F d, Y" }}}</td> -->
             <tbody>
                 {{#each state$objects }}
                     <tr>
-                        <td>{{ companyName }}</td>
-                        <td>{{ addressCountry }}</td>
+                        <td>{{{ companyName }}}</td>
+                        <td>{{{ addressCountry }}}</td>
                         <td>
-                            {{ percentage }}
+                            {{{ percentage }}}
                         </td>
                         <td>
-                            {{ howManyEmployees }}
+                            {{{ howManyEmployees }}}
                         </td>
                         <td>
-                            {{ describes }}
+                            {{{ describes }}}
                         </td>
                         <td>
-                            {{ annualTurnover }}
+                            {{{ annualTurnover }}}
                         </td>
                         <td>
                             <a href="mailto:{{ keyEmail }}" target="_top">
-                                {{ keyEmail }}
+                                {{{ keyEmail }}}
                             </a>
                         </td>
-
+                        <td>
+                            {{ date createdDate "YYYY/MM/DD" }}
+                        </td>
                         <td >
                             <a href="/forms/submission/detail/{{ formId }}/?subId={{ _id }}">Харах</a>
                             <a href="/forms/submission/delete/{{ formId }}/?subId={{ _id }}">Устгах</a>
