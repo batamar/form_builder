@@ -1,0 +1,22 @@
+.ot-expo .subtitle{
+	color: #e37222;
+	font-size: 14px;
+	padding-bottom: 8px;
+	margin-bottom: 24px;
+	text-transform: uppercase;
+	border-bottom: 1px solid #edecec;
+}
+.ot-expo table{
+	width: 100%;
+	margin-bottom: 32px;
+}
+.ot-expo table th,
+.ot-expo table td {
+	border: 1px solid #ddd;
+	padding: 4px 8px;
+}
+.ot-expo .form-title {
+	font-weight: bold;
+	font-size: 16px;
+	margin-bottom: 24px;
+}

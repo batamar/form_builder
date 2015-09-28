@@ -1,0 +1,67 @@
+<template name="otSLCotForum">
+
+    <h3>{{ state$form.title }}</h3>
+    {{# if state$isReady }}
+        <table width = "100%" class = "number">
+            <thead>
+                <th>
+                    Компаны нэр
+                </th>
+                <th>
+                    Хаяг
+                </th>
+                <th>
+                    Монгол эзэмшлийн хувь хэмжээ 
+                </th>
+                <th>
+                    Компанийн ажилтны тоо
+                </th>
+                <th>
+                    Компанийн үндсэн үйл ажиллагаа
+                </th>
+                <th>
+                    Жилийн борлуулалтын хэмжээ 
+                </th>
+                <th>
+                     Холбоо барих хүн
+                </th>
+                <th>
+                    &nbsp;
+                </th>
+            </thead>
+            <!-- <td width = "20%">{{ data.date|date:"F d, Y" }}</td> -->
+            <tbody>
+                {{#each state$objects }}
+                    <tr>
+                        <td>{{ companyName }}</td>
+                        <td>{{ addressCountry }}</td>
+                        <td>
+                            {{ percentage }}
+                        </td>
+                        <td>
+                            {{ howManyEmployees }}
+                        </td>
+                        <td>
+                            {{ describes }}
+                        </td>
+                        <td>
+                            {{ annualTurnover }}
+                        </td>
+                        <td>
+                            <a href="mailto:{{ keyEmail }}" target="_top">
+                                {{ keyEmail }}
+                            </a>
+                        </td>
+
+                        <td >
+                            <a href="/forms/submission/detail/{{ formId }}/?subId={{ _id }}">Харах</a>
+                            <a href="/forms/submission/delete/{{ formId }}/?subId={{ _id }}">Устгах</a>
+                        </td>
+                    </tr>
+                {{/ each }}
+            </tbody>
+        </table>
+    {{ else }}
+        Уншиж байна ...
+    {{/ if }}
+</template>
