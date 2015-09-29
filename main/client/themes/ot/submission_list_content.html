@@ -26,6 +26,12 @@
                      Холбоо барих хүн
                 </th>
                 <th>
+                    Доорх бүтээгдэхүүн, үйлчилгээний төрлөөс алийг нь нийлүүлж байсан туршлагатай вэ?
+                </th>
+                <th>
+                    Монгол эсвэл гадаад компанитай хамтран ажиллахаар сонирхож байна уу?
+                </th>
+                <th>
                     Огноо
                 </th>
                 <th>
@@ -54,6 +60,24 @@
                             <a href="mailto:{{ keyEmail }}" target="_top">
                                 {{{ keyEmail }}}
                             </a>
+                        </td>
+                        <td class="expo-category-list">
+                            {{# each whatProducts }}
+                                <div>
+                                    {{# with split this "$$$" }}
+                                        {{# each this }}
+                                            {{ this }}
+                                        {{/ each }}
+                                    {{/ with }}
+                                </div>
+                            {{/ each }}
+                        </td>
+                        <td class="expo-category-list">
+                            {{# each wishPartnerCheck }}
+                                <div>
+                                    {{ this }}
+                                </div>
+                            {{/ each }}
                         </td>
                         <td>
                             {{ date createdDate "YYYY/MM/DD" }}
