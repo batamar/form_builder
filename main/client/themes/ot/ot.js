@@ -6,7 +6,6 @@ Template.otSLCotForum.events({
 	'click [data-role="export"]': function (event) {
 		var formId = $(event.currentTarget).data('form-id');
 		Meteor.call('submissionsDownload', formId, function (error, result) {
-			console.log(result);
 			var jsonList = [];
 			var categoryListEn = [
 				"Bulk materials",
@@ -60,6 +59,7 @@ Template.otSLCotForum.events({
 				"Мэргэжлийн үйлчилгээ":14,
 				"Метал хийц, төмөр":15
 			};
+
 			_.each(result, function (row, index) {
 				var newItem1 = {
 					"№": index + 1,
@@ -67,13 +67,13 @@ Template.otSLCotForum.events({
 					"City": row.addressStreet,
 					"Country": row.addressCity,
 					"Phone": row.addressCountry,
-					"City": row.hqLocationCity,
-					"Country": row.hqLocationCountry,
+					"Head quarters / City": row.hqLocationCity,
+					"Head quarters / Country": row.hqLocationCountry,
 					"Address": row.nameLocation,
-					"City": row.nearestCity,
-					"Country": row.nearestCountry,
-					"City": row.servicingCity,
-					"Country": row.servicingCountry,
+					"Nearest / City": row.nearestCity,
+					"Nearet / Country": row.nearestCountry,
+					"Servicing / City": row.servicingCity,
+					"Servicing / Country": row.servicingCountry,
 					"Percentage of Mongolian ownership": row.percentage ,
 					"Employee number": row.howManyEmployees ,
 					"Annual Turnover (in US$)": row.annualTurnover ,
@@ -83,12 +83,14 @@ Template.otSLCotForum.events({
 					"Last name": row.keyLast ,
 					"Position title": row.keyPosition ,
 					"Email": row.keyEmail ,
-					"Phone": row.keyPhoneL ,
+					"Phone with country code": row.keyPhoneL ,
 					"Mobile": row.keyPhoneM
 				};
+
 				_.each(categoryListEn, function(value,key) {
 					newItem1[value] = " ";
 				});
+
 				_.each(row.whatProducts, function(value){
 					try{
 						var catKey = value.split("$$$")[0].trim();
@@ -100,9 +102,9 @@ Template.otSLCotForum.events({
 						}
 					}
 					catch(e){
-						console.log(e);
 					}
 				});
+
 				var newItem2 = {
 					"Top Client 1": row.topClient1,
 					"Top Client 2": row.topClient2,
@@ -116,9 +118,11 @@ Template.otSLCotForum.events({
 					"Discussed to partner (Categories)": row.alreadyDiscussionCheck,
 					"Agree to share their info (Yes/No)": row.contactDetails,
 					"How did they hear about the forum?": row.hearAbout
-				}
-				var newItem = _.extend(newItem1, newItem2)
+				};
+
+				var newItem = _.extend(newItem1, newItem2);
 				jsonList.push(newItem);
+
 			});
 			return FormBuilder.Helpers.downloadCSVFile('Expo Registrations.csv', jsonList);
 		});

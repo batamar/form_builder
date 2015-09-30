@@ -12,13 +12,9 @@ Template.registerHelper('getCustomTemplateName', function(name) {
 });
 
 Template.registerHelper('split', function(value, separator) {
-  try {
+  if (value) {
     return value.split(separator);
   }
-  catch(err) {
-    console.log(err);
-  }
-  
 });
 
 Template.registerHelper('date', function(date, format) {
@@ -27,6 +23,7 @@ Template.registerHelper('date', function(date, format) {
 
 FormBuilder.Helpers.downloadFile = function (filename, text) {
   var element = document.createElement('a');
+
   element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
   element.setAttribute('download', filename);
 
