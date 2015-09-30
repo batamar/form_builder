@@ -19,4 +19,20 @@ Template.registerHelper('date', function(date, format) {
   return moment(date).format(format);
 });
 
+FormBuilder.Helpers.downloadFile = function (filename, text) {
+  var element = document.createElement('a');
+  element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+  element.setAttribute('download', filename);
 
+  element.style.display = 'none';
+  document.body.appendChild(element);
+
+  element.click();
+
+  document.body.removeChild(element);
+};
+
+FormBuilder.Helpers.downloadCSVFile = function (filename, jsonList) {
+  var csv = Papa.unparse(jsonList);
+  return FormBuilder.Helpers.downloadFile(filename, csv);
+};

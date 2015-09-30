@@ -199,4 +199,14 @@ Meteor.methods({
     FormBuilder.Collections.Submissions.remove({_id: submissionId});
   },
 
+  submissionsDownload: function (formId) {
+    check(formId, String);
+
+    // get form
+    var form = FormBuilder.Collections.Forms.findOne({_id: formId});
+
+    ownerRequired(this.userId, form.createdUser);
+
+    return FormBuilder.Collections.Submissions.find({formId: formId}).fetch();
+  }
 });

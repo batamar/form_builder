@@ -16,6 +16,10 @@ SubmissionMixin.prototype.formObj = function () {
   return FormBuilder.Collections.Forms.findOne({_id: this.formId()});
 };
 
+SubmissionMixin.state.formObj = function () {
+  return this.formObj();
+};
+
 // is ready
 SubmissionMixin.state.isReady = function () {
   return FlowRouter.subsReady();
