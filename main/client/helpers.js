@@ -12,7 +12,13 @@ Template.registerHelper('getCustomTemplateName', function(name) {
 });
 
 Template.registerHelper('split', function(value, separator) {
-  return value.split(separator);
+  try {
+    return value.split(separator);
+  }
+  catch(err) {
+    console.log(err);
+  }
+  
 });
 
 Template.registerHelper('date', function(date, format) {

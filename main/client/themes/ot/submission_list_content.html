@@ -2,6 +2,12 @@
 
     <h3>{{ state$form.title }}</h3>
     {{# if state$isReady }}
+        <div class="row">
+            <div class="col-sm-12">
+                <button class="pull-right btn btn-success" type="button" data-role="export" data-form-id="{{ state$formObj._id }}">export</button>
+            </div>
+        </div>
+        <br>
         <table width = "100%" class = "number">
             <thead>
                 <th>
