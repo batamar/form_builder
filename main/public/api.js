@@ -15,16 +15,20 @@ var FormBuilder = {
   }
 };
 
-// connect to our application
-FormBuilder.appInstance = new Asteroid('form.nmtec.co');
-
 // initialize reactive vars
 FormBuilder.subsReady = new Blaze.Var(false);
 FormBuilder.formId = new Blaze.Var();
 FormBuilder.fieldList = new Blaze.Var([]);
 
-FormBuilder.init = function (formCode) {
+FormBuilder.init = function (formCode, domain) {
   var self = this;
+
+  if (!domain) {
+    domain = 'form.nmtec.co';
+  }
+
+  // connect to our application
+  FormBuilder.appInstance = new Asteroid(domain);
 
   var formSubs = this.appInstance.subscribe('publicForms'); // subscribe to forms
   var formsCollection = this.appInstance.getCollection('form_builder_forms'); // get forms collection
