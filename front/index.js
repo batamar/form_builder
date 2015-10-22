@@ -22,7 +22,7 @@ FormBuilder.hooks.saveError = function (response) {
   });
 };
 
-FormBuilder.init('otForum');
+FormBuilder.init('frontTest', 'localhost:3000');
 
 Template.form.rendered = function () {
   $('[data-role="loader"]').hide();

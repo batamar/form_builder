@@ -4,11 +4,6 @@
 
         <title>Index</title>
         <link rel="stylesheet" href="http://localhost:3000/index.css" type="text/css" media="screen" charset="utf-8">
-
-        <script src="http://localhost:3000/dependencies/ddp.js/src/ddp.js"></script>
-        <script src="http://localhost:3000/dependencies/q/q.js"></script>
-        <script src="http://localhost:3000/dependencies/asteroid/dist/asteroid.browser.js"></script>
-        <script src="http://localhost:3000/dependencies/underscore-min.js"></script>
     </head>
 
     <body>
@@ -20,14 +15,7 @@
 
         <script type="text/spacebars" name="form">
             {{# if subsReady }}
-                {{# with fieldsDic }}
-                    <select data-schema-key="ulsuud" data-schema-type="select">
-                        <option value="uls3">uls3</option>
-                        {{# each ulsuud.options }}
-                            <option value="{{ this }}">{{ this }}</option>
-                        {{/ each }}
-                    </select>
-                {{/ with }}
+                <input type="text" data-schema-key="name" />
             {{ else }}
                 Уншиж байна ...
             {{/ if }}
@@ -45,7 +33,12 @@
             <label data-role="error"> <%= message %> </label>
         </script>
 
+        <script src="http://localhost:3000/dependencies/ddp.js/src/ddp.js"></script>
+        <script src="http://localhost:3000/dependencies/q/q.js"></script>
+        <script src="http://localhost:3000/dependencies/asteroid/dist/asteroid.browser.js"></script>
+        <script src="http://localhost:3000/dependencies/underscore-min.js"></script>
         <script src="http://localhost:3000/dependencies/blaze.js"></script>
+
         <script src="http://localhost:3000/api.js"></script>
         <script src="http://localhost:3000/template_controllers.js"></script>
         <script src="index.js"></script>
