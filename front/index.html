@@ -13,18 +13,46 @@
 
         <script type="text/spacebars" name="form">
             {{# if subsReady }}
-                <input type="text" data-schema-type="input" data-schema-key="name" />
             {{ else }}
                 Уншиж байна ...
             {{/ if }}
+
+            {{> foriengLanguage }}
+
+        </script>
+
+        <script type="text/spacebars" name="foriengLanguage">
+            <div data-schema-key="foriegnLanguage" data-schema-type="subForm">
+                <table data-role="main-container">
+                    <tr>
+                        <th>Нэр</th>
+                        <th>Унших</th>
+                    </tr>
+                    <tbody>
+                        <tr data-info="initial-row" data-role="per-row">
+                            <td>
+                                <input type="text" data-schema-key="foriegnLanguage.0.name" data-schema-type="input" />
+                            </td>
+                            <td>
+                                 <select data-schema-key="foriegnLanguage.0.read" data-schema-type="select">
+                                    <option value="Very well">Very well</option>
+                                    <option value="Good">Good</option>
+                                </select>
+                            </td>
+
+                            <td>
+                                <button type="button" data-action="remove">remove</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button type="button" data-action="add">Add</button>
+            </div>
 
             <p>
                 <button type="button" data-action="save">Хадгалах</button>
                 <span data-role="loader">Хадгалж байна ...</span>
             </p>
-        </script>
-
-        <script type="text/spacebars" name="subFormField">
         </script>
 
         <script type="text/template" id="error-template">

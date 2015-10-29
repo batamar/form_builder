@@ -27,3 +27,5 @@ FormBuilder.init('frontTest', 'localhost:3000');
 Template.form.rendered = function () {
   $('[data-role="loader"]').hide();
 };
+
+Template.foriengLanguage.events(FormBuilder.subFormEvents);

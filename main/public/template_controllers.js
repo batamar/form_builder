@@ -1,5 +1,16 @@
 /* ----------------------- subFormField ----------------------- */
 
+FormBuilder.subFormEvents = {
+  // add
+  'click [data-action="add"]': function (evt, tmpl) {
+    FormBuilder.addSubFieldItem(evt, tmpl);
+  },
+
+  // remove
+  'click [data-action="remove"]': function (evt) {
+    FormBuilder.removeSubFieldItem(evt);
+  }
+};
 
 // if subForm needed
 if (Template.subFormField) {
@@ -20,17 +31,7 @@ if (Template.subFormField) {
 
 
   // events
-  Template.subFormField.events({
-    // add
-    'click [data-action="add"]': function (evt, tmpl) {
-      FormBuilder.addSubFieldItem(evt, tmpl);
-    },
-
-    // remove
-    'click [data-action="remove"]': function (evt) {
-      FormBuilder.removeSubFieldItem(evt);
-    }
-  });
+  Template.subFormField.events(FormBuilder.subFormEvents);
 }
 
 
