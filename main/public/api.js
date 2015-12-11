@@ -22,13 +22,14 @@ FormBuilder.fieldList = new Blaze.Var([]);
 
 FormBuilder.init = function (formCode, domain) {
   var self = this;
+  this.domain = domain;
 
-  if (!domain) {
-    domain = 'form.nmtec.co';
+  if (!this.domain) {
+    this.domain = 'form.nmtec.co';
   }
 
   // connect to our application
-  FormBuilder.appInstance = new Asteroid(domain);
+  FormBuilder.appInstance = new Asteroid(this.domain);
 
   var formSubs = this.appInstance.subscribe('publicForms'); // subscribe to forms
   var formsCollection = this.appInstance.getCollection('form_builder_forms'); // get forms collection
@@ -257,4 +258,14 @@ FormBuilder.saveData = function (dataToSave) {
   result.fail(function (response) {
     console.log(response);
   });
+};
+
+
+FormBuilder.fileUpload = function (handler, options) {
+  options.url = 'http://' + this.domain + '/upload';
+  options.formData = {
+    domain: location.hostname || this.domain,
+  };
+
+  $(handler).fileupload(options);
 };

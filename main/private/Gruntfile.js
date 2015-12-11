@@ -9,8 +9,13 @@ module.exports = function(grunt) {
       },
       build: {
         src: [
-        '../public/dependencies/ddp.js/src/ddp.js', '../public/dependencies/q/q.js', '../public/dependencies/asteroid/dist/asteroid.browser.js',
-        '../public/dependencies/underscore-min.js', '../public/dependencies/blaze.js', '../public/api.js', '../public/template_controllers.js'
+          '../public/dependencies/ddp.js/src/ddp.js',
+          '../public/dependencies/q/q.js',
+          '../public/dependencies/asteroid/dist/asteroid.browser.js',
+          '../public/dependencies/underscore-min.js',
+          '../public/dependencies/blaze.js',
+          '../public/api.js',
+          '../public/template_controllers.js'
         ],
         dest: '../public/<%= pkg.name %>.min.js'
       }

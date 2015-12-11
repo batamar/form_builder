@@ -26,6 +26,26 @@ FormBuilder.init('frontTest', 'localhost:3000');
 
 Template.form.rendered = function () {
   $('[data-role="loader"]').hide();
+
+  FormBuilder.fileUpload('.fileupload', {
+    fail: function (e, data) {
+      console.log(data._response.jqXHR.responseText);
+    },
+
+    done: function (e, data) {
+      var result = JSON.parse(data.result);
+
+      console.log(result.files[0].url);
+    }
+  });
+
+  $('.fileupload')
+    .bind('fileuploadstart', function (e) {
+      console.log('start');
+    })
+    .bind('fileuploadstop', function (e) {
+      console.log('stop');
+    });
 };
 
 Template.foriengLanguage.events(FormBuilder.subFormEvents);

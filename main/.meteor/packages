@@ -16,7 +16,7 @@ chrismbeckett:toastr
 mizzao:jquery-ui
 aldeed:autoform
 accounts-password
-meteorhacks:picker
 spacebars-compiler
 momentjs:moment
 harrison:papa-parse
+tomi:upload-server

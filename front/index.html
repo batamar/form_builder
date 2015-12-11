@@ -7,18 +7,14 @@
     <body>
         <script type="text/spacebars" name="main">
             <div id="submitForm" class="submit-form-container">
+                <input class="fileupload" type="file" multiple>
+
                 {{> form }}
             </div>
         </script>
 
         <script type="text/spacebars" name="form">
-            {{# if subsReady }}
-            {{ else }}
-                Уншиж байна ...
-            {{/ if }}
-
             {{> foriengLanguage }}
-
         </script>
 
         <script type="text/spacebars" name="foriengLanguage">
@@ -60,6 +56,8 @@
         </script>
 
         <script src="http://localhost:3000/FormBuilder.min.js"></script>
+        <script src="http://localhost:3000/jquery.ui.widget.js"></script>
+        <script src="http://localhost:3000/jquery.fileupload.js"></script>
         <script src="index.js"></script>
     </body>
 </html>
