@@ -17,6 +17,8 @@ mizzao:jquery-ui
 aldeed:autoform
 accounts-password
 spacebars-compiler
-momentjs:moment
 harrison:papa-parse
 tomi:upload-server
+momentjs:moment
+lbee:moment-helpers
+
