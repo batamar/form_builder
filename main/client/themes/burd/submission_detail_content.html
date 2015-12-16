@@ -1,8 +1,14 @@
-<template name="brbSDetCbrbAnket">
+<template name="burdSDetCanketBurd">
+    <!--
+        template name:
+            username: burd;
+            'SDetC' - must be included in between
+            form name: anketBurd;
+    -->
     {{# with state$object }}
     <!-- Fixed navbar -->
-    <nav class="navbar navbar-default navbar-fixed-top brb-navbar">
-        <div id="brbContainer" class="container brb-font">
+    <nav class="navbar navbar-default navbar-fixed-top burd-navbar">
+        <div id="burdContainer" class="container font-helvetica">
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
@@ -14,10 +20,10 @@
             </div>
         </div>
     </nav>
-    <div class="container brb-container brb-font">
-        <div id="job" class="panel panel-default brb-panel">
-            <div class="panel brb-panel-header">
-                <p class="brb-panel-title">Үндсэн мэдээлэл</p>
+    <div class="container burd-container font-helvetica">
+        <div id="job" class="panel panel-default burd-panel">
+            <div class="panel burd-panel-header">
+                <p class="burd-panel-title">Үндсэн мэдээлэл</p>
             </div>
             <div class="panel panel-body">
                 <div class="col-md-2">
@@ -29,12 +35,12 @@
                     <p>РД: </p>
                 </div>
                 <div class="col-md-2 text-uppercase">
-                    <p><span class="bold italic">{{ familyName }}</span></p>
-                    <p><span class="bold italic">{{ lastName }}</span></p>
-                    <p><span class="bold italic">{{ firstName }}</span></p>
-                    <p><span class="bold italic">{{ gender }}</span></p>
-                    <p><span class="bold">{{ birthDate }}</span></p>
-                    <p><span class="bold italic">{{ registerNumber }}</span></p>
+                    <p><span class="bold italic">{{ burdFamilyName }}</span></p>
+                    <p><span class="bold italic">{{ burdLastName }}</span></p>
+                    <p><span class="bold italic">{{ burdFirstName }}</span></p>
+                    <p><span class="bold italic">{{ burdGender }}</span></p>
+                    <p><span class="bold">{{ burdBirthDate }}</span></p>
+                    <p><span class="bold italic">{{ burdRegisterNumber }}</span></p>
                 </div>
                 <div class="col-md-3">
                     <p>Сонирхож буй албан тушаал:</p>
@@ -45,46 +51,21 @@
                     <p>Оршин суугаа хаяг:</p>
                 </div>
                 <div class="col-md-5 text-uppercase">
-                    <p><span class="bold italic">{{ fPosition }}</span></p>
-                    <p><span class="bold italic"> {{ fSalaryMin }} - {{ fSalaryMax }}</span></p>
-                    <p><span class="bold italic"> {{ fEntryDate }}</span></p>
-                    <p><span class="bold italic">{{ fPhoneM }}, {{ fPhoneH }}</span></p>
-                    <p><span class="bold text-lowercase"> {{ fEmail }}</span></p>
+                    <p><span class="bold italic">{{ burdPosition }}</span></p>
+                    <p><span class="bold italic"> {{ burdSalaryMin }} - {{ burdSalaryMax }}</span></p>
+                    <p><span class="bold italic"> {{ burdEntryDate }}</span></p>
+                    <p><span class="bold italic">{{ burdPhoneM }}, {{ burdPhoneH }}</span></p>
+                    <p><span class="bold text-lowercase"> {{ burdEmail }}</span></p>
                     <p>
-                        <span class="bold"> {{ fHotAimag }} {{ fDuuregSum }} {{ fHorooBag }} {{ fHoroololHeseg }} {{ fBairGudam }} {{ fToot }}
+                        <span class="bold"> {{ burdHotAimag }} {{ burdDuuregSum }} {{ burdHorooBag }} {{ burdHoroololHeseg }} {{ burdBairGudam }} {{ burdToot }}
                         </span>
                     </p>
                 </div>
             </div>
         </div>
-        <div id="main" class="panel panel-default brb-panel">
-            <div class="panel brb-panel-header">
-                <p class="brb-panel-title">Хавсралт материалууд</p>
-            </div>
-            <div class="panel panel-body">
-                <div class="col-md-12 float-right">
-                    <a href="{{ picSelf }}" target="_blank">
-                        <img class="brb-thumbnail" src="{{ picSelf }}" alt="Цээж зураг" width="200" height="200" title="Цээж зураг"/>
-                    </a>
-                    <a href="{{ picRegistry }}" target="_blank">
-                        <img class="brb-thumbnail" src="{{ picRegistry }}" alt="Иргэний үнэмлэхний зураг" width="200" height="200" title="Иргэний үнэмлэх"/>
-                    </a>
-                    <a href="{{ picDiploma }}" target="_blank">
-                        <img class="brb-thumbnail" src="{{ picDiploma }}" alt="Диплом, гэрчилгээний хуулбар зураг" width="200" height="200" title="Диплом, гэрчилгээний хуулбар"/>
-                    </a>
-                    <a href=" {{ picStatus }}" target="_blank">
-                        <img class="brb-thumbnail" src="{{ picStatus }}" alt="Гэрлэлтийн лавлагаа зураг" width="200" height="200" title="Гэрлэлтийн лавлагаа"/>
-                    </a>
-                    <a href="{{ reference }}" target="_blank">
-                        <img class="brb-thumbnail" src="{{ reference }}" alt="Ажил байдлын тодорхойлолт" width="200" height="200" title="Ажил байдлын тодорхойлолт"/>
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <div id="education" class="panel panel-info brb-panel brb-panel-education">
-            <div class="panel brb-panel-header">
-                <p class="brb-panel-title">Боловсрол ({{ educationLevel }})</p>
+        <div id="education" class="panel panel-info burd-panel">
+            <div class="panel burd-panel-header">
+                <p class="burd-panel-title">Боловсрол ({{ burdEducationLevel }})</p>
             </div>
             <div class="panel panel-body">
                 <table class="table table-hover table-bordered">
@@ -101,7 +82,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        {{ #each education }}
+                        {{ #each burdEducation }}
                         <tr>
                             <td>{{ schoolCountry }}</td>
                             <td>{{ schoolName }}</td>
@@ -117,9 +98,9 @@
                 </table>
             </div>
         </div>
-        <div id="employment" class="panel panel-primary brb-panel">
-            <div class="panel brb-panel-header">
-                <p class="brb-panel-title">Ажил эрхлэлт</p>
+        <div id="employment" class="panel panel-primary burd-panel">
+            <div class="panel burd-panel-header">
+                <p class="burd-panel-title">Ажил эрхлэлт</p>
             </div>
             <div class="panel panel-body">
                 <table class="table table-hover table-bordered">
@@ -134,7 +115,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        {{ #each employment }}
+                        {{ #each burdEmployment }}
                         <tr>
                             <td>{{ entityName }}</td>
                             <td>{{ entityPosition }}</td>
@@ -148,9 +129,37 @@
                 </table>
             </div>
         </div>
-        <div id="emergency" class="panel panel-warning brb-panel brb-panel-emergency">
-            <div class="panel brb-panel-header">
-                <p class="brb-panel-title brb-panel-title-emergency">Яаралтай үед холбоо барих</p>
+        <div id="main" class="panel panel-default burd-panel">
+            <div class="panel burd-panel-header">
+                <p class="burd-panel-title">Хавсралт материалууд</p>
+            </div>
+            <div class="panel panel-body">
+                <div class="row">
+                    <div class="col-md-12 float-right">
+                        <a href="{{ burdPicSelf }}" target="_blank">
+                            <img class="burd-thumbnail" src="{{ burdPicSelf }}" alt="Цээж зураг" width="240" height="200" title="Цээж зураг"/>
+                        </a>
+                        <a href="{{ burdPicRegistry }}" target="_blank">
+                            <img class="burd-thumbnail" src="{{ burdPicRegistry }}" alt="Иргэний үнэмлэхний зураг" width="240" height="200" title="Иргэний үнэмлэх"/>
+                        </a>
+                        <a href="{{ burdPicDiploma }}" target="_blank">
+                            <img class="burd-thumbnail" src="{{ burdPicDiploma }}" alt="Диплом, гэрчилгээний хуулбар зураг" width="240" height="200" title="Диплом, гэрчилгээний хуулбар"/>
+                        </a>
+                        <a href=" {{ burdPicStatus }}" target="_blank">
+                            <img class="burd-thumbnail" src="{{ burdPicStatus }}" alt="Гэрлэлтийн лавлагаа зураг" width="240" height="200" title="Гэрлэлтийн лавлагаа"/>
+                        </a>
+                        <div>
+                            <a href="{{ burdReference }}" target="_blank" title="Ажил байдлын тодорхойлолт">Ажил байдлын тодорхойлолт</a>
+                            <br>
+                            <a href="{{ burdFileHistory }}" target="_blank" title="Намтар">Намтар</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="emergency" class="panel panel-warning burd-panel burd-panel-emergency">
+            <div class="panel burd-panel-header">
+                <p class="burd-panel-title">Яаралтай үед холбоо барих</p>
             </div>
             <div class="panel panel-body">
                 <table class="table table-hover table-bordered">
@@ -162,7 +171,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        {{ #each emergency }}
+                        {{ #each burdEmergency }}
                         <tr class="center">
                             <td>{{ contactName }}</td>
                             <td>{{ contactRelation }}</td>
