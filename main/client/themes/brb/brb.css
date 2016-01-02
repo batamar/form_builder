@@ -35,21 +35,9 @@
   border-color: #2196F3;
 }
 
-/*#brb-menu li:hover {
-  border-top: 1.4px solid #01579B;
-  color: #01579B;
-}
-
-#brb-menu .active a {
-  border-top: 1.4px solid #01579B;
-  background-color: #fff;
-  color: #01579B; 
-}*/
-
 #brbContainer {
   padding: 0px 15px;
 }
-
 
 #navbar > ul > li {
   border: 1px solid #01579B;
