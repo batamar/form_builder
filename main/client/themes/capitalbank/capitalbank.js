@@ -1,3 +1,3 @@
-FlowComponents.define('brbLayout', function (props) {
+FlowComponents.define('capitalbankLayout', function (props) {
 	this.set('content', props.content);
 });
