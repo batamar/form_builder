@@ -1,0 +1,212 @@
+<template name="brbSDetCbrbAnket">
+    {{# with state$object }}
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top brb-navbar">
+        <div id="brbContainer" class="container brb-font">
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a id="buttonBack" href="/forms/submission-list/{{ formId }}" class="pull-right btn">
+                            Буцах
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container brb-container brb-font">
+        <div id="job" class="panel panel-default brb-panel">
+            <div class="panel brb-panel-header">
+                <p class="brb-panel-title">Үндсэн мэдээлэл</p>
+            </div>
+            <div class="panel panel-body">
+                <div class="col-md-2">
+                    <p>Ургийн овог: </p>
+                    <p>Овог: </p>
+                    <p>Нэр: </p>
+                    <p>Хүйс: </p>
+                    <p>Төрсөн огноо: </p>
+                    <p>РД: </p>
+                </div>
+                <div class="col-md-2 text-uppercase">
+                    <p><span class="bold italic">{{ familyName }}</span></p>
+                    <p><span class="bold italic">{{ lastName }}</span></p>
+                    <p><span class="bold italic">{{ firstName }}</span></p>
+                    <p><span class="bold italic">{{ gender }}</span></p>
+                    <p><span class="bold">{{ birthDate }}</span></p>
+                    <p><span class="bold italic">{{ passwordNumber }}</span></p>
+                </div>
+                <div class="col-md-3">
+                    <p>Сонирхож буй албан тушаал:</p>
+                    <p>Хүсч буй цалин:</p> 
+                    <p>Ажилд орох боломжтой огноо:</p>
+                    <p>Харилцах утас:</p>
+                    <p>Цахим шуудангийн хаяг:</p>
+                    <p>Оршин суугаа хаяг:</p>
+                    <p>Төрсөн газар:</p>
+
+                </div>
+                <div class="col-md-5 text-uppercase">
+                    <p><span class="bold italic">{{ fPosition }}</span></p>
+                    <p><span class="bold italic"> {{ salaryWish }}</span></p>
+                    <p><span class="bold italic"> {{ availableDate }}</span></p>
+                    <p><span class="bold italic">{{ handphoneNumber }}, {{ homephoneNumber }}</span></p>
+                    <p><span class="bold text-lowercase"> {{ emailAddress }}</span></p>
+                    <p>
+                        <span class="bold"> 
+                        {{ locationAddress }} {{ locationType }}
+                        </span>
+                    </p>
+                    <p><span class="bold text-lowercase">{{ birthCity }} {{ birthDistrict }}</span></p>
+                </div>
+            </div>
+        </div>
+        <div id="main" class="panel panel-default brb-panel">
+            <div class="panel brb-panel-header">
+                <p class="brb-panel-title">Хавсралт материалууд</p>
+            </div>
+            <div class="panel panel-body">
+                <div class="col-md-12 float-right">
+                    <a href="{{ picSelf }}" target="_blank">
+                        <img class="brb-thumbnail" src="{{ picSelf }}" alt="Цээж зураг" width="200" height="200" title="Цээж зураг"/>
+                    </a>
+                    <a href="{{ picRegistry }}" target="_blank">
+                        <img class="brb-thumbnail" src="{{ picRegistry }}" alt="Иргэний үнэмлэхний зураг" width="200" height="200" title="Иргэний үнэмлэх"/>
+                    </a>
+                    <a href="{{ picDiploma }}" target="_blank">
+                        <img class="brb-thumbnail" src="{{ picDiploma }}" alt="Диплом, гэрчилгээний хуулбар зураг" width="200" height="200" title="Диплом, гэрчилгээний хуулбар"/>
+                    </a>
+                    <a href=" {{ picStatus }}" target="_blank">
+                        <img class="brb-thumbnail" src="{{ picStatus }}" alt="Гэрлэлтийн лавлагаа зураг" width="200" height="200" title="Гэрлэлтийн лавлагаа"/>
+                    </a>
+                    <a href="{{ reference }}" target="_blank">
+                        <img class="brb-thumbnail" src="{{ reference }}" alt="Ажил байдлын тодорхойлолт" width="200" height="200" title="Ажил байдлын тодорхойлолт"/>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div id="education" class="panel panel-info brb-panel">
+            <div class="panel brb-panel-header">
+                <p class="brb-panel-title">Боловсрол ({{ educationLevel }})</p>
+            </div>
+            <div class="panel panel-body">
+                <table class="table table-hover table-bordered">
+                    <thead class="bold">
+                        <tr>
+                            <th>Улс, хот</th>
+                            <th>Сургуулийн нэр</th>
+                            <th>Элссэн огноо</th>
+                            <th>Төгссөн огноо</th>
+                            <th>Эзэмшсэн мэргэжил</th>
+                            <th>Зэрэг</th>
+                            <th>Гэрчилгээний дугаар</th>
+                            <th>Голч дүн</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{ #each education }}
+                        <tr>
+                            <td>{{ schoolCountry }}</td>
+                            <td>{{ schoolName }}</td>
+                            <td>{{ schoolStarted }}</td>
+                            <td>{{ schoolGraduated }}</td>
+                            <td>{{ schoolProfession }}</td>
+                            <td>{{ schoolDegree }}</td>
+                            <td>{{ schoolCertNum }}</td>
+                            <td>{{ schoolGpa }}</td>
+                        </tr>
+                        {{ /each }}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div id="employment" class="panel panel-primary brb-panel">
+            <div class="panel brb-panel-header">
+                <p class="brb-panel-title">Ажил эрхлэлт</p>
+            </div>
+            <div class="panel panel-body">
+                <table class="table table-hover table-bordered">
+                    <thead class="bold">
+                        <tr>
+                            <th>Байгууллагын нэр</th>
+                            <th>Албан тушаал</th>
+                            <th>Ажилд орсон огноо</th>
+                            <th>Ажлаас гарсан огноо</th>
+                            <th>Авч байсан цалин</th>
+                            <th>Ажлаас гарсан шалтгаан</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{ #each employment }}
+                        <tr>
+                            <td>{{ entityName }}</td>
+                            <td>{{ entityPosition }}</td>
+                            <td>{{ entityStarted }}</td>
+                            <td>{{ entityLeft }}</td>
+                            <td>{{ entitySalary }}</td>
+                            <td>{{ entityReason }}</td>
+                        </tr>
+                        {{ /each }}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div id="certification" class="panel panel-warning brb-panel">
+            <div class="panel brb-panel-header">
+                <p class="brb-panel-title">Сургалт дамжаанд хамрагдсан байдал</p>
+            </div>
+            <div class="panel panel-body">
+                <table class="table table-hover table-bordered">
+                    <thead class="bold">
+                        <tr>
+                            <th>Сэдэв, чиглэл</th>
+                            <th>Газар</th>
+                            <th>Эхэлсэн огноо</th>
+                            <th>Үргэлжилсэн хугацаа</th>
+                            <th>Гэрчилгээний дугаар</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{ #each certification }}
+                        <tr class="center">
+                            <td>{{ certArea }}</td>
+                            <td>{{ certLocation }}</td>
+                            <td>{{ certStarted }}</td>
+                            <td>{{ certDuration }}</td>
+                            <td>{{ certNumber }}</td>
+                        </tr>
+                        {{ /each }}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div id="emergency" class="panel panel-warning brb-panel brb-panel-emergency">
+            <div class="panel brb-panel-header">
+                <p class="brb-panel-title">Яаралтай үед холбоо барих</p>
+            </div>
+            <div class="panel panel-body">
+                <table class="table table-hover table-bordered">
+                    <thead class="bold">
+                        <tr>
+                            <th>Холбоо барих хүний нэр</th>
+                            <th>Хэн болох</th>
+                            <th>Утас</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{ #each emergency }}
+                        <tr class="center">
+                            <td>{{ contactName }}</td>
+                            <td>{{ contactRelation }}</td>
+                            <td>{{ contactPhone }}</td>
+                        </tr>
+                        {{ /each }}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- /container -->
+    {{/ with }}
+</template>

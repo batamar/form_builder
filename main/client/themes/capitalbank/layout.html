@@ -1,0 +1,14 @@
+<template name="brbLayout">
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+        <div class="container-fluid">
+            <div class="row">              
+                <div class="col-sm-12">
+                    <a href="#" class="pull-right btn btn-primary btn-sm" onclick="Meteor.logout()">Гарах</a>
+                    {{> render component=state$content}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /#wrapper -->
+</template>
