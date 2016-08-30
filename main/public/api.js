@@ -20,7 +20,7 @@ FormBuilder.subsReady = new Blaze.Var(false);
 FormBuilder.formId = new Blaze.Var();
 FormBuilder.fieldList = new Blaze.Var([]);
 
-FormBuilder.init = function (formCode, domain) {
+FormBuilder.init = function (formCode, domain, ssl) {
   var self = this;
   this.domain = domain;
 
@@ -29,7 +29,7 @@ FormBuilder.init = function (formCode, domain) {
   }
 
   // connect to our application
-  FormBuilder.appInstance = new Asteroid(this.domain, true);
+  FormBuilder.appInstance = new Asteroid(this.domain, ssl);
 
   var formSubs = this.appInstance.subscribe('publicForms'); // subscribe to forms
   var formsCollection = this.appInstance.getCollection('form_builder_forms'); // get forms collection
