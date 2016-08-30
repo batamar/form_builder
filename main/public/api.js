@@ -29,7 +29,7 @@ FormBuilder.init = function (formCode, domain) {
   }
 
   // connect to our application
-  FormBuilder.appInstance = new Asteroid(this.domain);
+  FormBuilder.appInstance = new Asteroid(this.domain, true);
 
   var formSubs = this.appInstance.subscribe('publicForms'); // subscribe to forms
   var formsCollection = this.appInstance.getCollection('form_builder_forms'); // get forms collection
