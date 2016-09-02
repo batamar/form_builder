@@ -262,7 +262,7 @@ FormBuilder.saveData = function (dataToSave) {
 
 
 FormBuilder.fileUpload = function (handler, options) {
-  options.url = 'http://' + this.domain + '/upload';
+  options.url = 'https://' + this.domain + '/upload';
   options.formData = {
     domain: location.hostname || this.domain,
   };
