@@ -74,7 +74,7 @@
   margin-bottom: 0px;
 }
 
-.muis-thumbnail {
+.thumbnail {
   display: inline-block;
   padding: 4px;
   margin-right: 10px;
@@ -88,9 +88,9 @@
           transition: border .2s ease-in-out;
 }
 
-img.muis-thumbnail:hover,
-img.muis-thumbnail:focus,
-img.muis-thumbnail.active {
+img.thumbnail:hover,
+img.thumbnail:focus,
+img.thumbnail.active {
   border-color: #337ab7;
 }
 
