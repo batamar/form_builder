@@ -1,0 +1,22 @@
+<template name="muisSDelCanketMuis">
+    <!--
+        template name:
+            username: muis;
+            'SDelC' - must be included in between
+            form name: anketMuis;
+    -->
+    <h3>{{ state$object.title }}</h3>
+
+    <form id="submissionDeleteForm">
+         {{# with state$object }}
+    
+            {{ firstName }}
+
+        {{/ with }}
+
+        <div class="footer-buttons">
+            <button type="submit" class="btn btn-danger btn-sm">Устгах</button>
+            <a href="/forms/submission-list/{{ formId }}" class="btn btn-primary btn-sm">Буцах</a>
+        </div>
+    </form>
+</template>
