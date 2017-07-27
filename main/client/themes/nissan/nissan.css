@@ -26,16 +26,16 @@
   font-size: 16px;
 }
 
-.brb-font {
+.nissan-font {
   font-family: "Helvetica Neue";
 }
 
-.brb-navbar {
+.nissan-navbar {
   background-color: #fff;
   border-color: #2196F3;
 }
 
-#brbContainer {
+#nissanContainer {
   padding: 0px 15px;
 }
 
@@ -46,24 +46,24 @@
   background-color: #fff;
 }
 
-.brb-panel {
+.nissan-panel {
   margin-top: 40px;
   border-width: 1px;
-  border-color: #03A9F4;
+  border-color: #267b2c;
 }
 
-.brb-panel-emergency {
+.nissan-panel-emergency {
   width: 50%;
 }
 
-.brb-panel-title {
+.nissan-panel-title {
   color: #fff;
   height: 40px;
   padding: 10px 10px;
-  background-color: #03A9F4;
+  background-color: #267b2c;
 }
 
-.brb-menu-padding {
+.nissan-menu-padding {
   padding-top: 20px;
 }
 
@@ -74,14 +74,14 @@
   margin: 0px 0px;
 }
 
-.brb-panel-header {
+.nissan-panel-header {
   font-size: 16px;
   background-color: #fff;
   box-shadow: none;
   margin-bottom: 0px;
 }
 
-.brb-thumbnail {
+.nissan-thumbnail {
   display: inline-block;
   padding: 4px;
   margin-right: 10px;
@@ -95,8 +95,8 @@
           transition: border .2s ease-in-out;
 }
 
-img.brb-thumbnail:hover,
-img.brb-thumbnail:focus,
-img.brb-thumbnail.active {
+img.nissan-thumbnail:hover,
+img.nissan-thumbnail:focus,
+img.nissan-thumbnail.active {
   border-color: #337ab7;
 }

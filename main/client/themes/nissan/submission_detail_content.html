@@ -1,8 +1,8 @@
-<template name="brbSDetCbrbAnket">
+<template name="nissanSDetCnissanAnket">
     {{# with state$object }}
     <!-- Fixed navbar -->
-    <nav class="navbar navbar-default navbar-fixed-top brb-navbar">
-        <div id="brbContainer" class="container brb-font">
+    <nav class="navbar navbar-default navbar-fixed-top nissan-navbar">
+        <div id="nissanContainer" class="container nissan-font">
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
@@ -14,112 +14,110 @@
             </div>
         </div>
     </nav>
-    <div class="container brb-container brb-font">
-        <div id="job" class="panel panel-default brb-panel">
-            <div class="panel brb-panel-header">
-                <p class="brb-panel-title">Үндсэн мэдээлэл</p>
+    <div class="nissan-container nissan-font">
+        <div id="job" class="panel panel-default nissan-panel">
+            <div class="panel nissan-panel-header">
+                <p class="nissan-panel-title">Үндсэн мэдээлэл</p>
             </div>
             <div class="panel panel-body">
                 <div class="col-md-2">
+                    <p>Иргэншил / Яс үндэс: </p>
                     <p>Ургийн овог: </p>
                     <p>Овог: </p>
                     <p>Нэр: </p>
                     <p>Хүйс: </p>
                     <p>Төрсөн огноо: </p>
                     <p>РД: </p>
+                    <p>И-мэйл: </p>
+                    <p>Гар утас: </p>
                 </div>
-                <div class="col-md-2 text-uppercase">
-                    <p><span class="bold italic">{{ familyName }}</span></p>
-                    <p><span class="bold italic">{{ lastName }}</span></p>
-                    <p><span class="bold italic">{{ firstName }}</span></p>
-                    <p><span class="bold italic">{{ gender }}</span></p>
-                    <p><span class="bold">{{ birthDate }}</span></p>
-                    <p><span class="bold italic">{{ registerNumber }}</span></p>
+                <div class="col-md-3 text-uppercase">
+                    <p><span class="bold">{{ nNationality }}</span></p>
+                    <p><span class="bold">{{ nFamilyName }}</span></p>
+                    <p><span class="bold">{{ nLastName }}</span></p>
+                    <p><span class="bold">{{ nFirstName }}</span></p>
+                    <p><span class="bold">{{ nGender }}</span></p>
+                    <p><span class="bold">{{ nBirthday }}</span></p>
+                    <p><span class="bold">{{ nRegister }}</span></p>
+                    <p><span class="bold">{{ nEmail }}</span></p>
+                    <p><span class="bold">{{ nMobile }}</span></p>
                 </div>
                 <div class="col-md-3">
+                    <p>Яаралтай үед холбогдох утас: </p>
+                    <p>Гэрийн хаяг, утас: </p>
+                    <p>Гэрлэсэн эсэх: </p>
                     <p>Сонирхож буй албан тушаал:</p>
-                    <p>Хүсч буй цалин:</p> 
-                    <p>Ажилд орох боломжтой огноо:</p>
-                    <p>Харилцах утас:</p>
-                    <p>Цахим шуудангийн хаяг:</p>
-                    <p>Оршин суугаа хаяг:</p>
+                    <p>Эсвэл өөр ажлын байранд:</p> 
+                    <p>Хүсч буй цалингийн хэмжээ:</p>
+                    <p>Сул орон тооны мэдээллийг хаанаас авсан:</p>
+
                 </div>
-                <div class="col-md-5 text-uppercase">
-                    <p><span class="bold italic">{{ fPosition }}</span></p>
-                    <p><span class="bold italic"> {{ fSalaryMin }} - {{ fSalaryMax }}</span></p>
-                    <p><span class="bold italic"> {{ fEntryDate }}</span></p>
-                    <p><span class="bold italic">{{ fPhoneM }}, {{ fPhoneH }}</span></p>
-                    <p><span class="bold text-lowercase"> {{ fEmail }}</span></p>
-                    <p>
-                        <span class="bold"> {{ fHotAimag }} {{ fDuuregSum }} {{ fHorooBag }} {{ fHoroololHeseg }} {{ fBairGudam }} {{ fToot }}
-                        </span>
-                    </p>
+                <div class="col-md-4 text-uppercase">
+                    <p><span class="bold">{{ nMobile2 }}</span></p>
+                    <p><span class="bold">{{ nAddress }}</span></p>
+                    <p><span class="bold">{{ nMarried }}</span></p>
+                    <p><span class="bold">{{ nPosition }}</span></p>
+                    <p><span class="bold"> {{ nAnotherPosition }}</span></p>
+                    <p><span class="bold"> {{ nSalary }}</span></p>
+                    <p><span class="bold"> {{ nSource }}</span></p>
+               
                 </div>
             </div>
         </div>
-        <div id="main" class="panel panel-default brb-panel">
-            <div class="panel brb-panel-header">
-                <p class="brb-panel-title">Хавсралт материалууд</p>
+        <div id="main" class="panel panel-default nissan-panel">
+            <div class="panel nissan-panel-header">
+                <p class="nissan-panel-title">Хавсралт материалууд {{ nPortrait }}</p>
             </div>
             <div class="panel panel-body">
                 <div class="col-md-12 float-right">
-                    <a href="{{ picSelf }}" target="_blank">
-                        <img class="brb-thumbnail" src="{{ picSelf }}" alt="Цээж зураг" width="200" height="200" title="Цээж зураг"/>
+                    <a href="{{ nPortrait }}" target="_blank">
+                        <img class="nissan-thumbnail" src="{{ nPortrait }}" alt="Цээж зураг" width="200" height="200" title="Цээж зураг"/>
                     </a>
-                    <a href="{{ picRegistry }}" target="_blank">
-                        <img class="brb-thumbnail" src="{{ picRegistry }}" alt="Иргэний үнэмлэхний зураг" width="200" height="200" title="Иргэний үнэмлэх"/>
+                    <a href="{{ nCV }}" target="_blank">
+                        <img class="nissan-thumbnail" src="{{ nCV }}" alt="Бэлтгэсэн CV" width="200" height="200" title="Бэлтгэсэн CV"/>
                     </a>
-                    <a href="{{ picDiploma }}" target="_blank">
-                        <img class="brb-thumbnail" src="{{ picDiploma }}" alt="Диплом, гэрчилгээний хуулбар зураг" width="200" height="200" title="Диплом, гэрчилгээний хуулбар"/>
+                    <a href="{{ nDiplom }}" target="_blank">
+                        <img class="nissan-thumbnail" src="{{ nDiplom }}" alt="Диплом, гэрчилгээний хуулбар зураг" width="200" height="200" title="Диплом, гэрчилгээний хуулбар"/>
                     </a>
-                    <a href=" {{ picStatus }}" target="_blank">
-                        <img class="brb-thumbnail" src="{{ picStatus }}" alt="Гэрлэлтийн лавлагаа зураг" width="200" height="200" title="Гэрлэлтийн лавлагаа"/>
-                    </a>
-                    <a href="{{ reference }}" target="_blank">
-                        <img class="brb-thumbnail" src="{{ reference }}" alt="Ажил байдлын тодорхойлолт" width="200" height="200" title="Ажил байдлын тодорхойлолт"/>
-                    </a>
+                  
                 </div>
             </div>
         </div>
 
-        <div id="education" class="panel panel-info brb-panel">
-            <div class="panel brb-panel-header">
-                <p class="brb-panel-title">Боловсрол ({{ educationLevel }})</p>
+        <div id="education" class="panel panel-info nissan-panel">
+            <div class="panel nissan-panel-header">
+                <p class="nissan-panel-title">Боловсрол</p>
             </div>
             <div class="panel panel-body">
                 <table class="table table-hover table-bordered">
                     <thead class="bold">
                         <tr>
-                            <th>Улс, хот</th>
-                            <th>Сургуулийн нэр</th>
+                            <th>Хаана, ямар сургууль</th>
                             <th>Элссэн огноо</th>
                             <th>Төгссөн огноо</th>
                             <th>Эзэмшсэн мэргэжил</th>
-                            <th>Зэрэг</th>
-                            <th>Гэрчилгээний дугаар</th>
+                            <th>Дипломын дугаар</th>
                             <th>Голч дүн</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {{ #each education }}
+                        {{ #each nEducation }}
                         <tr>
-                            <td>{{ schoolCountry }}</td>
-                            <td>{{ schoolName }}</td>
-                            <td>{{ schoolStarted }}</td>
-                            <td>{{ schoolGraduated }}</td>
-                            <td>{{ schoolProfession }}</td>
-                            <td>{{ schoolDegree }}</td>
-                            <td>{{ schoolCertNum }}</td>
-                            <td>{{ schoolGpa }}</td>
+                            <td>{{ education1 }}</td>
+                            <td>{{ education2 }}</td>
+                            <td>{{ education3 }}</td>
+                            <td>{{ education4 }}</td>
+                            <td>{{ education5 }}</td>
+                            <td>{{ education6 }}</td>
                         </tr>
                         {{ /each }}
                     </tbody>
                 </table>
             </div>
         </div>
-        <div id="employment" class="panel panel-primary brb-panel">
-            <div class="panel brb-panel-header">
-                <p class="brb-panel-title">Ажил эрхлэлт</p>
+        <div id="employment" class="panel panel-primary nissan-panel">
+            <div class="panel nissan-panel-header">
+                <p class="nissan-panel-title">Ажлын туршлага</p>
             </div>
             <div class="panel panel-body">
                 <table class="table table-hover table-bordered">
@@ -129,75 +127,161 @@
                             <th>Албан тушаал</th>
                             <th>Ажилд орсон огноо</th>
                             <th>Ажлаас гарсан огноо</th>
-                            <th>Авч байсан цалин</th>
-                            <th>Ажлаас гарсан шалтгаан</th>
+                            <th>Удирдах албан тушаалтны нэр</th>
+                            <th>Удирдах албан тушаалтны утас</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {{ #each employment }}
+                        {{ #each nEmployment }}
                         <tr>
                             <td>{{ entityName }}</td>
                             <td>{{ entityPosition }}</td>
                             <td>{{ entityStarted }}</td>
                             <td>{{ entityLeft }}</td>
-                            <td>{{ entitySalary }}</td>
-                            <td>{{ entityReason }}</td>
+                            <td>{{ dirName }}</td>
+                            <td>{{ dirMobile }}</td>
                         </tr>
                         {{ /each }}
                     </tbody>
                 </table>
             </div>
         </div>
-        <div id="certification" class="panel panel-warning brb-panel">
-            <div class="panel brb-panel-header">
-                <p class="brb-panel-title">Сургалт дамжаанд хамрагдсан байдал</p>
+        <div id="certification" class="panel panel-warning nissan-panel">
+            <div class="panel nissan-panel-header">
+                <p class="nissan-panel-title">Мэргэшлийн бэлтгэл</p>
             </div>
             <div class="panel panel-body">
                 <table class="table table-hover table-bordered">
                     <thead class="bold">
                         <tr>
                             <th>Сэдэв, чиглэл</th>
-                            <th>Газар</th>
-                            <th>Эхэлсэн огноо</th>
+                            <th>Хаана</th>
+                            <th>Хэзээ</th>
                             <th>Үргэлжилсэн хугацаа</th>
                             <th>Гэрчилгээний дугаар</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {{ #each certification }}
+                        {{ #each nQualification }}
                         <tr class="center">
-                            <td>{{ certArea }}</td>
-                            <td>{{ certLocation }}</td>
-                            <td>{{ certStarted }}</td>
-                            <td>{{ certDuration }}</td>
-                            <td>{{ certNumber }}</td>
+                            <td>{{ qualification1 }}</td>
+                            <td>{{ qualification2 }}</td>
+                            <td>{{ qualification3 }}</td>
+                            <td>{{ qualification4 }}</td>
+                            <td>{{ qualification5 }}</td>
                         </tr>
                         {{ /each }}
                     </tbody>
                 </table>
             </div>
         </div>
-        <div id="emergency" class="panel panel-warning brb-panel brb-panel-emergency">
-            <div class="panel brb-panel-header">
-                <p class="brb-panel-title">Яаралтай үед холбоо барих</p>
+        <div id="family" class="panel panel-warning nissan-panel">
+            <div class="panel nissan-panel-header">
+                <p class="nissan-panel-title">Гэр бүлийн байдал</p>
             </div>
             <div class="panel panel-body">
                 <table class="table table-hover table-bordered">
                     <thead class="bold">
                         <tr>
-                            <th>Холбоо барих хүний нэр</th>
-                            <th>Хэн болох</th>
-                            <th>Утас</th>
+                            <th>Таны юу болох</th>
+                            <th>Овог нэр</th>
+                            <th>Хаана ажилладаг / сурдаг</th>
+                            <th>Эрхэлж буй ажил / сургууль</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {{ #each emergency }}
+                        {{ #each nFamily }}
                         <tr class="center">
-                            <td>{{ contactName }}</td>
-                            <td>{{ contactRelation }}</td>
-                            <td>{{ contactPhone }}</td>
+                            <td>{{ family1 }}</td>
+                            <td>{{ family2 }}</td>
+                            <td>{{ family3 }}</td>
+                            <td>{{ family4 }}</td>
                         </tr>
                         {{ /each }}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div id="language" class="panel panel-warning nissan-panel">
+            <div class="panel nissan-panel-header">
+                <p class="nissan-panel-title">Гадаад хэлний мэдлэг</p>
+            </div>
+            <div class="panel panel-body">
+                <table class="table table-hover table-bordered">
+                    <thead class="bold">
+                        <tr>
+                            <th>Гадаад хэлний нэр</th>
+                            <th>Үзсэн хугацаа</th>
+                            <th>Ярьсныг ойлгох</th>
+                            <th>Өөрөө ярих</th>
+                            <th>Уншиж ойлгох</th>
+                            <th>Бичиж орчуулах</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{ #each nLanguage }}
+                        <tr class="center">
+                            <td>{{ lName }}</td>
+                            <td>{{ lYear }}</td>
+                            <td>{{ lListening }}</td>
+                            <td>{{ lSpeacking }}</td>
+                            <td>{{ lReading }}</td>
+                            <td>{{ lWriting }}</td>
+                        </tr>
+                        {{ /each }}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div id="computer" class="panel panel-warning nissan-panel">
+            <div class="panel nissan-panel-header">
+                <p class="nissan-panel-title">Компьютерийн мэдлэг</p>
+            </div>
+            <div class="panel panel-body">
+                <table class="table table-hover table-bordered">
+                    <thead class="bold">
+                        <tr>
+                            <th>Програмын нэр</th>
+                            <th>Ажиллах чадвар</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{ #each nComputer }}
+                        <tr class="center">
+                            <td>{{ pName }}</td>
+                            <td>{{ pSkill }}</td>
+                        </tr>
+                        {{ /each }}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div id="other" class="panel panel-warning nissan-panel">
+            <div class="panel nissan-panel-header">
+                <p class="nissan-panel-title">Бусад мэдээлэл</p>
+            </div>
+            <div class="panel panel-body">
+                <table class="table table-hover table-bordered">
+                    <thead class="bold">
+                        <tr>
+                            <th>Сонирхдог зүйлс</th>
+                            <th>Авч байсан гавъяа шагнал</th>
+                            <th>Мэргэжилтэй холбоотой ур чадвар</th>
+                            <th>Давуу болон сул чанарууд</th>
+                            <th>Энэ ажил/албан тушаалд сонгогдох 3 шалтгаан</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="center">
+                            <td>{{ nHobbi }}</td>
+                            <td>{{ nAwards }}</td>
+                            <td>{{ nSkill }}</td>
+                            <td>{{ nPersonalities }}</td>
+                            <td>{{ nReasons }}</td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
