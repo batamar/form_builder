@@ -1,0 +1,95 @@
+.bold {
+  font-weight: bold;
+}
+
+.text-underline {
+  text-decoration: underline;
+}
+
+.float-left {
+  float: left;
+}
+
+.float-right {
+  float: right;
+}
+
+.border-thick {
+  border-style: solid;
+}
+
+.font-16 {
+  font-size: 16px;
+}
+
+.flowerhotel-navbar {
+  background-color: #fff;
+  border-color: #2196F3;
+}
+
+#flowerhotelContainer {
+  padding: 0px 15px;
+  font-family: sans-serif;
+}
+
+#navbar > ul > li {
+  border: 1px solid #01579B;
+  border-radius: 2px;
+  color: #01579B;
+  background-color: #fff;
+}
+
+.flowerhotel-panel {
+  margin-top: 40px;
+  border-width: 1px;
+  border-color: #4cb034;
+}
+
+.flowerhotel-panel-emergency {
+  width: 50%;
+}
+
+.flowerhotel-panel-title {
+  color: #fff;
+  height: 40px;
+  padding: 10px 10px;
+  background-color: #4cb034;
+}
+
+.flowerhotel-menu-padding {
+  padding-top: 20px;
+}
+
+.panel-body {
+  border-bottom: none;
+  box-shadow: none;
+  padding: 10px 10px;
+  margin: 0px 0px;
+}
+
+.flowerhotel-panel-header {
+  font-size: 16px;
+  background-color: #fff;
+  box-shadow: none;
+  margin-bottom: 0px;
+}
+
+.flowerhotel-thumbnail {
+  display: inline-block;
+  padding: 4px;
+  margin-right: 10px;
+  margin-bottom: 20px;
+  line-height: 1.42857143;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  -webkit-transition: border .2s ease-in-out;
+       -o-transition: border .2s ease-in-out;
+          transition: border .2s ease-in-out;
+}
+
+img.flowerhotel-thumbnail:hover,
+img.flowerhotel-thumbnail:focus,
+img.flowerhotel-thumbnail.active {
+  border-color: #337ab7;
+}
