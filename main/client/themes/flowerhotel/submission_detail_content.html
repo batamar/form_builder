@@ -20,70 +20,98 @@
                 <p class="flowerhotel-panel-title">Үндсэн мэдээлэл</p>
             </div>
             <div class="panel panel-body">
-                <div class="col-md-1">
-                    <a href="{{ portrait }}" target="_blank">
-                        <img class="flowerhotel-thumbnail" src="{{ portrait }}" alt="Цээж зураг" width="200" height="200" title="Цээж зураг"/>
-                    </a>
-                </div>
-                <div class="col-md-2">
-                    <p>Овог: </p>
-                    <p>Нэр: </p>
-                    <p>Хүйс: </p>
-                    <p>Төрсөн огноо: </p>
-                    <p>РД: </p>
-                    <p>И-мэйл: </p>
-                    <p>Гар утас: </p>
-                    <p>Төрсөн аймаг, хот: </p>
-                    <p>Гэрийн утас: </p>
-                    <p>Гэрийн хаяг: </p>
-                    <p>Хувь хүний онцлогууд:</p>
-                </div>
-                <div class="col-md-3 text-uppercase">
-                    <p><span class="bold">{{ lastname }}</span></p>
-                    <p><span class="bold">{{ firstname }}</span></p>
-                    <p><span class="bold">{{ gender }}</span></p>
-                    <p><span class="bold">{{ birthday }}</span></p>
-                    <p><span class="bold">{{ register }}</span></p>
-                    <p><span class="bold">{{ email }}</span></p>
-                    <p><span class="bold">{{ mobile }}</span></p>
-                    <p><span class="bold">{{ birthPlace }}</span></p>
-                    <p><span class="bold">{{ phone }}</span></p>
-                    <p><span class="bold">{{ address }}</span></p>
-                    <p><span class="bold">{{ personal }}</span></p>
-                </div>
-                <div class="col-md-3">
-                    
-                    <p>Эрүүл мэнд:</p> 
-                    <p>Шагнал урамшуулал:</p>
-                    <p>Цаашдын зорилго:</p>
-                    <p>Сонирхож буй ажлын байр:</p>
-                    <p>Өөр сонирхож буй ажлын байр:</p>
-                    <p>Цалингийн доод хэмжээ:</p>
-                    <p>Цалингийн дээд хэмжээ:</p>
-                    <p>Ажилд орох боломжтой огноо:</p>
+                <table class="table table-hover table-bordered">
+                   <tbody>
+                        <tr>
+                            <td>Овог:</td>
+                            <td>{{ lastname }}</td>                           
+                        </tr>
+                        <tr>
+                            <td>Нэр:</td>
+                            <td>{{ firstname }}</td>                           
+                        </tr>
+                        <tr>
+                            <td>Хүйс:</td>
+                            <td>{{ gender }}</td>                           
+                        </tr>
+                        <tr>
+                            <td>Төрсөн огноо::</td>
+                            <td>{{ birthday }}</td>                           
+                        </tr>
+                        <tr>
+                            <td>РД:</td>
+                            <td>{{ register }}</td>                           
+                        </tr>
+                        <tr>
+                            <td>И-мэйл:</td>
+                            <td>{{ email }}</td>                           
+                        </tr>
+                        <tr>
+                            <td>Гар утас:</td>
+                            <td>{{ mobile }}</td>                           
+                        </tr>
+                        <tr>
+                            <td>Төрсөн аймаг, хот:</td>
+                            <td>{{ birthPlace }}</td>                           
+                        </tr>
+                        <tr>
+                            <td>Гэрийн утас:</td>
+                            <td>{{ phone }}</td>                           
+                        </tr>
+                        <tr>
+                            <td>Гэрийн хаяг:</td>
+                            <td>{{ address }}</td>                           
+                        </tr>
+                        <tr>
+                            <td>Хувь хүний онцлогууд:</td>
+                            <td>{{ personal }}</td>                           
+                        </tr>
+                        <tr>
+                            <td>Эрүүл мэнд:</td>
+                            <td>{{ health }}</td>                           
+                        </tr>
+                        <tr>
+                            <td>Шагнал урамшуулал:</td>
+                            <td>{{ awards }}</td>                           
+                        </tr>
+                        <tr>
+                            <td>Цаашдын зорилго:</td>
+                            <td>{{ goal }}</td>                           
+                        </tr>
+                        <tr>
+                            <td>Сонирхож буй ажлын байр:</td>
+                            <td>{{ position }}</td>                           
+                        </tr>
+                        <tr>
+                            <td>Өөр сонирхож буй ажлын байр:</td>
+                            <td>{{ anotherPosition }}</td>                           
+                        </tr>
+                        <tr>
+                            <td>Цалингийн доод хэмжээ:</td>
+                            <td>{{ salaryMin }}</td>                           
+                        </tr>
+                        <tr>
+                            <td>Цалингийн дээд хэмжээ:</td>
+                            <td>{{ salaryMax }}</td>                           
+                        </tr>
+                        <tr>
+                            <td>Ажилд орох боломжтой огноо:</td>
+                            <td>{{ entryDate }}</td>                           
+                        </tr>
 
-                </div>
-                <div class="col-md-3 text-uppercase">
-                    
-                    <p><span class="bold"> {{ health }}</span></p>
-                    <p><span class="bold"> {{ awards }}</span></p>
-                    <p><span class="bold"> {{ goal }}</span></p>
-                    <p><span class="bold"> {{ position }}</span></p>
-                    <p><span class="bold"> {{ anotherPosition }}</span></p>
-                    <p><span class="bold"> {{ salaryMin }}</span></p>
-                    <p><span class="bold"> {{ salaryMax }}</span></p>
-                    <p><span class="bold"> {{ entryDate }}</span></p>
-               
-                </div>
+                        {{ /each }}
+                    </tbody>
+                </table>
+
             </div>
         </div>
         <div id="main" class="panel panel-default flowerhotel-panel">
             <div class="panel flowerhotel-panel-header">
-                <p class="flowerhotel-panel-title">Хавсралт материалууд {{ portrait }}</p>
+                <p class="flowerhotel-panel-title">Цээж зураг </p>
             </div>
             <div class="panel panel-body">
                 <div class="col-md-12 float-right">
-                    <a href="{{ nPortrait }}" target="_blank">
+                    <a href="{{ portrait }}" target="_blank">
                         <img class="flowerhotel-thumbnail" src="{{ portrait }}" alt="Цээж зураг" width="200" height="200" title="Цээж зураг"/>
                     </a>
                   
