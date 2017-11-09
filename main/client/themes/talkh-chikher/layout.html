@@ -1,0 +1,14 @@
+<template name="talkh-chikherLayout">
+    <!-- Page Content -->
+    <div id="uk-article-content">
+        <div class="uk-container uk-container-center">
+            <div class="uk-grid">
+                <div class="uk-width-small-1-1 uk-width-medium-1-1 uk-width-large-1-1">
+                    <a href="#" class="pull-right btn btn-primary btn-sm" onclick="Meteor.logout()">Гарах</a>
+                    {{> render component=state$content}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /#wrapper -->
+</template>

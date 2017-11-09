@@ -1,0 +1,594 @@
+<template name="talkh-chikherSDetCtalkh-chikherAnket">
+    {{# with state$object }}
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top talkh-chikher-navbar">
+        <div id="talkh-chikherContainer" class="container talkh-chikher-font">
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a id="buttonBack" href="/forms/submission-list/{{ formId }}" class="pull-right uk-button">
+                            Буцах
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="talkh-chikher-container talkh-chikher-font">
+        <div id="general" class="panel panel-default talkh-chikher-panel">
+            <div class="panel talkh-chikher-panel-header">
+                <div class="panel talkh-chikher-panel-header">
+                    <p class="talkh-chikher-panel-title">Нэг. Ажлын байрны мэдээлэл</p>
+                </div>
+            </div>
+            <div class="panel panel-body">
+
+                <div class="col-md-6">
+                    <label class="uk-form-label red">1.1 Сонирхож буй ажлын байр: </label>
+                    <span>{{ position }}</span>
+                </div>
+                <div class="col-md-6">
+                    <label class="uk-form-label red">1.2 Таны хүсч буй цалингийн хэмжээ:</label>
+                    <span>{{ salary }}</span>
+                </div>
+            </div>
+            <br>
+    
+            <div class="panel talkh-chikher-panel-header">
+                <div class="panel talkh-chikher-panel-header">
+                    <p class="talkh-chikher-panel-title">Хоёр. Үндсэн мэдээлэл</p>
+                </div>
+            </div>
+            
+            <div class="panel panel-body">
+            
+                <div class="col-md-9">
+                    <div class="row">
+
+                        <div class="col-md-4">
+                            <label class="uk-form-label red">2.1 Ургийн овог:</label>
+                            <span>{{ familyName }}</span>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="uk-form-label red">2.2 Овог:</label>
+                            <span>{{ lastName }}</span>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="uk-form-label red">2.3 Нэр:</label>
+                            <span>{{ firstName }}</span>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="uk-form-label red">2.4 Төрсөн огноо:</label>
+                            <span>{{ birthDate }}</span>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="uk-form-label red">2.5 Регистрийн дугаар:</label>
+                            <span>{{ registerNumber }}</span>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="uk-form-label red">2.6 Хүйс:</label>
+                            <span>{{ gender }}</span>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="uk-form-label red">2.7 Төрсөн газар, аймаг хот:</label>
+                            <span>{{ gender }}</span>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="uk-form-label red">2.8 Яс үндэс:</label>
+                            <span>{{ ethnicity }}</span>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="uk-form-label red">2.9 Нийгмийн гарал:</label>
+                            <span>{{ ascription }}</span>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="uk-form-label red">2.10 ЭМДД-ийн дугаар:</label>
+                            <span>{{ EMDD }}</span>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="uk-form-label red">2.11 НДД-ийн дугаар:</label>
+                            <span>{{ NDD }}</span>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="uk-form-label red">2.12 Гадаад паспортын дугаар:</label>
+                            <span>{{ foreignPassport }}</span>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="uk-form-label red">2.13 Цэргийн алба хаасан эсэх:</label>
+                            <span>{{ army }}</span>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="uk-form-label red">2.14 Цэргийн үнэмлэхний дугаар:</label>
+                            <span>{{ armyPass }}</span>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="uk-form-label red">2.15 Оршин суугаа хаяг:</label>
+                            <span>{{ addressStatus }}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                        <label class="uk-form-label red">2.16 Цээж зураг:</label>
+                        <span><a href="{{ portrait }}" target="_blank">
+                                <img class="talkh-chikher-thumbnail" src="{{ portrait }}" alt="Цээж зураг" width="200" height="200" title="Цээж зураг"/>
+                            </a>
+                        </span>
+                </div>
+                <div class="col-md-9">
+                    <label class="uk-form-label">2.17 Гэрийн хаяг:</label>
+                    <span>{{ address }}</span>
+                </div>
+
+                <div class="col-md-3">
+                    <label class="uk-form-label">2.18 Гэрийн утас:</label>
+                    <span>{{ phone }}</span>
+                </div>
+                
+                <div class="col-md-3">
+                    <label class="uk-form-label">2.19 Гар утас:</label>
+                    <span>{{ mobile }}</span>
+                </div>
+                
+                <div class="col-md-6">
+                    <label class="uk-form-label">2.20 Шаардлагатай үед холбогдох утас:</label>
+                    <span>{{ mobile2 }}</span>
+                </div>
+                
+                <div class="col-md-3">
+                    <label class="uk-form-label">2.21 И-мэйл хаяг:</label>
+                    <span>{{ email }}</span>
+                </div>
+            </div>
+        </div>
+
+        <div id="education" class="panel panel-info talkh-chikher-panel">
+            <div class="panel talkh-chikher-panel-header">
+                <p class="talkh-chikher-panel-title">Гурав. Боловсрол</p>
+            </div>
+            <div class="panel panel-body">
+                <div class="col-md-4">
+                    <label class="uk-form-label red">3.1 Боловсрол:</label>
+                    <span>{{ education1 }}</span>
+                </div>
+                <hr>
+                <div class="col-md-12">
+                    <label>
+                        3.2 Эзэмшсэн мэргэжил, боловсрол 
+                    </label>
+                </div>
+                <table class="table table-hover table-bordered">
+                    <thead class="bold">
+                        <tr>
+                            <th>Сургуулийн нэр</th>
+                            <th>Хаана</th>
+                            <th>Элссэн огноо</th>
+                            <th>Төгссөн огноо</th>
+                            <th>Эзэмшсэн мэргэжил</th>
+                            <th>Үнэмлэх, дипломын</th>
+                            <th>Дипломын сэдэв</th>
+                            <th>Зэрэг, цол</th>
+                            <th>Голч дүн</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{ #each education }}
+                        <tr>
+                            <td>{{ education2 }}</td>
+                            <td>{{ education3 }}</td>
+                            <td>{{ education4 }}</td>
+                            <td>{{ education5 }}</td>
+                            <td>{{ education6 }}</td>
+                            <td>{{ education7 }}</td>
+                            <td>{{ education8 }}</td>
+                            <td>{{ education10 }}</td>
+                            <td>{{ education9 }}</td>
+                        </tr>
+                        {{ /each }}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div id="course" class="panel panel-info talkh-chikher-panel">
+            <div class="panel talkh-chikher-panel-header">
+                <p class="talkh-chikher-panel-title">3.3 Мэргэжил, сургалт (Мэргэжлээрээ болон бусад төрлөөр хамрагдах сургалт)</p>
+            </div>
+            <div class="panel panel-body">
+         
+                <table class="table table-hover table-bordered">
+                    <thead class="bold">
+                        <tr>
+                            <th>Хаана ямар байгууллагад</th>
+                            <th>Элссэн огноо</th>
+                            <th>Хугацаа</th>
+                            <th>Ямар чиглэлээр</th>
+                            <th>Үнэмлэх гэрчилгээний дугаар, олгосон огноо</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{ #each course }}
+                        <tr>
+                            <td>{{ course1 }}</td>
+                            <td>{{ course2 }}</td>
+                            <td>{{ course3 }}</td>
+                            <td>{{ course4 }}</td>
+                            <td>{{ course5 }}</td>
+                        </tr>
+                        {{ /each }}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <div class="talkh-chikher-container talkh-chikher-font">
+            <div id="skill" class="panel panel-default talkh-chikher-panel">
+                <div class="panel talkh-chikher-panel-header">
+                    <div class="panel talkh-chikher-panel-header">
+                        <p class="talkh-chikher-panel-title">Дөрөв. Ур чадвар</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <label class="uk-form-label red">4.1 TOEFL - н оноо: </label>
+                    <span>{{ skill1 }}</span>
+                </div>
+                <div class="col-md-4">
+                    <label class="uk-form-label red">4.2 IELTS - н оноо:</label>
+                    <span>{{ skill2 }}</span>
+                </div>
+                <div class="col-md-4">
+                    <label class="uk-form-label red">4.3 GMAT - н оноо:</label>
+                    <span>{{ skill3 }}</span>
+                </div>
+                <div class="col-md-12">
+                    <label class="uk-form-label red">4.4 Гадаад хэлний мэдлэг</label>
+                </div>
+                <div class="panel panel-body">
+                    <table class="table table-hover table-bordered">
+                        <thead class="bold">
+                            <tr>
+                                <th>Хэлний нэр</th>
+                                <th>Сурсан хугацаа</th>
+                                <th>Ярьсныг ойлгох</th>
+                                <th>Өөрөө ярих</th>
+                                <th>Уншиж ойлгох</th>
+                                <th>Бичиж орчуулах</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{ #each skill }}
+                            <tr>
+                                <td>{{ languageName }}</td>
+                                <td>{{ skill6 }}</td>
+                                <td>{{ listen }}</td>
+                                <td>{{ speak }}</td>
+                                <td>{{ read }}</td>
+                                <td>{{ write }}</td>
+                            </tr>
+                            {{ /each }}
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+
+        <div id="program" class="panel panel-info talkh-chikher-panel">
+            <div class="panel talkh-chikher-panel-header">
+                <p class="talkh-chikher-panel-title">4.5 Компьютерийн мэдлэг</p>
+            </div>
+            <div class="panel panel-body">
+         
+                <table class="table table-hover table-bordered">
+                    <thead class="bold">
+                        <tr>
+                            <th>Програмын нэр</th>
+                            <th>Түвшин</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{ #each program }}
+                        <tr>
+                            <td>{{ name }}</td>
+                            <td>{{ level }}</td>
+                        </tr>
+                        {{ /each }}
+                    </tbody>
+                </table>
+                <hr>
+                <div class="col-md-4">
+                    <label class="uk-form-label red">Принтер, хувилагч: </label>
+                    <span>{{ computer1 }}</span>
+                </div>
+                <div class="col-md-4">
+                    <label class="uk-form-label red">Скайнер:</label>
+                    <span>{{ computer2 }}</span>
+                </div>
+                <div class="col-md-4">
+                    <label class="uk-form-label red">Факс:</label>
+                    <span>{{ computer3 }}</span>
+                </div>
+                <div class="col-md-4">
+                    <label class="uk-form-label red">Камер, аппарат:</label>
+                    <span>{{ computer4 }}</span>
+                </div>
+                <div class="col-md-4">
+                    <label class="uk-form-label red">Дотоод сүлжээ ашиглах:</label>
+                    <span>{{ computer5 }}</span>
+                </div>
+                <div class="col-md-4">
+                    <label class="uk-form-label red">Интернэт орчинд ажиллах:</label>
+                    <span>{{ computer6 }}</span>
+                </div>
+            </div>
+        </div>
+
+        <div id="employment" class="panel panel-primary talkh-chikher-panel">
+            <div class="panel talkh-chikher-panel-header">
+                <p class="talkh-chikher-panel-title">Тав. Ажил хөдөлмөрийн туршлага</p>
+            </div>
+            <div class="panel panel-body">
+                <table class="table table-hover table-bordered">
+                    <thead class="bold">
+                        <tr>
+                            <th>Байгууллагын нэр</th>
+                            <th>Эрхэлж байсан албан тушаал</th>
+                            <th>Ажилд орсон огноо</th>
+                            <th>Ажлаас гарсан огноо</th>
+                            <th>Ажлаас гарсан шалтгаан</th>
+                            <th>Удирдах албан тушаалтны нэр утас</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{ #each employment }}
+                        <tr>
+                            <td>{{ name }}</td>
+                            <td>{{ position }}</td>
+                            <td>{{ started }}</td>
+                            <td>{{ left }}</td>
+                            <td>{{ reason }}</td>
+                            <td>{{ leadingPosition }}</td>
+                        </tr>
+                        {{ /each }}
+                    </tbody>
+                </table>
+                <br><hr>
+                <div class="col-md-12">
+                    <label class="uk-form-label red">5.2 Хэрэв удаан хугацаанд ажил, хөдөлмөр эрхлээгүй бол шалтгаанаа бичнэ үү:</label>
+                    <span>{{ reason1 }}</span>
+                </div>
+            </div>
+        </div>
+        
+        <div id="country" class="panel panel-warning talkh-chikher-panel">
+            <div class="panel talkh-chikher-panel-header">
+                <p class="talkh-chikher-panel-title">5.3 Гадаад оронд зорчсон байдал.</p>
+            </div>
+            <div class="panel panel-body">
+                <table class="table table-hover table-bordered">
+                    <thead class="bold">
+                        <tr>
+                            <th>Ямар улс оронд</th>
+                            <th>Зорчсон хугацаа</th>
+                            <th>Зорилго</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{ #each country }}
+                        <tr class="center">
+                            <td>{{ country1 }}</td>
+                            <td>{{ country2 }}</td>
+                            <td>{{ country3 }}</td>
+                        </tr>
+                        {{ /each }}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div id="family" class="panel panel-warning talkh-chikher-panel">
+            <div class="panel talkh-chikher-panel-header">
+                <p class="talkh-chikher-panel-title">Зургаа. Хувь хүний онцлогууд</p>
+            </div>
+            
+            <div class="panel panel-body">
+                <div class="col-md-6">
+                    <label class="uk-form-label red">6.1 Таны давуу тал</label>
+                    <span>{{ advantage }}</span>
+                </div>
+                <div class="col-md-6">
+                    <label class="uk-form-label red">6.2 Таны сул тал</label>
+                    <span>{{ disadvantage }}</span>
+                </div>
+                <div class="col-md-12">
+                    <label>6.3 Авьяас</label>
+                </div>
+                <table class="table table-hover table-bordered">
+                    <thead class="bold">
+                        <tr>
+                            <th>Урлаг, спортын төрөл</th>
+                            <th>Хичээллэсэн хугацаа</th>
+                            <th>Гаргасан амжилт</th>
+                            <th>Зэрэг цол</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{ #each ability }}
+                        <tr class="center">
+                            <td>{{ ability1 }}</td>
+                            <td>{{ ability2 }}</td>
+                            <td>{{ ability3 }}</td>
+                            <td>{{ ability4 }}</td>
+                        </tr>
+                        {{ /each }}
+                    </tbody>
+                </table>
+                <hr>
+            </div>
+            <div class="panel panel-body">
+                <div class="col-md-12">
+                    <label>6.4 Гавьяа шагнал (төрийн, салбарын, байгууллагаас олгосон алдар цол, одон г.м)</label>
+                </div>
+                <table class="table table-hover table-bordered">
+                    <thead class="bold">
+                        <tr>
+                            <th>Ажиллаж байсан байгууллага</th>
+                            <th>Шагнагдсан огноо</th>
+                            <th>Олгосон байгууллага</th>
+                            <th>Шагналын нэр</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{ #each awards }}
+                        <tr class="center">
+                            <td>{{ awards1 }}</td>
+                            <td>{{ awards2 }}</td>
+                            <td>{{ awards3 }}</td>
+                            <td>{{ awards4 }}</td>
+                        </tr>
+                        {{ /each }}
+                    </tbody>
+                </table>
+                <hr><br>
+                <div class="col-md-4">
+                    <label class="uk-form-label red">6.5 Ял шийтгэл авж байсан эсэх</label>
+                    <span>{{ punishment }}</span>
+                </div>
+                <div class="col-md-4">
+                    <label class="uk-form-label red">Тийм бол яагаад</label>
+                    <span>{{ punishmentWhy }}</span>
+                </div>
+                <div class="col-md-4">
+                    <label class="uk-form-label red">6.6 Жолооны үнэмлэхтэй эсэх:</label>
+                    <span>{{ driversLicense }}</span>
+                </div>
+                <div class="col-md-4">
+                    <label class="uk-form-label red">Жолооны үнэмлэхний ангилал</label>
+                    <span>{{ driversLicense1 }}</span>
+                </div>
+                <div class="col-md-4">
+                    <label class="uk-form-label red">Жолооны үнэмлэхний №</label>
+                    <span>{{ driversLicense2 }}</span>
+                </div>
+                <div class="col-md-4">
+                    <label class="uk-form-label red">Цусны бүлэг</label>
+                    <span>{{ driversLicense3 }}</span>
+                </div>
+                <div class="col-md-4">
+                    <label class="uk-form-label red">6.7 Хувийн автомашинтай эсэх:</label>
+                    <span>{{ auto }}</span>
+                </div>
+                <div class="col-md-4">
+                    <label class="uk-form-label red">6.8 Автомашины марк, улсын дугаар:</label>
+                    <span>{{ auto1 }}</span>
+                </div>
+                <div class="col-md-4">
+                    <label class="uk-form-label red">6.9 Тамхи татдаг эсэх:</label>
+                    <span>{{ smoke }}</span>
+                </div>
+                <div class="col-md-4">
+                    <label class="uk-form-label red">Хууч өвчин:</label>
+                    <span>{{ huuch }}</span>
+                </div>
+                <div class="col-md-4">
+                    <label class="uk-form-label red">Харшил:</label>
+                    <span>{{ allergy }}</span>
+                </div>
+            </div>
+            
+        </div>
+
+        <div id="computer" class="panel panel-warning talkh-chikher-panel">
+            <div class="panel talkh-chikher-panel-header">
+                <p class="talkh-chikher-panel-title">Долоо. Гэр бүлийн байдал</p>
+            </div>
+            <div class="panel panel-body">
+                <div class="col-md-12">
+                    <label>7.4 Гэр бүлийн байдал (гэр бүл, ойрын садан төрлийг оруулан бичнэ)</label>
+                </div>
+                <table class="table table-hover table-bordered">
+                    <thead class="bold">
+                        <tr>
+                            <th>Таны юу болох</th>
+                            <th>Овог, нэр</th>
+                            <th>Төрсөн газар</th>
+                            <th>Төрсөн огноо</th>
+                            <th>Ажлын газрын нэр</th>
+                            <th>Албан тушаал</th>
+                            <th>Утасны дугаар</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{ #each family }}
+                        <tr class="center">
+                            <td>{{ family1 }}</td>
+                            <td>{{ family2 }}</td>
+                            <td>{{ family3 }}</td>
+                            <td>{{ family4 }}</td>
+                            <td>{{ family5 }}</td>
+                            <td>{{ family6 }}</td>
+                            <td>{{ family7 }}</td>
+                        </tr>
+                        {{ /each }}
+                    </tbody>
+                </table>
+                <hr><br>
+                <div class="col-md-4">
+                    <label class="uk-form-label red">7.1 Гэрлэлтийн байдал:</label>
+                    <span>{{ marriageStatus }}</span>
+                </div>
+
+                <div class="col-md-4">
+                    <label class="uk-form-label red">7.2 Ам бүлийн тоо:</label>
+                    <span>{{ members }}</span>
+                </div>
+
+                <div class="col-md-4">
+                    <label class="uk-form-label red">7.3 Хүүхдийн тоо:</label>
+                    <span>{{ children }}</span>
+                </div>
+
+                <div class="col-md-4">
+                    <label class="uk-form-label red">7.5 Та айлын хэд дэх хүүхэд вэ?:</label>
+                    <span>{{ heddeh }}</span>
+                </div>
+
+                <div class="col-md-8">
+                    <label class="uk-form-label red">7.6 Таны хамаатан садан манай байгууллагад ажилладаг эсэх:</label>
+                    <span>{{ hamaatan }}</span>
+                </div>
+
+                <div class="col-md-4">
+                    <label class="uk-form-label red">Тийм бол овог, нэр:</label>
+                    <span>{{ hamaatan1 }}</span>
+                </div>
+
+                <div class="col-md-4">
+                    <label class="uk-form-label red">Таны юу болох:</label>
+                    <span>{{ hamaatan2 }}</span>
+                </div>
+
+                <div class="col-md-4">
+                    <label class="uk-form-label red">Алба хэлтэс, албан тушаал:</label>
+                    <span>{{ hamaatan3 }}</span>
+                </div>
+
+                <div class="col-md-4">
+                    <label class="uk-form-label red">Холбоо барих дугаар</label>
+                    <span>{{ hamaatan4 }}</span>
+                </div>
+
+                <div class="col-md-8">
+                    <label class="uk-form-label red">Ажилд орох мэдээллийн эх сурвалжийг хаанаас авсан бэ:</label>
+                    <span>{{ resource }}</span>
+                </div>
+            </div>
+
+            
+        </div>
+
+
+    </div>
+    {{/ with }}
+</template>
