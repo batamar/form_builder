@@ -1,0 +1,468 @@
+<template name="zgmSDetCzgmAnket">
+    {{# with state$object }}
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top zgm-navbar">
+        <div id="zgmContainer" class="container zgm-font">
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a id="buttonBack" href="/forms/submission-list/{{ formId }}" class="pull-right btn">
+                            Буцах
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="zgm-container zgm-font">
+        <div id="job" class="panel panel-default zgm-panel">
+            <div class="panel zgm-panel-header">
+                <p class="zgm-panel-title">Үндсэн мэдээлэл</p>
+            </div>
+            <div class="panel panel-body">
+                <div class="col-xs-12 col-sm-4 col-lg-4 left">
+                    <table class="table highlight bordered responsive-table">
+                   <tbody>
+                    <tr>
+                        <td>
+                            <a href="{{ nPortrait }}" target="_blank">
+                                <img class="zgm-thumbnail" src="{{ nPortrait }}" alt="Цээж зураг" width="200" title="Цээж зураг"/>
+                            </a>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td>Сонирхож буй ажлын байр:</td>
+                            <td>{{ nPosition }}</td>
+                        </tr>
+                        <tr>
+                            <td>Үндсэн мэргэжлээс гадна сонирхож буй албан тушаал:</td>
+                            <td>{{ nAnotherPosition }}</td>
+                        </tr>
+                        <tr>
+                            <td>Хүсч буй цалингийн хэмжээ:</td>
+                            <td>{{ nSalary }}</td>
+                        </tr>   
+                        <tr>
+                            <td>Эцэг(эх)-н нэр:</td>
+                            <td>{{ nLastName }}</td>
+                        </tr>                    
+                        <tr>
+                            <td>Өөрийн нэр:</td>
+                            <td>{{ nFirstName }}</td>
+                        </tr>
+                    </tbody>
+                    </table>
+                </div>
+                <div class="col-xs-12 col-sm-8 col-lg-8 right">
+                    <table class="table highlight bordered responsive-table">
+                   <tbody>
+                     <tr>
+                            <td>Ургийн овог:</td>
+                            <td>{{ nFamilyName }}</td>
+                        </tr>
+                        <tr>
+                            <td>Хүйс:</td>
+                            <td>{{ nGender }}</td>
+                        </tr>
+                        <tr>
+                            <td>Регистрийн дугаар:</td>
+                            <td>{{ nRegister }}</td>
+                        </tr>
+                        <tr>
+                            <td>Нас:</td>
+                            <td>{{ nAge }}</td>
+                        </tr>
+                        <tr>
+                            <td>Үндэс угсаа:</td>
+                            <td>{{ nNationality }}</td>
+                        </tr>
+                        <tr>
+                            <td>Нийгмийн гарал:</td>
+                            <td>{{ nAscription }}</td>
+                        </tr>
+                        <tr>
+                            <td>Төрсөн газар:</td>
+                            <td>{{ nBirthplace }}</td>
+                        </tr>
+                        <tr>
+                            <td>Оршин суугаа хаяг:</td>
+                            <td>{{ nAddress }}</td>
+                        </tr>
+                        <tr>
+                            <td>Гар утас:</td>
+                            <td>{{ nMobile }}</td>
+                        </tr>
+                        <tr>
+                            <td>И-мэйл хаяг:</td>
+                            <td>{{ nEmail }}</td>
+                        </tr>
+                        <tr>
+                            <td>Жолооны үнэмлэхний дугаар:</td>
+                            <td>{{ nDriverLicense }}</td>
+                        </tr>
+                      
+                    </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    
+        <div id="nFamily" class="panel panel-warning zgm-panel">
+            <div class="panel zgm-panel-header">
+                <p class="zgm-panel-title">Гэр бүлийн байдал</p>
+            </div>
+            <div class="panel panel-body">
+                <table class="table highlight bordered responsive-table">
+                    <thead class="bold">
+                        <tr>
+                            <th>Таны хэн болох</th>
+                            <th>Овог нэр</th>
+                            <td>Төрсөн огноо</td>
+                            <th>Эрхэлж буй ажил</th>
+                            <td>Холбогдох дугаар</td>
+                            <td></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{ #each nFamily }}
+                        <tr class="center">
+                            <td>{{ family1 }}</td>
+                            <td>{{ family2 }}</td>
+                            <td>{{ family3 }}</td>
+                            <td>{{ family4 }}</td>
+                            <td>{{ family5 }}</td>
+                            <td>{{ family6 }}</td>
+                        </tr>
+                        {{ /each }}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div id="education" class="panel panel-info zgm-panel">
+            <div class="panel zgm-panel-header">
+                <p class="zgm-panel-title">Боловсрол</p>
+            </div>
+            <div class="panel panel-body">
+                <table class="table highlight bordered responsive-table">
+                    <thead class="bold">
+                        <tr>
+                            <th>Хаана</th>
+                            <td>Сургуулийн нэр</td>
+                            <th>Элссэн огноо</th>
+                            <th>Төгссөн огноо</th>
+                            <th>Эзэмшсэн мэргэжил</th>
+                            <th>Голч дүн</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{ #each nEducation }}
+                        <tr>
+                            <td>{{ education1 }}</td>
+                            <td>{{ education2 }}</td>
+                            <td>{{ education3 }}</td>
+                            <td>{{ education4 }}</td>
+                            <td>{{ education5 }}</td>
+                            <td>{{ education6 }}</td>
+                        </tr>
+                        {{ /each }}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div id="employment" class="panel panel-primary zgm-panel">
+            <div class="panel zgm-panel-header">
+                <p class="zgm-panel-title">Ажил, хөдөлмөрийн туршлага</p>
+            </div>
+            <div class="panel panel-body">
+                {{ #each nEmployment }}
+                    <div class="col-xs-12 col-sm-6 col-md-6">
+                        <table class="table highlight bordered responsive-table">                           
+                            <tbody>                                
+                                <tr>
+                                    <td>Байгууллагын нэр</td>
+                                    <td>{{ employment1 }}</td>
+                                </tr>                                
+                                <tr>
+                                    <td>Үйл ажиллагааны чиглэл</td>
+                                    <td>{{ employment2 }}</td>
+                                </tr>                                
+                                <tr>
+                                    <td>Албан тушаал</td>
+                                    <td>{{ employment3 }}</td>
+                                </tr>                                
+                                <tr>
+                                    <td>Ажилд орсон огноо</td>
+                                    <td>{{ employment4 }}</td>
+                                </tr>                             
+                                <tr>
+                                    <td>Ажлаас гарсан огноо</td>
+                                    <td>{{ employment5 }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-6">
+                        <table class="table highlight bordered responsive-table">                           
+                            <tbody>                                
+                                <tr>
+                                    <td>Байгууллагын удирдах албан тушаалтны Овог нэр</td>
+                                    <td>{{ employment6 }}</td>
+                                </tr>                                
+                                <tr>
+                                    <td>Албан тушаал</td>
+                                    <td>{{ employment7 }}</td>
+                                </tr>                                
+                                <tr>
+                                    <td>Утас</td>
+                                    <td>{{ employment8 }}</td>
+                                </tr>                                
+                                <tr>
+                                    <td>Гаргаж байсан амжилтууд</td>
+                                    <td>{{ employment9 }}</td>
+                                </tr>                 
+                            </tbody>
+                        </table>
+                    </div>
+
+                {{ /each }}
+            </div>
+        </div>
+        <div id="language" class="panel panel-warning zgm-panel">
+            <div class="panel zgm-panel-header">
+                <p class="zgm-panel-title">Гадаад хэлний мэдлэг</p>
+            </div>
+            <div class="panel panel-body">
+                <table class="table highlight bordered responsive-table">
+                    <thead class="bold">
+                        <tr>
+                            <th>Гадаад хэлний нэр</th>
+                            <th>Сонсох чадвар</th>
+                            <th>Ярих чадвар</th>
+                            <th>Унших чадвар</th>
+                            <th>Орчуулах чадвар</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{ #each nLanguage }}
+                        <tr class="center">
+                            <td>{{ language1 }}</td>
+                            <td>{{ language2 }}</td>
+                            <td>{{ language3 }}</td>
+                            <td>{{ language4 }}</td>
+                            <td>{{ language5 }}</td>
+                        </tr>
+                        {{ /each }}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div id="talent" class="panel panel-warning zgm-panel">
+            <div class="panel zgm-panel-header">
+                <p class="zgm-panel-title">Авьяас чадвар</p>
+            </div>
+            <div class="panel panel-body">
+                <table class="table highlight bordered responsive-table">
+                    <thead class="bold">
+                        <tr>
+                            <th>Төрөл</th>
+                            <th>Нэр</th>
+                            <th>Хичээллэсэн жил</th>
+                            <th>Зэрэг, цол</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{ #each nTalent }}
+                        <tr class="center">
+                            <td>{{ talent1 }}</td>
+                            <td>{{ talent2 }}</td>
+                            <td>{{ talent3 }}</td>
+                            <td>{{ talent4 }}</td>
+                        </tr>
+                        {{ /each }}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div id="computer" class="panel panel-warning zgm-panel">
+            <div class="panel zgm-panel-header">
+                <p class="zgm-panel-title">Компьютерийн мэдлэг</p>
+            </div>
+            <div class="panel panel-body">
+                 <table class="table highlight bordered responsive-table">
+                    <thead class="bold">
+                        <tr>
+                            <th>MC: word, excel, powerpoint, outlook project, access*</th>
+                            <th>Санхүүгийн: Interactive, Пирамид, бусад</th>
+                            <th>Зургийн: Photoshop, Indesign, Autocad, бусад</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="center">
+                            <td>{{ nMC }}</td>
+                            <td>{{ nFinancial }}</td>
+                            <td>nPhoto</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="table highlight bordered responsive-table">
+                    <thead class="bold">
+                        <tr>
+                            <th>Програмын нэр</th>
+                            <th>Ажиллах чадвар</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{ #each nComputer }}
+                        <tr class="center">
+                            <td>{{ computer1 }}</td>
+                            <td>{{ computer2 }}</td>
+                        </tr>
+                        {{ /each }}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div id="award" class="panel panel-warning zgm-panel">
+            <div class="panel zgm-panel-header">
+                <p class="zgm-panel-title">Шагнал, Шийтгэл</p>
+            </div>
+            <div class="panel panel-body">
+                <table class="table highlight bordered responsive-table">
+                    <thead class="bold">
+                        <tr>
+                            <th>Шагналын нэр</th>
+                            <th>Хаанаас олгосон</th>
+                            <th>Хаана ажиллах хугацаанд шагнагдсан</th>
+                            <th>Шагнагдсан огноо</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{ #each nAward }}
+                        <tr class="center">
+                            <td>{{ award1 }}</td>
+                            <td>{{ award2 }}</td>
+                            <td>{{ award3 }}</td>
+                            <td>{{ award4 }}</td>
+                        </tr>
+                        {{ /each }}
+                    </tbody>
+                </table>
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>Урьд өмнө ял шийтгэл, ямар нэгэн сахилгын арга хэмжээ авагдаж байсан эсэх : </td>
+                            <td>{{ nPunishment }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div id="vision" class="panel panel-warning zgm-panel">
+            <div class="panel zgm-panel-header">
+                <p class="zgm-panel-title">Таны зорилго, зорилт</p>
+            </div>
+            <div class="panel panel-body">
+                <table class="table highlight bordered responsive-table">
+                    <thead class="bold">
+                        <tr>
+                            <th>Таны ирээдүйн зорилго</th>
+                            <th>Таны ойрын 5 жилийн төлөвлөгөө</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{ nGoal }}</td>
+                            <td>{{ nPlan }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+         <div id="td" class="panel panel-warning zgm-panel">
+            <div class="panel zgm-panel-header">
+                <p class="zgm-panel-title">Таныг сайн тодорхойлох гурван хүний тухай мэдээлэл өгнө үү.</p>
+            </div>
+            <div class="panel panel-body">
+                <table class="table highlight bordered responsive-table">
+                    <thead class="bold">
+                        <tr>
+                            <th>Овог, нэр</th>
+                            <th>Таны хэн болох</th>
+                            <th>Эрхэлдэг ажил</th>
+                            <th>Утас</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{ #each nTD }}
+                        <tr class="center">
+                            <td>{{ td1 }}</td>
+                            <td>{{ td2 }}</td>
+                            <td>{{ td3 }}</td>
+                            <td>{{ td4 }}</td>
+                        </tr>
+                        {{ /each }}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div id="other" class="panel panel-warning zgm-panel">
+            <div class="panel zgm-panel-header">
+                <p class="zgm-panel-title">Таны хувийн зан чанар, төлөвшил</p>
+            </div>
+            <div class="panel panel-body">
+                <table class="table highlight bordered responsive-table">
+                    <thead class="bold">
+                        <tr>
+                            <th>Давуу тал</th>
+                            <th>Сул тал</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="center">
+                            <td>{{ nAdvantage }}</td>
+                            <td>{{ nDisadvantage }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="table highlight bordered responsive-table">
+                    <thead class="bold">
+                        <tr>
+                            <th>Өөрийнхөө талаар нэмж танилцуулах зүйлийг бичнэ үү</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{ nMore }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div id="vision" class="panel panel-warning zgm-panel">
+            <div class="panel zgm-panel-header">
+                <p class="zgm-panel-title">Тантай холбоо барих боломжгүй, яаралтай үед холбоо барих хүн</p>
+            </div>
+            <div class="panel panel-body">
+                <table class="table highlight bordered responsive-table">
+                    <thead class="bold">
+                        <tr>
+                            <th>Холбоо барих хүний нэр</th>
+                            <th>Таны хэн болох</th>
+                            <td>Холбоо барих утас</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{ nName2 }}</td>
+                            <td>{{ nWho2 }}</td>
+                            <td>{{ nMobile2 }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- /container -->
+    {{/ with }}
+</template>
