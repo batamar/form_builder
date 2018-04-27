@@ -1,5 +1,4 @@
-/* ----------------------- Form submission mixin ----------------------- */ 
-
+/* ----------------------- Form submission mixin ----------------------- */
 
 SubmissionMixin = {
   prototype: {},
@@ -7,48 +6,49 @@ SubmissionMixin = {
 };
 
 // formId
-SubmissionMixin.prototype.formId = function () {
+SubmissionMixin.prototype.formId = function() {
   return FlowRouter.getParam('formId');
 };
 
 // form obj
-SubmissionMixin.prototype.formObj = function () {
-  return FormBuilder.Collections.Forms.findOne({_id: this.formId()});
+SubmissionMixin.prototype.formObj = function() {
+  return FormBuilder.Collections.Forms.findOne({ _id: this.formId() });
 };
 
-SubmissionMixin.state.formObj = function () {
+SubmissionMixin.state.formObj = function() {
   return this.formObj();
 };
 
 // is ready
-SubmissionMixin.state.isReady = function () {
+SubmissionMixin.state.isReady = function() {
   return FlowRouter.subsReady();
 };
 
-/* ----------------------- Form submission detail mixin ----------------------- */ 
-
+/* ----------------------- Form submission detail mixin ----------------------- */
 
 SubmissionDetailMixin = {
   state: {}
 };
 
 // submission object
-SubmissionDetailMixin.state.object = function () {
-  return FormBuilder.Collections.Submissions.findOne({_id: FlowRouter.getQueryParam('subId')});
+SubmissionDetailMixin.state.object = function() {
+  return FormBuilder.Collections.Submissions.findOne({
+    _id: FlowRouter.getQueryParam('subId')
+  });
 };
 
+/* ----------------------- Form submission delete ----------------------- */
 
-/* ----------------------- Form submission delete ----------------------- */ 
-
-
-var submissionDeleteComponent = FlowComponents.define('submissionDelete', function () {
-});
+var submissionDeleteComponent = FlowComponents.define(
+  'submissionDelete',
+  function() {}
+);
 
 // extend from submission mixins
 submissionDeleteComponent.extend(SubmissionDetailMixin);
 submissionDeleteComponent.extend(SubmissionMixin);
 
-submissionDeleteComponent.state.templateNameToSearch = function () {
+submissionDeleteComponent.state.templateNameToSearch = function() {
   var formObj = this.formObj();
   return 'SDelC' + formObj.code;
 };
@@ -57,9 +57,9 @@ submissionDeleteComponent.action.onSubmit = function() {
   var formId = this.formId();
   var submissionId = FlowRouter.getQueryParam('subId');
 
-  Meteor.call('submissionDelete', submissionId, function () {
+  Meteor.call('submissionDelete', submissionId, function() {
     toastr.success('Ажилттай устлаа', 'Мэдэгдэл');
-    FlowRouter.go('submissionList', {formId: formId});
+    FlowRouter.go('submissionList', { formId: formId });
   });
 };
 
@@ -70,39 +70,35 @@ Template.submissionDelete.events({
   }
 });
 
+/* ----------------------- Form submission detail ----------------------- */
 
-/* ----------------------- Form submission detail ----------------------- */ 
-
-
-var submissionDetailComponent = FlowComponents.define('submissionDetail', function () {
-});
+var submissionDetailComponent = FlowComponents.define(
+  'submissionDetail',
+  function() {}
+);
 
 // extend from submission mixins
 submissionDetailComponent.extend(SubmissionDetailMixin);
 submissionDetailComponent.extend(SubmissionMixin);
 
-submissionDetailComponent.state.templateNameToSearch = function () {
+submissionDetailComponent.state.templateNameToSearch = function() {
   var formObj = this.formObj();
   return 'SDetC' + formObj.code;
 };
 
+/* ----------------------- Form submission list ----------------------- */
 
-
-/* ----------------------- Form submission list ----------------------- */ 
-
-
-var submissionList = Components.define('submissionList', function () {
-});
+var submissionList = Components.define('submissionList', function() {});
 
 submissionList.extend(SubmissionMixin);
 
-submissionList.state.templateNameToSearch = function () {
+submissionList.state.templateNameToSearch = function() {
   var formObj = this.formObj();
   return 'SLC' + formObj.code;
 };
 
 // main list
-submissionList.state.objects = function () {
+submissionList.state.objects = function() {
   FlowRouter.watchPathChange();
 
   // querystring param filters
@@ -111,5 +107,5 @@ submissionList.state.objects = function () {
 
   var filterQueries = FormBuilder.LibHelpers.submissionListQuery(params);
 
-  return FormBuilder.Collections.Submissions.find(filterQueries, {sort: {createdDate: -1}});
+  return FormBuilder.Collections.Submissions.find(filterQueries);
 };
