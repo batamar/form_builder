@@ -1,7 +1,9 @@
 .bold {
   font-weight: bold;
 }
-
+.container{
+  padding-top: 5px !important;
+}
 .text-underline {
   text-decoration: underline;
 }
@@ -17,31 +19,101 @@
 .border-thick {
   border-style: solid;
 }
-
+.btn-primary{
+  background-color: #339933;
+}
+.title{
+  text-transform: uppercase;
+  text-decoration: none;
+  margin: 0;
+}
 .font-16 {
   font-size: 16px;
 }
-
+.monnisgroup-container{
+  margin-top: 30px !important; 
+}
+table.monnistabledetail{
+  font-size: 14px;
+}
+table.monnistabledetail1{
+  border: 1px solid #969696;
+}
+table.monnistabledetail tbody tr{
+  position: relative;
+}
+table.monnistabledetail tbody tr td{
+  position: relative;
+  font-size: 14px;
+  display: table-cell;
+  border: 1px solid #969696;
+  padding-top: 20px;
+}
+.panel > table.monnistabledetail > tbody:first-child > tr:first-child th, 
+.panel > table.monnistabledetail > tbody:first-child > tr:first-child td{
+  border-top: 1px solid #969696 !important;
+}
+table.monnistabledetail tbody tr td span{
+  position: absolute;
+  color: #007b00;
+  font-size: 12px;
+  top: 0px;
+}
+table.monnistable thead{
+  background-color: #339933;
+  color: #fff;
+}
+table.monnistable > thead > tr > th, 
+table.monnistable > tbody > tr > th, 
+table.monnistable > tfoot > tr > th, 
+table.monnistable > thead > tr > td, 
+table.monnistable > tbody > tr > td, 
+table.monnistable > tfoot > tr > td{
+  padding: 12px 5px;
+}
 .monnisgroup-navbar {
-  background-color: #fff;
-  border-color: #2196F3;
+  background-color: transparent;
+  border: none;
 }
 
 #monnisgroupContainer {
   padding: 0px 15px;
 }
 
-#navbar > ul > li {
-  border: 1px solid #01579B;
-  border-radius: 2px;
-  color: #01579B;
-  background-color: #fff;
-}
+#monnisgroupContainer #navbar > ul > li {
+  border: none;
+  border-radius: 0px;
+  color: #fff;
+  margin: 10px 5px;
 
+}
+#monnisgroupContainer #navbar > ul > li:last-child {
+  margin-right: 0;
+}
+#monnisgroupContainer #navbar > ul > li > a {
+  padding: 5px;
+  color: #fff;
+  border: none;
+  background-color: rgba(51, 153, 51, 0.6);
+  border-radius: 0;
+}
+#monnisgroupContainer #navbar > ul > li:hover > a {
+  background-color: #339933;
+}
+#monnisgroupContainer #navbar > ul > li > button.print {
+  background-color: rgba(208, 0, 0, 0.6);
+  padding: 5px;
+  color: #fff;
+  border: none;
+}
+#monnisgroupContainer #navbar > ul > li:hover > button.print {
+  background-color: #d00000;
+}
 .monnisgroup-panel {
   margin-top: 40px;
-  border-width: 1px;
-  border-color: #267b2c;
+  /*border-width: 1px;
+  border-color: #267b2c;*/
+  border: none;
 }
 
 .monnisgroup-panel-emergency {
@@ -49,10 +121,8 @@
 }
 
 .monnisgroup-panel-title {
-  color: #fff;
-  height: 40px;
-  padding: 10px 10px;
-  background-color: #267b2c;
+  height: 30px;
+  margin: 0;
 }
 
 .monnisgroup-menu-padding {
@@ -62,7 +132,7 @@
 .panel-body {
   border-bottom: none;
   box-shadow: none;
-  padding: 10px 10px;
+  padding: 0px !important;
   margin: 0px 0px;
 }
 
@@ -91,4 +161,21 @@ img.monnisgroup-thumbnail:hover,
 img.monnisgroup-thumbnail:focus,
 img.monnisgroup-thumbnail.active {
   border-color: #337ab7;
+}
+#page-content-wrapper{
+  padding: 0 !important;
+}
+table.heregtsee{
+  font-size: 10px;
+  float: right;
+}
+table.heregtsee td{
+  border: 1px solid black; 
+  height:30px; 
+  padding:10px;
+  width: 100px;
+}
+.anket_title{
+  color: #393;
+  font-size: 18px;
 }

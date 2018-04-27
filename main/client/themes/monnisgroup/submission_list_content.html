@@ -1,19 +1,21 @@
 <template name="monnisgroupSLCmonnisgroupAnket">
 
-    <h3>{{ state$form.title }}</h3>
-    <h4 class="text-underline">Ажлын байрны анкет бөглөсөн:</h4>
+    <!-- <h3>{{ state$form.title }}</h3> -->
+    <h4 class="title">Ирүүлсэн анкетууд:</h4>
     <br>
     {{# if state$isReady }}
         <div>
-            <table class="table highlight bordered responsive-table">
+            <table class="table highlight bordered responsive-table monnistable">
                 <thead>                
                     <tr>
                         <th>Бөглөсөн огноо</th>
                         <th>Ажлын байр</th>
                         <th>Овог, нэр</th>
                         <th>Хүйс</th>
-                        <th>Регистрийн дугаар</th>
-                        <th></th>
+                        <th>Утас</th>
+                        <th>РД</th>
+                        <th>Харах</th>
+                        <th>Устгах</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -23,13 +25,16 @@
                             <td>{{ nPosition }}</td>
                             <td>{{ nLastName}} {{ nFirstName }}</td>
                             <td>{{ nGender }}</td>
+                            <td>{{ nMobile }}</td>
                             <td>{{ nRegister }}</td>
                             <td>
                                 <a href="/forms/submission/detail/{{ formId }}/?subId={{ _id }}">
-                                    <span class="glyphicon glyphicon-eye-open text-center"></span>
-                                </a>
+                                    <span class="glyphicon glyphicon-eye-open text-center"></span> Харах
+                                </a>                             
+                            </td>
+                            <td>
                                 <a href="/forms/submission/delete/{{ formId }}/?subId={{ _id }}">
-                                    <span class="glyphicon glyphicon-remove text-danger text-center"></span>
+                                    <span class="glyphicon glyphicon-remove text-danger text-center"></span> Устгах
                                 </a>
                             </td>
                         </tr>
