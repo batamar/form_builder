@@ -200,7 +200,7 @@ table.heregtsee td{
     font-size: 14px;
   }
 }
-@page { size: auto;  margin: 0mm 10mm; }
+@page { size: auto;  margin: 3mm 10mm; }
 @media print
 {    
   .no-print, .no-print *{
