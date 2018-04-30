@@ -57,7 +57,7 @@
                                     {{nAnotherPosition}}
                                 </td>                                
                                 <td class="colInput">
-                                    <span>Таны хүсч буй цалингийн хэмжээ:</span>
+                                    <span>Хүсч буй цалин:</span>
                                     {{ nSalary }}
                                 </td>
                             </tr>
@@ -76,33 +76,41 @@
 
                     <table class="table highlight bordered responsive-table monnistabledetail">
                        <tbody>
-                            <tr>                              
+                            <tr>
+                                <td rowspan="5" style="width: 160px;">
+                                <span>Цээж зураг</span>
+                                <img style="width: 150px;" target="_blank" src="{{ nPortrait }}" class="img"/>
+                                </td>                              
                                 <td>  
                                     <span>Иргэншил / Яс үндэс:</span>
                                     {{ nNationality }}</td>                                
                                 <td>
                                     <span>Ургийн овог:</span>
                                     {{ nFamilyName }}
-                                </td>
-                                <td><span>РД:</span>{{ nRegister }}</td>
+                                </td>                                
                             </tr>
-                            <tr>
-                                
+                            <tr>                                
                                 <td><span>Овог:</span>{{ nLastName }}</td>
                                 <td><span>Нэр:</span>{{ nFirstName }}</td>
+                                
+                            </tr>
+                            <tr>
+                                <td><span>РД:</span>{{ nRegister }}</td>
                                 <td><span>Хүйс:</span>{{ nGender }}</td>
                             </tr>
                             <tr>
                                 
                                 <td><span>Төрсөн огноо:</span>{{ nBirthday }}</td>
                                 <td><span>И-мэйл:</span>{{ nEmail }}</td>
-                                <td><span>Гар утас:</span>{{ nMobile }}</td>
                             </tr>
                            
                             <tr>
                                 
+                                <td><span>Гар утас:</span>{{ nMobile }}</td>
                                 <td><span>Яаралтай үед холбогдох утас:</span>{{ nMobile2 }}</td>
-                                <td> <span>Гэрийн хаяг, утас:</span>{{ nAddress }}</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"> <span>Гэрийн хаяг, утас:</span>{{ nAddress }}</td>
                                 <td><span>Гэрлэсэн эсэх:</span>{{ nMarried }}</td>
                             </tr>
                        
@@ -337,15 +345,15 @@
                         <tbody>
                             <tr class="center">
                                 <td>Цээж зураг:</td>
-                                <td>{{ nPortrait }}</td>
+                                <td><a target="_blank" href="{{ nPortrait }}">{{ nPortrait }}</a></td>
                             </tr>
                             <tr>
                                 <td>Өмнө нь бэлтгэсэн CV</td>
-                                <td>{{ nCV }}</td>
+                                <td><a target="_blank" href="{{ nCV }}">{{ nPortrait }}</a></td>
                             </tr>
                             <tr>
                                  <td>Диплом, мэргэжлийн үнэмлэхүүд:</td>
-                                 <td>{{nDiplom}}</td>
+                                 <td><a target="_blank" href="{{ nDiplom }}">{{ nPortrait }}</a></td>
                             </tr>
                         </tbody>
                          
@@ -369,8 +377,8 @@
                         </tbody>
                     </table>
                 </div>
+                    
             </div>
-
         </div>
     </div>
     <!-- /container -->

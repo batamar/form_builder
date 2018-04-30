@@ -33,6 +33,11 @@
 .monnisgroup-container{
   margin-top: 30px !important; 
 }
+.no-print{
+  border: none;
+  border-radius: 0;
+  font-size: 12px;
+}
 table.monnistabledetail{
   font-size: 14px;
 }
@@ -96,6 +101,8 @@ table.monnistable > tfoot > tr > td{
   border: none;
   background-color: rgba(51, 153, 51, 0.6);
   border-radius: 0;
+  font-size: 12px;
+  line-height: inherit;
 }
 #monnisgroupContainer #navbar > ul > li:hover > a {
   background-color: #339933;
@@ -105,6 +112,7 @@ table.monnistable > tfoot > tr > td{
   padding: 5px;
   color: #fff;
   border: none;
+  font-size: 12px;
 }
 #monnisgroupContainer #navbar > ul > li:hover > button.print {
   background-color: #d00000;
@@ -178,4 +186,13 @@ table.heregtsee td{
 .anket_title{
   color: #393;
   font-size: 18px;
+}
+@media print
+{    
+  .no-print, .no-print *{
+        display: none !important;
+  }
+  .monnistabledetail span {
+    color: #339933 !important;
+  }
 }
