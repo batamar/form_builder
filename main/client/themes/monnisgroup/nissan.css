@@ -31,7 +31,7 @@
   font-size: 16px;
 }
 .monnisgroup-container{
-  margin-top: 30px !important; 
+  margin-top: 20px !important; 
 }
 .no-print{
   border: none;
@@ -118,7 +118,7 @@ table.monnistable > tfoot > tr > td{
   background-color: #d00000;
 }
 .monnisgroup-panel {
-  margin-top: 40px;
+  margin-top: 30px;
   /*border-width: 1px;
   border-color: #267b2c;*/
   border: none;
@@ -131,6 +131,7 @@ table.monnistable > tfoot > tr > td{
 .monnisgroup-panel-title {
   height: 30px;
   margin: 0;
+  font-size: 14px;
 }
 
 .monnisgroup-menu-padding {
@@ -186,7 +187,20 @@ table.heregtsee td{
 .anket_title{
   color: #393;
   font-size: 18px;
+  float: left;
 }
+.monnis_logo{
+  width: 140px;
+}
+@media only screen and (max-width: 920px) {
+  .monnisgroup-panel{
+    margin-top: 20px;
+  }
+  .monnisgroup-panel-title{
+    font-size: 14px;
+  }
+}
+@page { size: auto;  margin: 0mm 10mm; }
 @media print
 {    
   .no-print, .no-print *{
@@ -195,4 +209,5 @@ table.heregtsee td{
   .monnistabledetail span {
     color: #339933 !important;
   }
+  #Header, #Footer { display: none !important; }
 }
