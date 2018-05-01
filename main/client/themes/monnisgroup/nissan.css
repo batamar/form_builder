@@ -206,7 +206,7 @@ table.heregtsee td{
   .no-print, .no-print *{
         display: none !important;
   }
-  .monnistabledetail span {
+  .monnistabledetail span, .anket_title {
     color: #339933 !important;
   }
   #Header, #Footer { display: none !important; }
