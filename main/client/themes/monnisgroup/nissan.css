@@ -203,10 +203,13 @@ table.heregtsee td{
   table.monnistabledetail{
     font-size: 12px;
   }
+  table.monnistabledetail thead{
+    font-size: 11px;
+  }
   table.monnistabledetail tbody tr td{
     font-size: 12px;
     padding-top: 15px;
-    padding-bottom: 5px;
+    padding-bottom: 1px;
   }
   table.monnistabledetail tbody tr td span{
     font-size: 10px;
@@ -215,7 +218,8 @@ table.heregtsee td{
     font-size: 12px;
   }
   .table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td{
-    padding: 5px 8px;
+    padding: 5px;
+    line-height: 12px;
   }
 }
 @media only screen and (max-width: 920px) {
