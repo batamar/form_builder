@@ -192,6 +192,32 @@ table.heregtsee td{
 .monnis_logo{
   width: 140px;
 }
+@media (min-width: 920px) and (max-width: 1290px) {
+  .monnisgroup-panel-title{
+    height: 20px;
+    font-size: 13px;
+  }
+  .monnisgroup-panel{
+    margin-top: 10px;
+  }
+  table.monnistabledetail{
+    font-size: 12px;
+  }
+  table.monnistabledetail tbody tr td{
+    font-size: 12px;
+    padding-top: 15px;
+    padding-bottom: 5px;
+  }
+  table.monnistabledetail tbody tr td span{
+    font-size: 10px;
+  }
+  table.monnistabledetail1{
+    font-size: 12px;
+  }
+  .table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td{
+    padding: 5px 8px;
+  }
+}
 @media only screen and (max-width: 920px) {
   .monnisgroup-panel{
     margin-top: 20px;
