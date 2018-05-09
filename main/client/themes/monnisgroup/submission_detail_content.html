@@ -99,7 +99,7 @@
                             </tr>
                             <tr>
                                 
-                                <td><span>Төрсөн огноо:</span>{{ nBirthday }}</td>
+                                <td><span>Төрсөн огноо:</span>{{ formatDate nBirthday }}</td>
                                 <td><span>И-мэйл:</span>{{ nEmail }}</td>
                             </tr>
                            
@@ -164,8 +164,8 @@
                             {{ #each nEducation }}
                             <tr>
                                 <td>{{ education1 }}</td>
-                                <td class="date">{{ education2 }}</td>
-                                <td class="date">{{ education3 }}</td>
+                                <td>{{ formatDate education2 }}</td>
+                                <td>{{ formatDate education3 }}</td>
                                 <td>{{ education4 }}</td>
                                 <td>{{ education5 }}</td>
                                 <td>{{ education6 }}</td>
@@ -302,8 +302,8 @@
                             <tr>
                                 <td>{{ entityName }}</td>
                                 <td>{{ entityPosition }}</td>
-                                <td>{{ entityStarted }}</td>
-                                <td>{{ entityLeft }}</td>
+                                <td>{{ formatDate entityStarted }}</td>
+                                <td>{{ formatDate entityLeft }}</td>
                                 <td>{{ dirName }}</td>
                                 <td>{{ dirMobile }}</td>
                             </tr>

@@ -109,3 +109,6 @@ submissionList.state.objects = function() {
 
   return FormBuilder.Collections.Submissions.find(filterQueries);
 };
+Template.registerHelper('formatDate', function(date) {
+  return moment(date).format('YYYY-MM-DD');
+});
