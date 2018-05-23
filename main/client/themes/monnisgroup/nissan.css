@@ -243,8 +243,12 @@ table.heregtsee td{
   .monnistabledetail span, .anket_title {
     color: #339933 !important;
   }
+  .monnisgroup-panel-header{
+    font-size: 12px;
+  }
   table.monnistabledetail tbody tr td{
     font-size: 11px;
+    line-height: 14px;
   }
   #Header, #Footer { display: none !important; }
 }
