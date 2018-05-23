@@ -68,7 +68,7 @@ Meteor.publish('publicFormFields', function (formIds) {
 Meteor.publish('submissionList', function (formId) {
   check(formId, String);
 
-  return FormBuilder.Collections.Submissions.find({$and: [{formId: {$in: availableFormIds(this.userId)}}, {formId: formId}]});
+  return FormBuilder.Collections.Submissions.find({$and: [{formId: {$in: availableFormIds(this.userId)}}, {formId: formId}]}, {sort: {createdDate: -1}});
 });
 
 

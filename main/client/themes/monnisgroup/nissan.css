@@ -208,8 +208,9 @@ table.heregtsee td{
   }
   table.monnistabledetail tbody tr td{
     font-size: 12px;
-    padding-top: 15px;
+    padding-top: 10px;
     padding-bottom: 1px;
+    vertical-align: middle;
   }
   table.monnistabledetail tbody tr td span{
     font-size: 10px;
@@ -229,6 +230,9 @@ table.heregtsee td{
   .monnisgroup-panel-title{
     font-size: 14px;
   }
+  table.monnistabledetail tbody tr td{
+    font-size: 11px;
+  }
 }
 @page { size: auto;  margin: 3mm 10mm; }
 @media print
@@ -238,6 +242,9 @@ table.heregtsee td{
   }
   .monnistabledetail span, .anket_title {
     color: #339933 !important;
+  }
+  table.monnistabledetail tbody tr td{
+    font-size: 11px;
   }
   #Header, #Footer { display: none !important; }
 }
