@@ -250,5 +250,11 @@ table.heregtsee td{
     font-size: 11px;
     line-height: 14px;
   }
+
+  table.monnistabledetail1 tbody tr td{
+    font-size: 11px;
+    line-height: 14px;
+    padding: 3px;
+  }
   #Header, #Footer { display: none !important; }
 }
