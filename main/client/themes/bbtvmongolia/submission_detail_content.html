@@ -1,223 +1,270 @@
 <template name="bbtvmongoliaSDetCbbtvmongoliaAnket">
     {{# with state$object }}
-    <!-- Fixed navbar -->
-    <nav class="navbar navbar-default navbar-fixed-top bbtvmongolia-navbar">
-        <div id="bbtvmongoliaContainer" class="container bbtvmongolia-font">
-            <div id="navbar" class="navbar-collapse collapse">
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a id="buttonBack" href="/forms/submission-list/{{ formId }}" class="pull-right btn">
-                            Буцах
-                        </a>
-                    </li>
-                </ul>
+    <div class="row">
+        <!-- Fixed navbar -->
+        <nav class="navbar navbar-default navbar-fixed-top bbtvmongolia-navbar">
+            <div id="bbtvmongoliaContainer" class="container bbtvmongolia-font">
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-left">
+
+                        <li>
+                            <button type="button" class="print" onClick="window.print()"><span class="glyphicon glyphicon-print"></span> Хэвлэх</button>
+                        </li>
+                        <li>
+                            <a id="buttonBack" href="/forms/submission-list/{{ formId }}" class="pull-left btn btn-primary">
+                                <span class="glyphicon glyphicon-arrow-left"></span> 
+                                Буцах
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-        </div>
-    </nav>
-    <div class="bbtvmongolia-container bbtvmongolia-font">
-        <div id="job" class="panel panel-default bbtvmongolia-panel">
-            <div class="panel bbtvmongolia-panel-header">
-                <p class="bbtvmongolia-panel-title">Үндсэн мэдээлэл</p>
+        </nav>
+        <div class="bbtvmongolia-container bbtvmongolia-font">
+          
+            <div class="clearfix"></div>
+            <h2 align="left" class="anket_title">АЖИЛД ОРОХЫГ ХҮСЭГЧИЙН АНКЕТ</h2>
+
+            <div class="clearfix"></div>
+
+            <div id="job" class="panel panel-default bbtvmongolia-panel">
+                <div class="panel bbtvmongolia-panel-header">
+                    <p class="bbtvmongolia-panel-title">1. Горилж буй албан тушаал</p>
+                </div>
+                <div class="panel panel-body">
+                    <table class="table highlight bordered responsive-table bbtvtabledetail">
+                        <tbody>
+                            <tr>
+                                <td class="colInput">
+                                    <span>Горилж буй албан тушаал:</span>
+                                    {{position}}
+                                </td>                               
+                                <td class="colInput">
+                                    <span>Таны хүсч буй цалин:</span>
+                                    {{ salary }}
+                                </td>                           
+                                <td class="colInput">
+                                    <span>Ажилд орох боломжтой огноо:</span>
+                                    {{ formatDate entryDate }}
+                                </td>
+                            </tr>
+                            
+    
+                        </tbody>
+                    </table>
+                </div>
             </div>
-            <div class="panel panel-body">
-                <div class="col-xs-12 col-sm-8 col-lg-8">
-                    <table class="table highlight bordered responsive-table">
+            <div id="main" class="panel panel-default bbtvmongolia-panel">
+                <div class="panel bbtvmongolia-panel-header">
+                    <p class="bbtvmongolia-panel-title">2. ҮНДСЭН МЭДЭЭЛЭЛ (хувийн мэдээлэл)</p>
+                </div>
+                <div class="panel panel-body">
+
+                    <table class="table highlight bordered responsive-table bbtvtabledetail">
                        <tbody>
                             <tr>
-                                <td>Сонирхож буй ажлын байр:</td>
-                                <td>{{ position }}</td>
+                                <td rowspan="6" style="width: 160px;">
+                                <span>Цээж зураг</span>
+                                <a target="_blank" href="{{ portrait }}">
+                                    <img style="width: 150px;" target="_blank" src="{{ portrait }}" class="img"/>
+                                </a>
+                                </td>                              
+                                                               
+                                <td>
+                                    <span>Ургийн овог:</span>
+                                    {{ familyName }}
+                                </td>          
+                                <td><span>И-мэйл:</span>{{ email }}</td>                      
+                            </tr>
+                            <tr>                                
+                                <td><span>Эцэг, /эх/ийн нэр:</span>{{ lastname }}</td>
+                                <td><span>Өөрийн нэр:</span>{{ name }}</td>
+                                
+                            </tr>
+                           
+                            <tr>
+                                
+                                <td><span>Гар утас:</span>{{ mobile }}</td>
+                                <td><span>Яаралтай үед холбогдох утас:</span>{{ mobile2 }}</td>
                             </tr>
                             <tr>
-                                <td>Хүсч буй цалингийн хэмжээ:</td>
-                                <td>{{ salary }}</td>
-                            </tr>   
-                            <tr>
-                                <td>Овог нэр:</td>
-                                <td>{{ name }}</td>
-                            </tr>                              
-                            <tr>
-                                <td>Өөрийн гар утас:</td>
-                                <td>{{ mobile }}</td>
-                            </tr>  
-                            <tr>
-                                <td>Яаралтай үед холбоо барих утас:</td>
-                                <td>{{ mobile2 }}</td>
-                            </tr>  
-                            <tr>
-                                <td>И-мэйл хаяг:</td>
-                                <td>{{ email }}</td>
-                            </tr> 
+                                <td> <span>Оршин суугаа хаяг:</span>{{ address }}</td>
+                                <td><span>Төрсөн аймаг, хот, сум, дүүрэг:</span>{{ birthPlace }}</td>
+                            </tr>
+                       
                         </tbody>
                     </table>
                 </div>
-                <div class="col-xs-12 col-sm-4 col-lg-4 left">
-                    <table class="table highlight bordered responsive-table">
+            </div>
+            <div id="education" class="panel panel-info bbtvmongolia-panel">
+                <div class="panel bbtvmongolia-panel-header">
+                    <p class="bbtvmongolia-panel-title">3. БОЛОВСРОЛ</p>
+                </div>
+                <div class="panel panel-body">
+                    <table class="table highlight bordered responsive-table bbtvtabledetail1">
+                        <thead class="bold">
+                            <tr>
+                                <th>Төгссөн сургууль</th>
+                                <th>Эзэмшсэн мэргэжил</th>
+                                <th>Зэрэг</th>
+                                <th>Дипломын хуулбар</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{ #each education }}
+                            <tr>
+                                <td>{{ education1 }}</td>
+                                <td>{{ education2 }}</td>
+                                <td>{{ education3 }}</td>
+                                <td><a target="_blank" href="{{ education4 }}">{{ education4 }}</a></td>
+                            </tr>
+                            {{ /each }}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div id="language" class="panel panel-warning bbtvmongolia-panel">
+                <div class="panel bbtvmongolia-panel-header">
+                    <p class="bbtvmongolia-panel-title">4. ГАДААД ХЭЛНИЙ МЭДЛЭГ</p>
+                </div>
+                <div class="panel panel-body">
+                    <table class="table highlight bordered responsive-table bbtvtabledetail1">
+                        <thead class="bold">
+                            <tr>
+                                <th>Гадаад хэлний нэр</th>
+                                <th>Түвшин</th>
+                                <th>Суралцсан хугацаа</th>
+                                <th>Тусгай шалгалтын оноо </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{ #each language }}
+                            <tr class="center">
+                                <td>{{ language1 }}</td>
+                                <td>{{ language2 }}</td>
+                                <td>{{ language3 }}</td>
+                                <td>{{ languagePoint }}</td>
+                            </tr>
+                            {{ /each }}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div id="employment" class="panel panel-primary bbtvmongolia-panel">
+                <div class="panel bbtvmongolia-panel-header">
+                    <p class="bbtvmongolia-panel-title">5. Ажлын туршлага:</p>
+                </div>
+                <div class="panel panel-body">
+                    <table class="table highlight bordered responsive-table bbtvtabledetail1">
+                        <thead class="bold">
+                            <tr>
+                                <th>Байгууллага</th>
+                                <th>Албан тушаал</th>
+                                <th>Ажилласан хугацаа</th>
+                                <th>Гарсан шалтгаан</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{ #each employment }}
+                            <tr>
+                                <td>{{ employment1 }}</td>
+                                <td>{{ employment2 }}</td>
+                                <td>{{ employment3 }}</td>
+                                <td>{{ reason }}</td>
+                            </tr>
+                            {{ /each }}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div id="certification" class="panel panel-warning bbtvmongolia-panel">
+                <div class="panel bbtvmongolia-panel-header">
+                    <p class="bbtvmongolia-panel-title">6. Мэргэшсэн байдал, хамрагдаж байсан сургалт, дадлага:</p>
+                </div>
+                <div class="panel panel-body">
+                    <table class="table highlight bordered responsive-table bbtvtabledetail1">
+                        <thead class="bold">
+                            <tr>
+                                <th>Сэдэв, чиглэл</th>
+                                <th>Байгууллага</th>
+                                <th>Огноо</th>
+                                <th>Хугацаа</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{ #each certified }}
+                            <tr class="center">
+                                <td>{{ certified1 }}</td>
+                                <td>{{ certified2 }}</td>
+                                <td>{{ formatDate certified3 }}</td>
+                                <td>{{ certified4 }}</td>
+                            </tr>
+                            {{ /each }}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+          
+            <div id="other" class="panel panel-warning bbtvmongolia-panel">
+                <div class="panel bbtvmongolia-panel-header">
+                    <p class="bbtvmongolia-panel-title">7. БУСАД </p>
+                </div>
+                <div class="panel panel-body">
+                    <table class="table highlight bordered responsive-table bbtvtabledetail">
                        <tbody>
-                        <tr>
-                            <td>
-                                <a href="{{ portrait }}" target="_blank">
-                                    <img class="bbtvmongolia-thumbnail" src="{{ portrait }}" alt="Цээж зураг" width="200" title="Цээж зураг"/>
-                                </a>
-                            </td>
-                        </tr>    
+                            <tr>                               
+                                <td>
+                                    <span>Таны ирээдүйн зорилго:</span>
+                                    {{ purpose }}
+                                </td>    
+                            </tr>
+                            <tr>                       
+                                <td>
+                                    <span>Таны ойрын 5 жилийн төлөвлөгөө:</span>
+                                    {{ plan }}
+                                </td>     
+                            </tr>
+                            <tr>                            
+                                <td>
+                                    <span>Таны хобби:</span>
+                                    {{ hobbi }}
+                                </td>     
+                            </tr>
+                            <tr>                            
+                                <td>
+                                    <span>Өөрийнхөө талаар нэмж танилцуулах зүйлээ бичнэ үү:</span>
+                                    {{ about }}
+                                </td>     
+                            </tr>
+                            <tr>                           
+                                <td>
+                                    <span>Bloomberg-ийн талаарх бодлоо хуваалцана уу?</span>
+                                    {{ aboutBloomberg }}
+                                </td>                
+                            </tr>
+                         
                         </tbody>
+                    </table>
+
+                </div>
+            </div>
+            <div id="uploads" class="panel panel-default bbtvmongolia-panel">
+                <div class="panel bbtvmongolia-panel-header">
+                    <p class="bbtvmongolia-panel-title">11. ХАВСАРГАХ ФАЙЛУУД </p>
+                </div>
+                <div class="panel panel-body">
+                    <table class="table highlight bordered responsive-table bbtvtabledetail1">
+                        <tbody>
+                            <tr>
+                                <td>Иргэний үнэмлэхний хуулбар</td>
+                                <td><a target="_blank" href="{{ passport }}">{{ passport }}</a></td>
+                            </tr>
+                        </tbody>
+                         
                     </table>
                 </div>
             </div>
         </div>
-        <div id="education" class="panel panel-info bbtvmongolia-panel">
-            <div class="panel bbtvmongolia-panel-header">
-                <p class="bbtvmongolia-panel-title">Боловсрол</p>
-            </div>
-            <div class="panel panel-body">
-                <table class="table highlight bordered responsive-table">
-                    <thead class="bold">
-                        <tr>
-                            <th>Төгссөн сургууль</th>
-                            <th>Эзэмшсэн мэргэжил</th>
-                            <th>Зэрэг</th>
-                            <th>Диплом</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {{ #each education }}
-                        <tr>
-                            <td>{{ education1 }}</td>
-                            <td>{{ education2 }}</td>
-                            <td>{{ education3 }}</td>
-                            <td>{{ education4 }}</td>
-                        </tr>
-                        {{ /each }}
-                    </tbody>
-                </table>
-                <table class="table highlight bordered responsive-table">
-                    <tbody>
-                        <tr>
-                            <td>Тусгай шалгалтын оноо(IELTS, HSK г.м)</td>
-                            <td>{{ score }}</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-        <div id="language" class="panel panel-warning bbtvmongolia-panel">
-            <div class="panel bbtvmongolia-panel-header">
-                <p class="bbtvmongolia-panel-title">Гадаад хэлний мэдлэг</p>
-            </div>
-            <div class="panel panel-body">
-                <table class="table highlight bordered responsive-table">
-                    <thead class="bold">
-                        <tr>
-                            <th>Гадаад хэлний нэр</th>
-                            <th>Түвшин</th>
-                            <th>Үзсэн хугацаа</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {{ #each language }}
-                        <tr class="center">
-                            <td>{{ language1 }}</td>
-                            <td>{{ language2 }}</td>
-                            <td>{{ language3 }}</td>
-                        </tr>
-                        {{ /each }}
-                    </tbody>
-                </table>
-            </div>
-        </div>  
-        <div id="employment" class="panel panel-warning bbtvmongolia-panel">
-            <div class="panel bbtvmongolia-panel-header">
-                <p class="bbtvmongolia-panel-title">Ажлын туршлага</p>
-            </div>
-            <div class="panel panel-body">
-                <table class="table highlight bordered responsive-table">
-                    <thead class="bold">
-                        <tr>
-                            <th>Байгууллагын нэр</th>
-                            <th>Албан тушаал</th>
-                            <th>Ажилласан хугацаа</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {{ #each employment }}
-                        <tr class="center">
-                            <td>{{ employment1 }}</td>
-                            <td>{{ employment2 }}</td>
-                            <td>{{ employment3 }}</td>
-                        </tr>
-                        {{ /each }}
-                    </tbody>
-                </table>
-                <br>
-                <table><tr>
-                    <td>Хийж байсан бүтээл, судалгааны ажил:  </td>
-                    <td>
-                        <a href="{{ research }}" target="_blank">
-                            <i class="glyphicon glyphicon-save"></i> татах
-                        </a>
-                    </td>
-                </tr></table>
-            </div>
-        </div>  
-        <div id="certified" class="panel panel-warning bbtvmongolia-panel">
-            <div class="panel bbtvmongolia-panel-header">
-                <p class="bbtvmongolia-panel-title">Ажлын туршлага</p>
-            </div>
-            <div class="panel panel-body">
-                <table class="table highlight bordered responsive-table">
-                    <thead class="bold">
-                        <tr>
-                            <th>Мэргэшсэн эрхийн нэр</th>
-                            <th>Oлгосон байгууллага</th>
-                            <th>Oгноо</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {{ #each certified }}
-                        <tr class="center">
-                            <td>{{ certified1 }}</td>
-                            <td>{{ certified2 }}</td>
-                            <td>{{ certified3 }}</td>
-                        </tr>
-                        {{ /each }}
-                    </tbody>
-                </table>
-            </div>
-        </div>       
-        <div id="vision" class="panel panel-warning bbtvmongolia-panel">
-            <div class="panel bbtvmongolia-panel-header">
-                <p class="bbtvmongolia-panel-title">Таны зорилго, зорилт</p>
-            </div>
-            <div class="panel panel-body">
-                <table class="table highlight bordered responsive-table">
-                    <thead class="bold">
-                        <tr>
-                            <th>Таны ирээдүйн зорилго</th>
-                            <th>Таны ойрын 5 жилийн төлөвлөгөө</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>{{ purpose }}</td>
-                            <td>{{ plan }}</td>
-                        </tr>
-                    </tbody>
-                </table>
-                <table class="table highlight bordered responsive-table">
-                    <thead class="bold">
-                        <tr>
-                            <th>Өөрийнхөө талаар нэмж танилцуулах зүйлээ бичнэ үү.</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>{{ about }}</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-      
     </div>
     <!-- /container -->
     {{/ with }}

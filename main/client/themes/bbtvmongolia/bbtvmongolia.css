@@ -1,7 +1,9 @@
 .bold {
   font-weight: bold;
 }
-
+.container{
+  padding-top: 5px !important;
+}
 .text-underline {
   text-decoration: underline;
 }
@@ -17,41 +19,110 @@
 .border-thick {
   border-style: solid;
 }
-
-.font-16 {
-  font-size: 16px;
-}
-
-.bbtvmongolia-navbar.navbar-default {
-  background-color: #fff;
-  border-bottom: none;
-  padding-top: 10px;
-}
-.bbtvmongolia-navbar.navbar-default .navbar-nav > li > a {
-  padding-top: 5px;
-  padding-bottom: 5px;
-}
-#bbtvmongoliaContainer {
-  padding: 0px 15px;
+.btn-primary{
+  background-color: #fa4c2a;
 }
 .title{
   text-transform: uppercase;
+  text-decoration: none;
+  margin: 0;
 }
-.exit_btn{
+.font-16 {
+  font-size: 16px;
+}
+.bbtvmongolia-container{
+  margin-top: 20px !important; 
+  padding: 20px;
+}
+.no-print{
+  border: none;
   border-radius: 0;
+  font-size: 12px;
 }
-#navbar > ul > li {
-  border: 1px solid #01579B;
-  border-radius: 2px;
-  color: #01579B;
-  background-color: #fff;
+table.bbtvtabledetail{
+  font-size: 14px;
+}
+table.bbtvtabledetail1{
+  border: 1px solid #969696;
+}
+table.bbtvtabledetail tbody tr{
+  position: relative;
+}
+table.bbtvtabledetail tbody tr td{
+  position: relative;
+  font-size: 14px;
+  display: table-cell;
+  border: 1px solid #969696;
+  padding-top: 20px;
+}
+.panel > table.bbtvtabledetail > tbody:first-child > tr:first-child th, 
+.panel > table.bbtvtabledetail > tbody:first-child > tr:first-child td{
+  border-top: 1px solid #969696 !important;
+}
+table.bbtvtabledetail tbody tr td span{
+  position: absolute;
+  color: #fa4c2a;
+  font-size: 12px;
+  top: 0px;
+}
+table.bbtvtable thead{
+  background-color: #fa4c2a;
+  color: #fff;
+}
+table.bbtvtable > thead > tr > th, 
+table.bbtvtable > tbody > tr > th, 
+table.bbtvtable > tfoot > tr > th, 
+table.bbtvtable > thead > tr > td, 
+table.bbtvtable > tbody > tr > td, 
+table.bbtvtable > tfoot > tr > td{
+  padding: 12px 5px;
+}
+.bbtvmongolia-navbar {
+  background-color: transparent;
+  border: none;
 }
 
-.bbtvmongolia-panel {
-  margin-top: 40px;
-  border-width: 1px;
-  border-color: #959595;
+#bbtvmongoliaContainer {
+  padding: 0px 15px;
+}
+
+#bbtvmongoliaContainer #navbar > ul > li {
+  border: none;
+  border-radius: 0px;
+  color: #fff;
+  margin: 10px 5px;
+
+}
+#bbtvmongoliaContainer #navbar > ul > li:last-child {
+  margin-right: 0;
+}
+#bbtvmongoliaContainer #navbar > ul > li > a {
+  padding: 5px;
+  color: #fff;
+  border: none;
+  background-color: rgba(51, 153, 51, 0.6);
   border-radius: 0;
+  font-size: 12px;
+  line-height: inherit;
+}
+#bbtvmongoliaContainer #navbar > ul > li:hover > a {
+  background-color: #fa4c2a;
+}
+#bbtvmongoliaContainer #navbar > ul > li > button.print {
+  background-color: rgba(208, 0, 0, 0.6);
+  padding: 5px;
+  color: #fff;
+  border: none;
+  font-size: 12px;
+}
+#bbtvmongoliaContainer #navbar > ul > li:hover > button.print {
+  background-color: #d00000;
+}
+.bbtvmongolia-panel {
+  margin-top: 30px;
+  /*border-width: 1px;
+  border-color: #267b2c;*/
+  border: none;
 }
 
 .bbtvmongolia-panel-emergency {
@@ -59,10 +130,9 @@
 }
 
 .bbtvmongolia-panel-title {
-  color: #fff;
-  height: 40px;
-  padding: 10px 10px;
-  background-color: #959595;
+  height: 30px;
+  margin: 0;
+  font-size: 14px;
 }
 
 .bbtvmongolia-menu-padding {
@@ -72,7 +142,7 @@
 .panel-body {
   border-bottom: none;
   box-shadow: none;
-  padding: 10px 10px;
+  padding: 0px !important;
   margin: 0px 0px;
 }
 
@@ -101,4 +171,91 @@ img.bbtvmongolia-thumbnail:hover,
 img.bbtvmongolia-thumbnail:focus,
 img.bbtvmongolia-thumbnail.active {
   border-color: #337ab7;
+}
+#page-content-wrapper{
+  padding: 20px !important;
+}
+table.heregtsee{
+  font-size: 10px;
+  float: right;
+}
+table.heregtsee td{
+  border: 1px solid black; 
+  height:30px; 
+  padding:10px;
+  width: 100px;
+}
+.anket_title{
+  color: #444444;
+  font-size: 18px;
+  float: left;
+}
+.bbtv_logo{
+  width: 140px;
+}
+@media (min-width: 920px) and (max-width: 1290px) {
+  .bbtvmongolia-panel-title{
+    height: 20px;
+    font-size: 13px;
+  }
+  .bbtvmongolia-panel{
+    margin-top: 10px;
+  }
+  table.bbtvtabledetail{
+    font-size: 12px;
+  }
+  table.bbtvtabledetail thead{
+    font-size: 11px;
+  }
+  table.bbtvtabledetail tbody tr td{
+    font-size: 12px;
+    padding-top: 10px;
+    padding-bottom: 1px;
+    vertical-align: middle;
+  }
+  table.bbtvtabledetail tbody tr td span{
+    font-size: 10px;
+  }
+  table.bbtvtabledetail1{
+    font-size: 12px;
+  }
+  .table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td{
+    padding: 5px;
+    line-height: 12px;
+  }
+}
+@media only screen and (max-width: 920px) {
+  .bbtvmongolia-panel{
+    margin-top: 20px;
+  }
+  .bbtvmongolia-panel-title{
+    font-size: 14px;
+  }
+  table.bbtvtabledetail tbody tr td{
+    font-size: 11px;
+  }
+}
+@page { size: auto;  margin: 3mm 10mm; }
+@media print
+{    
+  .no-print, .no-print *{
+        display: none !important;
+  }
+  .bbtvtabledetail span, .anket_title {
+    color: #fa4c2a !important;
+  }
+  .bbtvmongolia-panel-header{
+    font-size: 12px;
+  }
+  table.bbtvtabledetail tbody tr td{
+    font-size: 11px;
+    line-height: 14px;
+  }
+
+  table.bbtvtabledetail1 tbody tr td{
+    font-size: 11px;
+    line-height: 14px;
+    padding: 3px;
+  }
+  #Header, #Footer { display: none !important; }
 }
