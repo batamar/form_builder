@@ -39,6 +39,9 @@
   border-radius: 0;
   font-size: 12px;
 }
+.exit_btn{
+  margin-top: 15px;
+}
 table.bbtvtabledetail{
   font-size: 14px;
 }
@@ -258,4 +261,7 @@ table.heregtsee td{
     padding: 3px;
   }
   #Header, #Footer { display: none !important; }
+  a[href]:after {
+    content: none !important;
+  }
 }
