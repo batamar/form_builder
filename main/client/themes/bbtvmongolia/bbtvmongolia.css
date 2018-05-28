@@ -31,7 +31,8 @@
   font-size: 16px;
 }
 .bbtvmongolia-container{
-  margin-top: 20px !important; 
+  margin-top: 5px !important; 
+  margin-bottom: 20px !important; 
   padding: 20px;
 }
 .no-print{
@@ -122,7 +123,7 @@ table.bbtvtable > tfoot > tr > td{
   background-color: #d00000;
 }
 .bbtvmongolia-panel {
-  margin-top: 30px;
+  margin-top: 20px;
   /*border-width: 1px;
   border-color: #267b2c;*/
   border: none;
@@ -188,13 +189,13 @@ table.heregtsee td{
   padding:10px;
   width: 100px;
 }
-.anket_title{
+.bbtvmongolia-container .anket_title{
   color: #444444;
-  font-size: 18px;
+  font-size: 16px;
   float: left;
 }
-.bbtv_logo{
-  width: 140px;
+.bbtvmongolia-container .bbtv_logo{
+  width: 150px;
 }
 @media (min-width: 920px) and (max-width: 1290px) {
   .bbtvmongolia-panel-title{
@@ -244,8 +245,11 @@ table.heregtsee td{
   .no-print, .no-print *{
         display: none !important;
   }
-  .bbtvtabledetail span, .anket_title {
+  .bbtvtabledetail span {
     color: #fa4c2a !important;
+  }
+  .bbtvmongolia-container .anket_title{
+    color: #444444 !important;
   }
   .bbtvmongolia-panel-header{
     font-size: 12px;
@@ -258,7 +262,6 @@ table.heregtsee td{
   table.bbtvtabledetail1 tbody tr td{
     font-size: 11px;
     line-height: 14px;
-    padding: 3px;
   }
   #Header, #Footer { display: none !important; }
   a[href]:after {
