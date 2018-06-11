@@ -48,7 +48,7 @@
             </div> -->
             <div id="main" class="panel panel-default bbtvmongolia-panel">
                 <div class="panel bbtvmongolia-panel-header">
-                    <p class="bbtvmongolia-panel-title">2. ҮНДСЭН МЭДЭЭЛЭЛ</p>
+                    <p class="bbtvmongolia-panel-title">1. ҮНДСЭН МЭДЭЭЛЭЛ</p>
                 </div>
                 <div class="panel panel-body">
 
@@ -74,28 +74,29 @@
                                 <a target="_blank" href="{{ portrait }}">
                                     <img style="width: 150px;" target="_blank" src="{{ portrait }}" class="img"/>
                                 </a>
-                                </td>                              
+                                </td>   
+                               <td><span>Эцэг, /эх/ийн нэр:</span>{{ lastname }}</td>
+                                <td><span>Өөрийн нэр:</span>{{ name }}</td>                           
                                                                
-                                <td>
-                                    <span>Ургийн овог:</span>
-                                    {{ familyName }}
-                                </td>          
-                                <td><span>И-мэйл:</span>{{ email }}</td>                      
                             </tr>
-                            <tr>                                
-                                <td><span>Эцэг, /эх/ийн нэр:</span>{{ lastname }}</td>
-                                <td><span>Өөрийн нэр:</span>{{ name }}</td>
-                                
-                            </tr>
-                           
+                            
                             <tr>
                                 
                                 <td><span>Гар утас:</span>{{ mobile }}</td>
                                 <td><span>Яаралтай үед холбогдох утас:</span>{{ mobile2 }}</td>
                             </tr>
                             <tr>
-                                <td> <span>Оршин суугаа хаяг:</span>{{ address }}</td>
+                                <td><span>И-мэйл:</span>{{ email }}</td>  
                                 <td><span>Төрсөн аймаг, хот, сум, дүүрэг:</span>{{ birthPlace }}</td>
+                            </tr>
+                            <tr>
+                                <td> <span>Оршин суугаа хаяг:</span>{{ address }}</td>
+                            </tr>
+                            <tr>                                
+                            <td>
+                                <span>Гэр бүлийн байдал:</span>
+                                {{ familyName }}
+                            </td>           
                             </tr>
                        
                         </tbody>
@@ -104,7 +105,7 @@
             </div>
             <div id="education" class="panel panel-info bbtvmongolia-panel">
                 <div class="panel bbtvmongolia-panel-header">
-                    <p class="bbtvmongolia-panel-title">3. БОЛОВСРОЛ</p>
+                    <p class="bbtvmongolia-panel-title">2. БОЛОВСРОЛ</p>
                 </div>
                 <div class="panel panel-body">
                     <table class="table highlight bordered responsive-table bbtvtabledetail1">
@@ -113,6 +114,7 @@
                                 <th>Төгссөн сургууль</th>
                                 <th>Эзэмшсэн мэргэжил</th>
                                 <th>Зэрэг</th>
+                                <th>Голч дүн</th>
                                 <th>Дипломын хуулбар</th>
                             </tr>
                         </thead>
@@ -122,6 +124,7 @@
                                 <td>{{ education1 }}</td>
                                 <td>{{ education2 }}</td>
                                 <td>{{ education3 }}</td>
+                                <td>{{ education5 }}</td>
                                 <td><a target="_blank" href="{{ education4 }}">{{ education4 }}</a></td>
                             </tr>
                             {{ /each }}
