@@ -7,7 +7,12 @@
 .text-underline {
   text-decoration: underline;
 }
-
+.senders_list a{
+  color: #fa4c2a;
+}
+.senders_list a:visited {
+    color: #337ab7;
+}
 .float-left {
   float: left;
 }
@@ -21,6 +26,15 @@
 }
 .btn-primary{
   background-color: #fa4c2a;
+}
+.btn-success{
+  border-radius: 0;
+  font-size: 12px;
+  margin-top: 15px;
+  padding: 5px 10px;
+  line-height: 1.5;
+  border:none;
+  margin-right: 5px;
 }
 .title{
   text-transform: uppercase;
@@ -137,6 +151,7 @@ table.bbtvtable > tfoot > tr > td{
   height: 30px;
   margin: 0;
   font-size: 14px;
+  text-transform: uppercase;
 }
 
 .bbtvmongolia-menu-padding {
@@ -242,6 +257,10 @@ table.heregtsee td{
 @page { size: auto;  margin: 3mm 10mm; }
 @media print
 {    
+  body{
+    padding-top: 20mm;
+    padding-bottom: 20mm;
+  }
   .no-print, .no-print *{
         display: none !important;
   }
