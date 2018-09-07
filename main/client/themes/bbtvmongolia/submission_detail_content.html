@@ -27,17 +27,17 @@
                 <h2 align="left" class="anket_title">АЖИЛД ОРОХЫГ ХҮСЭГЧИЙН АНКЕТ</h2>
             </div>
             <div class="col-sm-6 pull-right">
-                <img class="pull-right bbtv_logo" src="https://cdn-images-1.medium.com/max/1402/1*L1pCOYDWUp35jZbXiZGsWw.png">
+                <img class="pull-right bbtv_logo" src="http://bloombergtv.mn/static/sites/bbtvmongolia/default/images/bloomberglogo.png">
             </div>
             <div class="clearfix"></div>
-
-            <div id="job" class="panel panel-default bbtvmongolia-panel">
+            <div id="main" class="panel panel-default bbtvmongolia-panel">
                 <div class="panel bbtvmongolia-panel-header">
-                    <p class="bbtvmongolia-panel-title">1. Горилж буй албан тушаал</p>
+                    <p class="bbtvmongolia-panel-title">1. ҮНДСЭН МЭДЭЭЛЭЛ</p>
                 </div>
                 <div class="panel panel-body">
+
                     <table class="table highlight bordered responsive-table bbtvtabledetail">
-                        <tbody>
+                       <tbody>
                             <tr>
                                 <td class="colInput">
                                     <span>Горилж буй албан тушаал:</span>
@@ -51,8 +51,7 @@
                                     <span>Ажилд орох боломжтой огноо:</span>
                                     {{ formatDate entryDate }}
                                 </td>
-                            </tr>
-                            
+                            </tr>            
     
                         </tbody>
                     </table>
@@ -72,8 +71,9 @@
                                 <a target="_blank" href="{{ portrait }}">
                                     <img style="width: 150px;" target="_blank" src="{{ portrait }}" class="img"/>
                                 </a>
-                                </td>                              
-                                                               
+                                </td>   
+                               <td><span>Эцэг, /эх/ийн нэр:</span>{{ lastname }}</td>
+                                <td><span>Өөрийн нэр:</span>{{ name }}</td>                           
                                 <td>
                                     <span>Гэр бүлийн гишүүдийн тухай:</span>
                                     {{ familyName }}
@@ -82,18 +82,27 @@
                             </tr>
                             <tr>                                
                                 <td><span>Эцэг, /эх/ийн нэр:</span>{{ lastname }}</td>
-                                <td><span>Өөрийн нэр:</span>{{ name }}</td>
-                                
+                                <td><span>Өөрийн нэр:</span>{{ name }}</td>                             
                             </tr>
-                           
-                            <tr>
-                                
+                            
+                            <tr>                               
                                 <td><span>Гар утас:</span>{{ mobile }}</td>
-                                <td><span>Яаралтай үед холбогдох утас:</span>{{ mobile2 }}</td>
+                                <td><span>И-мэйл:</span>{{ email }}</td>  
+                            </tr>
+                            <tr colspan="2">                        
+                                <td><span>Төрсөн аймаг, хот, сум, дүүрэг:</span>{{ birthPlace }}</td>
                             </tr>
                             <tr>
-                                <td> <span>Оршин суугаа хаяг:</span>{{ address }}</td>
-                                <td><span>Төрсөн аймаг, хот, сум, дүүрэг:</span>{{ birthPlace }}</td>
+                                <td colspan="2">
+                                    <span>Оршин суугаа хаяг:</span>
+                                    {{ address }}
+                                </td>
+                            </tr>
+                            <tr>                                
+                                <td colspan="2">
+                                    <span>Гэр бүлийн байдал:</span>
+                                    {{ familyName }}
+                                </td>           
                             </tr>
                        
                         </tbody>
@@ -124,6 +133,7 @@
                                 <td>{{ education2 }}</td>
                                 <td>{{ education5 }}</td>
                                 <td>{{ education3 }}</td>
+                                <td>{{ education5 }}</td>
                                 <td><a target="_blank" href="{{ education4 }}">{{ education4 }}</a></td>
                             </tr>
                             {{ /each }}
@@ -150,7 +160,7 @@
                             <tr class="center">
                                 <td>{{ language1 }}</td>
                                 <td>{{ language2 }}</td>
-                                <td>{{ language3 }}</td>
+                                <td>{{ language3 }} сар</td>
                                 <td>{{ languagePoint }}</td>
                             </tr>
                             {{ /each }}
@@ -160,7 +170,7 @@
             </div>
             <div id="employment" class="panel panel-primary bbtvmongolia-panel">
                 <div class="panel bbtvmongolia-panel-header">
-                    <p class="bbtvmongolia-panel-title">5. Ажлын туршлага:</p>
+                    <p class="bbtvmongolia-panel-title">4. Ажлын туршлага:</p>
                 </div>
                 <div class="panel panel-body">
                     <table class="table highlight bordered responsive-table bbtvtabledetail1">
@@ -177,7 +187,7 @@
                             <tr>
                                 <td>{{ employment1 }}</td>
                                 <td>{{ employment2 }}</td>
-                                <td>{{ employment3 }}</td>
+                                <td>{{ employment3 }} сар</td>
                                 <td>{{ reason }}</td>
                             </tr>
                             {{ /each }}
@@ -187,7 +197,7 @@
             </div>
             <div id="certification" class="panel panel-warning bbtvmongolia-panel">
                 <div class="panel bbtvmongolia-panel-header">
-                    <p class="bbtvmongolia-panel-title">6. Мэргэшсэн байдал, хамрагдаж байсан сургалт, дадлага:</p>
+                    <p class="bbtvmongolia-panel-title">5. Мэргэшсэн байдал, хамрагдаж байсан сургалт, дадлага:</p>
                 </div>
                 <div class="panel panel-body">
                     <table class="table highlight bordered responsive-table bbtvtabledetail1">
@@ -205,7 +215,7 @@
                                 <td>{{ certified1 }}</td>
                                 <td>{{ certified2 }}</td>
                                 <td>{{ formatDate certified3 }}</td>
-                                <td>{{ certified4 }}</td>
+                                <td>{{ certified4 }} сар</td>
                             </tr>
                             {{ /each }}
                         </tbody>
@@ -280,12 +290,16 @@
                     <table class="table highlight bordered responsive-table bbtvtabledetail1">
                         <tbody>
                             <tr>
-                                <td>Иргэний үнэмлэхний хуулбар</td>
+                                <td>1. Иргэний үнэмлэхний хуулбар</td>
                                 <td><a target="_blank" href="{{ passport }}">{{ passport }}</a></td>
                             </tr>
                             <tr>
-                                <td>Хийж байсан бүтээл, судалгааны ажил</td>
+                                <td>2. Хийж байсан бүтээл, судалгааны ажил</td>
                                 <td><a target="_blank" href="{{ research }}">{{ research }}</a></td>
+                            </tr>
+                            <tr>
+                                <td>3. Бүтээл, судалгааны ажлын линк </td>
+                                <td><a target="_blank" href="{{ researchLink }}">{{ researchLink }}</a></td>
                             </tr>
                         </tbody>
                          
