@@ -60,7 +60,7 @@
             </div>
             <div id="main" class="panel panel-default bbtvmongolia-panel">
                 <div class="panel bbtvmongolia-panel-header">
-                    <p class="bbtvmongolia-panel-title">2. ҮНДСЭН МЭДЭЭЛЭЛ (хувийн мэдээлэл)</p>
+                    <p class="bbtvmongolia-panel-title">2. Үндсэн мэдээлэл (хувийн мэдээлэл)</p>
                 </div>
                 <div class="panel panel-body">
 
@@ -75,7 +75,7 @@
                                 </td>                              
                                                                
                                 <td>
-                                    <span>Ургийн овог:</span>
+                                    <span>Гэр бүлийн гишүүдийн тухай:</span>
                                     {{ familyName }}
                                 </td>          
                                 <td><span>И-мэйл:</span>{{ email }}</td>                      
@@ -102,23 +102,27 @@
             </div>
             <div id="education" class="panel panel-info bbtvmongolia-panel">
                 <div class="panel bbtvmongolia-panel-header">
-                    <p class="bbtvmongolia-panel-title">3. БОЛОВСРОЛ</p>
+                    <p class="bbtvmongolia-panel-title">3. Боловсрол</p>
                 </div>
                 <div class="panel panel-body">
                     <table class="table highlight bordered responsive-table bbtvtabledetail1">
                         <thead class="bold">
                             <tr>
-                                <th>Төгссөн сургууль</th>
-                                <th>Эзэмшсэн мэргэжил</th>
+                                <th>Хаана</th>
+                                <th>Сургууль</th>
+                                <th>Мэргэжил</th>
                                 <th>Зэрэг</th>
+                                <th>Голч</th>
                                 <th>Дипломын хуулбар</th>
                             </tr>
                         </thead>
                         <tbody>
                             {{ #each education }}
                             <tr>
+                                <td>{{ education6 }}</td>
                                 <td>{{ education1 }}</td>
                                 <td>{{ education2 }}</td>
+                                <td>{{ education5 }}</td>
                                 <td>{{ education3 }}</td>
                                 <td><a target="_blank" href="{{ education4 }}">{{ education4 }}</a></td>
                             </tr>
@@ -129,7 +133,7 @@
             </div>
             <div id="language" class="panel panel-warning bbtvmongolia-panel">
                 <div class="panel bbtvmongolia-panel-header">
-                    <p class="bbtvmongolia-panel-title">4. ГАДААД ХЭЛНИЙ МЭДЛЭГ</p>
+                    <p class="bbtvmongolia-panel-title">4. Гадаад хэлний мэдлэг</p>
                 </div>
                 <div class="panel panel-body">
                     <table class="table highlight bordered responsive-table bbtvtabledetail1">
@@ -211,40 +215,56 @@
           
             <div id="other" class="panel panel-warning bbtvmongolia-panel">
                 <div class="panel bbtvmongolia-panel-header">
-                    <p class="bbtvmongolia-panel-title">7. БУСАД </p>
+                    <p class="bbtvmongolia-panel-title">7. Бусад </p>
                 </div>
                 <div class="panel panel-body">
                     <table class="table highlight bordered responsive-table bbtvtabledetail">
                        <tbody>
                             <tr>                               
-                                <td>
+                                <td colspan="2">
                                     <span>Таны ирээдүйн зорилго:</span>
                                     {{ purpose }}
                                 </td>    
                             </tr>
                             <tr>                       
-                                <td>
+                                <td colspan="2">
                                     <span>Таны ойрын 5 жилийн төлөвлөгөө:</span>
                                     {{ plan }}
                                 </td>     
                             </tr>
                             <tr>                            
-                                <td>
+                                <td colspan="2">
                                     <span>Таны хобби:</span>
                                     {{ hobbi }}
                                 </td>     
                             </tr>
                             <tr>                            
-                                <td>
+                                <td colspan="2">
                                     <span>Өөрийнхөө талаар нэмж танилцуулах зүйлээ бичнэ үү:</span>
                                     {{ about }}
                                 </td>     
                             </tr>
                             <tr>                           
-                                <td>
+                                <td colspan="2">
                                     <span>Bloomberg-ийн талаарх бодлоо хуваалцана уу?</span>
                                     {{ aboutBloomberg }}
                                 </td>                
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <span>Яаралтай үед холбогдох хүний мэдээлэл:</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                
+                                <td class="colInput">
+                                    <span>Таны хэн болох:</span>
+                                    {{who2}}
+                                </td>                               
+                                <td class="colInput">
+                                    <span>Утасны дугаар:</span>
+                                    {{ mobile2 }}
+                                </td>   
                             </tr>
                          
                         </tbody>
@@ -254,7 +274,7 @@
             </div>
             <div id="uploads" class="panel panel-default bbtvmongolia-panel">
                 <div class="panel bbtvmongolia-panel-header">
-                    <p class="bbtvmongolia-panel-title">8. ХАВСАРГАХ ФАЙЛУУД </p>
+                    <p class="bbtvmongolia-panel-title">8. Хавсаргах файлууд</p>
                 </div>
                 <div class="panel panel-body">
                     <table class="table highlight bordered responsive-table bbtvtabledetail1">
@@ -271,6 +291,44 @@
                          
                     </table>
                 </div>
+            </div>
+            <div id="socials" class="panel panel-default bbtvmongolia-panel">
+
+                <div class="panel bbtvmongolia-panel-header">
+                    <p class="bbtvmongolia-panel-title">9. Сошиал холбоосууд </p>
+                </div>
+                <div class="panel panel-body">
+                    <table class="table highlight bordered responsive-table bbtvtabledetail1">
+                        <tbody>
+                            <tr>
+                                <td>Facebook URL</td>
+                                <td>
+                                    {{#if facebook}}
+                                        <a target="_blank" href="{{ facebook }}">Дарна уу</a>
+                                    {{/if}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Instagram URL</td>
+                                <td>
+                                    {{#if instagram}}
+                                        <a target="_blank" href="{{ instagram }}">Дарна уу</a>
+                                    {{/if}}     
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Linkedin</td>
+                                <td>
+                                    {{#if linkedin}}
+                                        <a target="_blank" href="{{ linkedin }}">Дарна уу</a>
+                                    {{/if}}     
+                                </td>
+                            </tr>
+                        </tbody>
+                         
+                    </table>
+                </div>
+
             </div>
         </div>
     </div>
