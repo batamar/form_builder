@@ -81,7 +81,7 @@ table.bbtvtabledetail tbody tr td span{
   position: absolute;
   color: #fa4c2a;
   font-size: 12px;
-  top: 0px;
+  top: 3px;
 }
 table.bbtvtable thead{
   background-color: #fa4c2a;
@@ -228,8 +228,8 @@ table.heregtsee td{
   }
   table.bbtvtabledetail tbody tr td{
     font-size: 12px;
-    padding-top: 10px;
-    padding-bottom: 1px;
+    padding-top: 20px;
+    padding-bottom: 10px;
     vertical-align: middle;
   }
   table.bbtvtabledetail tbody tr td span{
