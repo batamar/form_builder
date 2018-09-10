@@ -195,8 +195,9 @@
                             <tr>
                                 <th>Сэдэв, чиглэл</th>
                                 <th>Байгууллага</th>
-                                <th>Огноо</th>
-                                <th>Хугацаа</th>
+                                <th>Мэргэшсэн огноо</th>
+                                <th>Суралцсан хугацаа</th>
+                                <th>Гэрчилгээ</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -206,6 +207,10 @@
                                 <td>{{ certified2 }}</td>
                                 <td>{{ formatDate certified3 }}</td>
                                 <td>{{ certified4 }} сар</td>
+                                <td> {{#if certified5}}
+                                        <a target="_blank" href="{{ certified5 }}">Файл татах</a>
+                                    {{/if}}
+                                </td>
                             </tr>
                             {{ /each }}
                         </tbody>
@@ -313,10 +318,10 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td>Instagram URL</td>
+                                <td>Twitter URL</td>
                                 <td>
-                                    {{#if instagram}}
-                                        <a target="_blank" href="{{ instagram }}">Дарна уу</a>
+                                    {{#if twitter}}
+                                        <a target="_blank" href="{{ twitter }}">Дарна уу</a>
                                     {{/if}}     
                                 </td>
                             </tr>
@@ -325,6 +330,22 @@
                                 <td>
                                     {{#if linkedin}}
                                         <a target="_blank" href="{{ linkedin }}">Дарна уу</a>
+                                    {{/if}}     
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Biznetwork URL</td>
+                                <td>
+                                    {{#if biznetwork}}
+                                        <a target="_blank" href="{{ biznetwork }}">Дарна уу</a>
+                                    {{/if}}     
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Website URL</td>
+                                <td>
+                                    {{#if website}}
+                                        <a target="_blank" href="{{ website }}">Дарна уу</a>
                                     {{/if}}     
                                 </td>
                             </tr>
