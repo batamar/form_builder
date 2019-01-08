@@ -87,7 +87,7 @@ submissionDetailComponent.state.templateNameToSearch = function() {
 /* ----------------------- Form submission list ----------------------- */
 
 var submissionList = Components.define('submissionList', function() {
-  Session.set('submissionLimit', 10);
+  Session.set('submissionLimit', 100);
   this._generatePagination = function(page, total, limit, adjacents) {
     var lastPage, lpm, num, pagination, r1, r2;
     pagination = [];
