@@ -1,11 +1,29 @@
 <template name="submissionList">
-    {{# if state$isReady }}
-        {{# if hasCustomTemplate state$templateNameToSearch }}
-            {{# with getCustomTemplateName state$templateNameToSearch }}
-                {{> Template.dynamic template=name data=this }}
-            {{/ with }}
-        {{ else }}
-            {{> Template.dynamic template="submissionListContent" data=this }}
-        {{/ if }}
-    {{/ if }}
+  {{# if state$isReady }}
+  {{# if hasCustomTemplate state$templateNameToSearch }}
+  {{# with getCustomTemplateName state$templateNameToSearch }}
+  {{> Template.dynamic template=name data=this }}
+  {{#if state$pagination.pageable}}
+  <div class="clearfix">
+    <ul id="pagination" class="pagination pull-right">
+      {{#each state$pagination.pages}}
+      {{#if state$equal this -1}}
+      <li><a href="#">..</a></li>
+      {{else}}
+      {{#if state$equal state$pagination.current this}}
+      <li class="active">
+        <a href="#"> {{this}}</a>
+      </li>
+      {{else}}
+      <li>
+        <a href="#">{{this}}</a>
+      </li>
+      {{/if}}
+      {{/if}}
+      {{/each}}
+    </ul>
+  </div>
+  {{/if}} {{/ with }} {{ else }}
+  {{> Template.dynamic template="submissionListContent" data=this }} {{/ if }}
+  {{/ if }}
 </template>
