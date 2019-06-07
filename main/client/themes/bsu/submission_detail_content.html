@@ -1,0 +1,296 @@
+<template name="bsuSDetCbsuAnket">
+  {{# with state$object }}
+    <div class="row">
+      <!-- Fixed navbar -->
+      <nav class="navbar navbar-default navbar-fixed-top bsu-navbar">
+        <div id="bsuContainer" class="container bsu-font" style="margin-left: 5px;padding: 0;">
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-left">
+              <li>
+                <a id="buttonBack" href="/forms/submission-list/{{ formId }}" class="pull-left btn btn-primary">
+                  <span class="glyphicon glyphicon-arrow-left"></span>
+                  Буцах
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <div class="bsu-container bsu-font">
+
+        <div class="clearfix"></div>
+        <div class="col-sm-6 pull-left">
+          <h2 align="left" class="anket_title">АЖИЛД ОРОХЫГ ХҮСЭГЧИЙН АНКЕТ</h2>
+        </div>
+        <div class="col-sm-6 pull-right">
+          <img class="pull-right bbtv_logo" src="http://bsu.mn/static/sites/bsu/default/images/logo.png">
+        </div>
+        <div class="clearfix"></div>
+        <div id="personal" class="panel panel-default bsu-panel">
+          <div class="panel bsu-panel-header">
+            <p class="bsu-panel-title">1. Personal details</p>
+          </div>
+          <div class="panel panel-body">
+            <table class="table highlight bordered responsive-table bbtvtabledetail">
+              <tbody>
+                <tr>
+                  <td>
+                    <span>What position are you applying for?</span>
+                    {{position}}
+                  </td>
+                  <td><span>Name:</span>{{ name }}</td>
+                  <td><span>Surname:</span>{{ surname }}</td>
+                </tr>
+                <tr>
+                  <td colspan="3">
+                    <span>Present address:</span>
+                    {{ address }}
+                  </td>
+                </tr>
+                <tr>
+                  <td><span>Mobile:</span>{{ mobile }}</td>
+                  <td><span>Telephone number (work):</span>{{ telephoneWork }}</td>
+                  <td><span>Telephone number (home):</span>{{ telephoneHome }}</td>
+                </tr>
+                <tr>
+                  <td><span>E-mail address:</span>{{ email }}</td>
+                  <td><span>Date of birthday:</span>{{ birthday }}</td>
+                  <td><span>Registration number:</span>{{ registraionNumber }}</td>
+                </tr>
+                <tr>
+                  <td><span>Marital status:</span>{{ isMarried }}</td>
+                  <td colspan="2"><span>Children:</span>{{ children }}</td>
+                </tr>
+                <tr>
+                  <td>
+                    <span>Have you ever made an application to World Vision?</span>
+                    {{ isApplied }}
+                  </td>
+                  <td colspan="2">
+                    <span>If yes, give details:</span>
+                    {{ isAppliedDetails }}
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <span>Have you ever been employed by World Vision?</span>
+                    {{ isEmployed }}
+                  </td>
+                  <td colspan="2">
+                    <span>If yes, give details:</span>
+                    {{ isEmployedDetails }}
+                  </td>
+                </tr>
+                <tr>
+                  <td><span>How did you learn about the vacancy announcement?</span>{{ source }}</td>
+                  <td colspan="2"><span>The person who recommended you to apply to this job?</span>{{ recommendedPerson }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div id="educationForm" class="panel panel-default bsu-panel">
+          <div class="panel bsu-panel-header">
+            <p class="bsu-panel-title">2. Education and Trainings</p>
+          </div>
+          <div class="panel panel-body">
+            <table class="table highlight bordered responsive-table bbtvtabledetail1">
+              <thead class="bold">
+                <tr>
+                  <th>Level of School</th>
+                  <th>Name of school</th>
+                  <th>City/Country</th>
+                  <th>Major</th>
+                  <th>Start date</th>
+                  <th>Finish date</th>
+                  <th>Degree or Certificate</th>
+                </tr>
+              </thead>
+              <tbody>
+                {{ #each educationForm }}
+                <tr>
+                  <td>{{ sLevel }}</td>
+                  <td>{{ sName }}</td>
+                  <td>{{ sCity }}</td>
+                  <td>{{ sMajor }}</td>
+                  <td>{{ formatDate sStartDate }}</td>
+                  <td>{{ formatDate sFinishDate }}</td>
+                  <td>{{ sDegree }}</td>
+                </tr>
+                {{ /each }}
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div id="skillsForm" class="panel panel-default bsu-panel">
+          <div class="panel bsu-panel-header">
+            <p class="bsu-panel-title">3. Technical skills</p>
+          </div>
+          <div class="panel panel-body">
+            <table class="table highlight bordered responsive-table bbtvtabledetail1">
+              <thead class="bold">
+                <tr>
+                  <th>Program</th>
+                  <th>Level</th>
+                </tr>
+              </thead>
+              <tbody>
+                {{ #each skillsForm }}
+                <tr>
+                  <td>{{ pProgram }}</td>
+                  <td>{{ pLevel }}</td>
+                </tr>
+                {{ /each }}
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div id="languageForm" class="panel panel-warning bsu-panel">
+          <div class="panel bsu-panel-header">
+            <p class="bsu-panel-title">4. Language ability</p>
+          </div>
+          <div class="panel panel-body">
+            <table class="table highlight bordered responsive-table bbtvtabledetail1">
+              <thead class="bold">
+                <tr>
+                  <th>Language</th>
+                  <th>Speaking</th>
+                  <th>Writing</th>
+                  <th>Listening</th>
+                </tr>
+              </thead>
+              <tbody>
+                {{ #each languageForm }}
+                <tr class="center">
+                  <td>{{ lName }}</td>
+                  <td>{{ lSpeaking }}</td>
+                  <td>{{ lWriting }}</td>
+                  <td>{{ lListening }}</td>
+                </tr>
+                {{ /each }}
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div id="employmentForm" class="panel panel-primary bsu-panel">
+          <div class="panel bsu-panel-header">
+            <p class="bsu-panel-title">5. Employment history</p>
+          </div>
+          <div class="panel panel-body">
+            <table class="table highlight bordered responsive-table bbtvtabledetail">
+              <tbody>
+                {{ #each employmentForm }}
+                <tr>
+                  <td colspan="3">
+                    <span>Name and Address</span>
+                    {{eInformation}}
+                  </td>
+                </tr>
+                <tr>
+                  <td><span>Last salary:</span>{{ eSalary }}</td>
+                  <td><span>Start date:</span>{{ formatDate eStartDate }}</td>
+                  <td><span>End date:</span>{{ formatDate eFinishDate }}</td>
+                </tr>
+                <tr>
+                  <td><span>Reason for leaving:</span>{{ eReason }}</td>
+                  <td><span>Position(s) Held (title):</span>{{ ePosition }}</td>
+                  <td><span>Describe your duties:</span>{{ eDuties }}</td>
+                </tr>
+                <tr>
+                  <td><span>Supervisor's Name/Title</span>{{ eSupervisorName }}</td>
+                  <td><span>Phone number</span>{{ eSupervisorPhone }}</td>
+                  <td><span>Can we contact her/him for a reference on offer of a position?</span>{{ eContactHim }}</td>
+                </tr>
+                <hr>
+                {{ /each }}
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div id="referencesForm" class="panel panel-warning bsu-panel">
+          <div class="panel bsu-panel-header">
+            <p class="bsu-panel-title">6. References</p>
+          </div>
+          <div class="panel panel-body">
+            <table class="table highlight bordered responsive-table bbtvtabledetail1">
+              <thead class="bold">
+                <tr>
+                  <th>Reference</th>
+                  <th>Name</th>
+                  <th>Organization</th>
+                  <th>Years known</th>
+                  <th>Home or Business address</th>
+                  <th>Home or Business phone</th>
+                </tr>
+              </thead>
+              <tbody>
+                {{ #each referencesForm }}
+                <tr class="center">
+                  <td>{{ reference }}</td>
+                  <td>{{ rName }}</td>
+                  <td>{{ rOrganization }}</td>
+                  <td>{{ rYears }}</td>
+                  <td>{{ rAddress }}</td>
+                  <td>{{ rPhone }}</td>
+                </tr>
+                {{ /each }}
+              </tbody>
+            </table>
+
+            <table class="table highlight bordered responsive-table bbtvtabledetail">
+              <tbody>
+                <tr>
+                  <td>
+                    <span>Are you presently attending a church?</span>
+                    {{ church }}
+                  </td>
+                  <td colspan="2">
+                    <span>If yes, what is the name, address and phone number of the church:</span>
+                    {{ churchInformation }}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+          </div>
+        </div>
+
+        <div id="historyForm" class="panel panel-warning bsu-panel">
+          <div class="panel bsu-panel-header">
+            <p class="bsu-panel-title">7. Applicant history </p>
+          </div>
+          <div class="panel panel-body">
+            <table class="table highlight bordered responsive-table bbtvtabledetail">
+              <tbody>
+                <tr>
+                  <td>
+                    <span>Have you ever been convicted of a criminal offence?</span>
+                    {{ criminal }}
+                  </td>
+                  <td colspan="2">
+                    <span>If your answer is yes, please give details:</span>
+                    {{ criminalDetails }}
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="3">
+                    <span>Please summarize your understanding of child and adults’ abuse, exploitation and violence:</span>
+                    {{ summarize }}
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="3">
+                    <span>Do you know someone /family members, friends, relatives/ in World Vision:</span>
+                    {{ someoneInWV }}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /container -->
+    {{/ with }}
+</template>
