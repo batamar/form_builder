@@ -92,7 +92,7 @@
                   <td><span>Year applying for:</span>{{ applyingYear }}</td>
                 </tr>
                 <tr>
-                  <td> <span>Home address:</span>{{ address }}</td>
+                  <td colspan="2"> <span>Home address:</span>{{ address }}</td>
                   <td><span>Applicant’s first language:</span>{{ applicantLanguage }}</td>
                 </tr>
               </tbody>
@@ -148,14 +148,8 @@
             <p class="bsu-panel-title">Parent / Guardian Information</p>
           </div>
           <div class="panel panel-body">
-            <table class="table highlight bordered responsive-table bbtvtabledetail1">
-              <thead class="bold">
-                <tr>
-                  <th></th>
-                  <th>Father</th>
-                  <th>Mother</th>
-                </tr>
-              </thead>
+            <table class="table highlight bordered responsive-table bbtvtabledetail">
+
               <tbody>
                 {{ #each parentForm }}
                 <tr>
@@ -227,7 +221,7 @@
             <p class="bsu-panel-title">Legal Guardian</p>
           </div>
           <div class="panel panel-body">
-            <table class="table highlight bordered responsive-table bbtvtabledetail1">
+            <table class="table highlight bordered responsive-table bbtvtabledetail">
 
               <tbody>
                 <tr>
@@ -281,7 +275,7 @@
                 </tr>
               </thead>
               <tbody>
-                {{ #each nFamily }}
+                {{ #each siblingForm }}
                 <tr class="center">
                   <td>{{ FFirstname }}</td>
                   <td>{{ FLastname }}</td>
