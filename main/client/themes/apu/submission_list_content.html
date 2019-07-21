@@ -1,4 +1,4 @@
-<template name="apuSLCapuApplication">
+<template name="apuSLCapuAnket">
 
   <h3>{{ state$form.title }}</h3>
   <h4 class="title">Ирсэн анкетууд:</h4>
@@ -22,7 +22,7 @@
               <td>{{ moFormat createdDate 'YYYY-MM-DD HH:MM' }}</td>
               <td>{{ moFormat entryDate 'YYYY-MM-DD' }}</td>
               <td>{{ position}} </td>
-              <td>{{ firstname}} </td>
+              <td>{{ firstName}} </td>
               <td>
                 <a href="/forms/submission/detail/{{ formId }}/?subId={{ _id }}">
                   <span class="glyphicon glyphicon-eye-open text-center"></span> харах

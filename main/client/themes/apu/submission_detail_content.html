@@ -1,4 +1,4 @@
-<template name="apuSDetCapuApplication">
+<template name="apuSDetCapuAnket">
   {{# with state$object }}
     <div class="row">
       <!-- Fixed navbar -->
@@ -26,29 +26,11 @@
           <img class="pull-right bbtv_logo" src="http://www.apu.mn/static/sites/apu/default/images/logo_t.png">
         </div>
         <div class="clearfix"></div>
-        <div id="personal" class="panel panel-default apu-panel">
 
-          <div class="panel panel-body">
-            <table class="table highlight bordered responsive-table bbtvtabledetail">
-              <tbody>
-                <tr>
-                  <td class="colInput">
-                    <span>This application is for admission Year Group:</span>
-                    {{yearGroup}}
-                  </td>
-                  <td class="colInput">
-                    <span>Expected entry date:</span>
-                    {{ formatDate entryDate }}
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
 
-        <div id="personal" class="panel panel-default apu-panel">
+        <div id="application" class="panel panel-default apu-panel">
           <div class="panel apu-panel-header">
-            <p class="apu-panel-title">Personal Information</p>
+            <p class="apu-panel-title">Ерөнхий мэдээлэл</p>
           </div>
           <div class="panel panel-body">
 
@@ -56,123 +38,139 @@
               <tbody>
                 <tr>
                   <td rowspan="6" style="width: 160px;">
-                    <span>Portrait</span>
+                    <span>Цээж зураг</span>
                     <img style="width: 150px;" target="_blank" src="{{ portrait }}" class="img" />
                   </td>
                   <td>
-                    <span>First name:</span>
-                    {{ firstname }}</td>
+                    <span>Сонирхож буй албан тушаал:</span>
+                    {{ position }}</td>
                   <td>
-                    <span>Last name:</span>
-                    {{ lastname }}
+                    <span>Хүсч буй цалинe:</span>
+                    {{ salary }}
                   </td>
                 </tr>
                 <tr>
-                  <td><span>Preferred name:</span>{{ preferredname }}</td>
-                  <td><span>Date of birth:</span>{{ formatDate birthday }}</td>
+                  <td><span>Ажилд орох боломжтой огнооe:</span>{{ formatDate entryDate }}</td>
+                  <td><span>Одоо эрхэлж буй ажил:</span>{{ currentJob }}</td>
 
                 </tr>
                 <tr>
-                  <td><span>Nationality:</span>{{ nationality }}</td>
-                  <td><span>Passport №:</span>{{ passport }}</td>
+                  <td><span>Утас /гар, гэр/:</span>{{ phone }}</td>
+                  <td><span>И-мэйл хаяг:</span>{{ email }}</td>
                 </tr>
                 <tr>
-
-                  <td><span>Place of birth:</span>{{ placeOfBirth }}</td>
-                  <td><span>Telephone number:</span>{{ telephone }}</td>
-                </tr>
-
-                <tr>
-
-                  <td><span>Email address:</span>{{ email }}</td>
-                  <td><span>Gender:</span>{{ gender }}</td>
-                </tr>
-                <tr>
-                  <td> <span>Current year:</span>{{ currentYear }}</td>
-                  <td><span>Year applying for:</span>{{ applyingYear }}</td>
-                </tr>
-                <tr>
-                  <td colspan="2"> <span>Home address:</span>{{ address }}</td>
-                  <td><span>Applicant’s first language:</span>{{ applicantLanguage }}</td>
+                  <td colspan="2"><span>Фэйсбүүк хаяг:</span>{{ facebook }}</td>
                 </tr>
               </tbody>
             </table>
           </div>
         </div>
 
-
-        <div id="educationForm" class="panel panel-default apu-panel">
+        <div id="basic" class="panel panel-warning apu-panel">
           <div class="panel apu-panel-header">
-            <p class="apu-panel-title">Educational Information</p>
-          </div>
-          <div class="panel panel-body">
-            <table class="table highlight bordered responsive-table bbtvtabledetail1">
-              <tbody>
-                <tr class="center">
-                  <td>Current School:</td>
-                  <td>{{ currentSchool }}</td>
-                </tr>
-                <tr>
-                  <td>Date attended (from-to)</td>
-                  <td>{{ dateAttended }}</td>
-                </tr>
-                <tr>
-                  <td>Address:</td>
-                  <td>{{ schoolAddress }}</td>
-                </tr>
-              </tbody>
-            </table>
-
-            <table class="table highlight bordered responsive-table bbtvtabledetail1">
-              <thead class="bold">
-                <tr>
-                  <th>Previous School(s)</th>
-                  <th>Grade</th>
-                  <th>Dates attended (from-to)</th>
-                </tr>
-              </thead>
-              <tbody>
-                {{ #each educationForm }}
-                <tr>
-                  <td>{{ sPrevious }}</td>
-                  <td>{{ sGrade }}</td>
-                  <td>{{ sDates }}</td>
-                </tr>
-                {{ /each }}
-              </tbody>
-            </table>
-          </div>
-        </div>
-        <div id="parentForm" class="panel panel-default apu-panel">
-          <div class="panel apu-panel-header">
-            <p class="apu-panel-title">Parent / Guardian Information</p>
+            <p class="apu-panel-title">Үндсэн мэдээлэл</p>
           </div>
           <div class="panel panel-body">
             <table class="table highlight bordered responsive-table bbtvtabledetail">
 
               <tbody>
-                {{ #each parentForm }}
                 <tr>
-                  <td><span>Parent:</span>{{ parent }}</td>
-                  <td><span>First name:</span>{{ PFirstname }}</td>
-                  <td><span>Last name:</span>{{ PLastname }}</td>
+                  <td><span>Ургийн овог</span>{{ familyName }}</td>
+                  <td><span>Эцэг, /эх/ийн нэр</span>{{ lastName }}</td>
+                  <td><span>Өөрийн нэр</span>{{ firstName }}</td>
+                </tr>
+                <tr>
+                  <td><span>Хүйс</span>{{ gender }}</td>
+                  <td><span>Төрсөн огноо</span>{{ formatDate birthday }}</td>
+                  <td><span>Төрсөн газар</span>{{ birthPlace }}</td>
+                </tr>
+                <tr>
+                  <td><span>Яс үндэс</span>{{ ethnicity }}</td>
+                  <td colspan="2"><span>Регистерийн дугаар</span>{{ register }}</td>
+                </tr>
+                <tr>
+                  <td><span>Жолооны үнэмлэхний дугаар</span>{{ driverLicenseNumber }}</td>
+                  <td><span>Жолооны үнэмлэхний ангилал</span>{{ driverLicenseClass }}</td>
+                  <td><span>Жолоо барьсан жил</span>{{ driveYear }}</td>
+                </tr>
+                <tr>
+                  <td colspan="2"><span>Гэрийн хаяг</span>{{ address }}</td>
+                  <td><span>Өөрийн өмчлөлийн орон сууц /хашаа байшинтай/ эсэх?</span>{{ ownProperty }}</td>
+                </tr>
+                <tr>
+                  <td><span>Цэргийн алба хаасан эсэх</span>{{ military }}</td>
+                  <td><span>Цэргийн алба хаасан он</span>{{ militaryYear }}</td>
+                  <td><span>Хаана цэргийн алба хаасан бэ</span>{{ militaryPlace }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+
+        <div id="education" class="panel panel-default apu-panel">
+          <div class="panel apu-panel-header">
+            <p class="apu-panel-title">Боловсрол</p>
+          </div>
+          <div class="panel panel-body">
+            <table class="table highlight bordered responsive-table bbtvtabledetail1">
+              <thead class="bold">
+                <tr>
+                  <th>Хаана /улс, аймаг, хот/</th>
+                  <th>Сургууль</th>
+                  <th>Элссэн огноо</th>
+                  <th>Төгссөн огноо</th>
+                  <th>Мэргэжил</th>
+                  <th>Дипломын дугаар</th>
+                  <th>Зэрэг цол</th>
+                </tr>
+              </thead>
+              <tbody>
+                {{ #each educationApu }}
+                <tr class="center">
+                  <td>{{ education1 }}</td>
+                  <td>{{ education2 }}</td>
+                  <td>{{ formatDate education3 }}</td>
+                  <td>{{ formatDate education4 }}</td>
+                  <td>{{ education5 }}</td>
+                  <td>{{ education6 }}</td>
+                  <td>{{ education7 }}</td>
+                </tr>
+                {{ /each }}
+              </tbody>
+            </table>
+
+          </div>
+        </div>
+
+        <div id="parentForm" class="panel panel-default apu-panel">
+          <div class="panel apu-panel-header">
+            <p class="apu-panel-title">Ажил хөдөлмөрийн туршлага</p>
+          </div>
+          <div class="panel panel-body">
+            <table class="table highlight bordered responsive-table bbtvtabledetail">
+
+              <tbody>
+                {{ #each employmentApu }}
+                <tr>
+                  <td><span>Байгууллагын нэр:</span>{{ employment1 }}</td>
+                  <td><span>Үйл ажиллагааны чиглэл:</span>{{ employment2 }}</td>
+                  <td><span>Эрхэлж байсан албан тушаал:</span>{{ employment3 }}</td>
                 </tr>
 
                 <tr>
-                  <td><span>Nationality:</span>{{ PNationality }}</td>
-                  <td collspan="2"><span>Home address:</span>{{ PAddress }}</td>
+                  <td><span>Ажилд орсон огноо:</span>{{ formatDate employment4 }}</td>
+                  <td><span>Ажлаас гарсан огноо:</span>{{ formatDate employment5 }}</td>
+                  <td><span>Авч байсан сарын цалин:</span>{{ employment7 }}</td>
                 </tr>
 
                 <tr>
-                  <td><span>Cellphone number:</span>{{ PCellphone }}</td>
-                  <td><span>Home phone number:</span>{{ PHomephone }}</td>
-                  <td><span>Email address:</span>{{ PEmail }}</td>
+                  <td colspan="3"><span>Ажлаас гарсан шалтгаан:</span>{{ employment6 }}</td>
                 </tr>
 
                 <tr>
-                  <td><span>Occupation:</span>{{ POccupation }}</td>
-                  <td><span>Work place and work phone number:</span>{{ PWorkPhone }}</td>
-                  <td><span>First language:</span>{{ PFirstLanguage }}</td>
+                  <td><span>Гүйцэтгэж байсан ажлын үндсэн үүрэг:</span>{{ employment8 }}</td>
+                  <td colspan="2"><span>Удирдах албан тушаалтны нэр, албан тушаал, утас:</span>{{ employment9 }}</td>
                 </tr>
                 <hr>
 
@@ -182,111 +180,265 @@
           </div>
         </div>
 
-        <div id="languageForm" class="panel panel-warning apu-panel">
+        <div id="language" class="panel panel-default apu-panel">
           <div class="panel apu-panel-header">
-            <p class="apu-panel-title">If you are a foreign family:</p>
-          </div>
-          <div class="panel panel-body">
-            <table class="table highlight bordered responsive-table bbtvtabledetail1">
-
-              <tbody>
-
-                <tr class="center">
-                  <td><span>How long have you been in Mongolia:</span>{{ howLongMongolia }}</td>
-                  <td><span>How long do you plan to live in Ulaanbaatar:</span>{{ howLongUlaanbaatar }}</td>
-                </tr>
-
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        <div id="parent" class="panel panel-primary apu-panel">
-
-          <div class="panel panel-body">
-            <table class="table highlight bordered responsive-table bbtvtabledetail">
-              <tbody>
-                <tr>
-                  <td><span>Parents’ Marital Status:</span>{{ PMStatus }}</td>
-                  <td><span>Student lives with:</span>{{ livesWith }}</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-
-        <div id="legalGuardion" class="panel panel-warning apu-panel">
-          <div class="panel apu-panel-header">
-            <p class="apu-panel-title">Legal Guardian</p>
-          </div>
-          <div class="panel panel-body">
-            <table class="table highlight bordered responsive-table bbtvtabledetail">
-
-              <tbody>
-                <tr>
-                  <td><span>Full name</span>{{ LGfullname }}</td>
-                  <td><span>Relation</span>{{ LGRelation }}</td>
-                  <td><span>Cellphone</span>{{ LGCellphone }}</td>
-                </tr>
-                <tr>
-                  <td colspan="2"><span>Home address</span>{{ LGAddress }}</td>
-                  <td><span>Email</span>{{ LGEmail }}</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        <div id="emergency" class="panel panel-warning apu-panel">
-          <div class="panel apu-panel-header">
-            <p class="apu-panel-title">Emergency contact number</p>
-          </div>
-          <div class="panel panel-body">
-            <table class="table highlight bordered responsive-table bbtvtabledetail">
-
-              <tbody>
-                <tr>
-                  <td><span>First name</span>{{ ECNFirstname }}</td>
-                  <td><span>Last name</span>{{ ECNLastname }}</td>
-                  <td><span>Cellphone</span>{{ ECNCellphone }}</td>
-                  <td><span>Relation</span>{{ ECNRelation }}</td>
-                  <td><span>Home phone</span>{{ ECNHomePhone }}</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-
-        <div id="siblingForm" class="panel panel-warning apu-panel">
-          <div class="panel apu-panel-header">
-            <p class="apu-panel-title">Sibling Information </p>
+            <p class="apu-panel-title">Гадаад хэлний мэдлэг</p>
           </div>
           <div class="panel panel-body">
             <table class="table highlight bordered responsive-table bbtvtabledetail1">
               <thead class="bold">
                 <tr>
-                  <th>First name</th>
-                  <th>Last name</th>
-                  <th>Date of birth</th>
-                  <th>Current school</th>
-                  <th>Dates attended</th>
+                  <th>Хэлний нэр</th>
+                  <th>Үзсэн хугацаа</th>
+                  <th>Ярьсныг ойлгох</th>
+                  <th>Өөрөө ярих</th>
+                  <th>Уншиж ойлгох</th>
+                  <th>Бичиж орчуулах</th>
                 </tr>
               </thead>
               <tbody>
-                {{ #each siblingForm }}
+                {{ #each languageApu }}
                 <tr class="center">
-                  <td>{{ FFirstname }}</td>
-                  <td>{{ FLastname }}</td>
-                  <td>{{ formatDate FBirthday }}</td>
-                  <td>{{ FCurrentSchool }}</td>
-                  <td>{{ FDatesAttended }}</td>
+                  <td>{{ language1 }}</td>
+                  <td>{{ language2 }}</td>
+                  <td>{{ language3 }}</td>
+                  <td>{{ language4 }}</td>
+                  <td>{{ language5 }}</td>
+                  <td>{{ language6 }}</td>
                 </tr>
                 {{ /each }}
               </tbody>
             </table>
 
+          </div>
+        </div>
+
+        <div id="training" class="panel panel-default apu-panel">
+          <div class="panel apu-panel-header">
+            <p class="apu-panel-title">Мэргэшлийн бэлтгэл</p>
+          </div>
+          <div class="panel panel-body">
+            <table class="table highlight bordered responsive-table bbtvtabledetail1">
+              <thead class="bold">
+                <tr>
+                  <th>Хаана</th>
+                  <th>Хэзээ</th>
+                  <th>Ямар чиглэлээр</th>
+                  <th>Үргэлжилсэн хугацаа</th>
+                </tr>
+              </thead>
+              <tbody>
+                {{ #each trainingApu }}
+                <tr class="center">
+                  <td>{{ training1 }}</td>
+                  <td>{{ training2 }}</td>
+                  <td>{{ training3 }}</td>
+                  <td>{{ training4 }}</td>
+                </tr>
+                {{ /each }}
+              </tbody>
+            </table>
+
+          </div>
+        </div>
+
+        <div id="program" class="panel panel-default apu-panel">
+          <div class="panel apu-panel-header">
+            <p class="apu-panel-title">Компьютерийн мэдлэг</p>
+          </div>
+          <div class="panel panel-body">
+            <table class="table highlight bordered responsive-table bbtvtabledetail1">
+              <thead class="bold">
+                <tr>
+                  <th>Програмын нэр</th>
+                  <th>Ажиллах чадвар</th>
+                </tr>
+              </thead>
+              <tbody>
+                {{ #each programApu }}
+                <tr class="center">
+                  <td>{{ program1 }}</td>
+                  <td>{{ program2 }}</td>
+                </tr>
+                {{ /each }}
+              </tbody>
+            </table>
+
+          </div>
+        </div>
+
+        <div id="reference" class="panel panel-default apu-panel">
+          <div class="panel apu-panel-header">
+            <p class="apu-panel-title">Таны ажил мэргэжил, ур чадварыг тодорхойлох хүний мэдээлэл</p>
+          </div>
+          <div class="panel panel-body">
+            <table class="table highlight bordered responsive-table bbtvtabledetail1">
+              <thead class="bold">
+                <tr>
+                  <th>Нэр</th>
+                  <th>Ажиллаж буй байгууллага</th>
+                  <th>Албан тушаал</th>
+                  <th>Утасны дугаар</th>
+                </tr>
+              </thead>
+              <tbody>
+                {{ #each referencesApu }}
+                <tr class="center">
+                  <td>{{ reference1 }}</td>
+                  <td>{{ reference2 }}</td>
+                  <td>{{ reference3 }}</td>
+                  <td>{{ reference4 }}</td>
+                </tr>
+                {{ /each }}
+              </tbody>
+            </table>
+            <table class="table highlight bordered responsive-table bbtvtabledetail">
+              <tbody>
+                <tr>
+                  <td><span>Хэрэв та удаан хугацаагаар ажил эрхлээгүй бол шалтгаанаа бичнэ үү:</span>{{ reason }}</td>
+                  <td><span>Та үндсэн мэргэжлээсээ гадна ямар чиглэлээр ажил хийх сонирхолтой вэ?:</span>{{ anotherPositions }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div id="features" class="panel panel-primary apu-panel">
+          <div class="panel panel-body">
+            <table class="table highlight bordered responsive-table bbtvtabledetail">
+              <tbody>
+                <tr>
+                  <td><span>Давуу тал::</span>{{ advantage }}</td>
+                  <td><span>Хөгжүүлэх шаардлагатай ур чадвар:</span>{{ disadvantage }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div id="sport" class="panel panel-default apu-panel">
+          <div class="panel apu-panel-header">
+            <p class="apu-panel-title">Урлаг спортын авъяас чадвартай эсэх</p>
+          </div>
+          <div class="panel panel-body">
+            <table class="table highlight bordered responsive-table bbtvtabledetail1">
+              <thead class="bold">
+                <tr>
+                  <th>Урлаг спортын төрөл</th>
+                  <th>Хэдэн жил хичээллэсэн</th>
+                  <th>Зэрэг шагнал</th>
+                </tr>
+              </thead>
+              <tbody>
+                {{ #each sportApu }}
+                <tr class="center">
+                  <td>{{ sport1 }}</td>
+                  <td>{{ sport2 }}</td>
+                  <td>{{ sport3 }}</td>
+                </tr>
+                {{ /each }}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div id="awards" class="panel panel-default apu-panel">
+          <div class="panel apu-panel-header">
+            <p class="apu-panel-title">Гавъяа шагнал</p>
+          </div>
+          <div class="panel panel-body">
+            <table class="table highlight bordered responsive-table bbtvtabledetail1">
+              <thead class="bold">
+                <tr>
+                  <th>Шагналын нэр</th>
+                  <th>Шагнагдсан он</th>
+                  <th>Хаана ажиллах хугацаанд шагнагдсан</th>
+                </tr>
+              </thead>
+              <tbody>
+                {{ #each awardsApu }}
+                <tr class="center">
+                  <td>{{ awards1 }}</td>
+                  <td>{{ awards2 }}</td>
+                  <td>{{ awards3 }}</td>
+                </tr>
+                {{ /each }}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div id="family" class="panel panel-warning apu-panel">
+          <div class="panel apu-panel-header">
+            <p class="apu-panel-title">Гэр бүлийн байдал</p>
+          </div>
+          <div class="panel panel-body">
+            <table class="table highlight bordered responsive-table bbtvtabledetail1">
+              <thead class="bold">
+                <tr>
+                  <th>Таны хэн болох</th>
+                  <th>Овог нэр</th>
+                  <th>Төрсөн аймаг хот</th>
+                  <th>Төрсөн огноо</th>
+                  <th>Мэргэжил</th>
+                  <th>Эрхэлж байгаа ажил</th>
+                  <th>Утас</th>
+                </tr>
+              </thead>
+              <tbody>
+                {{ #each familyApu }}
+                <tr class="center">
+                  <td>{{ family1 }}</td>
+                  <td>{{ family2 }}</td>
+                  <td>{{ family3 }}</td>
+                  <td>{{ formatDate family4 }}</td>
+                  <td>{{ family5 }}</td>
+                  <td>{{ family6 }}</td>
+                  <td>{{ family7 }}</td>
+                </tr>
+                {{ /each }}
+              </tbody>
+            </table>
+
+          </div>
+        </div>
+
+        <div id="kinship" class="panel panel-default apu-panel">
+          <div class="panel apu-panel-header">
+            <p class="apu-panel-title">Ураг төрлийн байдал</p>
+          </div>
+          <div class="panel panel-body">
+            <table class="table highlight bordered responsive-table bbtvtabledetail1">
+              <thead class="bold">
+                <tr>
+                  <th>Таны хэн болох</th>
+                  <th>Овог нэр</th>
+                  <th>Одоо эрхэлж байгаа ажил</th>
+                  <th>Холбоо барих утас</th>
+                </tr>
+              </thead>
+              <tbody>
+                {{ #each kinshipApu }}
+                <tr class="center">
+                  <td>{{ kinship1 }}</td>
+                  <td>{{ kinship2 }}</td>
+                  <td>{{ kinship3 }}</td>
+                  <td>{{ kinship4 }}</td>
+                </tr>
+                {{ /each }}
+              </tbody>
+            </table>
+            <br>
+            <b>Танай найз эсвэл хамаатан садан манай компанид ажилладаг уу?</b>
+            <table class="table highlight bordered responsive-table bbtvtabledetail">
+              <tbody>
+                <tr>
+                  <td><span>Нэр:</span>{{ workerName }}</td>
+                  <td><span>Таны хэн болох:</span>{{ workerRelation }}</td>
+                  <td><span>Алба газар:</span>{{ workerDepartment }}</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
