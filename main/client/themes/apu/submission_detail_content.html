@@ -1,0 +1,296 @@
+<template name="apuSDetCapuApplication">
+  {{# with state$object }}
+    <div class="row">
+      <!-- Fixed navbar -->
+      <nav class="navbar navbar-default navbar-fixed-top apu-navbar">
+        <div id="apuContainer" class="container apu-font" style="margin-left: 5px;padding: 0;">
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-left">
+              <li>
+                <a id="buttonBack" href="/forms/submission-list/{{ formId }}" class="pull-left btn btn-primary">
+                  <span class="glyphicon glyphicon-arrow-left"></span>
+                  Буцах
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <div class="apu-container apu-font">
+
+        <div class="clearfix"></div>
+        <div class="col-sm-6 pull-left">
+          <h2 align="left" class="anket_title">Ажил горилогчийн маягт</h2>
+        </div>
+        <div class="col-sm-6 pull-right">
+          <img class="pull-right bbtv_logo" src="http://www.apu.mn/static/sites/apu/default/images/logo_t.png">
+        </div>
+        <div class="clearfix"></div>
+        <div id="personal" class="panel panel-default apu-panel">
+
+          <div class="panel panel-body">
+            <table class="table highlight bordered responsive-table bbtvtabledetail">
+              <tbody>
+                <tr>
+                  <td class="colInput">
+                    <span>This application is for admission Year Group:</span>
+                    {{yearGroup}}
+                  </td>
+                  <td class="colInput">
+                    <span>Expected entry date:</span>
+                    {{ formatDate entryDate }}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div id="personal" class="panel panel-default apu-panel">
+          <div class="panel apu-panel-header">
+            <p class="apu-panel-title">Personal Information</p>
+          </div>
+          <div class="panel panel-body">
+
+            <table class="table highlight bordered responsive-table bbtvtabledetail">
+              <tbody>
+                <tr>
+                  <td rowspan="6" style="width: 160px;">
+                    <span>Portrait</span>
+                    <img style="width: 150px;" target="_blank" src="{{ portrait }}" class="img" />
+                  </td>
+                  <td>
+                    <span>First name:</span>
+                    {{ firstname }}</td>
+                  <td>
+                    <span>Last name:</span>
+                    {{ lastname }}
+                  </td>
+                </tr>
+                <tr>
+                  <td><span>Preferred name:</span>{{ preferredname }}</td>
+                  <td><span>Date of birth:</span>{{ formatDate birthday }}</td>
+
+                </tr>
+                <tr>
+                  <td><span>Nationality:</span>{{ nationality }}</td>
+                  <td><span>Passport №:</span>{{ passport }}</td>
+                </tr>
+                <tr>
+
+                  <td><span>Place of birth:</span>{{ placeOfBirth }}</td>
+                  <td><span>Telephone number:</span>{{ telephone }}</td>
+                </tr>
+
+                <tr>
+
+                  <td><span>Email address:</span>{{ email }}</td>
+                  <td><span>Gender:</span>{{ gender }}</td>
+                </tr>
+                <tr>
+                  <td> <span>Current year:</span>{{ currentYear }}</td>
+                  <td><span>Year applying for:</span>{{ applyingYear }}</td>
+                </tr>
+                <tr>
+                  <td colspan="2"> <span>Home address:</span>{{ address }}</td>
+                  <td><span>Applicant’s first language:</span>{{ applicantLanguage }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+
+        <div id="educationForm" class="panel panel-default apu-panel">
+          <div class="panel apu-panel-header">
+            <p class="apu-panel-title">Educational Information</p>
+          </div>
+          <div class="panel panel-body">
+            <table class="table highlight bordered responsive-table bbtvtabledetail1">
+              <tbody>
+                <tr class="center">
+                  <td>Current School:</td>
+                  <td>{{ currentSchool }}</td>
+                </tr>
+                <tr>
+                  <td>Date attended (from-to)</td>
+                  <td>{{ dateAttended }}</td>
+                </tr>
+                <tr>
+                  <td>Address:</td>
+                  <td>{{ schoolAddress }}</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <table class="table highlight bordered responsive-table bbtvtabledetail1">
+              <thead class="bold">
+                <tr>
+                  <th>Previous School(s)</th>
+                  <th>Grade</th>
+                  <th>Dates attended (from-to)</th>
+                </tr>
+              </thead>
+              <tbody>
+                {{ #each educationForm }}
+                <tr>
+                  <td>{{ sPrevious }}</td>
+                  <td>{{ sGrade }}</td>
+                  <td>{{ sDates }}</td>
+                </tr>
+                {{ /each }}
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div id="parentForm" class="panel panel-default apu-panel">
+          <div class="panel apu-panel-header">
+            <p class="apu-panel-title">Parent / Guardian Information</p>
+          </div>
+          <div class="panel panel-body">
+            <table class="table highlight bordered responsive-table bbtvtabledetail">
+
+              <tbody>
+                {{ #each parentForm }}
+                <tr>
+                  <td><span>Parent:</span>{{ parent }}</td>
+                  <td><span>First name:</span>{{ PFirstname }}</td>
+                  <td><span>Last name:</span>{{ PLastname }}</td>
+                </tr>
+
+                <tr>
+                  <td><span>Nationality:</span>{{ PNationality }}</td>
+                  <td collspan="2"><span>Home address:</span>{{ PAddress }}</td>
+                </tr>
+
+                <tr>
+                  <td><span>Cellphone number:</span>{{ PCellphone }}</td>
+                  <td><span>Home phone number:</span>{{ PHomephone }}</td>
+                  <td><span>Email address:</span>{{ PEmail }}</td>
+                </tr>
+
+                <tr>
+                  <td><span>Occupation:</span>{{ POccupation }}</td>
+                  <td><span>Work place and work phone number:</span>{{ PWorkPhone }}</td>
+                  <td><span>First language:</span>{{ PFirstLanguage }}</td>
+                </tr>
+                <hr>
+
+                {{ /each }}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div id="languageForm" class="panel panel-warning apu-panel">
+          <div class="panel apu-panel-header">
+            <p class="apu-panel-title">If you are a foreign family:</p>
+          </div>
+          <div class="panel panel-body">
+            <table class="table highlight bordered responsive-table bbtvtabledetail1">
+
+              <tbody>
+
+                <tr class="center">
+                  <td><span>How long have you been in Mongolia:</span>{{ howLongMongolia }}</td>
+                  <td><span>How long do you plan to live in Ulaanbaatar:</span>{{ howLongUlaanbaatar }}</td>
+                </tr>
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div id="parent" class="panel panel-primary apu-panel">
+
+          <div class="panel panel-body">
+            <table class="table highlight bordered responsive-table bbtvtabledetail">
+              <tbody>
+                <tr>
+                  <td><span>Parents’ Marital Status:</span>{{ PMStatus }}</td>
+                  <td><span>Student lives with:</span>{{ livesWith }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+
+        <div id="legalGuardion" class="panel panel-warning apu-panel">
+          <div class="panel apu-panel-header">
+            <p class="apu-panel-title">Legal Guardian</p>
+          </div>
+          <div class="panel panel-body">
+            <table class="table highlight bordered responsive-table bbtvtabledetail">
+
+              <tbody>
+                <tr>
+                  <td><span>Full name</span>{{ LGfullname }}</td>
+                  <td><span>Relation</span>{{ LGRelation }}</td>
+                  <td><span>Cellphone</span>{{ LGCellphone }}</td>
+                </tr>
+                <tr>
+                  <td colspan="2"><span>Home address</span>{{ LGAddress }}</td>
+                  <td><span>Email</span>{{ LGEmail }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div id="emergency" class="panel panel-warning apu-panel">
+          <div class="panel apu-panel-header">
+            <p class="apu-panel-title">Emergency contact number</p>
+          </div>
+          <div class="panel panel-body">
+            <table class="table highlight bordered responsive-table bbtvtabledetail">
+
+              <tbody>
+                <tr>
+                  <td><span>First name</span>{{ ECNFirstname }}</td>
+                  <td><span>Last name</span>{{ ECNLastname }}</td>
+                  <td><span>Cellphone</span>{{ ECNCellphone }}</td>
+                  <td><span>Relation</span>{{ ECNRelation }}</td>
+                  <td><span>Home phone</span>{{ ECNHomePhone }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+
+        <div id="siblingForm" class="panel panel-warning apu-panel">
+          <div class="panel apu-panel-header">
+            <p class="apu-panel-title">Sibling Information </p>
+          </div>
+          <div class="panel panel-body">
+            <table class="table highlight bordered responsive-table bbtvtabledetail1">
+              <thead class="bold">
+                <tr>
+                  <th>First name</th>
+                  <th>Last name</th>
+                  <th>Date of birth</th>
+                  <th>Current school</th>
+                  <th>Dates attended</th>
+                </tr>
+              </thead>
+              <tbody>
+                {{ #each siblingForm }}
+                <tr class="center">
+                  <td>{{ FFirstname }}</td>
+                  <td>{{ FLastname }}</td>
+                  <td>{{ formatDate FBirthday }}</td>
+                  <td>{{ FCurrentSchool }}</td>
+                  <td>{{ FDatesAttended }}</td>
+                </tr>
+                {{ /each }}
+              </tbody>
+            </table>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /container -->
+    {{/ with }}
+</template>
