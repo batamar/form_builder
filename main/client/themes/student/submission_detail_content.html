@@ -1,0 +1,180 @@
+<template name="studentSDetCstudentStudent">
+  {{# with state$object }}
+    <div class="row">
+      <!-- Fixed navbar -->
+      <nav class="navbar navbar-default navbar-fixed-top student-navbar">
+        <div id="studentContainer" class="container student-font" style="margin-left: 5px;padding: 0;">
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-left">
+              <li>
+                <a id="buttonBack" href="/forms/submission-list/{{ formId }}" class="pull-left btn btn-primary">
+                  <span class="glyphicon glyphicon-arrow-left"></span>
+                  Буцах
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <div class="student-container student-font">
+
+        <div class="clearfix"></div>
+        <div class="col-sm-6 pull-left">
+          <h2 align="left" class="anket_title">Дадлагын оюутны маягт</h2>
+        </div>
+        <div class="col-sm-6 pull-right">
+          <img class="pull-right bbtv_logo" src="http://www.student.mn/static/sites/student/default/images/logo_t.png">
+        </div>
+        <div class="clearfix"></div>
+
+
+        <div id="application" class="panel panel-default student-panel">
+          <div class="panel student-panel-header">
+            <p class="student-panel-title">Үндсэн мэдээлэл</p>
+          </div>
+          <div class="panel panel-body">
+
+            <table class="table highlight bordered responsive-table bbtvtabledetail">
+              <tbody>
+                <tr>
+                  <td rowspan="5" style="width: 160px;">
+                    <span>Цээж зураг</span>
+                    <img style="width: 150px;" target="_blank" src="{{ portrait }}" class="img" />
+                  </td>
+
+                  <td><span>Эцэг, /эх/ийн нэр</span>{{ lastName }}</td>
+                  <td><span>Өөрийн нэр</span>{{ firstName }}</td>
+                </tr>
+                <tr>
+                  <td><span>Яс үндэс</span>{{ ethnicity }}</td>
+                  <td><span>Төрсөн огноо</span>{{ formatDate birthday }}</td>
+                </tr>
+                <tr>
+                  <td><span>Хүйс</span>{{ gender }}</td>
+                  <td><span>Регистерийн дугаар</span>{{ register }}</td>
+                </tr>
+                <tr>
+                  <td><span>Гар утас</span>{{ mobile }}</td>
+                  <td><span>Гэрийн утас</span>{{ telephone }}</td>
+                </tr>
+                <tr>
+                  <td colspan="2"><span>Гэрийн хаяг</span>{{ address }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div id="family" class="panel panel-warning student-panel">
+          <div class="panel student-panel-header">
+            <p class="student-panel-title">Гэр бүлийн байдал</p>
+          </div>
+          <div class="panel panel-body">
+            <table class="table highlight bordered responsive-table bbtvtabledetail1">
+              <thead class="bold">
+                <tr>
+                  <th>Таны хэн болох</th>
+                  <th>Овог нэр</th>
+                  <th>Төрсөн аймаг хот</th>
+                  <th>Төрсөн огноо</th>
+                  <th>Мэргэжил</th>
+                  <th>Эрхэлж байгаа ажил</th>
+                  <th>Утас</th>
+                </tr>
+              </thead>
+              <tbody>
+                {{ #each studentFamily }}
+                <tr class="center">
+                  <td>{{ family1 }}</td>
+                  <td>{{ family2 }}</td>
+                  <td>{{ family3 }}</td>
+                  <td>{{ formatDate family4 }}</td>
+                  <td>{{ family5 }}</td>
+                  <td>{{ family6 }}</td>
+                  <td>{{ family7 }}</td>
+                </tr>
+                {{ /each }}
+              </tbody>
+            </table>
+
+          </div>
+        </div>
+
+
+        <div id="education" class="panel panel-default student-panel">
+          <div class="panel student-panel-header">
+            <p class="student-panel-title">Боловсрол</p>
+          </div>
+          <div class="panel panel-body">
+            <table class="table highlight bordered responsive-table bbtvtabledetail1">
+              <thead class="bold">
+                <tr>
+                  <th>Хаана /улс, аймаг, хот/</th>
+                  <th>Сургууль</th>
+                  <th>Элссэн огноо</th>
+                  <th>Төгссөн огноо</th>
+                  <th>Мэргэжил</th>
+                  <th>Дипломын дугаар</th>
+                  <th>Зэрэг цол</th>
+                </tr>
+              </thead>
+              <tbody>
+                {{ #each studentEducation }}
+                <tr class="center">
+                  <td>{{ education1 }}</td>
+                  <td>{{ education2 }}</td>
+                  <td>{{ formatDate education3 }}</td>
+                  <td>{{ formatDate education4 }}</td>
+                  <td>{{ education5 }}</td>
+                  <td>{{ education6 }}</td>
+                  <td>{{ education7 }}</td>
+                </tr>
+                {{ /each }}
+              </tbody>
+            </table>
+
+          </div>
+        </div>
+
+        <div id="parentForm" class="panel panel-default student-panel">
+          <div class="panel student-panel-header">
+            <p class="student-panel-title">Ажил хөдөлмөрийн туршлага</p>
+          </div>
+          <div class="panel panel-body">
+            <table class="table highlight bordered responsive-table bbtvtabledetail">
+
+              <tbody>
+                {{ #each studentEmployment }}
+                <tr>
+                  <td><span>Байгууллагын нэр:</span>{{ employment1 }}</td>
+                  <td><span>Үйл ажиллагааны чиглэл:</span>{{ employment2 }}</td>
+                  <td><span>Эрхэлж байсан албан тушаал:</span>{{ employment3 }}</td>
+                </tr>
+
+                <tr>
+                  <td><span>Ажилд орсон огноо:</span>{{ formatDate employment4 }}</td>
+                  <td><span>Ажлаас гарсан огноо:</span>{{ formatDate employment5 }}</td>
+                  <td><span>Авч байсан сарын цалин:</span>{{ employment7 }}</td>
+                </tr>
+
+                <tr>
+                  <td colspan="3"><span>Ажлаас гарсан шалтгаан:</span>{{ employment6 }}</td>
+                </tr>
+
+                <tr>
+                  <td><span>Гүйцэтгэж байсан ажлын үндсэн үүрэг:</span>{{ employment8 }}</td>
+                  <td colspan="2"><span>Удирдах албан тушаалтны нэр, албан тушаал, утас:</span>{{ employment9 }}</td>
+                </tr>
+                <hr>
+
+                {{ /each }}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <!-- /container -->
+    {{/ with }}
+</template>
