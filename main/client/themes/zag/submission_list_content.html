@@ -1,0 +1,45 @@
+<template name="zagSLCzagForm">
+
+  <h3>{{ state$form.title }}</h3>
+  <h4 class="title">Ирсэн анкетууд:</h4>
+  <br>
+  {{# if state$isReady }}
+    <div>
+      <table class="table highlight bordered responsive-table senders_list">
+        <thead>
+          <tr>
+            <th>Бөглөсөн огноо</th>
+            <th>Ажилд орох боломжтой огноо</th>
+            <th>Сонирхож буй албан тушаал</th>
+            <th>Нэр</th>
+            <th>Харах</th>
+            <th>Устгах</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each state$objects }}
+            <tr>
+              <td>{{ moFormat createdDate 'YYYY-MM-DD HH:MM' }}</td>
+              <td>{{ moFormat entryDate 'YYYY-MM-DD' }}</td>
+              <td>{{ position}} </td>
+              <td>{{ firstName}} </td>
+              <td>
+                <a href="/forms/submission/detail/{{ formId }}/?subId={{ _id }}">
+                  <span class="glyphicon glyphicon-eye-open text-center"></span> харах
+                </a>
+              </td>
+              <td>
+                <a href="/forms/submission/delete/{{ formId }}/?subId={{ _id }}">
+                  <span class="glyphicon glyphicon-remove text-danger text-center"></span>
+                </a>
+              </td>
+            </tr>
+            {{/ each }}
+        </tbody>
+      </table>
+    </div>
+    <br>
+    {{ else }}
+    Уншиж байна ...
+    {{/ if }}
+</template>

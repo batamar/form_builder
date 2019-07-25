@@ -1,0 +1,586 @@
+<template name="zagSDetCzagForm">
+  {{# with state$object }}
+    <div class="row">
+      <!-- Fixed navbar -->
+      <nav class="navbar navbar-default navbar-fixed-top zag-navbar">
+        <div id="zagContainer" class="container zag-font" style="margin-left: 5px;padding: 0;">
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-left">
+              <li>
+                <a id="buttonBack" href="/forms/submission-list/{{ formId }}" class="pull-left btn btn-primary">
+                  <span class="glyphicon glyphicon-arrow-left"></span>
+                  Буцах
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <div class="zag-container zag-font">
+
+        <div class="clearfix"></div>
+        <div class="col-sm-6 pull-left">
+          <h2 align="left" class="anket_title">Ажил горилогчийн маягт</h2>
+        </div>
+        <div class="col-sm-6 pull-right">
+          <img class="pull-right bbtv_logo" src="http://zag.mn/static/sites/zag/default/images/zagg.png">
+        </div>
+        <div class="clearfix"></div>
+
+
+
+        <div id="position" class="panel panel-warning zag-panel">
+          <div class="panel zag-panel-header">
+            <p class="zag-panel-title">Сонирхож буй ажлын байр</p>
+          </div>
+          <div class="panel panel-body">
+            <table class="table highlight bordered responsive-table bbtvtabledetail">
+
+              <tbody>
+                <tr>
+                  <td>
+                    <span>Сонирхож буй албан тушаал:</span>
+                    {{ position }}</td>
+                  <td>
+                    <span>Эсвэл өөр ажлын байранд:</span>
+                    {{ anotherPosition }}</td>
+                </tr>
+                <tr>
+                  <td>
+                    <span>Хүсч буй цалин:</span>
+                    {{ salary }}
+                  </td>
+                  <td><span>Ажилд орох боломжит хугацаа</span>
+                  {{ formatDate entryDate }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div id="application" class="panel panel-default zag-panel">
+          <div class="panel zag-panel-header">
+            <p class="zag-panel-title">Хувь хүний мэдээлэл</p>
+          </div>
+          <div class="panel panel-body">
+
+            <table class="table highlight bordered responsive-table bbtvtabledetail">
+              <tbody>
+                <tr>
+                  <td rowspan="4" style="width: 160px;">
+                    <span>Цээж зураг</span>
+                    <img style="width: 150px;" target="_blank" src="{{ portrait }}" class="img" />
+                  </td>
+                  <td>
+                    <span>Ургийн овог:</span>
+                    {{ familyName }}</td>
+                  <td>
+                    <span>Эцэг/эх/ -ийн нэр:</span>
+                    {{ lastName }}</td>
+                </tr>
+                <tr>
+                  <td><span>Өөрийн нэр:</span>{{ firstName }}</td>
+                  <td><span>Үндэс угсаа:</span>{{ ethnicity }}</td>
+
+                </tr>
+                <tr>
+                  <td><span>Нийгмийн гарал:</span>{{ socialOrigin }}</td>
+                  <td><span>Төрсөн аймаг, хот:</span>{{ birthPlace }}</td>
+                </tr>
+                <tr>
+                  <td><span>Төрсөн огноо:</span>{{ formatDate birthday }}</td>
+                  <td><span>Гэрлэсэн эсэх:</span>{{ isMarried }}</td>
+                </tr>
+                <tr>
+                  <td colspan="2"><span>Хаяг:</span>{{ address }}</td>
+                  <td><span>Регистрийн дугаар:</span>{{ register }}</td>
+                </tr>
+                <tr>
+                  <td><span>И-мэйл хаяг:</span>{{ email }}</td>
+                  <td><span>Холбоо барих утасны дугаар:</span>{{ phone }}</td>
+                  <td><span>Яаралтай үед холбоо барих хүний утас:</span>{{ anotherPhone }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div id="info" class="panel panel-warning zag-panel">
+          <div class="panel zag-panel-header">
+            <p class="zag-panel-title">Нэмэлт мэдээлэл</p>
+          </div>
+          <div class="panel panel-body">
+            <table class="table highlight bordered responsive-table bbtvtabledetail">
+
+              <tbody>
+                <tr>
+                  <td><span>Нийгмийн даатгалын дэвтрийн дугаар</span>{{ NDD }}</td>
+                  <td><span>ЭМД-ийн гэрчилгээний дугаар</span>{{ EMD }}</td>
+                  <td><span>Жолооны үнэмлэхний дугаар /ангилал/</span>{{ driverLicense }}</td>
+                </tr>
+                <tr>
+                  <td><span>Цэргийн алба хаасан эсэх</span>{{ isMilitary }}</td>
+                  <td><span>Гадаад паспортны дугаар</span>{{ foreignPassport }}</td>
+                  <td><span>Мэргэжлийн зэргийн үнэмлэхний дугаар</span>{{ professionalDegree }}</td>
+                </tr>
+                <tr>
+                  <td colspan="3"><span>Дээд болон дунд сургуулийн дипломын дугаар</span>{{ diplomaNumber }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div id="family" class="panel panel-warning zag-panel">
+          <div class="panel zag-panel-header">
+            <p class="zag-panel-title">Гэр бүлийн байдал</p>
+          </div>
+          <div class="panel panel-body">
+            <table class="table highlight bordered responsive-table bbtvtabledetail1">
+              <thead class="bold">
+                <tr>
+                  <th>Таны хэн болох</th>
+                  <th>Овог нэр</th>
+                  <th>Төрсөн аймаг хот</th>
+                  <th>Хүйс</th>
+                  <th>Мэргэжил</th>
+                  <th>Эрхэлж байгаа ажил</th>
+                  <th>Албан тушаал</th>
+                </tr>
+              </thead>
+              <tbody>
+                {{ #each zagFamily }}
+                <tr class="center">
+                  <td>{{ relationship }}</td>
+                  <td>{{ name }}</td>
+                  <td>{{ countryOfBirth }}</td>
+                  <td>{{ gender }}</td>
+                  <td>{{ major }}</td>
+                  <td>{{ work }}</td>
+                  <td>{{ position }}</td>
+                </tr>
+                {{ /each }}
+              </tbody>
+            </table>
+
+          </div>
+        </div>
+
+        <div id="education" class="panel panel-default zag-panel">
+          <div class="panel zag-panel-header">
+            <p class="zag-panel-title">Боловсрол</p>
+          </div>
+          <div class="panel panel-body">
+            <table class="table highlight bordered responsive-table bbtvtabledetail1">
+              <thead class="bold">
+                <tr>
+                  <th>Хаана, ямар сургууль  төгссөн</th>
+                  <th>Элссэн он</th>
+                  <th>Төгссөн он</th>
+                  <th>Зэрэг цол</th>
+                  <th>Мэргэжил</th>
+                  <th>Үнэмлэх гэрчилгээний №, Голч дүн</th>
+                </tr>
+              </thead>
+              <tbody>
+                {{ #each zagEducation }}
+                <tr class="center">
+                  <td>{{ institute }}</td>
+                  <td>{{ fromDate }}</td>
+                  <td>{{ toDate }}</td>
+                  <td>{{ degree }}</td>
+                  <td>{{ subjectStudied }}</td>
+                  <td>{{ diploma }}</td>
+                </tr>
+                {{ /each }}
+              </tbody>
+            </table>
+
+          </div>
+        </div>
+
+        <div id="training" class="panel panel-default zag-panel">
+          <div class="panel zag-panel-header">
+            <p class="zag-panel-title">Мэргэшлийн бэлтгэл</p>
+          </div>
+          <div class="panel panel-body">
+            <table class="table highlight bordered responsive-table bbtvtabledetail1">
+              <thead class="bold">
+                <tr>
+                  <th>Хаана ямар дамжаа, сургалт</th>
+                  <th>Эхэлсэн огноо</th>
+                  <th>Дууссан огноо</th>
+                  <th>Ямар чиглэлээр</th>
+                  <th>Үнэмлэх гэрчилгээний №</th>
+                  <th>Голч дүн</th>
+                </tr>
+              </thead>
+              <tbody>
+                {{ #each zagTraining }}
+                <tr class="center">
+                  <td>{{ course }}</td>
+                  <td>{{ fromDate }}</td>
+                  <td>{{ toDate }}</td>
+                  <td>{{ speciallyTrainedFor }}</td>
+                  <td>{{ certificate }}</td>
+                  <td>{{ GPA }}</td>
+                </tr>
+                {{ /each }}
+              </tbody>
+            </table>
+
+          </div>
+        </div>
+
+        <div id="language" class="panel panel-default zag-panel">
+          <div class="panel zag-panel-header">
+            <p class="zag-panel-title">Гадаад хэлний мэдлэг</p>
+          </div>
+          <div class="panel panel-body">
+            <table class="table highlight bordered responsive-table bbtvtabledetail1">
+              <thead class="bold">
+                <tr>
+                  <th>Хэлний нэр</th>
+                  <th>Үзсэн хугацаа</th>
+                  <th>Ярьсныг ойлгох</th>
+                  <th>Өөрөө ярих</th>
+                  <th>Уншиж ойлгох</th>
+                  <th>Бичиж орчуулах</th>
+                </tr>
+              </thead>
+              <tbody>
+                {{ #each zagLanguage }}
+                <tr class="center">
+                  <td>{{ language }}</td>
+                  <td>{{ studiedYear }}</td>
+                  <td>{{ understanding }}</td>
+                  <td>{{ speaking }}</td>
+                  <td>{{ reading }}</td>
+                  <td>{{ writing }}</td>
+                </tr>
+                {{ /each }}
+              </tbody>
+            </table>
+
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12 col-lg-6">
+            <div id="equipment" class="panel panel-default zag-panel">
+              <div class="panel zag-panel-header">
+                <p class="zag-panel-title">Компьютерийн мэдлэг</p>
+              </div>
+              <div class="panel panel-body">
+                <table class="table highlight bordered responsive-table bbtvtabledetail1">
+                  <thead class="bold">
+                    <tr>
+                      <th>Програмын нэр</th>
+                      <th>Түвшин</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {{ #each zagProgram }}
+                    <tr class="center">
+                      <td>{{ program }}</td>
+                      <td>{{ skill }}</td>
+                    </tr>
+                    {{ /each }}
+                  </tbody>
+                </table>
+
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-12 col-lg-6">
+            <div id="program" class="panel panel-default zag-panel">
+              <div class="panel zag-panel-header">
+                <p class="zag-panel-title">Оффисын тоног төхөөрөмж эзэмшсэн байдал</p>
+              </div>
+              <div class="panel panel-body">
+                <table class="table highlight bordered responsive-table bbtvtabledetail1">
+                  <thead class="bold">
+                    <tr>
+                      <th>Оффисын тоног төхөөрөмжийн нэр</th>
+                      <th>Түвшин</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {{ #each zagEquipment }}
+                    <tr class="center">
+                      <td>{{ equipment }}</td>
+                      <td>{{ skill }}</td>
+                    </tr>
+                    {{ /each }}
+                  </tbody>
+                </table>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="employment" class="panel panel-default zag-panel">
+          <div class="panel zag-panel-header">
+            <p class="zag-panel-title">Хөдөлмөр эрхлэлтийн байдал</p>
+          </div>
+          <div class="panel panel-body">
+            <table class="table highlight bordered responsive-table bbtvtabledetail">
+
+              <tbody>
+                {{ #each zagEmployment }}
+                <tr>
+                  <td><span>Байгууллагын нэр:</span>{{ company }}</td>
+                  <td><span>Эрхэлж байсан албан тушаал:</span>{{ position }}</td>
+                  <td><span>Ажилд орсон огноо:</span>{{ formatDate hiredDate }}</td>
+                </tr>
+
+                <tr>
+                  <td><span>Ажлаас гарсан огноо:</span>{{ formatDate resignDate }}</td>
+                  <td colspan="2"><span>Ажлаас гарсан шалтгаан:</span>{{ reasonForLeaving }}</td>
+                </tr>
+
+                <tr>
+                  <td colspan="3"><span>Ажлаас гарсан шалтгаан:</span>{{ employment6 }}</td>
+                </tr>
+
+                <tr>
+                  <td><span>Таны ажлын үндсэн үүргүүд:</span>{{ coreResponsibilities }}</td>
+                  <td colspan="2"><span>Удирдах албан тушаалтны нэр, албан тушаал, утас:</span>{{ managerInformation }}</td>
+                </tr>
+                <hr>
+
+                {{ /each }}
+              </tbody>
+            </table>
+
+            <table class="table highlight bordered responsive-table bbtvtabledetail">
+              <tbody>
+                <tr>
+                  <td><span>Дээр дурьдсан ажил олгогчоос мэдээлэл авч болох уу</span>{{ getInformation }}</td>
+                  <td colspan="2"><span>Хэрэв та удаан хугацаагаар ажил эрхлээгүй бол шалтгаанаа бичнэ үү:</span>{{ reason }}</td>
+                </tr>
+                <tr>
+                  <td><span>Та үндсэн мэргэжлээс гадна ямар чиглэлийн ажил хийх сонирхолтой вэ?</span>{{ anotherOccupation }}</td>
+                  <td colspan="2"><span>Ойрын 3 жилийн зорилго</span>{{ purpose }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div id="advantage" class="panel panel-default zag-panel">
+          <div class="panel zag-panel-header">
+            <p class="zag-panel-title">Хувь хүний талаарх мэдээлэл</p>
+          </div>
+          <div class="panel panel-body">
+            <table class="table highlight bordered responsive-table bbtvtabledetail1">
+              <thead class="bold">
+                <tr>
+                  <th>Давуу тал</th>
+                  <th>Сул тал</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="center">
+                  <td>{{ advantage }}</td>
+                  <td>{{ disadvantage }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div id="sport" class="panel panel-default zag-panel">
+          <div class="panel zag-panel-header">
+            <p class="zag-panel-title">Таны урлаг спортын авъяас, хобби</p>
+          </div>
+          <div class="panel panel-body">
+            <table class="table highlight bordered responsive-table bbtvtabledetail1">
+              <thead class="bold">
+                <tr>
+                  <th>Урлаг /спортын төрөл/</th>
+                  <th>Хичээллэсэн жил</th>
+                  <th>Зэрэг/цол/</th>
+                  <th>Байгууллагын нэр</th>
+                  <th>Шагнал</th>
+                  <th>Шагнагдсан огноо</th>
+                </tr>
+              </thead>
+              <tbody>
+                {{ #each zagHobbi }}
+                <tr class="center">
+                  <td>{{ type }}</td>
+                  <td>{{ studiedYear }}</td>
+                  <td>{{ rank }}</td>
+                  <td>{{ company }}</td>
+                  <td>{{ nameOfPrize }}</td>
+                  <td>{{ date }}</td>
+                </tr>
+                {{ /each }}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div id="awards" class="panel panel-default zag-panel">
+          <div class="panel zag-panel-header">
+            <p class="zag-panel-title">Гавъяа шагнал</p>
+          </div>
+          <div class="panel panel-body">
+            <table class="table highlight bordered responsive-table bbtvtabledetail1">
+              <thead class="bold">
+                <tr>
+                  <th>Шагналын нэр</th>
+                  <th>Шагнагдсан он</th>
+                  <th>Хаана ажиллах хугацаанд шагнагдсан</th>
+                </tr>
+              </thead>
+              <tbody>
+                {{ #each zagAwards }}
+                <tr class="center">
+                  <td>{{ nameOfPrize }}</td>
+                  <td>{{ year }}</td>
+                  <td>{{ company }}</td>
+                </tr>
+                {{ /each }}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div id="relatives" class="panel panel-default zag-panel">
+          <div class="panel zag-panel-header">
+            <p class="zag-panel-title">Ураг төрлийн байдал</p>
+          </div>
+          <div class="panel panel-body">
+            <table class="table highlight bordered responsive-table bbtvtabledetail1">
+              <thead class="bold">
+                <tr>
+                  <th>Таны хэн болох</th>
+                  <th>Эцэг/эх/-ийн нэр</th>
+                  <th>Хаана ажилладаг эсвэл ажиллаж байсан</th>
+                </tr>
+              </thead>
+              <tbody>
+                {{ #each zagRelatives }}
+                <tr class="center">
+                  <td>{{ relationship }}</td>
+                  <td>{{ surname }}</td>
+                  <td>{{ position }}</td>
+                </tr>
+                {{ /each }}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div id="health" class="panel panel-warning zag-panel">
+          <div class="panel zag-panel-header">
+            <p class="zag-panel-title">Эрүүл мэндийн талаарх мэдээлэл</p>
+          </div>
+          <div class="panel panel-body">
+            <table class="table highlight bordered responsive-table bbtvtabledetail">
+              <tbody>
+                <tr>
+                  <td colspan="3">
+                    <span>Та эрүүл мэндийн хувьд анхаарах ямар нэгэн зовиуртай эсэх:</span>
+                    {{ healthProblem }}
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <span>Таны цусны бүлэг:</span>
+                    {{ bloodType }}
+                  </td>
+                  <td><span>Биеийн өндөр</span>
+                  {{ height }}</td>
+                  <td>
+                    <span>Биеийн жин</span>
+                    {{ weight }}
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <span>Гутлын размер</span>
+                    {{ footSize }}
+                  </td>
+                  <td><span>Өмдний размер</span>
+                  {{ trouserSize }}</td>
+                  <td>
+                    <span>Цамцны размер:</span>
+                    {{ shirtSize }}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div id="legal" class="panel panel-warning zag-panel">
+          <div class="panel zag-panel-header">
+            <p class="zag-panel-title">Эрх зүйн талаарх мэдээлэл</p>
+          </div>
+          <div class="panel panel-body">
+            <table class="table highlight bordered responsive-table bbtvtabledetail">
+              <tbody>
+                <tr>
+                  <td>
+                    <span>Та урьд өмнө ял шийтгэл эдлэж байсан эсэх:</span>
+                    {{ isConviction }}
+                  </td>
+                  <td><span>Ямар нэгэн гэмт хэрэгт татагдан шалгагдаж байсан эсэх</span>
+                  {{ isCrime }}</td>
+                </tr>
+                <tr>
+                  <td colspan="2">
+                    <span>Тийм бол яагаад? </span>
+                    {{ isCrimeWhy }}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div id="other" class="panel panel-warning zag-panel">
+          <div class="panel zag-panel-header">
+            <p class="zag-panel-title">Бусад мэдээлэл</p>
+          </div>
+          <div class="panel panel-body">
+            <table class="table highlight bordered responsive-table bbtvtabledetail">
+              <tbody>
+                <tr>
+                  <td>
+                    <span>“ЗАГ”ХХК, “Заг Инженеринг” ХХК, “Зэст-Өндөр” ХХК,
+“Начу” ХХК , ТТДС, ТТПК, МКТК-д таны танил, найз, хамаатан садан ажилладаг уу? </span>
+                    {{ relative }}   
+                    </td> 
+                </tr>
+                <tr>
+                  <td>
+                    <span>Ажлын байрны зарыг хаанаас олж авсан вэ?</span>
+                    {{ resource }}
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <span>Диплом, мэргэжлийн үнэмлэхний хуулбар</span>
+                    {{ diploma }}
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <span>Цахим үнэмлэхний хуулбар</span>
+                    {{ passport }}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <!-- /container -->
+    {{/ with }}
+</template>
