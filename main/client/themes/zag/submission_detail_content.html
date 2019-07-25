@@ -219,8 +219,8 @@
                 {{ #each zagTraining }}
                 <tr class="center">
                   <td>{{ course }}</td>
-                  <td>{{ fromDate }}</td>
-                  <td>{{ toDate }}</td>
+                  <td>{{ formatDate fromDate }}</td>
+                  <td>{{ formatDate toDate }}</td>
                   <td>{{ speciallyTrainedFor }}</td>
                   <td>{{ certificate }}</td>
                   <td>{{ GPA }}</td>
@@ -340,7 +340,7 @@
                 </tr>
 
                 <tr>
-                  <td colspan="3"><span>Ажлаас гарсан шалтгаан:</span>{{ employment6 }}</td>
+                  <td colspan="3"><span>Ажлаас гарсан шалтгаан:</span>{{ reasonForLeaving }}</td>
                 </tr>
 
                 <tr>
@@ -414,7 +414,7 @@
                   <td>{{ rank }}</td>
                   <td>{{ company }}</td>
                   <td>{{ nameOfPrize }}</td>
-                  <td>{{ date }}</td>
+                  <td>{{ formatDate date }}</td>
                 </tr>
                 {{ /each }}
               </tbody>
@@ -565,13 +565,13 @@
                 <tr>
                   <td>
                     <span>Диплом, мэргэжлийн үнэмлэхний хуулбар</span>
-                    {{ diploma }}
+                    <a href="{{ diploma }}" target="_blank">Харах</a>
                   </td>
                 </tr>
                 <tr>
                   <td>
                     <span>Цахим үнэмлэхний хуулбар</span>
-                    {{ passport }}
+                    <a href="{{ passport }}" target="_blank">Харах</a>
                   </td>
                 </tr>
               </tbody>
