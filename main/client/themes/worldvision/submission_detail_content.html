@@ -7,6 +7,9 @@
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-left">
                         <li>
+                            <button type="button" class="print" onClick="window.print()"><span class="glyphicon glyphicon-print"></span> Хэвлэх</button>
+                        </li>
+                        <li>
                             <a id="buttonBack" href="/forms/submission-list/{{ formId }}" class="pull-left btn btn-primary">
                                 <span class="glyphicon glyphicon-arrow-left"></span>
                                 Буцах
@@ -54,7 +57,7 @@
                         </tr>
                         <tr>
                             <td><span>E-mail address:</span>{{ email }}</td>
-                            <td><span>Date of birthday:</span>{{ birthday }}</td>
+                            <td><span>Date of birthday:</span>{{ formatDate birthday }}</td>
                             <td><span>Registration number:</span>{{ registraionNumber }}</td>
                         </tr>
                         <tr>
