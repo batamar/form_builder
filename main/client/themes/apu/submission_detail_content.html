@@ -1,448 +1,453 @@
 <template name="apuSDetCapuAnket">
   {{# with state$object }}
-    <div class="row">
-      <!-- Fixed navbar -->
-      <nav class="navbar navbar-default navbar-fixed-top apu-navbar">
-        <div id="apuContainer" class="container apu-font" style="margin-left: 5px;padding: 0;">
-          <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav navbar-left">
-              <li>
-                <a id="buttonBack" href="/forms/submission-list/{{ formId }}" class="pull-left btn btn-primary">
-                  <span class="glyphicon glyphicon-arrow-left"></span>
-                  Буцах
-                </a>
-              </li>
-            </ul>
-          </div>
+  <div class="row">
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top apu-navbar">
+      <div id="apuContainer" class="container apu-font" style="margin-left: 5px;padding: 0;">
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-left">
+            <li>
+              <button type="button" class="print" onClick="window.print()"><span
+                  class="glyphicon glyphicon-print"></span> Хэвлэх</button>
+            </li>
+            <li>
+              <a id="buttonBack" href="/forms/submission-list/{{ formId }}" class="pull-left btn btn-primary">
+                <span class="glyphicon glyphicon-arrow-left"></span>
+                Буцах
+              </a>
+            </li>
+          </ul>
         </div>
-      </nav>
-      <div class="apu-container apu-font">
+      </div>
+    </nav>
+    <div class="apu-container apu-font">
 
-        <div class="clearfix"></div>
-        <div class="col-sm-6 pull-left">
-          <h2 align="left" class="anket_title">Ажил горилогчийн маягт</h2>
+      <div class="clearfix"></div>
+      <div class="col-sm-6 pull-left">
+        <h2 align="left" class="anket_title">Ажил горилогчийн маягт</h2>
+      </div>
+      <div class="col-sm-6 pull-right">
+        <img class="pull-right bbtv_logo" src="http://www.apu.mn/static/sites/apu/default/images/logo_t.png">
+      </div>
+      <div class="clearfix"></div>
+
+
+      <div id="application" class="panel panel-default apu-panel">
+        <div class="panel apu-panel-header">
+          <p class="apu-panel-title">Ерөнхий мэдээлэл</p>
         </div>
-        <div class="col-sm-6 pull-right">
-          <img class="pull-right bbtv_logo" src="http://www.apu.mn/static/sites/apu/default/images/logo_t.png">
+        <div class="panel panel-body">
+
+          <table class="table highlight bordered responsive-table bbtvtabledetail">
+            <tbody>
+              <tr>
+                <td rowspan="6" style="width: 160px;">
+                  <span>Цээж зураг</span>
+                  <img style="width: 150px;" target="_blank" src="{{ portrait }}" class="img" />
+                </td>
+                <td>
+                  <span>Сонирхож буй албан тушаал:</span>
+                  {{ position }}</td>
+                <td>
+                  <span>Хүсч буй цалин:</span>
+                  {{ salary }}
+                </td>
+              </tr>
+              <tr>
+                <td><span>Ажилд орох боломжтой огнооe:</span>{{ formatDate entryDate }}</td>
+                <td><span>Одоо эрхэлж буй ажил:</span>{{ currentJob }}</td>
+
+              </tr>
+              <tr>
+                <td><span>Утас /гар, гэр/:</span>{{ phone }}</td>
+                <td><span>И-мэйл хаяг:</span>{{ email }}</td>
+              </tr>
+              <tr>
+                <td colspan="2"><span>Фэйсбүүк хаяг:</span>{{ facebook }}</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
-        <div class="clearfix"></div>
+      </div>
 
-
-        <div id="application" class="panel panel-default apu-panel">
-          <div class="panel apu-panel-header">
-            <p class="apu-panel-title">Ерөнхий мэдээлэл</p>
-          </div>
-          <div class="panel panel-body">
-
-            <table class="table highlight bordered responsive-table bbtvtabledetail">
-              <tbody>
-                <tr>
-                  <td rowspan="6" style="width: 160px;">
-                    <span>Цээж зураг</span>
-                    <img style="width: 150px;" target="_blank" src="{{ portrait }}" class="img" />
-                  </td>
-                  <td>
-                    <span>Сонирхож буй албан тушаал:</span>
-                    {{ position }}</td>
-                  <td>
-                    <span>Хүсч буй цалинe:</span>
-                    {{ salary }}
-                  </td>
-                </tr>
-                <tr>
-                  <td><span>Ажилд орох боломжтой огнооe:</span>{{ formatDate entryDate }}</td>
-                  <td><span>Одоо эрхэлж буй ажил:</span>{{ currentJob }}</td>
-
-                </tr>
-                <tr>
-                  <td><span>Утас /гар, гэр/:</span>{{ phone }}</td>
-                  <td><span>И-мэйл хаяг:</span>{{ email }}</td>
-                </tr>
-                <tr>
-                  <td colspan="2"><span>Фэйсбүүк хаяг:</span>{{ facebook }}</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+      <div id="basic" class="panel panel-warning apu-panel">
+        <div class="panel apu-panel-header">
+          <p class="apu-panel-title">Үндсэн мэдээлэл</p>
         </div>
+        <div class="panel panel-body">
+          <table class="table highlight bordered responsive-table bbtvtabledetail">
 
-        <div id="basic" class="panel panel-warning apu-panel">
-          <div class="panel apu-panel-header">
-            <p class="apu-panel-title">Үндсэн мэдээлэл</p>
-          </div>
-          <div class="panel panel-body">
-            <table class="table highlight bordered responsive-table bbtvtabledetail">
-
-              <tbody>
-                <tr>
-                  <td><span>Ургийн овог</span>{{ familyName }}</td>
-                  <td><span>Эцэг, /эх/ийн нэр</span>{{ lastName }}</td>
-                  <td><span>Өөрийн нэр</span>{{ firstName }}</td>
-                </tr>
-                <tr>
-                  <td><span>Хүйс</span>{{ gender }}</td>
-                  <td><span>Төрсөн огноо</span>{{ formatDate birthday }}</td>
-                  <td><span>Төрсөн газар</span>{{ birthPlace }}</td>
-                </tr>
-                <tr>
-                  <td><span>Яс үндэс</span>{{ ethnicity }}</td>
-                  <td colspan="2"><span>Регистерийн дугаар</span>{{ register }}</td>
-                </tr>
-                <tr>
-                  <td><span>Жолооны үнэмлэхний дугаар</span>{{ driverLicenseNumber }}</td>
-                  <td><span>Жолооны үнэмлэхний ангилал</span>{{ driverLicenseClass }}</td>
-                  <td><span>Жолоо барьсан жил</span>{{ driveYear }}</td>
-                </tr>
-                <tr>
-                  <td colspan="2"><span>Гэрийн хаяг</span>{{ address }}</td>
-                  <td><span>Өөрийн өмчлөлийн орон сууц /хашаа байшинтай/ эсэх?</span>{{ ownProperty }}</td>
-                </tr>
-                <tr>
-                  <td><span>Цэргийн алба хаасан эсэх</span>{{ military }}</td>
-                  <td><span>Цэргийн алба хаасан он</span>{{ militaryYear }}</td>
-                  <td><span>Хаана цэргийн алба хаасан бэ</span>{{ militaryPlace }}</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+            <tbody>
+              <tr>
+                <td><span>Ургийн овог</span>{{ familyName }}</td>
+                <td><span>Эцэг, /эх/ийн нэр</span>{{ lastName }}</td>
+                <td><span>Өөрийн нэр</span>{{ firstName }}</td>
+              </tr>
+              <tr>
+                <td><span>Хүйс</span>{{ gender }}</td>
+                <td><span>Төрсөн огноо</span>{{ formatDate birthday }}</td>
+                <td><span>Төрсөн газар</span>{{ birthPlace }}</td>
+              </tr>
+              <tr>
+                <td><span>Яс үндэс</span>{{ ethnicity }}</td>
+                <td colspan="2"><span>Регистерийн дугаар</span>{{ register }}</td>
+              </tr>
+              <tr>
+                <td><span>Жолооны үнэмлэхний дугаар</span>{{ driverLicenseNumber }}</td>
+                <td><span>Жолооны үнэмлэхний ангилал</span>{{ driverLicenseClass }}</td>
+                <td><span>Жолоо барьсан жил</span>{{ driveYear }}</td>
+              </tr>
+              <tr>
+                <td colspan="2"><span>Гэрийн хаяг</span>{{ address }}</td>
+                <td><span>Өөрийн өмчлөлийн орон сууц /хашаа байшинтай/ эсэх?</span>{{ ownProperty }}</td>
+              </tr>
+              <tr>
+                <td><span>Цэргийн алба хаасан эсэх</span>{{ military }}</td>
+                <td><span>Цэргийн алба хаасан он</span>{{ militaryYear }}</td>
+                <td><span>Хаана цэргийн алба хаасан бэ</span>{{ militaryPlace }}</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
+      </div>
 
 
-        <div id="education" class="panel panel-default apu-panel">
-          <div class="panel apu-panel-header">
-            <p class="apu-panel-title">Боловсрол</p>
-          </div>
-          <div class="panel panel-body">
-            <table class="table highlight bordered responsive-table bbtvtabledetail1">
-              <thead class="bold">
-                <tr>
-                  <th>Хаана /улс, аймаг, хот/</th>
-                  <th>Сургууль</th>
-                  <th>Элссэн огноо</th>
-                  <th>Төгссөн огноо</th>
-                  <th>Мэргэжил</th>
-                  <th>Дипломын дугаар</th>
-                  <th>Зэрэг цол</th>
-                </tr>
-              </thead>
-              <tbody>
-                {{ #each educationApu }}
-                <tr class="center">
-                  <td>{{ education1 }}</td>
-                  <td>{{ education2 }}</td>
-                  <td>{{ formatDate education3 }}</td>
-                  <td>{{ formatDate education4 }}</td>
-                  <td>{{ education5 }}</td>
-                  <td>{{ education6 }}</td>
-                  <td>{{ education7 }}</td>
-                </tr>
-                {{ /each }}
-              </tbody>
-            </table>
-
-          </div>
+      <div id="education" class="panel panel-default apu-panel">
+        <div class="panel apu-panel-header">
+          <p class="apu-panel-title">Боловсрол</p>
         </div>
+        <div class="panel panel-body">
+          <table class="table highlight bordered responsive-table bbtvtabledetail1">
+            <thead class="bold">
+              <tr>
+                <th>Хаана /улс, аймаг, хот/</th>
+                <th>Сургууль</th>
+                <th>Элссэн огноо</th>
+                <th>Төгссөн огноо</th>
+                <th>Мэргэжил</th>
+                <th>Дипломын дугаар</th>
+                <th>Зэрэг цол</th>
+              </tr>
+            </thead>
+            <tbody>
+              {{ #each educationApu }}
+              <tr class="center">
+                <td>{{ education1 }}</td>
+                <td>{{ education2 }}</td>
+                <td>{{ formatDate education3 }}</td>
+                <td>{{ formatDate education4 }}</td>
+                <td>{{ education5 }}</td>
+                <td>{{ education6 }}</td>
+                <td>{{ education7 }}</td>
+              </tr>
+              {{ /each }}
+            </tbody>
+          </table>
 
-        <div id="parentForm" class="panel panel-default apu-panel">
-          <div class="panel apu-panel-header">
-            <p class="apu-panel-title">Ажил хөдөлмөрийн туршлага</p>
-          </div>
-          <div class="panel panel-body">
-            <table class="table highlight bordered responsive-table bbtvtabledetail">
-
-              <tbody>
-                {{ #each employmentApu }}
-                <tr>
-                  <td><span>Байгууллагын нэр:</span>{{ employment1 }}</td>
-                  <td><span>Үйл ажиллагааны чиглэл:</span>{{ employment2 }}</td>
-                  <td><span>Эрхэлж байсан албан тушаал:</span>{{ employment3 }}</td>
-                </tr>
-
-                <tr>
-                  <td><span>Ажилд орсон огноо:</span>{{ formatDate employment4 }}</td>
-                  <td><span>Ажлаас гарсан огноо:</span>{{ formatDate employment5 }}</td>
-                  <td><span>Авч байсан сарын цалин:</span>{{ employment7 }}</td>
-                </tr>
-
-                <tr>
-                  <td colspan="3"><span>Ажлаас гарсан шалтгаан:</span>{{ employment6 }}</td>
-                </tr>
-
-                <tr>
-                  <td><span>Гүйцэтгэж байсан ажлын үндсэн үүрэг:</span>{{ employment8 }}</td>
-                  <td colspan="2"><span>Удирдах албан тушаалтны нэр, албан тушаал, утас:</span>{{ employment9 }}</td>
-                </tr>
-                <hr>
-
-                {{ /each }}
-              </tbody>
-            </table>
-          </div>
         </div>
+      </div>
 
-        <div id="language" class="panel panel-default apu-panel">
-          <div class="panel apu-panel-header">
-            <p class="apu-panel-title">Гадаад хэлний мэдлэг</p>
-          </div>
-          <div class="panel panel-body">
-            <table class="table highlight bordered responsive-table bbtvtabledetail1">
-              <thead class="bold">
-                <tr>
-                  <th>Хэлний нэр</th>
-                  <th>Үзсэн хугацаа</th>
-                  <th>Ярьсныг ойлгох</th>
-                  <th>Өөрөө ярих</th>
-                  <th>Уншиж ойлгох</th>
-                  <th>Бичиж орчуулах</th>
-                </tr>
-              </thead>
-              <tbody>
-                {{ #each languageApu }}
-                <tr class="center">
-                  <td>{{ language1 }}</td>
-                  <td>{{ language2 }}</td>
-                  <td>{{ language3 }}</td>
-                  <td>{{ language4 }}</td>
-                  <td>{{ language5 }}</td>
-                  <td>{{ language6 }}</td>
-                </tr>
-                {{ /each }}
-              </tbody>
-            </table>
-
-          </div>
+      <div id="parentForm" class="panel panel-default apu-panel">
+        <div class="panel apu-panel-header">
+          <p class="apu-panel-title">Ажил хөдөлмөрийн туршлага</p>
         </div>
+        <div class="panel panel-body">
+          <table class="table highlight bordered responsive-table bbtvtabledetail">
 
-        <div id="training" class="panel panel-default apu-panel">
-          <div class="panel apu-panel-header">
-            <p class="apu-panel-title">Мэргэшлийн бэлтгэл</p>
-          </div>
-          <div class="panel panel-body">
-            <table class="table highlight bordered responsive-table bbtvtabledetail1">
-              <thead class="bold">
-                <tr>
-                  <th>Хаана</th>
-                  <th>Хэзээ</th>
-                  <th>Ямар чиглэлээр</th>
-                  <th>Үргэлжилсэн хугацаа</th>
-                </tr>
-              </thead>
-              <tbody>
-                {{ #each trainingApu }}
-                <tr class="center">
-                  <td>{{ training1 }}</td>
-                  <td>{{ training2 }}</td>
-                  <td>{{ training3 }}</td>
-                  <td>{{ training4 }}</td>
-                </tr>
-                {{ /each }}
-              </tbody>
-            </table>
+            <tbody>
+              {{ #each employmentApu }}
+              <tr>
+                <td><span>Байгууллагын нэр:</span>{{ employment1 }}</td>
+                <td><span>Үйл ажиллагааны чиглэл:</span>{{ employment2 }}</td>
+                <td><span>Эрхэлж байсан албан тушаал:</span>{{ employment3 }}</td>
+              </tr>
 
-          </div>
+              <tr>
+                <td><span>Ажилд орсон огноо:</span>{{ formatDate employment4 }}</td>
+                <td><span>Ажлаас гарсан огноо:</span>{{ formatDate employment5 }}</td>
+                <td><span>Авч байсан сарын цалин:</span>{{ employment7 }}</td>
+              </tr>
+
+              <tr>
+                <td colspan="3"><span>Ажлаас гарсан шалтгаан:</span>{{ employment6 }}</td>
+              </tr>
+
+              <tr>
+                <td><span>Гүйцэтгэж байсан ажлын үндсэн үүрэг:</span>{{ employment8 }}</td>
+                <td colspan="2"><span>Удирдах албан тушаалтны нэр, албан тушаал, утас:</span>{{ employment9 }}</td>
+              </tr>
+              <hr>
+
+              {{ /each }}
+            </tbody>
+          </table>
         </div>
+      </div>
 
-        <div id="program" class="panel panel-default apu-panel">
-          <div class="panel apu-panel-header">
-            <p class="apu-panel-title">Компьютерийн мэдлэг</p>
-          </div>
-          <div class="panel panel-body">
-            <table class="table highlight bordered responsive-table bbtvtabledetail1">
-              <thead class="bold">
-                <tr>
-                  <th>Програмын нэр</th>
-                  <th>Ажиллах чадвар</th>
-                </tr>
-              </thead>
-              <tbody>
-                {{ #each programApu }}
-                <tr class="center">
-                  <td>{{ program1 }}</td>
-                  <td>{{ program2 }}</td>
-                </tr>
-                {{ /each }}
-              </tbody>
-            </table>
-
-          </div>
+      <div id="language" class="panel panel-default apu-panel">
+        <div class="panel apu-panel-header">
+          <p class="apu-panel-title">Гадаад хэлний мэдлэг</p>
         </div>
+        <div class="panel panel-body">
+          <table class="table highlight bordered responsive-table bbtvtabledetail1">
+            <thead class="bold">
+              <tr>
+                <th>Хэлний нэр</th>
+                <th>Үзсэн хугацаа</th>
+                <th>Ярьсныг ойлгох</th>
+                <th>Өөрөө ярих</th>
+                <th>Уншиж ойлгох</th>
+                <th>Бичиж орчуулах</th>
+              </tr>
+            </thead>
+            <tbody>
+              {{ #each languageApu }}
+              <tr class="center">
+                <td>{{ language1 }}</td>
+                <td>{{ language2 }}</td>
+                <td>{{ language3 }}</td>
+                <td>{{ language4 }}</td>
+                <td>{{ language5 }}</td>
+                <td>{{ language6 }}</td>
+              </tr>
+              {{ /each }}
+            </tbody>
+          </table>
 
-        <div id="reference" class="panel panel-default apu-panel">
-          <div class="panel apu-panel-header">
-            <p class="apu-panel-title">Таны ажил мэргэжил, ур чадварыг тодорхойлох хүний мэдээлэл</p>
-          </div>
-          <div class="panel panel-body">
-            <table class="table highlight bordered responsive-table bbtvtabledetail1">
-              <thead class="bold">
-                <tr>
-                  <th>Нэр</th>
-                  <th>Ажиллаж буй байгууллага</th>
-                  <th>Албан тушаал</th>
-                  <th>Утасны дугаар</th>
-                </tr>
-              </thead>
-              <tbody>
-                {{ #each referencesApu }}
-                <tr class="center">
-                  <td>{{ reference1 }}</td>
-                  <td>{{ reference2 }}</td>
-                  <td>{{ reference3 }}</td>
-                  <td>{{ reference4 }}</td>
-                </tr>
-                {{ /each }}
-              </tbody>
-            </table>
-            <table class="table highlight bordered responsive-table bbtvtabledetail">
-              <tbody>
-                <tr>
-                  <td><span>Хэрэв та удаан хугацаагаар ажил эрхлээгүй бол шалтгаанаа бичнэ үү:</span>{{ reason }}</td>
-                  <td><span>Та үндсэн мэргэжлээсээ гадна ямар чиглэлээр ажил хийх сонирхолтой вэ?:</span>{{ anotherPositions }}</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
         </div>
+      </div>
 
-        <div id="features" class="panel panel-primary apu-panel">
-          <div class="panel panel-body">
-            <table class="table highlight bordered responsive-table bbtvtabledetail">
-              <tbody>
-                <tr>
-                  <td><span>Давуу тал::</span>{{ advantage }}</td>
-                  <td><span>Хөгжүүлэх шаардлагатай ур чадвар:</span>{{ disadvantage }}</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+      <div id="training" class="panel panel-default apu-panel">
+        <div class="panel apu-panel-header">
+          <p class="apu-panel-title">Мэргэшлийн бэлтгэл</p>
         </div>
+        <div class="panel panel-body">
+          <table class="table highlight bordered responsive-table bbtvtabledetail1">
+            <thead class="bold">
+              <tr>
+                <th>Хаана</th>
+                <th>Хэзээ</th>
+                <th>Ямар чиглэлээр</th>
+                <th>Үргэлжилсэн хугацаа</th>
+              </tr>
+            </thead>
+            <tbody>
+              {{ #each trainingApu }}
+              <tr class="center">
+                <td>{{ training1 }}</td>
+                <td>{{ training2 }}</td>
+                <td>{{ training3 }}</td>
+                <td>{{ training4 }}</td>
+              </tr>
+              {{ /each }}
+            </tbody>
+          </table>
 
-        <div id="sport" class="panel panel-default apu-panel">
-          <div class="panel apu-panel-header">
-            <p class="apu-panel-title">Урлаг спортын авъяас чадвартай эсэх</p>
-          </div>
-          <div class="panel panel-body">
-            <table class="table highlight bordered responsive-table bbtvtabledetail1">
-              <thead class="bold">
-                <tr>
-                  <th>Урлаг спортын төрөл</th>
-                  <th>Хэдэн жил хичээллэсэн</th>
-                  <th>Зэрэг шагнал</th>
-                </tr>
-              </thead>
-              <tbody>
-                {{ #each sportApu }}
-                <tr class="center">
-                  <td>{{ sport1 }}</td>
-                  <td>{{ sport2 }}</td>
-                  <td>{{ sport3 }}</td>
-                </tr>
-                {{ /each }}
-              </tbody>
-            </table>
-          </div>
         </div>
+      </div>
 
-        <div id="awards" class="panel panel-default apu-panel">
-          <div class="panel apu-panel-header">
-            <p class="apu-panel-title">Гавъяа шагнал</p>
-          </div>
-          <div class="panel panel-body">
-            <table class="table highlight bordered responsive-table bbtvtabledetail1">
-              <thead class="bold">
-                <tr>
-                  <th>Шагналын нэр</th>
-                  <th>Шагнагдсан он</th>
-                  <th>Хаана ажиллах хугацаанд шагнагдсан</th>
-                </tr>
-              </thead>
-              <tbody>
-                {{ #each awardsApu }}
-                <tr class="center">
-                  <td>{{ awards1 }}</td>
-                  <td>{{ awards2 }}</td>
-                  <td>{{ awards3 }}</td>
-                </tr>
-                {{ /each }}
-              </tbody>
-            </table>
-          </div>
+      <div id="program" class="panel panel-default apu-panel">
+        <div class="panel apu-panel-header">
+          <p class="apu-panel-title">Компьютерийн мэдлэг</p>
         </div>
+        <div class="panel panel-body">
+          <table class="table highlight bordered responsive-table bbtvtabledetail1">
+            <thead class="bold">
+              <tr>
+                <th>Програмын нэр</th>
+                <th>Ажиллах чадвар</th>
+              </tr>
+            </thead>
+            <tbody>
+              {{ #each programApu }}
+              <tr class="center">
+                <td>{{ program1 }}</td>
+                <td>{{ program2 }}</td>
+              </tr>
+              {{ /each }}
+            </tbody>
+          </table>
 
-        <div id="family" class="panel panel-warning apu-panel">
-          <div class="panel apu-panel-header">
-            <p class="apu-panel-title">Гэр бүлийн байдал</p>
-          </div>
-          <div class="panel panel-body">
-            <table class="table highlight bordered responsive-table bbtvtabledetail1">
-              <thead class="bold">
-                <tr>
-                  <th>Таны хэн болох</th>
-                  <th>Овог нэр</th>
-                  <th>Төрсөн аймаг хот</th>
-                  <th>Төрсөн огноо</th>
-                  <th>Мэргэжил</th>
-                  <th>Эрхэлж байгаа ажил</th>
-                  <th>Утас</th>
-                </tr>
-              </thead>
-              <tbody>
-                {{ #each familyApu }}
-                <tr class="center">
-                  <td>{{ family1 }}</td>
-                  <td>{{ family2 }}</td>
-                  <td>{{ family3 }}</td>
-                  <td>{{ formatDate family4 }}</td>
-                  <td>{{ family5 }}</td>
-                  <td>{{ family6 }}</td>
-                  <td>{{ family7 }}</td>
-                </tr>
-                {{ /each }}
-              </tbody>
-            </table>
-
-          </div>
         </div>
+      </div>
 
-        <div id="kinship" class="panel panel-default apu-panel">
-          <div class="panel apu-panel-header">
-            <p class="apu-panel-title">Ураг төрлийн байдал</p>
-          </div>
-          <div class="panel panel-body">
-            <table class="table highlight bordered responsive-table bbtvtabledetail1">
-              <thead class="bold">
-                <tr>
-                  <th>Таны хэн болох</th>
-                  <th>Овог нэр</th>
-                  <th>Одоо эрхэлж байгаа ажил</th>
-                  <th>Холбоо барих утас</th>
-                </tr>
-              </thead>
-              <tbody>
-                {{ #each kinshipApu }}
-                <tr class="center">
-                  <td>{{ kinship1 }}</td>
-                  <td>{{ kinship2 }}</td>
-                  <td>{{ kinship3 }}</td>
-                  <td>{{ kinship4 }}</td>
-                </tr>
-                {{ /each }}
-              </tbody>
-            </table>
-            <br>
-            <b>Танай найз эсвэл хамаатан садан манай компанид ажилладаг уу?</b>
-            <table class="table highlight bordered responsive-table bbtvtabledetail">
-              <tbody>
-                <tr>
-                  <td><span>Нэр:</span>{{ workerName }}</td>
-                  <td><span>Таны хэн болох:</span>{{ workerRelation }}</td>
-                  <td><span>Алба газар:</span>{{ workerDepartment }}</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+      <div id="reference" class="panel panel-default apu-panel">
+        <div class="panel apu-panel-header">
+          <p class="apu-panel-title">Таны ажил мэргэжил, ур чадварыг тодорхойлох хүний мэдээлэл</p>
+        </div>
+        <div class="panel panel-body">
+          <table class="table highlight bordered responsive-table bbtvtabledetail1">
+            <thead class="bold">
+              <tr>
+                <th>Нэр</th>
+                <th>Ажиллаж буй байгууллага</th>
+                <th>Албан тушаал</th>
+                <th>Утасны дугаар</th>
+              </tr>
+            </thead>
+            <tbody>
+              {{ #each referencesApu }}
+              <tr class="center">
+                <td>{{ reference1 }}</td>
+                <td>{{ reference2 }}</td>
+                <td>{{ reference3 }}</td>
+                <td>{{ reference4 }}</td>
+              </tr>
+              {{ /each }}
+            </tbody>
+          </table>
+          <table class="table highlight bordered responsive-table bbtvtabledetail">
+            <tbody>
+              <tr>
+                <td><span>Удаан хугацаагаар ажил эрхлээгүй шалтгаан:</span>{{ reason }}</td>
+                <td><span>Та үндсэн мэргэжлээсээ гадна ямар чиглэлээр ажил хийх сонирхолтой
+                    вэ?:</span>{{ anotherPositions }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div id="features" class="panel panel-primary apu-panel">
+        <div class="panel panel-body">
+          <table class="table highlight bordered responsive-table bbtvtabledetail">
+            <tbody>
+              <tr>
+                <td><span>Давуу тал::</span>{{ advantage }}</td>
+                <td><span>Хөгжүүлэх шаардлагатай ур чадвар:</span>{{ disadvantage }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div id="sport" class="panel panel-default apu-panel">
+        <div class="panel apu-panel-header">
+          <p class="apu-panel-title">Урлаг спортын авъяас чадвартай эсэх</p>
+        </div>
+        <div class="panel panel-body">
+          <table class="table highlight bordered responsive-table bbtvtabledetail1">
+            <thead class="bold">
+              <tr>
+                <th>Урлаг спортын төрөл</th>
+                <th>Хэдэн жил хичээллэсэн</th>
+                <th>Зэрэг шагнал</th>
+              </tr>
+            </thead>
+            <tbody>
+              {{ #each sportApu }}
+              <tr class="center">
+                <td>{{ sport1 }}</td>
+                <td>{{ sport2 }}</td>
+                <td>{{ sport3 }}</td>
+              </tr>
+              {{ /each }}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div id="awards" class="panel panel-default apu-panel">
+        <div class="panel apu-panel-header">
+          <p class="apu-panel-title">Гавъяа шагнал</p>
+        </div>
+        <div class="panel panel-body">
+          <table class="table highlight bordered responsive-table bbtvtabledetail1">
+            <thead class="bold">
+              <tr>
+                <th>Шагналын нэр</th>
+                <th>Шагнагдсан он</th>
+                <th>Хаана ажиллах хугацаанд шагнагдсан</th>
+              </tr>
+            </thead>
+            <tbody>
+              {{ #each awardsApu }}
+              <tr class="center">
+                <td>{{ awards1 }}</td>
+                <td>{{ awards2 }}</td>
+                <td>{{ awards3 }}</td>
+              </tr>
+              {{ /each }}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div id="family" class="panel panel-warning apu-panel">
+        <div class="panel apu-panel-header">
+          <p class="apu-panel-title">Гэр бүлийн байдал</p>
+        </div>
+        <div class="panel panel-body">
+          <table class="table highlight bordered responsive-table bbtvtabledetail1">
+            <thead class="bold">
+              <tr>
+                <th>Таны хэн болох</th>
+                <th>Овог нэр</th>
+                <th>Төрсөн аймаг хот</th>
+                <th>Төрсөн огноо</th>
+                <th>Мэргэжил</th>
+                <th>Эрхэлж байгаа ажил</th>
+                <th>Утас</th>
+              </tr>
+            </thead>
+            <tbody>
+              {{ #each familyApu }}
+              <tr class="center">
+                <td>{{ family1 }}</td>
+                <td>{{ family2 }}</td>
+                <td>{{ family3 }}</td>
+                <td>{{ formatDate family4 }}</td>
+                <td>{{ family5 }}</td>
+                <td>{{ family6 }}</td>
+                <td>{{ family7 }}</td>
+              </tr>
+              {{ /each }}
+            </tbody>
+          </table>
+
+        </div>
+      </div>
+
+      <div id="kinship" class="panel panel-default apu-panel">
+        <div class="panel apu-panel-header">
+          <p class="apu-panel-title">Ураг төрлийн байдал</p>
+        </div>
+        <div class="panel panel-body">
+          <table class="table highlight bordered responsive-table bbtvtabledetail1">
+            <thead class="bold">
+              <tr>
+                <th>Таны хэн болох</th>
+                <th>Овог нэр</th>
+                <th>Одоо эрхэлж байгаа ажил</th>
+                <th>Холбоо барих утас</th>
+              </tr>
+            </thead>
+            <tbody>
+              {{ #each kinshipApu }}
+              <tr class="center">
+                <td>{{ kinship1 }}</td>
+                <td>{{ kinship2 }}</td>
+                <td>{{ kinship3 }}</td>
+                <td>{{ kinship4 }}</td>
+              </tr>
+              {{ /each }}
+            </tbody>
+          </table>
+          <br>
+          <b>Танай найз эсвэл хамаатан садан манай компанид ажилладаг уу?</b>
+          <table class="table highlight bordered responsive-table bbtvtabledetail">
+            <tbody>
+              <tr>
+                <td><span>Нэр:</span>{{ workerName }}</td>
+                <td><span>Таны хэн болох:</span>{{ workerRelation }}</td>
+                <td><span>Алба газар:</span>{{ workerDepartment }}</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
-    <!-- /container -->
-    {{/ with }}
+  </div>
+  <!-- /container -->
+  {{/ with }}
 </template>
