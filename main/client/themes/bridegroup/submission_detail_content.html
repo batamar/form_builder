@@ -34,18 +34,16 @@
                 </div>
             </div>
             <br>
-    
+
             <div class="panel bridge-panel-header">
                 <div class="panel bridge-panel-header">
                     <p class="bridge-panel-title">Хоёр. Үндсэн мэдээлэл</p>
                 </div>
             </div>
-            
+
             <div class="panel panel-body">
-            
                 <div class="col-md-9">
                     <div class="row">
-
                         <div class="col-md-4">
                             <label class="form-label red">2.1 Ургийн овог:</label>
                             <span>{{ familyName }}</span>
@@ -60,7 +58,7 @@
                         </div>
                         <div class="col-md-4">
                             <label class="form-label red">2.4 Төрсөн огноо:</label>
-                            <span>{{ birthDate }}</span>
+                            <span>{{ formatDate birthDate }}</span>
                         </div>
                         <div class="col-md-4">
                             <label class="form-label red">2.5 Регистрийн дугаар:</label>
@@ -109,11 +107,12 @@
                     </div>
                 </div>
                 <div class="col-md-3">
-                        <label class="form-label red">2.16 Цээж зураг:</label>
-                        <span><a href="{{ portrait }}" target="_blank">
-                                <img class="bridge-thumbnail" src="{{ portrait }}" alt="Цээж зураг" width="200" height="200" title="Цээж зураг"/>
-                            </a>
-                        </span>
+                    <label class="form-label red">2.16 Цээж зураг:</label>
+                    <span><a href="{{ portrait }}" target="_blank">
+                            <img class="bridge-thumbnail" src="{{ portrait }}" alt="Цээж зураг" width="200" height="200"
+                                title="Цээж зураг" />
+                        </a>
+                    </span>
                 </div>
                 <div class="col-md-9">
                     <label class="form-label">2.17 Гэрийн хаяг:</label>
@@ -124,17 +123,17 @@
                     <label class="form-label">2.18 Гэрийн утас:</label>
                     <span>{{ phone }}</span>
                 </div>
-                
+
                 <div class="col-md-3">
                     <label class="form-label">2.19 Гар утас:</label>
                     <span>{{ mobile }}</span>
                 </div>
-                
+
                 <div class="col-md-6">
                     <label class="form-label">2.20 Шаардлагатай үед холбогдох утас:</label>
                     <span>{{ mobile2 }}</span>
                 </div>
-                
+
                 <div class="col-md-3">
                     <label class="form-label">2.21 И-мэйл хаяг:</label>
                     <span>{{ email }}</span>
@@ -154,7 +153,7 @@
                 <hr>
                 <div class="col-md-12">
                     <label>
-                        3.2 Эзэмшсэн мэргэжил, боловсрол 
+                        3.2 Эзэмшсэн мэргэжил, боловсрол
                     </label>
                 </div>
                 <table class="table table-hover table-bordered">
@@ -176,8 +175,8 @@
                         <tr>
                             <td>{{ education2 }}</td>
                             <td>{{ education3 }}</td>
-                            <td>{{ education4 }}</td>
-                            <td>{{ education5 }}</td>
+                            <td>{{ formatDate education4 }}</td>
+                            <td>{{ formatDate education5 }}</td>
                             <td>{{ education6 }}</td>
                             <td>{{ education7 }}</td>
                             <td>{{ education8 }}</td>
@@ -190,12 +189,13 @@
             </div>
         </div>
 
-        <div id="course" class="panel panel-info bridge-panel">
+        <div id="courseSec" class="panel panel-info bridge-panel">
             <div class="panel bridge-panel-header">
-                <p class="bridge-panel-title">3.3 Мэргэжил, сургалт (Мэргэжлээрээ болон бусад төрлөөр хамрагдах сургалт)</p>
+                <p class="bridge-panel-title">3.3 Мэргэжил, сургалт (Мэргэжлээрээ болон бусад төрлөөр хамрагдах сургалт)
+                </p>
             </div>
             <div class="panel panel-body">
-         
+
                 <table class="table table-hover table-bordered">
                     <thead class="bold">
                         <tr>
@@ -207,10 +207,10 @@
                         </tr>
                     </thead>
                     <tbody>
-                        {{ #each course }}
+                        {{ #each courseSec }}
                         <tr>
                             <td>{{ course1 }}</td>
-                            <td>{{ course2 }}</td>
+                            <td>{{ formatDate course2 }}</td>
                             <td>{{ course3 }}</td>
                             <td>{{ course4 }}</td>
                             <td>{{ course5 }}</td>
@@ -220,7 +220,7 @@
                 </table>
             </div>
         </div>
-        
+
         <div class="bridge-container bridge-font">
             <div id="skillSec" class="panel panel-default bridge-panel">
                 <div class="panel bridge-panel-header">
@@ -279,7 +279,7 @@
                 <p class="bridge-panel-title">4.5 Компьютерийн мэдлэг</p>
             </div>
             <div class="panel panel-body">
-         
+
                 <table class="table table-hover table-bordered">
                     <thead class="bold">
                         <tr>
@@ -345,22 +345,24 @@
                         <tr>
                             <td>{{ name }}</td>
                             <td>{{ position }}</td>
-                            <td>{{ started }}</td>
-                            <td>{{ left }}</td>
+                            <td>{{ formatDate started }}</td>
+                            <td>{{ formatDate left }}</td>
                             <td>{{ reason }}</td>
                             <td>{{ leadingPosition }}</td>
                         </tr>
                         {{ /each }}
                     </tbody>
                 </table>
-                <br><hr>
+                <br>
+                <hr>
                 <div class="col-md-12">
-                    <label class="form-label red">5.2 Хэрэв удаан хугацаанд ажил, хөдөлмөр эрхлээгүй бол шалтгаанаа бичнэ үү:</label>
+                    <label class="form-label red">5.2 Хэрэв удаан хугацаанд ажил, хөдөлмөр эрхлээгүй бол шалтгаанаа
+                        бичнэ үү:</label>
                     <span>{{ reason1 }}</span>
                 </div>
             </div>
         </div>
-        
+
         <div id="countrySec" class="panel panel-warning bridge-panel">
             <div class="panel bridge-panel-header">
                 <p class="bridge-panel-title">5.3 Гадаад оронд зорчсон байдал.</p>
@@ -391,7 +393,7 @@
             <div class="panel bridge-panel-header">
                 <p class="bridge-panel-title">Зургаа. Хувь хүний онцлогууд</p>
             </div>
-            
+
             <div class="panel panel-body">
                 <div class="col-md-6">
                     <label class="form-label red">6.1 Таны давуу тал</label>
@@ -443,7 +445,7 @@
                         {{ #each awardsSec }}
                         <tr class="center">
                             <td>{{ awards1 }}</td>
-                            <td>{{ awards2 }}</td>
+                            <td>{{ formatDate awards2 }}</td>
                             <td>{{ awards3 }}</td>
                             <td>{{ awards4 }}</td>
                         </tr>
@@ -496,7 +498,7 @@
                     <span>{{ allergy }}</span>
                 </div>
             </div>
-            
+
         </div>
 
         <div id="computerSec" class="panel panel-warning bridge-panel">
@@ -525,7 +527,7 @@
                             <td>{{ family1 }}</td>
                             <td>{{ family2 }}</td>
                             <td>{{ family3 }}</td>
-                            <td>{{ family4 }}</td>
+                            <td>{{ formatDate family4 }}</td>
                             <td>{{ family5 }}</td>
                             <td>{{ family6 }}</td>
                             <td>{{ family7 }}</td>
@@ -585,7 +587,7 @@
                 </div>
             </div>
 
-            
+
         </div>
 
 

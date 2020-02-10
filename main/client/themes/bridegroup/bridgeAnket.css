@@ -24,20 +24,20 @@
 
 .bridge-navbar {
   background-color: #fff;
-  border-color: #2196F3;
+  border-color: #2196f3;
 }
 
 #bridgeContainer {
   padding: 0px 15px;
   font-family: sans-serif;
 }
-#bridgeContainer #buttonBack{
+#bridgeContainer #buttonBack {
   padding: 5px 10px;
 }
 #navbar > ul > li {
-  border: 1px solid #01579B;
+  border: 1px solid #01579b;
   border-radius: 2px;
-  color: #01579B;
+  color: #01579b;
   background-color: #fff;
 }
 
@@ -45,7 +45,22 @@
   padding: 10px 12px;
   margin-top: 60px;
   border-width: 1px;
-  border-color: #888888;
+  border-color: #344d85;
+}
+.bridge-panel-title {
+  background-color: #344d85 !important;
+  text-align: center;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+.bridge-panel .table thead tr {
+  background: #127275;
+  color: #fff;
+}
+.bridge-panel span {
+  display: flex;
+  color: #127275;
+  margin-bottom: 12px;
 }
 
 .bridge-panel-emergency {
@@ -86,9 +101,9 @@
   background-color: #fff;
   border: 1px solid #ddd;
   border-radius: 4px;
-  -webkit-transition: border .2s ease-in-out;
-       -o-transition: border .2s ease-in-out;
-          transition: border .2s ease-in-out;
+  -webkit-transition: border 0.2s ease-in-out;
+  -o-transition: border 0.2s ease-in-out;
+  transition: border 0.2s ease-in-out;
 }
 
 img.bridge-thumbnail:hover,
