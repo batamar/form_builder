@@ -1,0 +1,14 @@
+<template name="bridgeAnketLayout">
+    <!-- Page Content -->
+    <div id="article-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <a href="#" class="pull-right btn btn-primary btn-sm" onclick="Meteor.logout()">Гарах</a>
+                    {{> render component=state$content}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /#wrapper -->
+</template>
