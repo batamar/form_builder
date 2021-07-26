@@ -19,9 +19,10 @@
                 {{#each state$objects }}
                 <tr>
                     <td>{{ moFormat createdDate 'YYYY-MM-DD HH:MM' }}</td>
+                    {{#each positionTumenshuvuut}}
                     <td>{{ pos2 }}</td>
+                    {{ /each }}
                     <td>{{ lastname }} {{ firstname }}</td>
-                    <td></td>
                     <td>
                         <a href="/forms/submission/detail/{{ formId }}/?subId={{ _id }}">
                             <span class="glyphicon glyphicon-eye-open text-center"></span> харах
