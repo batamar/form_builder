@@ -8,15 +8,20 @@
         <table class="table highlight bordered responsive-table senders_list">
             <thead>
                 <tr>
-                    <th>Овог</th>
-                    <th>Нэр</th>
+                    <th>Бөглөсөн огноо</th>
+                    <th>Ажлын байр</th>
+                    <th>Овог, Нэр</th>
+                    <th>Харах</th>
+                    <th>Устгах</th>
                 </tr>
             </thead>
             <tbody>
                 {{#each state$objects }}
                 <tr>
-                    <td>{{ lastname }}</td>
-                    <td>{{ firstname }}</td>
+                    <td>{{ moFormat createdDate 'YYYY-MM-DD HH:MM' }}</td>
+                    <td>{{ positionTumenshuvuut.0.pos2 }}</td>
+                    <td>{{ lastname }} {{ firstname }}</td>
+                    <td></td>
                     <td>
                         <a href="/forms/submission/detail/{{ formId }}/?subId={{ _id }}">
                             <span class="glyphicon glyphicon-eye-open text-center"></span> харах
