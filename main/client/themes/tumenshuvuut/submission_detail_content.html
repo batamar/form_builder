@@ -1,3 +1,80 @@
 <template name="tumenshuvuutSDetCmainTumenshuvuut">
+    <div class="row">
+        <nav class="navbar navbar-default navbar-fixed-top apu-navbar">
+            <div class="container " style="margin-left: 5px;padding: 0;">
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-left">
+                        <li>
+                            <button type="button" class="print" onClick="window.print()"><span
+                                    class="glyphicon glyphicon-print"></span> Хэвлэх</button>
+                        </li>
+                        <li>
+                            <a id="buttonBack" href="/forms/submission-list/{{ formId }}"
+                                class="pull-left btn btn-primary">
+                                <span class="glyphicon glyphicon-arrow-left"></span>
+                                Буцах
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="apu-container apu-font">
+            <div class="clearfix"></div>
+            <div class="col-sm-6 pull-left">
+                <h2 align="left" class="anket_title">Ажил горилогчийн маягт</h2>
+            </div>
 
+            <div id="application" class="panel panel-default apu-panel">
+                <div class="panel apu-panel-header">
+                    <p class="apu-panel-title">Хувийн Мэдээлэл</p>
+                </div>
+                <div class="panel panel-body">
+
+                    <table class="table highlight bordered responsive-table bbtvtabledetail">
+                        <tbody>
+                            <tr>
+                                <td rowspan="6" style="width: 160px;">
+                                    <span>Цээж зураг</span>
+                                    <img style="width: 150px;" target="_blank" src="{{ portrait }}" class="img" />
+                                </td>
+                                <td>
+                                    <span>Ургийн овог</span>
+                                    {{ familyName }}
+                                </td>
+                                <td>
+                                    <span> Эцгийн нэр:</span>
+                                    {{ lastname }}
+                                </td>
+                                <td>
+                                    <span>Өөрийн нэр:</span>
+                                    {{ firstname }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><span>Гар утас:</span>{{ phone }}</td>
+                                <td><span>Утас /гэрийн/:</span>{{ homePhone }}</td>
+                                <td><span>И-мэйл</span>{{ email}}</td>
+                            </tr>
+                            <tr>
+                                <td><span>Регистерийн дугаар:</span>{{ register }}</td>
+                                <td><span>Төрсөн огноо:</span>{{ birthDate }}</td>
+                                <td><span>Хүйс:</span>
+                                    {{ gender }}</td>
+                            </tr>
+                            <tr>
+                                <td><span>Оршин суугаа хаяг: </span>{{ address }}</td>
+                                <td colspan="2"><span>Ам бүлийн тоо</span>{{ members }}</td>
+                            </tr>
+                            <tr>
+                                <td><span>Яаралтай үед холбоо барих хүний нэр:</span>{{contactName}}</td>
+                                <td><span>Яаралтай үед холбоо барих хүний дугаар:</span>{{contactPhone}}</td>
+                                <td><span>Хэн болох:</span>{{contactMember}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
 </template>
