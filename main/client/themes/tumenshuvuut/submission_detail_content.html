@@ -76,7 +76,37 @@
                     </table>
                 </div>
             </div>
-
+            <div id="education" class="panel panel-default apu-panel">
+                <div class="panel apu-panel-header">
+                    <p class="apu-panel-title">Боловсрол</p>
+                </div>
+                <div class="panel panel-body">
+                    <table class="table highlight bordered responsive-table bbtvtabledetail">
+                        <thead>
+                            <tr>
+                                <th>Төгссөн сургууль</th>
+                                <th>Сургуулийн нэр</th>
+                                <th>Суралцсан хугацаа</th>
+                                <th>Төгссөн он</th>
+                                <th>Эзэмшсэн мэргэжил</th>
+                                <th>Боловсролын зэрэг</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{ #each eduTumenshuvuut }}
+                            <tr class="center">
+                                <td>{{ edu1 }}</td>
+                                <td>{{ edu2 }}</td>
+                                <td>{{ edu3 }}</td>
+                                <td>{{ edu4 }}</td>
+                                <td>{{ edu5 }}</td>
+                                <td>{{ edu6 }}</td>
+                            </tr>
+                            {{ /each }}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
             <div id="family" class="panel panel-default apu-panel">
                 <div class="panel apu-panel-header">
                     <p class="apu-panel-title">Гэр бүлийн тухай</p>
