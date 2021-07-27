@@ -76,6 +76,58 @@
                     </table>
                 </div>
             </div>
+            <div id="family" class="panel panel-default apu-panel">
+                <div class="panel apu-panel-header">
+                    <p class="apu-panel-title">Гэр бүлийн мэдээлэл</p>
+                </div>
+                <div class="panel panel-body">
+                    <table class="table highlight bordered responsive-table bbtvtabledetail">
+                        <thead>
+                            <tr>
+                                <th>Таны хэн болох</th>
+                                <th>Нэр</th>
+                                <th>Нас</th>
+                                <th>Одоо эрхэлж буй ажил</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{ #each familyMembersInfo }}
+                            <tr class="center">
+                                <td>{{ fam1 }}</td>
+                                <td>{{ fam2 }}</td>
+                                <td>{{ fam3 }}</td>
+                                <td>{{ fam4 }}</td>
+                            </tr>
+                            {{ /each }}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div id="position" class="panel panel-default apu-panel">
+                <div class="panel apu-panel-header">
+                    <p class="apu-panel-title">Албан тушаал</p>
+                </div>
+                <div class="panel panel-body">
+                    <table class="table highlight bordered responsive-table bbtvtabledetail">
+                        <thead>
+                            <tr>
+                                <th>Үйлдвэр хэлтэс</th>
+                                <th>Албан тушаал</th>
+                                <th>Ажлын байр </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{ #each positionTumenshuvuut }}
+                            <tr class="center">
+                                <td>{{ pos1 }}</td>
+                                <td>{{ pos2 }}</td>
+                                <td>{{ pos3 }}</td>
+                            </tr>
+                            {{ /each }}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
             <div id="education" class="panel panel-default apu-panel">
                 <div class="panel apu-panel-header">
                     <p class="apu-panel-title">Боловсрол</p>
@@ -107,33 +159,7 @@
                     </table>
                 </div>
             </div>
-            <div id="family" class="panel panel-default apu-panel">
-                <div class="panel apu-panel-header">
-                    <p class="apu-panel-title">Гэр бүлийн тухай</p>
-                </div>
-                <div class="panel panel-body">
-                    <table class="table highlight bordered responsive-table bbtvtabledetail">
-                        <thead>
-                            <tr>
-                                <th>Таны хэн болох</th>
-                                <th>Нэр</th>
-                                <th>Нас</th>
-                                <th>Одоо эрхэлж буй ажил</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {{ #each familyMembersInfo }}
-                            <tr class="center">
-                                <td>{{ fam1 }}</td>
-                                <td>{{ fam2 }}</td>
-                                <td>{{ fam3 }}</td>
-                                <td>{{ fam4 }}</td>
-                            </tr>
-                            {{ /each }}
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+            
         </div>
     </div>
     {{/ with}}
