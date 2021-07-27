@@ -25,6 +25,15 @@
   .float-right {
     float: right;
   }
+
+  .nav-left{
+    margin-left: 35px;
+    margin-top: 10px;
+  }
+
+  .nav-left li{
+    border: none;
+  }
   
   .border-thick {
     border-style: solid;

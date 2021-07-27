@@ -4,14 +4,14 @@
         <nav class="navbar navbar-default navbar-fixed-top apu-navbar">
             <div class="container " style="margin-left: 5px;padding: 0;">
                 <div id="navbar" class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav navbar-left">
+                    <ul class="nav navbar-nav navbar-left nav-left">
                         <li>
                             <button type="button" class="print" onClick="window.print()"><span
                                     class="glyphicon glyphicon-print"></span> Хэвлэх</button>
                         </li>
-                        <li>
+                        <li style="margin-left: 10px;">
                             <a id="buttonBack" href="/forms/submission-list/{{ formId }}"
-                                class="pull-left btn btn-primary">
+                                class="pull-left btn btn-primary" style="padding: 2px 10px;">
                                 <span class="glyphicon glyphicon-arrow-left"></span>
                                 Буцах
                             </a>
@@ -159,7 +159,40 @@
                     </table>
                 </div>
             </div>
-            
+            <div id="education" class="panel panel-default apu-panel">
+                <div class="panel apu-panel-header">
+                    <p class="apu-panel-title">Ажлын туршлага</p>
+                </div>
+                <div class="panel panel-body">
+                    <table class="table highlight bordered responsive-table bbtvtabledetail">
+                        <thead>
+                            <tr>
+                                <th>Албан тушаал</th>
+                                <th>Хаана</th>
+                                <th>Ажилд орсон огноо</th>
+                                <th>Ажлаас гарсан он</th>
+                                <th>Тухайн ажлын сарын орлого</th>
+                                <th>Ажлаас гарсан шалтгаан</th>
+                                <th> Удирдах албан тушаалтны нэр, утас</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{ #each eduTumenshuvuut }}
+                            <tr class="center">
+                                <td>{{ exp1 }}</td>
+                                <td>{{ exp2 }}</td>
+                                <td>{{ exp3 }}</td>
+                                <td>{{ exp4 }}</td>
+                                <td>{{ exp5 }}</td>
+                                <td>{{ exp6 }}</td>
+                                <td>{{ exp6 }}</td>
+                                <td>{{ exp7 }}</td>
+                            </tr>
+                            {{ /each }}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     </div>
     {{/ with}}
