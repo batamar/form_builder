@@ -5,12 +5,12 @@
             <div class="container " style="margin-left: 5px;padding: 0;">
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-left nav-left">
-                        <li>
+                        <li class="no-border">
                             <button type="button" class="print" onClick="window.print()"><span
                                     class="glyphicon glyphicon-print"></span> Хэвлэх</button>
                         </li>
-                        <li style="margin-left: 10px;">
-                            <a id="buttonBack" href="/forms/submission-list/{{ formId }}"
+                        <li  class="no-border ml-10">
+                            <a id="buttonBack" href="/forms/submission-list/{{ formId }}"bo
                                 class="pull-left btn btn-primary" style="padding: 2px 10px;">
                                 <span class="glyphicon glyphicon-arrow-left"></span>
                                 Буцах
@@ -177,14 +177,13 @@
                             </tr>
                         </thead>
                         <tbody>
-                            {{ #each eduTumenshuvuut }}
+                            {{ #each workExperience }}
                             <tr class="center">
                                 <td>{{ exp1 }}</td>
                                 <td>{{ exp2 }}</td>
                                 <td>{{ exp3 }}</td>
                                 <td>{{ exp4 }}</td>
                                 <td>{{ exp5 }}</td>
-                                <td>{{ exp6 }}</td>
                                 <td>{{ exp6 }}</td>
                                 <td>{{ exp7 }}</td>
                             </tr>
