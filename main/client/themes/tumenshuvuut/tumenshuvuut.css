@@ -32,7 +32,7 @@
   }
 
   .no-border{
-    border: none;
+    border: none !important;
   }
 
   .ml-10{
@@ -46,11 +46,31 @@
   .border-thick {
     border-style: solid;
   }
-  
-  .btn-primary {
-    background-color: #fa4c2a;
+
+  .btn-print{
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    color: white;
+    background: #03449e;
+  }
+  .btn-print:hover{
+    color: #03449e;
+    background: white;
+    border:1px solid #03449e;
   }
   
+  .btn-primary {
+    padding: 5px 10px;
+    border: none;
+    color: white;
+    background: #6c757d;
+  }
+  .btn-primary:hover{
+    color: #6c757d;
+    background: white;
+    border:1px solid #6c757d;
+  } 
   .btn-success {
     border-radius: 0;
     font-size: 12px;
@@ -84,9 +104,17 @@
   }
   
   .exit_btn {
-    margin-top: 15px;
+    border-radius: 5px;
+    padding: 5px 20px;
+    border: none;
+    background: #dc3545;
+    margin-top: 5px;
   }
-  
+  .btn-primary:hover{
+    color: #dc3545;
+    background: white;
+    border:1px solid #dc3545;
+  } 
   table.bbtvtabledetail {
     font-size: 14px;
   }
