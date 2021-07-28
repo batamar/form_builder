@@ -48,7 +48,7 @@
   }
 
   .btn-print{
-    border: none;
+    border: 1px solid transparent;
     border-radius: 5px;
     padding: 5px 10px;
     color: white;
@@ -61,10 +61,11 @@
   }
   
   .btn-primary {
-    padding: 5px 10px;
-    border: none;
-    color: white;
-    background: #6c757d;
+    border: 1px solid transparent;
+    padding: 5px 10px !important;
+    border: none !important;
+    color: white !important;
+    background: #6c757d !important;
   }
   .btn-primary:hover{
     color: #6c757d;
@@ -104,11 +105,11 @@
   }
   
   .exit_btn {
-    border-radius: 5px;
-    padding: 5px 20px;
-    border: none;
-    background: #dc3545;
-    margin-top: 5px;
+    border-radius: 5px !important;
+    padding: 5px 20px !important;
+    border: none !important;
+    background: #dc3545 !important;
+    margin-top: 5px !important;
   }
   .btn-primary:hover{
     color: #dc3545;
