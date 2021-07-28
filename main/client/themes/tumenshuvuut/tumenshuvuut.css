@@ -61,10 +61,10 @@
   }
   
   .btn-back {
-    border: 1px solid transparent;
-    padding: 5px 10px ;
+    border: 1px solid transparent !important;
+    padding: 5px 10px !important;
     border: none ;
-    color: white ;
+    color: white !important;
     background: #6c757d ;
   }
   .btn-back:hover{
