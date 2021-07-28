@@ -60,14 +60,14 @@
     border:1px solid #03449e;
   }
   
-  .btn-primary {
+  .btn-back {
     border: 1px solid transparent;
-    padding: 5px 10px !important;
-    border: none !important;
-    color: white !important;
-    background: #6c757d !important;
+    padding: 5px 10px ;
+    border: none ;
+    color: white ;
+    background: #6c757d ;
   }
-  .btn-primary:hover{
+  .btn-back:hover{
     color: #6c757d;
     background: white;
     border:1px solid #6c757d;
@@ -105,17 +105,9 @@
   }
   
   .exit_btn {
-    border-radius: 5px !important;
-    padding: 5px 20px !important;
-    border: none !important;
-    background: #dc3545 !important;
-    margin-top: 5px !important;
+    margin-top: 5px;
   }
-  .btn-primary:hover{
-    color: #dc3545;
-    background: white;
-    border:1px solid #dc3545;
-  } 
+
   table.bbtvtabledetail {
     font-size: 14px;
   }
