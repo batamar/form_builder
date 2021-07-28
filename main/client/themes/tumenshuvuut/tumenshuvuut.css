@@ -62,15 +62,15 @@
   
   .btn-back {
     border: 1px solid transparent !important;
+    border-radius: 5px !important;
     padding: 5px 10px !important;
-    border: none ;
     color: white !important;
     background: #6c757d ;
   }
   .btn-back:hover{
-    color: #6c757d;
+    color: #6c757d !important;
     background: white;
-    border:1px solid #6c757d;
+    border:1px solid #6c757d !important;
   } 
   .btn-success {
     border-radius: 0;
