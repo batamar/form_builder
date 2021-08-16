@@ -282,7 +282,7 @@
     width: 150px;
   }
   .panel > table.bbtvtabledetail > tbody:first-child > tr:first-child td {
-    width: 30%;
+    width: 28%;
 }
   
   @media (min-width: 920px) and (max-width: 1290px) {
